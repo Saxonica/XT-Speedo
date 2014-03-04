@@ -34,4 +34,20 @@
       </result>
    </test-case>
    
+   <test-case name="musicxml-tests-001">
+      <description>
+         Music xml partwise to timewise
+      </description>
+      <created by="Debbie Lockett" on="2014-03-04"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime.xsl"/>
+         <source file="musicxml-tests/SchbAvMaSample.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
 </catalog>
