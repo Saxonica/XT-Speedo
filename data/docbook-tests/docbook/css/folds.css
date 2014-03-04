@@ -1,0 +1,26 @@
+/*
+    Foldable elements
+*/
+set,
+book,
+part,
+reference,
+chapter,
+preface,
+article,
+sect1,
+sect2,
+sect3,
+sect4,
+section,
+appendix,
+figure,
+example,
+table {
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: info, title;
+}
+
+:root {
+    -oxy-foldable:false;
+}

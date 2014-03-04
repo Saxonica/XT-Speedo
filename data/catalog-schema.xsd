@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="catalog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="test-case"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="test-case">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="created"/>
+        <xs:element ref="test"/>
+        <xs:element ref="result"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="created">
+    <xs:complexType>
+      <xs:attribute name="by" use="required"/>
+      <xs:attribute name="on" use="required" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="test">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="stylesheet"/>
+        <xs:element ref="source"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stylesheet">
+    <xs:complexType>
+      <xs:attribute name="file" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:attribute name="file" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="result">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="assert"/>
+        <xs:element ref="assert-xml"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="assert" type="xs:string"/>
+  <xs:element name="assert-xml" type="xs:string"/>
+</xs:schema>

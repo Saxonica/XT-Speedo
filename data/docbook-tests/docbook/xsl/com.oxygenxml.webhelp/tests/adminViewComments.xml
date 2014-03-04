@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://mihai5.sync.ro/" />
+<title>adminViewComments</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">adminViewComments</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost/tests/initDbForTests.php?file=testViewComments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>DB ready for tests!</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>contentwin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin Panel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_viewPosts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_viewPosts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ver_0_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_do_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='ex_inline']/div/div[4]/div/p</td>
+	<td>reply 2 test modified</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='ex_inline']/div/div[7]/div[3]</td>
+	<td>2012-05-02 09:27:50</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='checkbox'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_deleteCmts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_setVersion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>//div[@id='ex_inline']/div/div[7]/div[3]</td>
+	<td>2012-05-02 09:27:50</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.ex_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_viewPosts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ver_0_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_do_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='ex_inline']/div/div[4]/div/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='ex_inline']/div/div[4]/div/p</td>
+	<td>reply 2 test modified</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='checkbox'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_deleteCmts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>//div[@id='ex_inline']/div/div[4]/div/p</td>
+	<td>reply 2 test modified</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.ex_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_viewPosts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;showVersions('1','flowers 1');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ver_1_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_do_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>300</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='ex_inline']/div/div[2]/div/p</td>
+	<td>test 1.5 x2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input.cb-element</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_deleteCmts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>//div[@id='ex_inline']/div/div[3]/div/p</td>
+	<td>test 1.5 x2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.ex_close</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,93 @@
+@import "html_cals_table.css";
+
+/*
+=================================
+    Modify the HTML defaults to reflect
+    the structure of the CALS table.
+=================================
+*/
+
+/* Because the tgroup below is having the display: table, the table element 
+containing the element tgroup loses its display, becoming a block.*/
+table,
+informaltable{
+  border-color:#FEFEFE;
+  border-style:solid;
+  border-width:2px;
+  padding:2px;
+}
+
+/*
+  A wrapper for the main content of a table, or part of a table
+ */
+tgroup {
+  display:table;
+  border-color:#EFEFEF;
+  border-style:solid;
+  border-width:1px;
+}
+
+/*
+ * The frame is displayed on tgroup
+ */
+table[frame] {
+    border-style:none;
+}
+
+table[frame = 'above'] > tgroup,
+table[frame = 'top'] > tgroup {
+    border-top-color:#777777;
+    border-top-style:solid;
+    border-top-width:2px;
+}
+
+table[frame = 'below'] > tgroup,
+table[frame = 'bottom'] > tgroup {
+    border-bottom-color:#777777;
+    border-bottom-style:solid;
+    border-bottom-width:2px;
+}
+
+table[frame = 'rhs'] > tgroup,
+informaltable[frame = 'rhs'] > tgroup {
+    border-right-color:#777777;
+    border-right-style:solid;
+    border-right-width:2px;
+}
+
+table[frame = 'lhs'] > tgroup,
+informaltable[frame = 'lhs'] > tgroup {
+    border-left-color:#777777;
+    border-left-style:solid;
+    border-left-width:2px;
+}
+
+table[frame = 'vsides'] > tgroup,
+table[frame = 'sides'] > tgroup {
+    border-left-color:#777777;
+    border-left-style:solid;
+    border-left-width:2px;
+    
+    border-right-color:#777777;
+    border-right-style:solid;
+    border-right-width:2px;
+}
+
+table[frame = 'hsides'] > tgroup,
+table[frame = 'topbot'] > tgroup {
+    border-top-color:#777777;
+    border-top-style:solid;
+    border-top-width:2px;
+    
+    border-bottom-color:#777777;
+    border-bottom-style:solid;
+    border-bottom-width:2px;
+}
+
+table[frame = 'box'] > tgroup,
+table[frame = 'border'] > tgroup,
+table[frame = 'all'] > tgroup {
+    border-color:#777777;
+    border-style:solid;
+    border-width:2px;
+}

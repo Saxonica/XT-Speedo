@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://mihai5.sync.ro/" />
+<title>loginTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">loginTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost/tests/initDbForTests.php?file=testUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>DB ready for tests!</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>contentwin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountInfo</td>
+	<td>Guest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountInfo</td>
+	<td>Administrator Test [testAdmin] Admin Admin Panel</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=adminLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountInfo</td>
+	<td>Guest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>serban</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testgresit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=loginResponse</td>
+	<td>Login fail!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_addNewCmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>serban</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testulgresit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=loginResponse</td>
+	<td>Login fail!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testUser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountInfo</td>
+	<td>User Test [testUser]</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=adminLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testModerator</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountInfo</td>
+	<td>Moderator Test [testModerator] Moderator Admin Panel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

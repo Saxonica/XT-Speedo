@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://mihai5.sync.ro/" />
+<title>adminExportComments</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">adminExportComments</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost/tests/initDbForTests.php?file=testViewComments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>DB ready for tests!</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>contentwin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Admin Panel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_viewPosts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=div.product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@onclick=&quot;showVersions('1','flowers 1');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@onclick=&quot;showVersions('1','flowers 1');&quot;]</td>
+	<td>flowers 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;showVersions('1','flowers 1');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ex_val_product</td>
+	<td>flowers 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ver_1_0</td>
+	<td>1.5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ver_1_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ex_val_version</td>
+	<td>1.5</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=bt_do_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=bt_do_export</td>
+	<td>Confirm</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_do_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.ex_close</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

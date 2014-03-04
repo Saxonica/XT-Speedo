@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://mihai5.sync.ro/" />
+<title>insertCommentText</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">insertCommentText</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost/tests/initDbForTests.php?file=testUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>DB ready for tests!</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>contentwin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_addNewCmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>test initial</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_1</td>
+	<td>test initial</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>test modificat</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_1</td>
+	<td>test modificat</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_approve</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_2</td>
+	<td>reply test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#2 &gt; div.liContent &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.suspended &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply test modificat</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_2</td>
+	<td>reply test modificat</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_approve</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@onclick='reply(this,2)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 2 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_3</td>
+	<td>reply 2 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@onclick='reply(this,3)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 3 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_4</td>
+	<td>reply 3 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@onclick='reply(this,4)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 4 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_5</td>
+	<td>reply 4 test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_addNewCmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply top level test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_6</td>
+	<td>reply top level test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggle_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>reply 2 test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>reply 3 test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggle_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>reply 4 test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#6 &gt; div.liContent &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.suspended &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=bt_yesDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_yesDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>reply top level test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#3 &gt; div.liContent &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#3 &gt; div.liContent &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=bt_approveAll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_approveAll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_yesApprove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#3 &gt; div.liContent &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_suspend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.suspended &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.suspended &gt; div.head &gt; div.bt_admin &gt; div.actions &gt; span.bt_edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 2 test modified</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#cmt_text_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_3</td>
+	<td>reply 2 test modified</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_approve</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testUser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@onclick='reply(this,3)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 2 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#cmt_text_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_7</td>
+	<td>reply 2 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.moderationInfo</td>
+	<td>Post waiting for approval.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 2 2 modified</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#cmt_text_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_7</td>
+	<td>reply 2 2 modified</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@onclick='reply(this,4)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=commentText</td>
+	<td>reply 3 2 test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=l_bt_submit_nc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#cmt_text_8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#cmt_text_8</td>
+	<td>reply 3 2 test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#8 &gt; div.liContent &gt; div.mustBeModerate &gt; div.moderationInfo</td>
+	<td>Post waiting for approval.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#8 &gt; div.liContent &gt; div.mustBeModerate &gt; div.head &gt; div.name</td>
+	<td>testUser</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=bt_yesDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_yesDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#cmt_text_8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myUserName</td>
+	<td>testModerator</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=myPassword</td>
+	<td>testul</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=l_bt_submit_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.bt_approve</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//span[@onclick='reply(this,7)']</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bt_logOff</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

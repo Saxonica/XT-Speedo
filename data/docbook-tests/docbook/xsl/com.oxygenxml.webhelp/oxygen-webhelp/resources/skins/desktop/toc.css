@@ -1,0 +1,514 @@
+/*
+
+Oxygen Webhelp plugin
+Copyright (c) 1998-2013 Syncro Soft SRL, Romania.  All rights reserved.
+Licensed under the terms stated in the license file EULA_Webhelp.txt 
+available in the base directory of this Oxygen Webhelp plugin.
+
+*/
+
+@import "../../css/print.css";
+
+html,body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 10pt;
+}     
+#header {                      
+  width: 100%;
+  border: 1px solid #eee;
+  float: left;
+  border: 1px solid #E9E3DD;
+  margin: 0px;
+  position:relative; 
+} 
+#lHeader{   
+  float: right;
+  width: 100%;     
+  position: relative;
+  background-color: #eee;        
+}
+#productTitle{                                
+  float: left;  
+  width: 100%;
+  top:0;
+  display: block;
+  background-color: #eee;
+  padding: 0px 5px 0px 5px;
+}
+
+#productTitle h1 {
+font-size: 1.8em;
+margin: 0.5em 0 0 0.3em;
+padding-bottom: 0.5em;
+float:left; 
+}
+
+.framesLink{
+  display: block;
+  float: right;
+  margin: 0.5em 1em 0 0.3em;
+  padding: 5px;
+  /*border-radius: 7px;
+  border: 1px solid #ccc;
+  background: #ddd;*/
+}
+
+.framesLink img{
+  padding: 0px 3px 0px 3px;
+}
+
+.framesLink a{
+ text-decoration:none;
+ color:#999999;
+}
+.framesLink a:hover{
+ text-decoration:none;
+ color:#999999;
+}
+#productToolbar{                           
+  width: 100%;
+  float: left;
+  background-color: #eee;
+}
+
+#productToolbar #breadcrumbLinks{
+  clear: both;
+  float: left;    
+}
+#productToolbar #breadcrumbLinks a{
+  padding: 0px 2px 0px 2px;  
+}
+
+#productToolbar #navigationLinks{
+  float: right; 
+  padding-right: 15px;
+  margin-right: 5px;
+}
+#space{
+  border-top: 1px solid #D3E1F1;
+  background: #D3E1F1;
+  border-bottom: 1px solid #D3E1F1;
+  clear: both;        
+}
+table.tool td{
+  padding: 0;
+  margin:0;
+}
+table.tool{
+  width: 100%;  
+  border-spacing: 0px;    
+}
+table.tool tbody td:first-child{
+  width: 25%;
+  min-width: 180px;     
+}
+/*table.tool td {
+  vertical-align: bottom;  
+}*/
+#tocMenu{      
+  clear: both;
+  width: 100%;  
+  float: left;  
+  background-color : #eee;    
+  margin: 0;
+}
+#tocMenu div.tab{ 
+  background-color : #eee;
+  text-decoration:none; 
+  color:#336699; 
+  padding:1px 7px 1px 7px;
+  margin-top: 1px;
+  margin-bottom: 0px;
+  margin-right: 2px;
+  cursor:pointer; 
+  border:1px solid #ccc;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  border-bottom:0;  
+  float: left;
+  min-height: 1px;
+  text-shadow:0 1px 0 #fff;        
+}
+.tab span{
+    float: left;
+    display: inline-block;
+}
+#expnd{
+    float: right;
+    text-align: right;
+    display: inline-block;
+    padding: 3px;
+}
+#expnd a{
+  display: none;
+}
+
+#tocMenu div.tab:hover{
+  color:#cc0000;  
+}
+
+#tocMenu div.selectedTab{	
+  text-decoration: none;
+  color:#333;
+  background-color:#D3E1F1;
+  border:1px solid #ccc;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  border-bottom:0;
+  text-shadow:0 1px 0 #fff;  
+} 
+
+table.nav{
+  width: 100%;      
+}
+table.nav tbody td:last-child{
+  text-align: right;
+}    
+#splitterContainer { /* Main splitter element */
+  height: 95%;
+  width: 100%;
+  margin: 0;
+  padding: 0;        
+  display: block;   
+  background: #ffffff;
+}
+
+#leftPane {
+  float: left;
+  width: 25%;
+  height: 100%;
+  background: #fff;
+  overflow: auto;
+  border:1px solid #fff;                
+}
+
+#rightPane { /*Contains toolbar and horizontal splitter*/
+  float: right;
+  width: 74%;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;   
+  margin: 0px;  /* do not modify*/
+  margin: 0px; /* do not modify*/
+}
+
+/* Splitbar styles; these are the default class names and required styles */
+.splitbarV {
+  float: left;
+  width: 6px;
+  height: 100%;
+  line-height: 0px;
+  font-size: 0px;
+  border-left: solid 1px #eee;
+  border-right: solid 1px #ccc;
+  background: #eee ;
+}
+
+.splitbuttonV {
+  margin-top: -22px;
+  margin-left: -1px;
+  top: 50%;
+  position: relative;
+  height: 44px;
+  width: 8px;
+  background: transparent url(../../img/splitter.png) 8px 50%;
+}
+
+.splitbuttonV.invert {
+  margin-left: -1px;
+  background: transparent url(../../img/splitter.png) 0px 50%;
+}
+
+.splitbarV.working,.splitbuttonV.working{
+  -moz-opacity: .50;
+  filter: alpha(opacity = 50);
+  opacity: .50;
+}
+.splitterMask
+{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 20000;
+}
+#contentBlock>ul>li{
+  padding: 1px 0 1px 0;
+}
+#contentBlock ul>li ul{
+  display:none;
+}
+#contentBlock ul{
+  margin: 0;
+}
+.menuItemSelected{
+  font-weight: bolder;
+  background: #f9f9f9;
+}
+li{
+  list-style: none;
+}
+#contentBlock li span{
+  display: block;
+  padding: 2px 5px 2px 21px;  
+}
+#contentBlock,#contentBlock ul{
+  padding-left: 10px;
+}        
+
+#contentBlock a, a.link, a.navheader_parent_path{
+  text-decoration: none;
+  font-size: 10pt;
+  color: navy;        
+  font-family: arial, helvetica, tahoma;        
+  white-space: nowrap;        
+}
+#contentBlock a:hover{        
+  background: #F2F7FD;
+}
+#contentBlock a:hover, a.link:hover, a.navheader_parent_path:hover{
+  text-decoration: none;
+  color: red;                
+}
+div#searchResults a{
+  background-image: none;
+  background-repeat: no-repeat;                
+}
+
+#searchForm {
+    margin:15px 10px;
+} 
+
+#indexForm {
+    margin:15px 10px;
+} 
+
+.topic{
+  background-image: url('../../img/topic16.png');
+  background-repeat: no-repeat;
+  padding-left: 16px;	
+}
+
+.hasSubMenuClosed{
+  background-image: url('../../img/book_closed16.png');
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  cursor: pointer;
+
+}
+.hasSubMenuOpened{
+  background-image: url('../../img/book_opened16.png');
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+
+
+#indexBlock {
+  line-height:1.8em;
+}
+
+#indexBlock a{
+  text-decoration:none;
+}
+
+#indexBlock fieldset{
+  border:0;
+  padding-top:0;
+  border-bottom:1px solid #eee;
+}
+
+#indexBlock ul{
+  color:#444;
+  list-style:none;
+  margin:0;
+  padding-left: 16px;
+}
+
+
+#id_search{
+  width:230px; 
+}
+
+#bck_toc{
+  background-color:#FFF;
+  padding:0px 0 0 0px;      
+}
+#rightPane iframe{
+  float: left;
+}      
+#frm{
+  width: 100%;
+  height: 100%;
+  border: 0;    
+  margin: 0;
+  padding-left:0px;
+}
+
+.tooltip{
+    box-shadow: 3px 3px 3px #ccc;
+    color:#333;
+    text-shadow:1px 1px 1px #fff;  
+    background-color:#efefef;
+    border-radius: 4px;    
+
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #999999;
+    position: absolute;            
+    z-index: 10;
+  }       
+.navheader_label{
+
+}
+.navheader_linktext, 
+.navheader_separator{
+  display: none;
+}
+.navnext a,.navprev a,.navparent a{
+  padding-left: 15px;
+  display: inline-block;    
+}
+.navparent,.navprev,.navnext{
+  background-repeat: no-repeat;    
+    margin-left: 5px;
+    cursor: pointer;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    line-height: 16px;
+    display: inline-block;
+}
+.navparent{
+    background-image: url('../../img/nav_up16.png');    
+  }
+  .navprev{
+    background-image: url('../../img/nav_left16.png');    
+  }
+  .navnext{
+    background-image: url('../../img/nav_right16.png');    
+  }
+#rightDiv{
+    clear: both;
+    position: relative;
+    margin-top: 5px;
+    width: 98%;
+    text-align: right;    
+}
+#star .star { 
+    LIST-STYLE: none; 
+    MARGIN: 0; 
+    PADDING: 0; 
+    WIDTH: 85px;
+    /* was 100 */ 
+    HEIGHT: 20px;
+    LEFT: 1px; 
+    TOP: -5px; 
+    POSITION: relative; 
+    FLOAT: right; 
+    BACKGROUND: url('../../img/starsSmall.png') repeat-x 0 -25px;
+}
+#star div { 
+    PADDING: 0; 
+    MARGIN: 0; 
+    FLOAT: right; 
+    DISPLAY: block; 
+    WIDTH: 85px;
+    /* was 100 */
+    HEIGHT: 20px; 
+    TEXT-DECORATION: none; 
+    text-indent: -9000px; 
+    Z-INDEX: 20; 
+    PADDING: 0; 
+}
+#star .curr {   
+    BACKGROUND: url('../../img/starsSmall.png');
+    background-position: 0 25px; 
+    float: left;
+    width: 85px;    
+    FONT-SIZE: 1px; 
+}
+#star div.user {
+    LEFT: 5px;
+    POSITION: relative;
+    FLOAT: right;
+    FONT-SIZE: 13px;
+    FONT-FAMILY: Arial;
+    COLOR: #888;
+}
+.oXygenLogo {
+    color:#1166DD;
+    background-color:inherit;
+    font-weight:bold;
+    font-size:1.2em;
+}
+.searchExpression {
+    color: #0050A0; 
+    /*background-color: #EBEFF8;*/ 
+    font-size: 10pt; 
+    font-weight:bold;
+}
+#searchResults{
+    padding: 0.6em;
+}
+
+.searchresult{
+  margin:0;
+  padding:0
+}
+
+.searchresult li{
+  margin-top:0.2em;
+  padding: 0.6em;
+}
+span#warningSign{  
+  cursor: pointer;
+}
+div#warning{
+  position: absolute;
+  right: 2%;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #999999;
+  display: none;
+  padding: 5px;
+  background-color: #ffff99;
+}
+.highlight{
+  background: lightyellow;
+}
+@media print{
+  .splitbarV, 
+  #lHeader, 
+  #leftPane{
+    display: none;
+  }
+  #rightPane{
+    display: block;
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
+.legal {
+    margin: 1em;
+}
+.legalCopyright{
+    font-size: 0.8em;
+    text-align: right;
+    font-weight:normal;
+}
+.legalNotice{
+    margin-top: 1em;
+    border-top: 1px solid gray;
+    padding-top: 1em;
+    color: #999;
+}

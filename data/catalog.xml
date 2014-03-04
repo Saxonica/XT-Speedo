@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog name="as">
+
+
+   <test-case name="docbook-tests-001">
+      <description>
+         Shows a docbook file transformed into HTML format.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-03"/>
+      <test>
+         <stylesheet file="docbook-tests/docbook/xsl/html/docbook_custom.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(/html/body//div)&gt; 10
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="docbook-tests-002">
+      <description>
+         Calculate word frequencies.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-03"/>
+      <test>
+         <stylesheet file="docbook-tests/wordcountex.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>
+            /wordcount/word[@word="the"]/@frequency="331"
+         </assert>
+      </result>
+   </test-case>
+   
+</catalog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="loginTest.xml">loginTest</a></td></tr>
+<tr><td><a href="recoverPassword.xml">recoverPassword</a></td></tr>
+<tr><td><a href="changePassword.xml">changePassword</a></td></tr>
+<tr><td><a href="insertCommentText.xml">insertCommentText</a></td></tr>
+<tr><td><a href="changeUserProfile.xml">changeUserProfile</a></td></tr>
+<tr><td><a href="adminUsersTest.xml">adminUsersTest</a></td></tr>
+<tr><td><a href="adminViewComments.xml">adminViewComments</a></td></tr>
+<tr><td><a href="adminExportComments.xml">adminExportComments</a></td></tr>
+<tr><td><a href="adminSetVersion.xml">adminSetVersion</a></td></tr>
+</tbody></table>
+</body>
+</html>
