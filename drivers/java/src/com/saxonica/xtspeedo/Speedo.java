@@ -27,7 +27,7 @@ public class Speedo {
     }
 
     public void run(File catalogFile) {
-       // drivers.add(new SaxonHEDriver());
+        drivers.add(new SaxonHEDriver());
         drivers.add(new XalanDriver());
         SAXBuilder builder = new SAXBuilder();
         Document doc = null;
@@ -42,30 +42,31 @@ public class Speedo {
         }
         URI catalogURI = catalogFile.toURI();
         Element catalogElement = doc.getRootElement();
-        for (Element testCase : catalogElement.getChildren("test-case")) {
-            System.err.println("Running " + testCase.getAttributeValue("name"));
-            String attributeValue = testCase.getAttributeValue("xslt-version");
-            double xsltVersion = (attributeValue == null) ? 1.0 : Double.parseDouble(attributeValue);
-            String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
-            URI sourceURI = catalogURI.resolve(source);
-            String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
-            URI stylesheetURI = catalogURI.resolve(stylesheet);
-            for (IDriver driver : drivers) {
-                if (xsltVersion <= driver.getXsltVersion()) {
-                    try {
-                        driver.buildSource(sourceURI);
-                        driver.compileStylesheet(stylesheetURI);
-                        driver.transform();
-                        for (Element assertion : testCase.getChild("result").getChildren("assert")) {
-                            String xpath = assertion.getText();
-                            driver.testAssertion(xpath);
+        for (IDriver driver : drivers) {
+            System.err.println("Driver implemented: " + driver.getClass().getSimpleName());
+            for (Element testCase : catalogElement.getChildren("test-case")) {
+                System.err.println("Running " + testCase.getAttributeValue("name"));
+                String attributeValue = testCase.getAttributeValue("xslt-version");
+                double xsltVersion = (attributeValue == null) ? 1.0 : Double.parseDouble(attributeValue);
+                String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
+                URI sourceURI = catalogURI.resolve(source);
+                String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
+                URI stylesheetURI = catalogURI.resolve(stylesheet);
+                    if (xsltVersion <= driver.getXsltVersion()) {
+                        try {
+                            driver.buildSource(sourceURI);
+                            driver.compileStylesheet(stylesheetURI);
+                            driver.transform();
+                            for (Element assertion : testCase.getChild("result").getChildren("assert")) {
+                                String xpath = assertion.getText();
+                                driver.testAssertion(xpath);
+                            }
+                            System.err.println("Test succeeded with " + driver.getClass().getSimpleName());
+                        } catch (TransformationException e) {
+                            driver.displayResultDocument();
+                            System.err.println("Test failed: " + e.getMessage());
                         }
-                        System.err.println("Test succeeded with " + driver.getClass().getSimpleName());
-                    } catch (TransformationException e) {
-                        driver.displayResultDocument();
-                        System.err.println("Test failed: " + e.getMessage());
                     }
-                }
             }
         }
 
