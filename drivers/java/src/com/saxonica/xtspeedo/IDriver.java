@@ -44,4 +44,11 @@ public interface IDriver {
      */
 
     public void displayResultDocument();
+
+    /**
+     * Gets version of XSLT processor supported
+     * @return version of XSLT
+     */
+
+    public double getXsltVersion();
 }

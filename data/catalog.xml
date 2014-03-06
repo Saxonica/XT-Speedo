@@ -2,7 +2,7 @@
 <catalog name="as">
 
 
-   <test-case name="docbook-tests-001">
+   <test-case name="docbook-tests-001" xslt-version="2.0">
       <description>
          Shows a docbook file transformed into HTML format.
       </description>
@@ -45,7 +45,7 @@
       </test>
       <result>
          <assert>
-            /score-timewise/@version="3.0"
+            /score-timewise/@version="3.0x"
          </assert>
       </result>
    </test-case>

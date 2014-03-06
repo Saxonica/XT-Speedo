@@ -101,4 +101,14 @@ public class SaxonHEDriver implements IDriver {
             System.err.println("Failed to serialize result document");
         }
     }
+
+    /**
+     * Gets version of XSLT processor supported
+     *
+     * @return version of XSLT
+     */
+    @Override
+    public double getXsltVersion() {
+        return 2.0;
+    }
 }

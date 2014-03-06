@@ -1,6 +1,7 @@
 package com.saxonica.xtspeedo;
 
 import com.saxonica.xtspeedo.saxonhe.SaxonHEDriver;
+import com.saxonica.xtspeedo.xalan.XalanDriver;
 import org.jdom2.Content;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -26,7 +27,8 @@ public class Speedo {
     }
 
     public void run(File catalogFile) {
-        drivers.add(new SaxonHEDriver());
+       // drivers.add(new SaxonHEDriver());
+        drivers.add(new XalanDriver());
         SAXBuilder builder = new SAXBuilder();
         Document doc = null;
         try {
@@ -42,23 +44,27 @@ public class Speedo {
         Element catalogElement = doc.getRootElement();
         for (Element testCase : catalogElement.getChildren("test-case")) {
             System.err.println("Running " + testCase.getAttributeValue("name"));
+            String attributeValue = testCase.getAttributeValue("xslt-version");
+            double xsltVersion = (attributeValue == null) ? 1.0 : Double.parseDouble(attributeValue);
             String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
             URI sourceURI = catalogURI.resolve(source);
             String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
             URI stylesheetURI = catalogURI.resolve(stylesheet);
             for (IDriver driver : drivers) {
-                try {
-                    driver.buildSource(sourceURI);
-                    driver.compileStylesheet(stylesheetURI);
-                    driver.transform();
-                    for (Element assertion : testCase.getChild("result").getChildren("assert")) {
-                        String xpath = assertion.getText();
-                        driver.testAssertion(xpath);
+                if (xsltVersion <= driver.getXsltVersion()) {
+                    try {
+                        driver.buildSource(sourceURI);
+                        driver.compileStylesheet(stylesheetURI);
+                        driver.transform();
+                        for (Element assertion : testCase.getChild("result").getChildren("assert")) {
+                            String xpath = assertion.getText();
+                            driver.testAssertion(xpath);
+                        }
+                        System.err.println("Test succeeded with " + driver.getClass().getSimpleName());
+                    } catch (TransformationException e) {
+                        driver.displayResultDocument();
+                        System.err.println("Test failed: " + e.getMessage());
                     }
-                    System.err.println("Test succeeded");
-                } catch (TransformationException e) {
-                    driver.displayResultDocument();
-                    System.err.println("Test failed: " + e.getMessage());
                 }
             }
         }
