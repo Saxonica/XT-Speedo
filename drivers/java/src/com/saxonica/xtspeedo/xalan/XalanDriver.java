@@ -13,7 +13,6 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
@@ -36,7 +35,9 @@ public class XalanDriver implements IDriver {
         try {
             //org.apache.xalan.processor.TransformerFactoryImpl
             transformerFactory = TransformerFactory.newInstance("org.apache.xalan.processor.TransformerFactoryImpl", getClass().getClassLoader());
-            documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            documentBuilderFactory.setNamespaceAware(true);
+            documentBuilder = documentBuilderFactory.newDocumentBuilder();
             xPathFactory = XPathFactory.newInstance();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -98,7 +99,7 @@ public class XalanDriver implements IDriver {
      *                  must evaluate to TRUE when executed with the transformation
      *                  result as the context item
      */
-    @Override
+
     public void testAssertion(String assertion) throws TransformationException {
         try {
             boolean ok = (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDocument, XPathConstants.BOOLEAN);
@@ -113,7 +114,7 @@ public class XalanDriver implements IDriver {
     /**
      * Show the result document
      */
-    @Override
+
     public void displayResultDocument() {
         try {
             Transformer transformer = transformerFactory.newTransformer();
@@ -129,7 +130,7 @@ public class XalanDriver implements IDriver {
      *
      * @return version of XSLT
      */
-    @Override
+
     public double getXsltVersion() {
         return 1.0;
     }
