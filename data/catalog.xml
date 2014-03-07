@@ -18,7 +18,7 @@
       </result>
    </test-case>
    
-   <test-case name="docbook-tests-002">
+   <test-case name="docbook-tests-002" xslt-version="2.0">
       <description>
          Calculate word frequencies.
       </description>
@@ -45,7 +45,55 @@
       </test>
       <result>
          <assert>
-            /score-timewise/@version="3.0x"
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-002">
+      <description>
+         Music xml timewise to partwise
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/timepart.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4SampleT.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-003">
+      <description>
+         Converts music xml 3.0 files to 2.0 files
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/to20.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="2.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-004">
+      <description>
+         Converts music xml 3.0 files to 2.0 files
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/to20.xsl"/>
+         <source file="musicxml-tests/Echigo-Jishi.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="2.0"
          </assert>
       </result>
    </test-case>

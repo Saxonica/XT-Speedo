@@ -20,6 +20,9 @@ import java.util.List;
  */
 public class Speedo {
 
+    public static final int MAX_ITERATIONS = 20;
+    public static final long MAX_TOTAL_TIME = 20L*1000L*1000L*1000L;
+
     List<IDriver> drivers = new ArrayList<IDriver>();
 
     public static void main(String[] args) {
@@ -54,9 +57,31 @@ public class Speedo {
                 URI stylesheetURI = catalogURI.resolve(stylesheet);
                     if (xsltVersion <= driver.getXsltVersion()) {
                         try {
-                            driver.buildSource(sourceURI);
-                            driver.compileStylesheet(stylesheetURI);
-                            driver.transform();
+                            long totalBuildSource = 0;
+                            int i;
+                            for (i = 0; i < MAX_ITERATIONS && totalBuildSource < MAX_TOTAL_TIME; i++) {
+                                long start = System.nanoTime();
+                                driver.buildSource(sourceURI);
+                                totalBuildSource += System.nanoTime() - start;
+                            }
+                            System.err.println("Average time for source parse: " + totalBuildSource/(1000000*i) +
+                                    "ms. Number of iterations: " + i);
+                            long totalCompileStylesheet = 0;
+                            for (i = 0; i < MAX_ITERATIONS && totalCompileStylesheet < MAX_TOTAL_TIME; i++) {
+                                long start = System.nanoTime();
+                                driver.compileStylesheet(stylesheetURI);
+                                totalCompileStylesheet += System.nanoTime() - start;
+                            }
+                            System.err.println("Average time for stylesheet compile: " + totalCompileStylesheet/(1000000*i) +
+                                    "ms. Number of iterations: " + i);
+                            long totalTransform = 0;
+                            for (i = 0; i < MAX_ITERATIONS && totalTransform < MAX_TOTAL_TIME; i++) {
+                                long start = System.nanoTime();
+                                driver.transform();
+                                totalTransform += System.nanoTime() - start;
+                            }
+                            System.err.println("Average time for transform: " + totalTransform/(1000000*i) +
+                                    "ms. Number of iterations: " + i);
                             for (Element assertion : testCase.getChild("result").getChildren("assert")) {
                                 String xpath = assertion.getText();
                                 driver.testAssertion(xpath);
