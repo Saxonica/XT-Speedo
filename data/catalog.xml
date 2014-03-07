@@ -98,4 +98,68 @@
       </result>
    </test-case>
    
+   <test-case name="micro-subscripting-20000" xslt-version="2.0">
+      <description>
+         Subscript access to sequence of 20000 items
+      </description>
+      <created by="Michael Kay" on="2014-03-07"/>
+      <test>
+         <stylesheet file="micro-tests/subscripting.xsl"/>
+         <source file="micro-tests/n20000.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '20000'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="micro-subscripting-40000" xslt-version="2.0">
+      <description>
+         Subscript access to sequence of 40000 items
+      </description>
+      <created by="Michael Kay" on="2014-03-07"/>
+      <test>
+         <stylesheet file="micro-tests/subscripting.xsl"/>
+         <source file="micro-tests/n40000.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '40000'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="micro-subscripting-80000" xslt-version="2.0">
+      <description>
+         Subscript access to sequence of 80000 items
+      </description>
+      <created by="Michael Kay" on="2014-03-07"/>
+      <test>
+         <stylesheet file="micro-tests/subscripting.xsl"/>
+         <source file="micro-tests/n80000.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '80000'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="micro-subscripting-160000" xslt-version="2.0">
+      <description>
+         Subscript access to sequence of 160000 items
+      </description>
+      <created by="Michael Kay" on="2014-03-07"/>
+      <test>
+         <stylesheet file="micro-tests/subscripting.xsl"/>
+         <source file="micro-tests/n160000.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '160000'
+         </assert>
+      </result>
+   </test-case>
+   
 </catalog>
