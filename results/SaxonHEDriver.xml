@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<testResults driver="SaxonHEDriver" on="2014-03-10T17:44:42">
+    <test name="docbook-tests-001" buildTime="9" compileTime="730" transformTime="71"/>
+    <test name="docbook-tests-002" buildTime="0" compileTime="2" transformTime="24"/>
+    <test name="musicxml-tests-001" buildTime="6" compileTime="2" transformTime="27"/>
+    <test name="musicxml-tests-002" buildTime="4" compileTime="1" transformTime="13"/>
+    <test name="musicxml-tests-003" buildTime="3" compileTime="4" transformTime="17"/>
+    <test name="musicxml-tests-004" buildTime="2" compileTime="4" transformTime="9"/>
+    <test name="micro-subscripting-20000" buildTime="0" compileTime="0" transformTime="6"/>
+    <test name="micro-subscripting-40000" buildTime="0" compileTime="0" transformTime="6"/>
+    <test name="micro-subscripting-80000" buildTime="0" compileTime="0" transformTime="13"/>
+    <test name="micro-subscripting-160000" buildTime="0" compileTime="0" transformTime="27"/>
+</testResults>

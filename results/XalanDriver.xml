@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<testResults driver="XalanDriver" on="2014-03-10T17:45:02">
+    <test name="musicxml-tests-001" buildTime="20" compileTime="11" transformTime="113"/>
+    <test name="musicxml-tests-002" buildTime="3" compileTime="4" transformTime="25"/>
+    <test name="musicxml-tests-003" buildTime="2" compileTime="9" transformTime="68"/>
+    <test name="musicxml-tests-004" buildTime="1" compileTime="7" transformTime="35"/>
+</testResults>
