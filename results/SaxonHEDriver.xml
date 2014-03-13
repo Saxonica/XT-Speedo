@@ -1,13 +1,102 @@
 <?xml version="1.0" ?>
-<testResults driver="SaxonHEDriver" on="2014-03-10T17:44:42">
-    <test name="docbook-tests-001" buildTime="9" compileTime="730" transformTime="71"/>
-    <test name="docbook-tests-002" buildTime="0" compileTime="2" transformTime="24"/>
-    <test name="musicxml-tests-001" buildTime="6" compileTime="2" transformTime="27"/>
-    <test name="musicxml-tests-002" buildTime="4" compileTime="1" transformTime="13"/>
-    <test name="musicxml-tests-003" buildTime="3" compileTime="4" transformTime="17"/>
-    <test name="musicxml-tests-004" buildTime="2" compileTime="4" transformTime="9"/>
-    <test name="micro-subscripting-20000" buildTime="0" compileTime="0" transformTime="6"/>
-    <test name="micro-subscripting-40000" buildTime="0" compileTime="0" transformTime="6"/>
-    <test name="micro-subscripting-80000" buildTime="0" compileTime="0" transformTime="13"/>
-    <test name="micro-subscripting-160000" buildTime="0" compileTime="0" transformTime="27"/>
+<testResults driver="SaxonHEDriver" on="2014-03-13T18:10:17">
+    <test name="docbook-tests-001" run="success" buildTime="80.83152" compileTime="3972.221766"
+        transformTime="246.99649"/>
+    <test name="docbook-tests-002" run="success" buildTime="3.977483" compileTime="27.750523"
+        transformTime="260.149739"/>
+    <test name="musicxml-tests-001" run="success" buildTime="44.397348" compileTime="5.246007"
+        transformTime="250.989881"/>
+    <test name="musicxml-tests-002" run="success" buildTime="6.892216" compileTime="6.904533"
+        transformTime="91.310193"/>
+    <test name="musicxml-tests-003" run="success" buildTime="5.699126" compileTime="11.961185"
+        transformTime="58.400385"/>
+    <test name="musicxml-tests-004" run="success" buildTime="6.836282" compileTime="10.531528"
+        transformTime="32.492098"/>
+    <test name="micro-subscripting-20000" run="success" buildTime="1.397841" compileTime="8.248491"
+        transformTime="63.832156"/>
+    <test name="micro-subscripting-40000" run="success" buildTime="0.402316" compileTime="1.289052"
+        transformTime="7.328914"/>
+    <test name="micro-subscripting-80000" run="success" buildTime="0.368447" compileTime="1.264933"
+        transformTime="24.489922"/>
+    <test name="micro-subscripting-160000" run="success" buildTime="0.369473" compileTime="1.273144"
+        transformTime="17.611048"/>
+    <test name="xsltmark-alphabetize" run="success" buildTime="1.236709" compileTime="1.989512"
+        transformTime="33.326492"/>
+    <test name="xsltmark-attsets" run="success" buildTime="0.667105" compileTime="1.526643"
+        transformTime="3.275483"/>
+    <test name="xsltmark-avts" run="success" buildTime="1.623116" compileTime="1.622604"
+        transformTime="9.29174"/>
+    <test name="xsltmark-axis" run="success" buildTime="0.677368" compileTime="2.618129"
+        transformTime="3.858943"/>
+    <test name="xsltmark-backwards" run="success" buildTime="0.630157" compileTime="1.806314"
+        transformTime="5.035613"/>
+    <test name="xsltmark-bottles" run="success" buildTime="0.52342" compileTime="2.559115"
+        transformTime="10.741923"/>
+    <test name="xsltmark-breadth" run="success" buildTime="0.861079" compileTime="1.172565"
+        transformTime="6.228704"/>
+    <test name="xsltmark-brutal" run="success" buildTime="0.626052" compileTime="6.47502"
+        transformTime="9.529332"/>
+    <test name="xsltmark-chart" run="success" buildTime="0.603473" compileTime="3.61468"
+        transformTime="6.058336"/>
+    <test name="xsltmark-creation" run="success" buildTime="1.647748" compileTime="1.472762"
+        transformTime="18.050823"/>
+    <test name="xsltmark-current" run="success" buildTime="0.566012" compileTime="2.568866"
+        transformTime="2.480089"/>
+    <test name="xsltmark-dbonerow" run="success" buildTime="111.948356" compileTime="3.263168"
+        transformTime="147.018556"/>
+    <test name="xsltmark-dbtail" run="success" buildTime="1.325485" compileTime="1.456854"
+        transformTime="4.769798"/>
+    <test name="xsltmark-decoy" run="failure"/>
+    <test name="xsltmark-depth" run="success" buildTime="0.616302" compileTime="0.85492"
+        transformTime="3.913338"/>
+    <test name="xsltmark-encrypt" run="success" buildTime="1.052999" compileTime="1.051459"
+        transformTime="20.356952"/>
+    <test name="xsltmark-functions" run="success" buildTime="1.257235" compileTime="3.104602"
+        transformTime="30.00431"/>
+    <test name="xsltmark-game" run="success" buildTime="0.545999" compileTime="2.678168"
+        transformTime="2.520116"/>
+    <test name="xsltmark-html" run="success" buildTime="0.423355" compileTime="2.03313"
+        transformTime="1.912538"/>
+    <test name="xsltmark-identity" run="success" buildTime="8.493268" compileTime="0.943183"
+        transformTime="55.977257"/>
+    <test name="xsltmark-inventory" run="success" buildTime="0.605525" compileTime="3.145654"
+        transformTime="2.685352"/>
+    <test name="xsltmark-metric" run="success" buildTime="0.457736" compileTime="3.453549"
+        transformTime="4.169403"/>
+    <test name="xsltmark-number" run="success" buildTime="0.373578" compileTime="2.659181"
+        transformTime="6.977914"/>
+    <test name="xsltmark-oddtemplate" run="success" buildTime="0.42592" compileTime="1.942814"
+        transformTime="2.786445"/>
+    <test name="xsltmark-patterns" run="success" buildTime="1.050946" compileTime="2.407221"
+        transformTime="14.271932"/>
+    <test name="xsltmark-prettyprint" run="success" buildTime="1.164354" compileTime="3.560799"
+        transformTime="177.383616"/>
+    <test name="xsltmark-priority" run="success" buildTime="0.518802" compileTime="2.518576"
+        transformTime="1.855064"/>
+    <test name="xsltmark-products" run="success" buildTime="0.429" compileTime="1.898169"
+        transformTime="2.863931"/>
+    <test name="xsltmark-queens" run="success" buildTime="0.346382" compileTime="5.701178"
+        transformTime="67.961021"/>
+    <test name="xsltmark-reverser" run="success" buildTime="0.605525" compileTime="2.473932"
+        transformTime="5.207521"/>
+    <test name="xsltmark-stringsort" run="success" buildTime="7.634756" compileTime="1.16538"
+        transformTime="43.07802"/>
+    <test name="xsltmark-summarize" run="success" buildTime="1.021696" compileTime="1.887906"
+        transformTime="2.553984"/>
+    <test name="xsltmark-total" run="success" buildTime="0.707644" compileTime="1.754999"
+        transformTime="2.323576"/>
+    <test name="xsltmark-tower" run="success" buildTime="0.635288" compileTime="18.209389"
+        transformTime="150.324829"/>
+    <test name="xsltmark-trend" run="success" buildTime="0.736893" compileTime="2.993247"
+        transformTime="10.489963"/>
+    <test name="xsltmark-union" run="success" buildTime="0.480316" compileTime="2.264563"
+        transformTime="1.9423"/>
+    <test name="xsltmark-xpath" run="success" buildTime="0.438237" compileTime="1.336262"
+        transformTime="1.569749"/>
+    <test name="xsltmark-xslbench1" run="success" buildTime="0.437723" compileTime="5.441007"
+        transformTime="1.809906"/>
+    <test name="xsltmark-xslbench2" run="success" buildTime="4.047272" compileTime="3.754259"
+        transformTime="22.98791"/>
+    <test name="xsltmark-xslbench3" run="success" buildTime="7.039493" compileTime="2.579642"
+        transformTime="6.281559"/>
 </testResults>

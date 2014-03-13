@@ -16,6 +16,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
@@ -30,6 +31,7 @@ public class XalanDriver implements IDriver {
     private Document sourceDocument;
     private Templates stylesheet;
     private Document resultDocument;
+    private File resultFile;
 
     public XalanDriver(){
         try {
@@ -82,11 +84,47 @@ public class XalanDriver implements IDriver {
      * supplied stylesheet
      */
 
-    public void transform() throws TransformationException {
+    public void treeToTreeTransform() throws TransformationException {
         try {
             Transformer transformer = stylesheet.newTransformer();
+            transformer.setErrorListener(new ErrorListener() {
+
+                @Override
+                public void warning(TransformerException exception) throws TransformerException {
+                    exception.printStackTrace();
+                }
+
+                @Override
+                public void error(TransformerException exception) throws TransformerException {
+                    exception.printStackTrace();
+                    throw exception;
+                }
+
+                @Override
+                public void fatalError(TransformerException exception) throws TransformerException {
+                    exception.printStackTrace();
+                    throw exception;
+                }
+            });
             resultDocument = documentBuilder.newDocument();
             transformer.transform(new DOMSource(sourceDocument), new DOMResult(resultDocument));
+        } catch (TransformerException e) {
+            throw new TransformationException(e);
+        }
+    }
+
+    /**
+     * Run a transformation, from an input file to an output file
+     *
+     * @param source
+     * @param result
+     */
+    @Override
+    public void fileToFileTransform(File source, File result) throws TransformationException {
+        try {
+            Transformer transformer = stylesheet.newTransformer();
+            resultFile = result;
+            transformer.transform(new StreamSource(source), new StreamResult(result));
         } catch (TransformerException e) {
             throw new TransformationException(e);
         }
@@ -100,15 +138,29 @@ public class XalanDriver implements IDriver {
      *                  result as the context item
      */
 
-    public void testAssertion(String assertion) throws TransformationException {
-        try {
-            boolean ok = (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDocument, XPathConstants.BOOLEAN);
-            if (!ok) {
-                throw new TransformationException("Assertion (" + assertion + ") failed");
+    public boolean testAssertion(String assertion) throws TransformationException {
+        if (resultDocument != null) {
+            try {
+                return (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDocument, XPathConstants.BOOLEAN);
+
+            } catch (XPathExpressionException e) {
+                throw new TransformationException(e);
             }
-        } catch (XPathExpressionException e) {
-            throw new TransformationException(e);
         }
+        if (resultFile != null) {
+            try {
+                Document resultDoc = documentBuilder.parse(resultFile);
+                return (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDoc, XPathConstants.BOOLEAN);
+
+            } catch (XPathExpressionException e) {
+                throw new TransformationException(e);
+            } catch (SAXException e) {
+                throw new TransformationException(e);
+            } catch (IOException e) {
+                throw new TransformationException(e);
+            }
+        }
+        return false;
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.saxonica.xtspeedo;
 
+import javax.xml.transform.Transformer;
 import java.io.File;
 import java.net.URI;
 
@@ -28,16 +29,23 @@ public interface IDriver {
      * supplied stylesheet
      */
 
-    public void transform() throws TransformationException;
+    public void treeToTreeTransform() throws TransformationException;
+
+    /**
+     * Run a transformation, from an input file to an output file
+     */
+
+    public void fileToFileTransform(File source, File result) throws TransformationException;
 
     /**
      * Test that the result of the transformation satisfies a given assertion
      * @param assertion the assertion, in the form of an XPath expression which
      *                  must evaluate to TRUE when executed with the transformation
      *                  result as the context item
+     * @return the result of testing the assertion
      */
 
-    public void testAssertion(String assertion) throws TransformationException;
+    public boolean testAssertion(String assertion) throws TransformationException;
 
     /**
      * Show the result document

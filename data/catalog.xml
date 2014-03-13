@@ -4,7 +4,7 @@
 
    <test-case name="docbook-tests-001" xslt-version="2.0">
       <description>
-         Shows a docbook file transformed into HTML format.
+         Shows a docbook file transformed into HTML format
       </description>
       <created by="Debbie Lockett" on="2014-03-03"/>
       <test>
@@ -13,14 +13,14 @@
       </test>
       <result>
          <assert>
-            count(/html/body//div)&gt; 10
+            count(/*:html/*:body//*:div)&gt; 10
          </assert>
       </result>
    </test-case>
    
    <test-case name="docbook-tests-002" xslt-version="2.0">
       <description>
-         Calculate word frequencies.
+         Calculates word frequencies
       </description>
       <created by="Debbie Lockett" on="2014-03-03"/>
       <test>
@@ -36,7 +36,7 @@
    
    <test-case name="musicxml-tests-001">
       <description>
-         Music xml partwise to timewise
+         Converts music xml partwise to timewise
       </description>
       <created by="Debbie Lockett" on="2014-03-04"/>
       <test>
@@ -52,7 +52,7 @@
    
    <test-case name="musicxml-tests-002">
       <description>
-         Music xml timewise to partwise
+         Converts music xml timewise to partwise
       </description>
       <created by="Debbie Lockett" on="2014-03-07"/>
       <test>
@@ -161,5 +161,653 @@
          </assert>
       </result>
    </test-case>
+   
+   <test-case name="xsltmark-alphabetize">
+      <description>
+         Alphabetizes an XML tree
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/alphabetize.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 801
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-attsets">
+      <description>
+         Sets for attribute values
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/attsets.xsl"/>
+         <source file="xsltmark-tests/chart.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 45
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-avts">
+      <description>
+         Addresses elements made from database
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/avts.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 101
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-axis">
+      <description>
+         Navigation of a tree
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/axis.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 10
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-backwards">
+      <description>
+         Reassembles an xml tree in reverse order 
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/backwards.xsl"/>
+         <source file="xsltmark-tests/game.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 95
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-bottles">
+      <description>
+         Produces 'bottles of beer' song 
+         <!-- (by Cyrus Dolph May 16, 2000) -->
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/bottles.xsl"/>
+         <source file="xsltmark-tests/bottles.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-breadth">
+      <description>
+         Finds elements with certain attribute
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/find.xsl"/>
+         <source file="xsltmark-tests/breadth.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 201
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-brutal">
+      <description>
+         HTML transformation
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/brutal.xsl"/>
+         <source file="xsltmark-tests/brutal.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 140
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-chart">
+      <description>
+         Produces HTML chart of sales data
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/chart.xsl"/>
+         <source file="xsltmark-tests/chart.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 98
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-creation">
+      <description>
+         Creates XML table
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/creation.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 801
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-current">
+      <description>
+         Checks 'current()' and '.' calls are working correctly
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/current.xsl"/>
+         <source file="xsltmark-tests/current.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 16
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-dbonerow">
+      <description>
+         Produces HTML document for one row of database
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/dbonerow.xsl"/>
+         <source file="xsltmark-tests/db10000.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 25
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-dbtail">
+      <description>
+         Produces list of names from address database
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/dbtail.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 301
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-decoy">
+      <description>
+         Decoy stylesheet is same as patterns.xsl, but has lots of decoy patterns 
+         to distract the matching process...
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/decoy.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 801
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-depth">
+      <description>
+         Finds elements with certain attribute
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/find.xsl"/>
+         <source file="xsltmark-tests/depth.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 200
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-encrypt">
+      <description>
+         Encrypt data using alphabet translation code
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/encrypt.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 801
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-functions">
+      <description>
+         Functions acting on name attributes
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/functions.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 201
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-game">
+      <description>
+         Baseball game stats
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/game.xsl"/>
+         <source file="xsltmark-tests/game.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 40
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-html">
+      <description>
+         Sales results by division, ordered by revenue 
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/html.xsl"/>
+         <source file="xsltmark-tests/html.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 28
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-identity">
+      <description>
+         Identity transformation
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/identity.xsl"/>
+         <source file="xsltmark-tests/db1000.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 8001
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-inventory">
+      <description>
+         Produces XML inventory from table
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/inventory.xsl"/>
+         <source file="xsltmark-tests/inventory.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 106
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-metric">
+      <description>
+         Applies desired measurement conversions
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/metric.xsl"/>
+         <source file="xsltmark-tests/metric.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 14
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-number">
+      <description>
+         Number formatting
+         <!-- Stylesheet updated DL 2014-03-11 -->
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/number.xsl"/>
+         <source file="xsltmark-tests/number.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 64
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-oddtemplate">
+      <description>
+         Applies an odd new template
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/oddtemplate.xsl"/>
+         <source file="xsltmark-tests/oddtemplate.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 6
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-patterns">
+      <description>
+         Matching patterns
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/patterns.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 801
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-prettyprint">
+      <description>
+         Produces document with some formatting in HTML
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/prettyprint.xsl"/>
+         <source file="xsltmark-tests/db100.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 3207
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-priority">
+      <description>
+         Performs a transformation of a tree
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/priority.xsl"/>
+         <source file="xsltmark-tests/priority.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 34
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-products">
+      <description>
+         Reorders list of products by category (the slow way...)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/products.xsl"/>
+         <source file="xsltmark-tests/products.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 23
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-queens">
+      <description>
+         Converts an XML document into an HTML document listing all 8x8 chess boards containing
+         8 queens such that no one threatens another.
+         <!-- This stylesheet is public domain. However, if you modify it or decide to use
+         it as part of an XSLT benchmark/testing suite, I'd appreciate it if you let
+         me know at oren@capella.co.il -->
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/queens.xsl"/>
+         <source file="xsltmark-tests/queens.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 177
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-reverser">
+      <description>
+         Gives words of text in reverse order (string flipper)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/reverser.xsl"/>
+         <source file="xsltmark-tests/gettysburg.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-stringsort">
+      <description>
+         Reorder addresses by first name (rather than last name)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/stringsort.xsl"/>
+         <source file="xsltmark-tests/db1000.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 8001
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-summarize">
+      <description>
+         Summarizes form of XSLT document
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/summarize.xsl"/>
+         <source file="xsltmark-tests/queens.xsl"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 5
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-total">
+      <description>
+         Produces HTML chart of total sales from sales data
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/total.xsl"/>
+         <source file="xsltmark-tests/chart.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 19
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-tower">
+      <description>
+         Produces sequence to solve Tower of Hanoi puzzle
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/tower.xsl"/>
+         <source file="xsltmark-tests/tower.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 4097
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-trend">
+      <description>
+         Produces a trend line through data plot
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/trend.xsl"/>
+         <source file="xsltmark-tests/trend.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 473
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-union">
+      <description>
+         Gives the union of two defined sets
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/union.xsl"/>
+         <source file="xsltmark-tests/union.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 6
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-xpath">
+      <description>
+         Matching depending on child and sibling requirements
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/xpath.xsl"/>
+         <source file="xsltmark-tests/xpath.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 4
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-xslbench1">
+      <description>
+         Produces table contained in HTML doc with complicated stylesheet
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/xslbench1.xsl"/>
+         <source file="xsltmark-tests/xslbench1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 93
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-xslbench2">
+      <description>
+         Produces HTML document of 'A Midsummer Night's Dream' play
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/xslbench2.xsl"/>
+         <source file="xsltmark-tests/xslbenchdream.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 3249
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsltmark-xslbench3">
+      <description>
+         Produces HTML document of an act/scene summary of 'A Midsummer Night's Dream'
+      </description>
+      <created by="Debbie Lockett" on="2014-03-11"/>
+      <test>
+         <stylesheet file="xsltmark-tests/xslbench3.xsl"/>
+         <source file="xsltmark-tests/xslbenchdream.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 15
+         </assert>
+      </result>
+   </test-case>
+
    
 </catalog>
