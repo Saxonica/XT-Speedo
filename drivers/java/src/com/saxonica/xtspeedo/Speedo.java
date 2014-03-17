@@ -1,7 +1,6 @@
 package com.saxonica.xtspeedo;
 
 import com.saxonica.xtspeedo.saxonhe.SaxonHEDriver;
-import com.saxonica.xtspeedo.xalan.XalanDriver;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -25,7 +24,7 @@ import java.util.regex.Pattern;
  */
 public class Speedo {
 
-    public static final int MAX_ITERATIONS = 1;
+    public static final int MAX_ITERATIONS = 20;
     public static final long MAX_TOTAL_TIME = 20L*1000L*1000L*1000L;
     private XMLOutputFactory xmlOutputFactory;
 
@@ -51,8 +50,12 @@ public class Speedo {
     }
 
     public void run(File catalogFile, File outputDirectory, String testPattern) {
+        drivers.add(new Saxon6Driver());
         drivers.add(new SaxonHEDriver());
         drivers.add(new XalanDriver());
+        drivers.add(new XSLTCDriver());
+        drivers.add(new XTDriver());
+
         SAXBuilder builder = new SAXBuilder();
         Document doc = null;
 

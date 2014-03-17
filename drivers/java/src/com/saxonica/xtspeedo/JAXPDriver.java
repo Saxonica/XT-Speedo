@@ -1,4 +1,4 @@
-package com.saxonica.xtspeedo.xalan;
+package com.saxonica.xtspeedo;
 
 import com.saxonica.xtspeedo.IDriver;
 import com.saxonica.xtspeedo.TransformationException;
@@ -23,20 +23,20 @@ import java.net.URI;
 /**
  * XT-Speedo driver for Xalan Processor
  */
-public class XalanDriver implements IDriver {
+public abstract class JAXPDriver implements IDriver {
 
     private TransformerFactory transformerFactory;
     private DocumentBuilder documentBuilder;
     private XPathFactory xPathFactory;
     private Document sourceDocument;
-    private Templates stylesheet;
+    protected Templates stylesheet;
     private Document resultDocument;
-    private File resultFile;
+    protected File resultFile;
 
-    public XalanDriver(){
+    public JAXPDriver(){
         try {
             //org.apache.xalan.processor.TransformerFactoryImpl
-            transformerFactory = TransformerFactory.newInstance("org.apache.xalan.processor.TransformerFactoryImpl", getClass().getClassLoader());
+            transformerFactory = TransformerFactory.newInstance(getFactoryName(), getClass().getClassLoader());
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             documentBuilderFactory.setNamespaceAware(true);
             documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -46,6 +46,12 @@ public class XalanDriver implements IDriver {
         }
 
     }
+
+    /**
+     * Get the JAXP transformer factory name for this driver
+     * @return factory name
+     */
+    public abstract String getFactoryName();
 
     /**
      * Parse a source file and build a tree representation of the XML
