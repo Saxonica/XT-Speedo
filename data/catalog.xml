@@ -808,6 +808,463 @@
          </assert>
       </result>
    </test-case>
+   
+   
+   <test-case name="xmark-q1-1">
+      <description>
+         Return the name of the person with ID `person0' registered in North America.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q1.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 2 and
+            /out/*[1] = 'Klemens Pelz'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q1-4">
+      <description>
+         Return the name of the person with ID `person0' registered in North America.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q1.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 2 and
+            /out/*[1] = 'Inger Giaccio'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q2-1">
+      <description>
+         Return the initial increases of all open auctions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q2.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 107 and
+            /out/*[1] = '9.00'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q2-4">
+      <description>
+         Return the initial increases of all open auctions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q2.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 440 and
+            /out/*[1] = '18.00'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q3-1">
+      <description>
+         Return the IDs of all open auctions whose current 
+         increase is at least twice as high as the initial increase.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q3.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 23 and
+            /out/*[1]/@last = '19.50'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q3-4">
+      <description>
+         Return the IDs of all open auctions whose current 
+         increase is at least twice as high as the initial increase.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q3.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 134 and
+            /out/*[1]/@last = '10.50'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q5-1">
+      <description>
+         How many sold items cost more than 40?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q5.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '75'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q5-4">
+      <description>
+         How many sold items cost more than 40?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q5.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '258'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q6-1">
+      <description>
+         How many items are listed on all continents?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q6.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 7 and
+            /out/*[1] = '5'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q6-4">
+      <description>
+         How many items are listed on all continents?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q6.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 7 and
+            /out/*[1] = '22'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q7-1">
+      <description>
+         How many pieces of prose are in our database?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q7.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '661'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q7-4">
+      <description>
+         How many pieces of prose are in our database?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q7.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            /out = '2650'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q8-1">
+      <description>
+         List the names of persons and the number of items they bought.
+         (joins person, closed_auction)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q8.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 256 and
+            /out/item[@person = 'Aviv Georgatos'] = '2'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q8-4">
+      <description>
+         List the names of persons and the number of items they bought.
+         (joins person, closed_auction)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-19"/>
+      <test>
+         <stylesheet file="xmark-tests/q8.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1021 and
+            /out/item[@person = 'Nevio Spirn'] = '2'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q9-1" xslt-version="2.0">
+      <description>
+         List the names of persons and the names of the items they bought
+         in Europe.  (joins person, closed\_auction, item)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q9.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 284 and
+            count(//item) = 28
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q9-4" xslt-version="2.0">
+      <description>
+         List the names of persons and the names of the items they bought
+         in Europe.  (joins person, closed\_auction, item)
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q9.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1130 and
+            count(//item) = 109
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q10-1" xslt-version="2.0">
+      <description>
+         List all persons according to their interest;
+         use French markup in the result.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q10.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 4744 and
+            /out/categorie[1]/id = 'category1'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q10-4" xslt-version="2.0">
+      <description>
+         List all persons according to their interest;
+         use French markup in the result.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q10.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 21949 and
+            /out/categorie[1]/id = 'category21'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q11-1">
+      <description>
+         For each person, list the number of items currently on sale whose
+         price does not exceed 0.02% of the person's income.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q11.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 256 and
+            /out/*[1] = '0'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q11-4">
+      <description>
+         For each person, list the number of items currently on sale whose
+         price does not exceed 0.02% of the person's income.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q11.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1021 and
+            /out/*[1] = '85'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q12-1">
+      <description>
+         For each richer-than-average person, list the number of items 
+         currently on sale whose price does not exceed 0.02% of the 
+         person's income.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q12.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 60 and
+            /out/*[1] = '19'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q12-4">
+      <description>
+         For each richer-than-average person, list the number of items 
+         currently on sale whose price does not exceed 0.02% of the 
+         person's income.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q12.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 186 and
+            /out/*[1] = '85'
+         </assert>
+      </result>
+   </test-case>
+      
+   <test-case name="xmark-q13-1">
+      <description>
+         List the names of items registered in Australia along with 
+         their descriptions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q13.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 186 and
+            /out/*[1]/@name = 'cover '
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q13-4">
+      <description>
+         List the names of items registered in Australia along with 
+         their descriptions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q13.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 791 and
+            /out/*[1]/@name = 'relief '
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q14-1">
+      <description>
+         Return the names of all items whose description contains the 
+         word `gold
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q14.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 244 and
+            /out/*[1] = 'condemn '
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q14-4">
+      <description>
+         Return the names of all items whose description contains the 
+         word `gold
+      </description>
+      <created by="Debbie Lockett" on="2014-03-20"/>
+      <test>
+         <stylesheet file="xmark-tests/q14.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1543 and
+            /out/*[1] = 'condemn '
+         </assert>
+      </result>
+   </test-case>
 
    
 </catalog>
