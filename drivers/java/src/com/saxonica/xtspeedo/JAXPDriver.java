@@ -32,6 +32,7 @@ public abstract class JAXPDriver implements IDriver {
     protected Templates stylesheet;
     private Document resultDocument;
     protected File resultFile;
+    private String driverName;
 
     public JAXPDriver(){
         try {
@@ -191,5 +192,25 @@ public abstract class JAXPDriver implements IDriver {
 
     public double getXsltVersion() {
         return 1.0;
+    }
+
+    /**
+     * Set a short name for the driver to be used in reports
+     *
+     * @param name name to be used for driver
+     */
+    @Override
+    public void setName(String name) {
+        this.driverName = name;
+    }
+
+    /**
+     * Get the short name for the driver to be used in reports
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return driverName;
     }
 }

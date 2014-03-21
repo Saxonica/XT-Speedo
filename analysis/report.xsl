@@ -2,14 +2,15 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://www.saxonica.com/ns/xtspeedo/functions" exclude-result-prefixes="xs local">
+    <xsl:include href="driver-module.xsl"/>
 
     <xsl:variable name="input-docs" as="document-node(element(testResults))*"
         select="collection('../results?*.xml')"/>
 
-    <xsl:variable name="baseline">
+    <xsl:variable name="computed-baseline">
         <testResults>
             <xsl:attribute name="driver" select="'BaselineDriver'"/>
-           <!-- <xsl:attribute name="on" select="$input-docs[1]/testResults/@on"/> -->
+            <!-- <xsl:attribute name="on" select="$input-docs[1]/testResults/@on"/> -->
 
             <xsl:for-each select="$input-docs[1]/testResults/test">
                 <test>
@@ -33,66 +34,94 @@
             </xsl:for-each>
         </testResults>
     </xsl:variable>
-
-
+    
+    <xsl:variable name="input-baseline" select="$input-docs[testResults/@baseline='yes'][1]"/>       
+        
+    <xsl:variable name="baseline" select="if (exists($input-baseline)) then $input-baseline else $computed-baseline"/>
+         
     <xsl:template name="main">
         <html>
-<!--            <xsl:copy-of select="$baseline"/>-->
+            <!--            <xsl:copy-of select="$baseline"/>-->
             <head>
+                <link rel="stylesheet" type="text/css" href="reportstyle.css"/>
                 <title>XT-Speedo results</title>
             </head>
             <body>
                 <xsl:call-template name="body"/>
             </body>
         </html>
-    </xsl:template>
-    <xsl:template name="body">
         <xsl:for-each select="$input-docs">
-            <h1>
-                <xsl:value-of select="'Results for', testResults/@driver, 'at', testResults/@on"/>
-            </h1>
-            <xsl:variable name="tests" select="testResults/test[@run='success']"/>
-            <h2>
-                <xsl:value-of
-                    select="'Transformation time relative to', $baseline/testResults/@driver"/>
-            </h2>
-            <xsl:variable name="times" as="xs:double*"
-                select="testResults/test[@run='success']/@transformTime"/>
-            <xsl:variable name="baseline-times" as="xs:double*"
-                select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@transformTime"/>
-            <xsl:copy-of select="local:summary($times, $baseline-times)"/>
-            <h2>
-                <xsl:value-of
-                    select="'Document build time relative to', $baseline/testResults/@driver"/>
-            </h2>
-            <xsl:variable name="times" as="xs:double*"
-                select="testResults/test[@run='success']/@buildTime"/>
-            <xsl:variable name="baseline-times" as="xs:double*"
-                select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@buildTime"/>
-            <xsl:copy-of select="local:summary($times, $baseline-times)"/>
-            <h2>
-                <xsl:value-of select="'Compile time relative to', $baseline/testResults/@driver"/>
-            </h2>
-            <xsl:variable name="times" as="xs:double*"
-                select="testResults/test[@run='success']/@compileTime"/>
-            <xsl:variable name="baseline-times" as="xs:double*"
-                select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@compileTime"/>
-            <xsl:copy-of select="local:summary($times, $baseline-times)"/>
+            <xsl:result-document href="{testResults/@driver}.html">
+                <xsl:call-template name="driver-page">
+                    <xsl:with-param name="baseline" select="$baseline"/>
+                    <xsl:with-param name="input-doc" select="."/>
+                </xsl:call-template>
+            </xsl:result-document>
         </xsl:for-each>
     </xsl:template>
-    <xsl:function name="local:summary">
+    
+    <xsl:template name="body">
+        <h1>
+            <xsl:value-of select="'Overview of results at', 
+                format-dateTime($input-docs[1]/testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"/>
+        </h1>
+        <table>
+            <thead>
+                <th/>
+                <th colspan="3"> Times relative to average times across all drivers <br/> (smaller values represent faster times) 
+                </th>
+            </thead>
+            <thead>
+                <th>Driver</th>
+                <th width="180px">Transform</th>
+                <th width="180px">Build</th>
+                <th width="180px">Compile</th>
+            </thead>
+            <xsl:for-each select="$input-docs">
+                <tr>
+                    <td>
+                        <a href="{testResults/@driver}.html">
+                            <xsl:value-of select="testResults/@driver"/>
+                        </a>
+                    </td>
+                    <xsl:variable name="tests" select="testResults/test[@run='success']"/>
+                    <td>
+                        <xsl:variable name="times" as="xs:double*"
+                            select="testResults/test[@run='success']/@transformTime"/>
+                        <xsl:variable name="baseline-times" as="xs:double*"
+                            select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@transformTime"/>
+                        <xsl:copy-of select="local:summary2($times, $baseline-times)"/>
+                    </td>
+                    <td>
+                        <xsl:variable name="times" as="xs:double*"
+                            select="testResults/test[@run='success']/@buildTime"/>
+                        <xsl:variable name="baseline-times" as="xs:double*"
+                            select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@buildTime"/>
+                        <xsl:copy-of select="local:summary2($times, $baseline-times)"/>
+                    </td>
+                    <td>
+                        <xsl:variable name="times" as="xs:double*"
+                            select="testResults/test[@run='success']/@compileTime"/>
+                        <xsl:variable name="baseline-times" as="xs:double*"
+                            select="for $t in $tests return $baseline/testResults/test[@name = $t/@name]/@compileTime"/>
+                        <xsl:copy-of select="local:summary2($times, $baseline-times)"/>
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
+
+
+    <xsl:function name="local:summary2">
         <xsl:param name="times" as="xs:double*"/>
         <xsl:param name="baseline-times" as="xs:double*"/>
-        <p>
-            <xsl:value-of select="'Average', format-number(avg(sum($times) div sum($baseline-times)), '#.###')"/>
-        </p>
-        <xsl:variable name="ratios" as="xs:double*"
-            select="for $i in 1 to count($times) return $times[$i] div $baseline-times[$i]"/>
-        <p>
-            <xsl:value-of select="'Minimum', format-number(min($ratios), '#.###')"/>
-        </p>
-        <p>
-            <xsl:value-of select="'Maximum', format-number(max($ratios), '#.###')"/>
+        <xsl:value-of select="format-number(avg(sum($times) div sum($baseline-times)), '0.0##')"/>
+        <p class="minmax">
+            <xsl:variable name="ratios" as="xs:double*"
+                select="for $i in 1 to count($times) return $times[$i] div $baseline-times[$i]"/>
+            <xsl:value-of select="'min =', format-number(min($ratios), '0.0##')"/>
+            <xsl:value-of select="', max =', format-number(max($ratios), '0.0##')"/>
         </p>
     </xsl:function>
+
 </xsl:stylesheet>

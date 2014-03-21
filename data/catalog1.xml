@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog name="as">
+<catalog>
      
    <test-case name="musicxml-tests-001">
       <description>
@@ -1064,7 +1064,7 @@
    <test-case name="xmark-q14-1">
       <description>
          Return the names of all items whose description contains the 
-         word `gold
+         word 'gold'.
       </description>
       <created by="Debbie Lockett" on="2014-03-20"/>
       <test>
@@ -1082,7 +1082,7 @@
    <test-case name="xmark-q14-4">
       <description>
          Return the names of all items whose description contains the 
-         word `gold
+         word 'gold'.
       </description>
       <created by="Debbie Lockett" on="2014-03-20"/>
       <test>
@@ -1093,6 +1093,218 @@
          <assert>
             count(//*) = 1543 and
             /out/*[1] = 'condemn '
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q15-1">
+      <description>
+         Print the keywords in emphasis in annotations of closed auctions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q15.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 15 and
+            contains(/out/*[1]/keyword, 'fought')
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q15-4">
+      <description>
+         Print the keywords in emphasis in annotations of closed auctions.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q15.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 13 and
+            contains(/out/*[1]/keyword, 'undone')
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q16-1">
+      <description>
+         Return the IDs of those auctions
+         that have one or more keywords in emphasis.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q16.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 7 and
+            /out/*[1]/@id = 'person97'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q16-4">
+      <description>
+         Return the IDs of those auctions
+         that have one or more keywords in emphasis.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q16.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 6 and
+            /out/*[1]/@id = 'person553'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q17-1">
+      <description>
+         Which persons don't have a homepage?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q17.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 139 and
+            /out/*[1]/@name = 'Klemens Pelz'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q17-4">
+      <description>
+         Which persons don't have a homepage?
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q17.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 526 and
+            /out/*[1]/@name = 'Ceriel McKeague'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q18-1">
+      <description>
+         Convert the currency of the reserve of all open auctions to 
+         another currency.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q18.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 65 and
+            /out/*[1] = '862.9067247'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q18-4">
+      <description>
+         Convert the currency of the reserve of all open auctions to 
+         another currency.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q18.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 237 and
+            /out/*[1] = '706.8399825'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q19-1">
+      <description>
+         Give an alphabetically ordered list of all
+         items along with their location.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q19.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 435 and
+            /out/item[1]/location = 'United States'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q19-4">
+      <description>
+         Give an alphabetically ordered list of all
+         items along with their location.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q19.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 1741 and
+            /out/item[1]/location = 'Colombia'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q20-1">
+      <description>
+         Group customers by their
+         income and output the cardinality of each group.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q20.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 5 and
+            /result/*[1] = '2'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xmark-q20-4">
+      <description>
+         Group customers by their
+         income and output the cardinality of each group.
+      </description>
+      <created by="Debbie Lockett" on="2014-03-21"/>
+      <test>
+         <stylesheet file="xmark-tests/q20.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>
+            count(//*) = 5 and
+            /result/*[1] = '15'
          </assert>
       </result>
    </test-case>

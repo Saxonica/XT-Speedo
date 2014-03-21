@@ -28,9 +28,10 @@ public class Speedo {
     public static final long MAX_TOTAL_TIME = 20L*1000L*1000L*1000L;
     private XMLOutputFactory xmlOutputFactory;
 
-    List<IDriver> drivers = new ArrayList<IDriver>();
+    private List<IDriver> drivers = new ArrayList<IDriver>();
+    private IDriver baseline = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         HashMap<String, String> map = new HashMap<String, String>(16);
         for (String pair : args) {
             int colon = pair.indexOf(':');
@@ -42,21 +43,21 @@ public class Speedo {
         if (catalog == null) {
             catalog = "catalog.xml";
         }
+        String driverfile = map.get("-dr");
+        if (driverfile == null) {
+            driverfile = "drivers.xml";
+        }
         String testPattern = map.get("-t");
         if (testPattern == null) {
             testPattern = ".*";
         }
-        new Speedo().run(new File(catalog), new File(map.get("-out")), testPattern);
+        new Speedo().run(new File(catalog), new File(driverfile), new File(map.get("-out")), testPattern);
     }
 
-    public void run(File catalogFile, File outputDirectory, String testPattern) {
-        drivers.add(new Saxon6Driver());
-        drivers.add(new SaxonHEDriver());
-        drivers.add(new XalanDriver());
-        drivers.add(new XSLTCDriver());
-        drivers.add(new XTDriver());
+    public void run(File catalogFile, File driverFile, File outputDirectory, String testPattern) throws Exception {
 
         SAXBuilder builder = new SAXBuilder();
+        buildDriverList(driverFile, builder);
         Document doc = null;
 
         Pattern testPat = Pattern.compile(testPattern);
@@ -76,18 +77,19 @@ public class Speedo {
             try {
                 xmlOutputFactory = XMLOutputFactory.newFactory();
                 File outputDir = new File(outputDirectory, "output");
-                File driverOutputDir = new File(outputDir, driver.getClass().getSimpleName());
+                File driverOutputDir = new File(outputDir, driver.getName());
                 driverOutputDir.mkdir();
-                File outputFile = new File(outputDirectory, driver.getClass().getSimpleName() + ".xml");
+                File outputFile = new File(outputDirectory, driver.getName() + ".xml");
                 XMLStreamWriter xmlStreamWriter = xmlOutputFactory.createXMLStreamWriter(new FileOutputStream(outputFile));
                 xmlStreamWriter.writeStartDocument();
                 xmlStreamWriter.writeStartElement("testResults");
-                xmlStreamWriter.writeAttribute("driver", driver.getClass().getSimpleName());
+                xmlStreamWriter.writeAttribute("driver", driver.getName());
                 GregorianCalendar todaysDate = new GregorianCalendar();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                 System.err.println("Date " + dateFormat.format(todaysDate.getTime()));
                 xmlStreamWriter.writeAttribute("on", "" + dateFormat.format(todaysDate.getTime()));
-                System.err.println("Driver implemented: " + driver.getClass().getSimpleName());
+                xmlStreamWriter.writeAttribute("baseline", (driver==baseline? "yes" :"no"));
+                System.err.println("Driver implemented: " + driver.getName());
                 for (Element testCase : catalogElement.getChildren("test-case")) {
                     String name = testCase.getAttributeValue("name");
                     if (!testPat.matcher(name).matches()) {
@@ -136,7 +138,7 @@ public class Speedo {
                                     String xpath = assertion.getText();
                                     ok &= driver.testAssertion(xpath);
                                 }
-                                System.err.println("Test run succeeded with " + driver.getClass().getSimpleName());
+                                System.err.println("Test run succeeded with " + driver.getName());
                                 xmlStreamWriter.writeEmptyElement("test");
                                 xmlStreamWriter.writeAttribute("name", name);
                                 xmlStreamWriter.writeAttribute("run", (ok ? "success" : "wrongAnswer"));
@@ -162,5 +164,42 @@ public class Speedo {
             }
         }
 
+    }
+    private void buildDriverList(File driverFile, SAXBuilder builder) throws Exception{
+        Document doc;
+        try {
+            doc = builder.build(driverFile);
+        } catch (JDOMException e) {
+            e.printStackTrace();
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        Element driversElement = doc.getRootElement();
+        for (Element testCase : driversElement.getChildren("driver")) {
+            IDriver driver;
+            String className = testCase.getAttributeValue("class");
+            try {
+                Class theClass = Class.forName(className);
+                driver = (IDriver)theClass.newInstance();
+                drivers.add(driver);
+            } catch (ClassNotFoundException e) {
+                System.err.println("Failed to load" + className);
+                throw e;
+            } catch (InstantiationException e) {
+                System.err.println("Failed to load" + className);
+                throw e;
+            } catch (IllegalAccessException e) {
+                System.err.println("Failed to load" + className);
+                throw e;
+            }
+            driver.setName(testCase.getAttributeValue("name"));
+            String baselineAttribute = testCase.getAttributeValue("baseline");
+            if ("yes".equals(baselineAttribute)){
+                baseline = driver;
+            }
+        }
     }
 }

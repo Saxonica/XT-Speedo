@@ -1,21 +1,84 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" type="text/css" href="reportstyle.css">
       <title>XT-Speedo results</title>
    </head>
    <body>
-      <h1>Results for XalanDriver at 2014-03-11T10:13:02</h1>
-      <h2>Transformation time relative to SaxonHEDriver</h2>
-      <p>Average 3.76</p>
-      <p>Minimum 2.382</p>
-      <p>Maximum 4.76</p>
-      <h2>Document build time relative to SaxonHEDriver</h2>
-      <p>Average .827</p>
-      <p>Minimum .245</p>
-      <p>Maximum 2.13</p>
-      <h2>Compile time relative to SaxonHEDriver</h2>
-      <p>Average 2.491</p>
-      <p>Minimum 1.515</p>
-      <p>Maximum 5.322</p>
+      <h1>Overview of results at 16:01:10 on 21 March 2014</h1>
+      <table>
+         <thead>
+            <th></th>
+            <th colspan="3"> Times relative to average times across all drivers <br> (smaller values represent faster times) 
+               
+            </th>
+         </thead>
+         <thead>
+            <th>Driver</th>
+            <th width="180px">Transform</th>
+            <th width="180px">Build</th>
+            <th width="180px">Compile</th>
+         </thead>
+         <tr>
+            <td><a href="Saxon6.html">Saxon6</a></td>
+            <td>1.097
+               <p class="minmax">min = 0.044, max = 18.525</p>
+            </td>
+            <td>0.729
+               <p class="minmax">min = 0.038, max = 9.08</p>
+            </td>
+            <td>0.521
+               <p class="minmax">min = 0.081, max = 1.874</p>
+            </td>
+         </tr>
+         <tr>
+            <td><a href="SaxonHE-9.5.html">SaxonHE-9.5</a></td>
+            <td>1.0
+               <p class="minmax">min = 1.0, max = 1.0</p>
+            </td>
+            <td>1.0
+               <p class="minmax">min = 1.0, max = 1.0</p>
+            </td>
+            <td>1.0
+               <p class="minmax">min = 1.0, max = 1.0</p>
+            </td>
+         </tr>
+         <tr>
+            <td><a href="Xalan.html">Xalan</a></td>
+            <td>2.322
+               <p class="minmax">min = 0.09, max = 84.025</p>
+            </td>
+            <td>0.711
+               <p class="minmax">min = 0.035, max = 9.894</p>
+            </td>
+            <td>0.743
+               <p class="minmax">min = 0.102, max = 4.293</p>
+            </td>
+         </tr>
+         <tr>
+            <td><a href="XSLTC.html">XSLTC</a></td>
+            <td>0.954
+               <p class="minmax">min = 0.032, max = 19.297</p>
+            </td>
+            <td>0.71
+               <p class="minmax">min = 0.039, max = 10.807</p>
+            </td>
+            <td>1.624
+               <p class="minmax">min = 0.207, max = 11.296</p>
+            </td>
+         </tr>
+         <tr>
+            <td><a href="XT.html">XT</a></td>
+            <td>1.373
+               <p class="minmax">min = 0.039, max = 41.221</p>
+            </td>
+            <td>0.717
+               <p class="minmax">min = 0.039, max = 9.403</p>
+            </td>
+            <td>0.472
+               <p class="minmax">min = 0.076, max = 1.856</p>
+            </td>
+         </tr>
+      </table>
    </body>
 </html>

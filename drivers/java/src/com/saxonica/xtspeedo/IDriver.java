@@ -59,4 +59,18 @@ public interface IDriver {
      */
 
     public double getXsltVersion();
+
+    /**
+     * Set a short name for the driver to be used in reports
+     * @param name name to be used for driver
+     */
+
+    public void setName(String name);
+
+    /**
+     * Get the short name for the driver to be used in reports
+     * @return the name
+     */
+
+    public String getName();
 }

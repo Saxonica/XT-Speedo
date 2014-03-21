@@ -30,6 +30,7 @@ public class SaxonHEDriver implements IDriver {
     private XsltExecutable stylesheet;
     private XdmNode resultDocument;
     private File resultFile;
+    private String driverName;
 
     /**
      * Parse a source file and build a tree representation of the XML
@@ -192,5 +193,24 @@ public class SaxonHEDriver implements IDriver {
     @Override
     public double getXsltVersion() {
         return 2.0;
+    }
+    /**
+     * Set a short name for the driver to be used in reports
+     *
+     * @param name name to be used for driver
+     */
+    @Override
+    public void setName(String name) {
+        this.driverName = name;
+    }
+
+    /**
+     * Get the short name for the driver to be used in reports
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return driverName;
     }
 }

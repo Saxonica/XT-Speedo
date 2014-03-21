@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog2 name="as">
-
+<catalog2>
 
    <test-case name="docbook-tests-001" xslt-version="2.0">
       <description>
