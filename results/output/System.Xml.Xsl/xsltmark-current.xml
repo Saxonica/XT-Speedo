@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><out>
+
+   <first><item>foo</item></first><second><item>baz</item></second><third><item>baz</item></third>
+   <first><item>bar</item></first><second><item>baz</item></second><third><item>baz</item></third>
+
+
+
+    <item>foo</item>
+    <item>bar</item>
+    <item>baz</item>
+
+
+</out>

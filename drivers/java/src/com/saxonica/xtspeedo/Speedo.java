@@ -180,25 +180,28 @@ public class Speedo {
         Element driversElement = doc.getRootElement();
         for (Element testCase : driversElement.getChildren("driver")) {
             IDriver driver;
-            String className = testCase.getAttributeValue("class");
-            try {
-                Class theClass = Class.forName(className);
-                driver = (IDriver)theClass.newInstance();
-                drivers.add(driver);
-            } catch (ClassNotFoundException e) {
-                System.err.println("Failed to load" + className);
-                throw e;
-            } catch (InstantiationException e) {
-                System.err.println("Failed to load" + className);
-                throw e;
-            } catch (IllegalAccessException e) {
-                System.err.println("Failed to load" + className);
-                throw e;
-            }
-            driver.setName(testCase.getAttributeValue("name"));
-            String baselineAttribute = testCase.getAttributeValue("baseline");
-            if ("yes".equals(baselineAttribute)){
-                baseline = driver;
+            String languageAttribute = testCase.getAttributeValue("language");
+            if ("java".equals(languageAttribute)) {
+                String className = testCase.getAttributeValue("class");
+                try {
+                    Class theClass = Class.forName(className);
+                    driver = (IDriver)theClass.newInstance();
+                    drivers.add(driver);
+                } catch (ClassNotFoundException e) {
+                    System.err.println("Failed to load" + className);
+                    throw e;
+                } catch (InstantiationException e) {
+                    System.err.println("Failed to load" + className);
+                    throw e;
+                } catch (IllegalAccessException e) {
+                    System.err.println("Failed to load" + className);
+                    throw e;
+                }
+                driver.setName(testCase.getAttributeValue("name"));
+                String baselineAttribute = testCase.getAttributeValue("baseline");
+                if ("yes".equals(baselineAttribute)){
+                    baseline = driver;
+                }
             }
         }
     }

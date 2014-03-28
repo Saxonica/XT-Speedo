@@ -17,13 +17,21 @@
                         format-dateTime(testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"/>
                 </h1>
                 <p>
-                    <a href="report2.html">Back to overview</a>
+                    <a href="report.html">Back to overview</a>
                 </p>    
                 <table>
                     <thead>
-                        <th/>
-                        <th colspan="3"> Times relative to average times across all drivers <br/> (smaller values represent faster times)
-                        </th>
+                        <th/>                
+                        <xsl:choose>
+                            <xsl:when test="$baseline/testResults/@driver='BaselineDriver'">
+                                <th colspan="3"> Times relative to average times across all drivers <br/> (smaller values represent faster times) 
+                                </th>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <th colspan="3"> Times relative to <xsl:value-of select="$baseline/testResults/@driver"/> driver <br/> (smaller values represent faster times) 
+                                </th>
+                            </xsl:otherwise>
+                        </xsl:choose>     
                     </thead>
                     <thead>
                         <th>Test</th>

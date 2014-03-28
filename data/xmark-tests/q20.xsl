@@ -25,7 +25,7 @@
         </result>
     -->
     
-    <xsl:output encoding="utf-8"/>
+    <xsl:output encoding="utf-8" method="xml" indent="yes"/>
        
     <xsl:template match="site">        
         <result>
