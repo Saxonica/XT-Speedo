@@ -1476,6 +1476,137 @@
          </assert>
       </result>
    </test-case>
+   
+   <test-case name="map-wordmap1-1" xslt-version="3.0">
+      <description>
+         Count size of map from distinct words to set of elements containing them.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap1.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '15927'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap1-4" xslt-version="3.0">
+      <description>
+         Count size of map from distinct words to set of elements containing them.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap1.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '24829'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap2-1" xslt-version="3.0">
+      <description>
+         Change values, and add pairs, to word frequency map (compare to list of 1226 words).
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap2.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result/@difference = '591'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap2-4" xslt-version="3.0">
+      <description>
+         Change values, and add pairs, to word frequency map (compare to list of 1226 words).
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap2.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result/@difference = '548'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap3-1" xslt-version="3.0">
+      <description>
+         Change values, and add pairs, to word frequency map (compare to list of 10000+ words).
+      </description>
+      <created by="Debbie Lockett" on="2014-04-02"/>
+      <test>
+         <stylesheet file="map-tests/wordmap3.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result/@difference = '9939'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap3-4" xslt-version="3.0">
+      <description>
+         Change values, and add pairs, to word frequency map (compare to list of 10000+ words).
+      </description>
+      <created by="Debbie Lockett" on="2014-04-02"/>
+      <test>
+         <stylesheet file="map-tests/wordmap3.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result/@difference = '9849'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-numbermap1" xslt-version="3.0">
+      <description>
+         Create an integer map (independent of source file) related to Fibonacci sequence 
+         (recursive), and change all values in the map.
+         Map has 10000 pairs, only first 100 are printed in output.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-02"/>
+      <test>
+         <stylesheet file="map-tests/numbermap1.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //numbermap[@key = '100']/@value = '6'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-numbermap3" xslt-version="3.0">
+      <description>
+         Create an integer map (independent of source file) from a quadratic, and change all values in the map.
+         Map has 10000 pairs, only first 100 are printed in output.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-02"/>
+      <test>
+         <stylesheet file="map-tests/numbermap3.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
 
    
 </catalog>
