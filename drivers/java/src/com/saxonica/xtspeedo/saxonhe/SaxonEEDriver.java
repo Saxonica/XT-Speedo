@@ -3,6 +3,7 @@ package com.saxonica.xtspeedo.saxonhe;
 import com.saxonica.xtspeedo.IDriver;
 import com.saxonica.xtspeedo.TransformationException;
 import net.sf.saxon.Configuration;
+import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.om.DocumentInfo;
 import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.*;
@@ -21,9 +22,9 @@ import java.io.FileNotFoundException;
 import java.net.URI;
 
 /**
- *XT-Speedo driver for Saxon-HE XSLT Processor
+ *XT-Speedo driver for Saxon-EE XSLT Processor
  */
-public class SaxonEEDriver implements IDriver {
+public class SaxonEEDriver extends IDriver {
 
     private Processor processor = new Processor(true);
     private XdmNode sourceDocument;
@@ -39,11 +40,17 @@ public class SaxonEEDriver implements IDriver {
      */
     @Override
     public void buildSource(URI sourceURI) throws TransformationException {
+        String mapImpl = getOption("mapimpl");
+        if (mapImpl != null) {
+            // TODO: Don't overload the wrong Configuration Feature!
+            processor.setConfigurationProperty(FeatureKeys.ALLOW_OLD_JAVA_URI_FORMAT, "delta".equals(mapImpl));
+        }
         try {
             sourceDocument = processor.newDocumentBuilder().build(new StreamSource(sourceURI.toString()));
         } catch (SaxonApiException e) {
             throw new TransformationException(e);
         }
+        processor.setConfigurationProperty(FeatureKeys.GENERATE_BYTE_CODE, false);
     }
 
     /**
@@ -129,17 +136,14 @@ public class SaxonEEDriver implements IDriver {
                     Configuration config = processor.getUnderlyingConfiguration();
                     HtmlParser parser = new nu.validator.htmlparser.sax.HtmlParser();
                     parser.setErrorHandler(new ErrorHandler() {
-                        @Override
                         public void warning(SAXParseException exception) throws SAXException {
                             System.err.println("Warning: " + exception.getMessage());
                         }
 
-                        @Override
                         public void error(SAXParseException exception) throws SAXException {
                             System.err.println("Error (ignored): " + exception.getMessage());
                         }
 
-                        @Override
                         public void fatalError(SAXParseException exception) throws SAXException {
                             throw exception;
                         }

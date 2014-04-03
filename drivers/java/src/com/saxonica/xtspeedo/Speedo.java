@@ -1,6 +1,5 @@
 package com.saxonica.xtspeedo;
 
-import com.saxonica.xtspeedo.saxonhe.SaxonHEDriver;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -15,7 +14,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 
 
@@ -157,6 +159,7 @@ public class Speedo {
                 }
                 xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeEndDocument();
+                xmlStreamWriter.close();
             } catch (XMLStreamException e) {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
@@ -178,11 +181,11 @@ public class Speedo {
         }
 
         Element driversElement = doc.getRootElement();
-        for (Element testCase : driversElement.getChildren("driver")) {
+        for (Element driverElement : driversElement.getChildren("driver")) {
             IDriver driver;
-            String languageAttribute = testCase.getAttributeValue("language");
+            String languageAttribute = driverElement.getAttributeValue("language");
             if ("java".equals(languageAttribute)) {
-                String className = testCase.getAttributeValue("class");
+                String className = driverElement.getAttributeValue("class");
                 try {
                     Class theClass = Class.forName(className);
                     driver = (IDriver)theClass.newInstance();
@@ -197,10 +200,15 @@ public class Speedo {
                     System.err.println("Failed to load" + className);
                     throw e;
                 }
-                driver.setName(testCase.getAttributeValue("name"));
-                String baselineAttribute = testCase.getAttributeValue("baseline");
+                driver.setName(driverElement.getAttributeValue("name"));
+                String baselineAttribute = driverElement.getAttributeValue("baseline");
                 if ("yes".equals(baselineAttribute)){
                     baseline = driver;
+                }
+                for (Element optionElement : driverElement.getChildren("option")) {
+                    String optName = optionElement.getAttributeValue("name");
+                    String optValue = optionElement.getAttributeValue("value");
+                    driver.setOption(optName, optValue);
                 }
             }
         }

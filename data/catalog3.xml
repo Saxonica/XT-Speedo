@@ -97,6 +97,38 @@
       </result>
    </test-case>
    
+   <test-case name="map-wordmap4-1" xslt-version="3.0">
+      <description>
+         Retrieval from map of distinct words.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap4.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '15927'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap4-4" xslt-version="3.0">
+      <description>
+         Retrieval from map of distinct words.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-01"/>
+      <test>
+         <stylesheet file="map-tests/wordmap4.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '24829'
+         </assert>
+      </result>
+   </test-case>
+   
    <test-case name="map-numbermap1" xslt-version="3.0">
       <description>
          Create an integer map (independent of source file) related to Fibonacci sequence 

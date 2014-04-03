@@ -23,7 +23,7 @@ import java.net.URI;
 /**
  *XT-Speedo driver for Saxon-HE XSLT Processor
  */
-public class SaxonHEDriver implements IDriver {
+public class SaxonHEDriver extends IDriver {
 
     private Processor processor = new Processor(false);
     private XdmNode sourceDocument;
@@ -129,17 +129,14 @@ public class SaxonHEDriver implements IDriver {
                     Configuration config = processor.getUnderlyingConfiguration();
                     HtmlParser parser = new nu.validator.htmlparser.sax.HtmlParser();
                     parser.setErrorHandler(new ErrorHandler() {
-                        @Override
                         public void warning(SAXParseException exception) throws SAXException {
                             System.err.println("Warning: " + exception.getMessage());
                         }
 
-                        @Override
                         public void error(SAXParseException exception) throws SAXException {
                             System.err.println("Error (ignored): " + exception.getMessage());
                         }
 
-                        @Override
                         public void fatalError(SAXParseException exception) throws SAXException {
                             throw exception;
                         }

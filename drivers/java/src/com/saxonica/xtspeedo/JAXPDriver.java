@@ -1,7 +1,12 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2013 Saxonica Limited.
+// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+// If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+// This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 package com.saxonica.xtspeedo;
 
-import com.saxonica.xtspeedo.IDriver;
-import com.saxonica.xtspeedo.TransformationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -23,7 +28,7 @@ import java.net.URI;
 /**
  * XT-Speedo driver for Xalan Processor
  */
-public abstract class JAXPDriver implements IDriver {
+public abstract class JAXPDriver extends IDriver {
 
     private TransformerFactory transformerFactory;
     private DocumentBuilder documentBuilder;
@@ -32,7 +37,6 @@ public abstract class JAXPDriver implements IDriver {
     protected Templates stylesheet;
     private Document resultDocument;
     protected File resultFile;
-    private String driverName;
 
     public JAXPDriver(){
         try {
@@ -96,18 +100,15 @@ public abstract class JAXPDriver implements IDriver {
             Transformer transformer = stylesheet.newTransformer();
             transformer.setErrorListener(new ErrorListener() {
 
-                @Override
                 public void warning(TransformerException exception) throws TransformerException {
                     exception.printStackTrace();
                 }
 
-                @Override
                 public void error(TransformerException exception) throws TransformerException {
                     exception.printStackTrace();
                     throw exception;
                 }
 
-                @Override
                 public void fatalError(TransformerException exception) throws TransformerException {
                     exception.printStackTrace();
                     throw exception;
@@ -194,23 +195,5 @@ public abstract class JAXPDriver implements IDriver {
         return 1.0;
     }
 
-    /**
-     * Set a short name for the driver to be used in reports
-     *
-     * @param name name to be used for driver
-     */
-    @Override
-    public void setName(String name) {
-        this.driverName = name;
-    }
 
-    /**
-     * Get the short name for the driver to be used in reports
-     *
-     * @return the name
-     */
-    @Override
-    public String getName() {
-        return driverName;
-    }
 }
