@@ -32,9 +32,9 @@
                         </xsl:next-iteration>
                     </xsl:when>
                     <xsl:otherwise>
-                        <!--<xsl:next-iteration>
+                        <xsl:next-iteration>
                             <xsl:with-param name="words2" select="map:new(($words2, map{. := 1}))"/>
-                        </xsl:next-iteration>-->
+                        </xsl:next-iteration>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:on-completion>

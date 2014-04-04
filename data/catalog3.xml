@@ -101,7 +101,7 @@
       <description>
          Retrieval from map of distinct words.
       </description>
-      <created by="Debbie Lockett" on="2014-04-01"/>
+      <created by="Debbie Lockett" on="2014-04-03"/>
       <test>
          <stylesheet file="map-tests/wordmap4.xsl"/>
          <source file="xmark-tests/xmark1.xml"/>
@@ -117,7 +117,7 @@
       <description>
          Retrieval from map of distinct words.
       </description>
-      <created by="Debbie Lockett" on="2014-04-01"/>
+      <created by="Debbie Lockett" on="2014-04-03"/>
       <test>
          <stylesheet file="map-tests/wordmap4.xsl"/>
          <source file="xmark-tests/xmark4.xml"/>
@@ -129,6 +129,71 @@
       </result>
    </test-case>
    
+   <test-case name="map-wordmap5-0" xslt-version="3.0">
+      <description>
+         Removal from map of distinct words.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap5.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>
+   
+   <!--<test-case name="map-wordmap5-1" xslt-version="3.0">
+      <description>
+         Removal from map of distinct words. THIS TEST TAKES A VERY LONG TIME!!
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap5.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>-->
+   
+   <test-case name="map-wordmap8" xslt-version="3.0">
+      <description>
+         Map built by iterative process. 
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap8.xsl"/>
+         <source file="docbook-tests/prague2011mhk"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>
+      
+   <test-case name="map-wordmap8a" xslt-version="3.0">
+      <description>
+         Map built by iterative process, at each step give size of current domain. 
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap8a.xsl"/>
+         <source file="docbook-tests/prague2011mhk"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>
+   
+     
    <test-case name="map-numbermap1" xslt-version="3.0">
       <description>
          Create an integer map (independent of source file) related to Fibonacci sequence 
@@ -155,6 +220,38 @@
       <created by="Debbie Lockett" on="2014-04-02"/>
       <test>
          <stylesheet file="map-tests/numbermap3.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-numbermap4" xslt-version="3.0">
+      <description>
+         Map built by iterative process.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/numbermap4.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-numbermap4a" xslt-version="3.0">
+      <description>
+         Map built by iterative process, at each step give size of current domain.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/numbermap4a.xsl"/>
          <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
