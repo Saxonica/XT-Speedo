@@ -26,6 +26,11 @@ namespace Speedo
             processor.SetProperty("http://saxon.sf.net/feature/" + name, value);
         }
 
+        public override String GetOption(String name)
+        {
+            return processor.GetProperty(name);
+        }
+
         public override void BuildSource(Uri sourceUri)
         {
             

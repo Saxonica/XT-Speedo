@@ -45,6 +45,16 @@ public class SaxonEEDriver extends IDriver {
     }
 
     /**
+     * Get the value of an option that has been set
+     * @param name the name of the option
+     * @return the value of the option, or null if none has been set
+     */
+
+    public String getOption(String name) {
+        return processor.getConfigurationProperty(name).toString();
+    }
+
+    /**
      * Parse a source file and build a tree representation of the XML
      *
      * @param sourceURI the location of the XML input file

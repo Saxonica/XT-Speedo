@@ -21,11 +21,15 @@ namespace Speedo
             compiler = processor.NewXsltCompiler();
            // Console.WriteLine(processor.ProductTitle + " Version:"+ processor.ProductVersion);
         }
-
-
+        
         public override void SetOption(String name, String value)
         {
             processor.SetProperty("http://saxon.sf.net/feature/" + name, value);            
+        }
+
+        public override String GetOption(String name)
+        {
+            return processor.GetProperty(name);
         }
 
         public override void BuildSource(Uri sourceUri)

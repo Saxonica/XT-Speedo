@@ -292,7 +292,7 @@ namespace Speedo
          * @param value the value of the option
          */
 
-        public void SetOption(String name, String value)
+        public virtual void SetOption(String name, String value)
         {
             options.Add(name, value);
         }
@@ -303,7 +303,7 @@ namespace Speedo
          * @return the value of the option, or null if none has been set
          */
 
-        public String GetOption(String name)
+        public virtual String GetOption(String name)
         {
             return (String)options[name];
         }
