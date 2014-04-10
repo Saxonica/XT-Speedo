@@ -1,6 +1,0 @@
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\bin\Debug\Speedo-SaxonEE.exe.config
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\bin\Debug\Speedo-SaxonEE.exe
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\bin\Debug\Speedo-SaxonEE.pdb
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\obj\Debug\Speedo-SaxonEE.csprojResolveAssemblyReference.cache
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\obj\Debug\Speedo-SaxonEE.exe
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo-SaxonEE\Speedo-SaxonEE\obj\Debug\Speedo-SaxonEE.pdb
