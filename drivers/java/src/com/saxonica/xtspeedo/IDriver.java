@@ -3,10 +3,11 @@ package com.saxonica.xtspeedo;
 import java.io.File;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
- * XT-Speedo interface to be implemented by each driver
+ * XT-Speedo class to be implemented by each driver
  */
 
 public abstract class IDriver {
@@ -100,5 +101,9 @@ public abstract class IDriver {
 
     public String getOption(String name) {
         return options.get(name);
+    }
+
+    public Iterable<String> iterateOptions() {
+        return options.keySet();
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<testResults driver="SaxonEE-9.5" on="2014-04-04T15:56:41" baseline="no">
+    <test name="map-wordmap1-1" run="success" buildTime="35.74803245" compileTime="16.7059652"
+        transformTime="1955.3094605454546"/>
+    <test name="map-wordmap1-4" run="success" buildTime="63.14251775" compileTime="3.06582295"
+        transformTime="8264.441113666666"/>
+    <test name="map-wordmap2-1" run="wrongAnswer" buildTime="15.23839005" compileTime="10.7497131"
+        transformTime="1395.3484928"/>
+    <test name="map-wordmap2-4" run="wrongAnswer" buildTime="61.739189" compileTime="5.9513004"
+        transformTime="3473.112717833333"/>
+    <test name="map-wordmap3-1" run="success" buildTime="15.0934774" compileTime="8.09215"
+        transformTime="3465.6100796666665"/>
+    <test name="map-wordmap3-4" run="success" buildTime="59.66456075" compileTime="6.5715924"
+        transformTime="7066.910616333334"/>
+    <test name="map-wordmap4-1" run="wrongAnswer" buildTime="15.01537645" compileTime="7.089871"
+        transformTime="24290.363251"/>
+    <test name="map-wordmap4-4" run="wrongAnswer" buildTime="59.86486775" compileTime="2.6525086"
+        transformTime="309806.00731"/>
+    <test name="map-wordmap5-0" run="success" buildTime="1.16628055" compileTime="3.15859985"
+        transformTime="657.1336425"/>
+    <test name="map-wordmap8" run="wrongAnswer" buildTime="1.06775645" compileTime="2.60152745"
+        transformTime="3621.474743333333"/>
+    <test name="map-wordmap8a" run="wrongAnswer" buildTime="1.16681955" compileTime="2.5600138"
+        transformTime="3651.9170235"/>
+    <test name="map-numbermap1" run="success" buildTime="0.7117606" compileTime="6.38788575"
+        transformTime="5341.71054525"/>
+    <test name="map-numbermap3" run="success" buildTime="0.7000352" compileTime="5.33580595"
+        transformTime="5893.54443025"/>
+    <test name="map-numbermap4" run="wrongAnswer" buildTime="0.65585315" compileTime="2.37982235"
+        transformTime="240.7647637"/>
+    <test name="map-numbermap4a" run="wrongAnswer" buildTime="0.67848305" compileTime="2.8680046"
+        transformTime="3080.472239"/>
+</testResults>

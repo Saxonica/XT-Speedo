@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<testResults driver="SaxonEE-9.5" on="2014-04-04T16:12:28" baseline="no">
+    <test name="map-wordmap5-0" run="success" buildTime="7.75973335" compileTime="21.9895843"
+        transformTime="727.585966"/>
+    <test name="map-wordmap5-1" run="wrongAnswer" buildTime="32.75302395" compileTime="4.63936275"
+        transformTime="400348.458685"/>
+</testResults>

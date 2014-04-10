@@ -13,10 +13,7 @@ namespace Speedo
         private Processor processor;
         private XsltCompiler compiler;
         private XsltExecutable stylesheet;
-        private String driverName;
-        protected String resultFile;
-      
-
+        protected String resultFile;      
         
         public SaxonDriver()
         {
@@ -24,22 +21,22 @@ namespace Speedo
             compiler = processor.NewXsltCompiler();
         }
 
-        public void BuildSource(Uri sourceUri)
+        public override void BuildSource(Uri sourceUri)
         {
             
         }
 
-        public void CompileStylesheet(Uri stylesheetUri)
+        public override void CompileStylesheet(Uri stylesheetUri)
         {
             stylesheet = compiler.Compile(stylesheetUri);
         }
 
-        public void TreeToTreeTransform()
+        public override void TreeToTreeTransform()
         {
             
         }
 
-        public void FileToFileTransform(Uri sourceUri, string resultFileLocation)
+        public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
         {
             XsltTransformer transformer = stylesheet.Load();
             transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
@@ -49,7 +46,7 @@ namespace Speedo
             resultFile = resultFileLocation;
         }
 
-        public bool TestAssertion(string assertion)
+        public override bool TestAssertion(string assertion)
         {
             DocumentBuilder builder = processor.NewDocumentBuilder();
             XdmNode resultDoc = builder.Build(new Uri(resultFile));
@@ -60,24 +57,14 @@ namespace Speedo
             return selector.EffectiveBooleanValue();            
         }
 
-        public void DisplayResultDocument()
+        public override void DisplayResultDocument()
         {
             
         }
 
-        public double GetXsltVersion()
+        public override double GetXsltVersion()
         {
             return 2.0;
-        }
-
-        public void SetName(string name)
-        {
-            this.driverName = name;
-        }
-
-        public string GetName()
-        {
-            return this.driverName;
         }
     }
 }

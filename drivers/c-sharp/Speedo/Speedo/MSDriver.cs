@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
-using System.Xml.Linq;
 
 
 namespace Speedo
@@ -14,9 +13,7 @@ namespace Speedo
     class MSDriver : IDriver
     {
         private XslCompiledTransform xslCompiledTransform;
-        private String driverName;
         protected String resultFile;
-        private XmlDocument xmlDocument;
 
         public MSDriver()
         {
@@ -28,10 +25,9 @@ namespace Speedo
          * @param sourceUri the location of the XML input file
          */
 
-        public void BuildSource(Uri sourceUri) 
+        public override void BuildSource(Uri sourceUri) 
         {
-            //Console.WriteLine(sourceUri.ToString());
-            //xmlDocument.Load(sourceUri.ToString());        
+                   
         }
 
         /**
@@ -39,7 +35,7 @@ namespace Speedo
          * @param stylesheetUri the file containing the XSLT stylesheet
          */
 
-        public void CompileStylesheet(Uri stylesheetUri)
+        public override void CompileStylesheet(Uri stylesheetUri)
         {
             xslCompiledTransform.Load(stylesheetUri.ToString());
         }                      
@@ -49,13 +45,13 @@ namespace Speedo
          * supplied stylesheet
          */
 
-        public void TreeToTreeTransform() {}
+        public override void TreeToTreeTransform() { }
 
         /**
          * Run a transformation, from an input file to an output file
          */
 
-        public void FileToFileTransform(Uri sourceUri, String resultFileLocation)
+        public override void FileToFileTransform(Uri sourceUri, String resultFileLocation)
         {
             //String resultString = result.ToString().Replace("file:///", "");
             xslCompiledTransform.Transform(sourceUri.ToString(), resultFileLocation);
@@ -71,7 +67,7 @@ namespace Speedo
          * @return the result of testing the assertion
          */
 
-        public bool TestAssertion(String assertion)
+        public override bool TestAssertion(String assertion)
         {           
             XPathDocument resultDoc = new XPathDocument(resultFile);            
             XPathNavigator navigator = resultDoc.CreateNavigator();            
@@ -82,37 +78,17 @@ namespace Speedo
          * Show the result document
          */
 
-        public void DisplayResultDocument() {}
+        public override void DisplayResultDocument() { }
 
         /**
          * Gets version of XSLT processor supported
          * @return version of XSLT
          */
 
-        public double GetXsltVersion()
+        public override double GetXsltVersion()
         {
             return 1.0;
-        }
-
-        /**
-         * Set a short name for the driver to be used in reports
-         * @param name name to be used for driver
-         */
-
-        public void SetName(String name)
-        {
-            this.driverName = name;
-        }
-
-        /**
-         * Get the short name for the driver to be used in reports
-         * @return the name
-         */
-
-        public String GetName()
-        {
-            return this.driverName;
-        }
+        }               
 
     }
 }

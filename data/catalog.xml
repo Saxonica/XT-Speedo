@@ -340,7 +340,7 @@
    
    <test-case name="xsltmark-dbonerow">
       <description>
-         Produces HTML document for one row of database
+         Produces HTML document for one row of database.
       </description>
       <created by="Debbie Lockett" on="2014-03-11"/>
       <test>
@@ -518,7 +518,7 @@
    <test-case name="xsltmark-number">
       <description>
          Number formatting
-         <!-- Stylesheet updated DL 2014-03-11 -->
+         <!-- Stylesheet updated DL 2014-03-11 -->   XmlPrimeDriver can't run this.
       </description>
       <created by="Debbie Lockett" on="2014-03-11"/>
       <test>
@@ -1477,7 +1477,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap1-1" xslt-version="3.0">
+   <!--<test-case name="map-wordmap1-1" xslt-version="3.0">
       <description>
          Count size of map from distinct words to set of elements containing them.
       </description>
@@ -1607,6 +1607,156 @@
          </assert>
       </result>
    </test-case>
+   
+   <test-case name="map-datemap1" xslt-version="3.0">
+      <description>
+         Create a map (independent of source file) from dates in 2014 to the day of week of each date.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap1.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap2-1" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap2.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap2-4" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap2.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap3-1" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+         Remove all pairs from map.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap3.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap3-4" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+         Remove all pairs from map.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap3.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap4-1" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+         Edit pairs in year 2000.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap4.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap4-4" xslt-version="3.0">
+      <description>
+         Create a map from dates (from particular elements in doc) to corresponding item ids.
+         Edit pairs in year 2000.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap4.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap5-1" xslt-version="3.0">
+      <description>
+         Create a map from all dates found in doc (to date string).
+         Edit pairs pre year 2000.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap5.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-datemap5-4" xslt-version="3.0">
+      <description>
+         Create a map from all dates found in doc (to date string).
+         Edit pairs pre year 2000.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-07"/>
+      <test>
+         <stylesheet file="map-tests/datemap5.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //result[1]/@final = '12'
+         </assert>
+      </result>
+   </test-case>-->
 
    
 </catalog>

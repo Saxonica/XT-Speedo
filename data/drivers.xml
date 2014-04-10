@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
     
-    <driver name="Saxon-6" baseline="no" class="com.saxonica.xtspeedo.Saxon6Driver" language="java" xslt-version="1.0">
+    <!--<driver name="Saxon-6" baseline="no" class="com.saxonica.xtspeedo.Saxon6Driver" language="java" xslt-version="1.0">
         <option name="x" />
-    </driver>
+    </driver>-->
     
-    <driver name="SaxonHE-9.5-J" baseline="no" class="com.saxonica.xtspeedo.saxonhe.SaxonHEDriver" language="java" xslt-version="2.0">
+    <driver name="SaxonHE-9.5-J" baseline="yes" class="com.saxonica.xtspeedo.saxonhe.SaxonHEDriver" language="java" xslt-version="2.0">
         <option name="x" />
-    </driver>
+    </driver>       
     
-    <driver name="Xalan" baseline="no" class="com.saxonica.xtspeedo.XalanDriver" language="java" xslt-version="1.0">
+    <!--<driver name="Xalan" baseline="no" class="com.saxonica.xtspeedo.XalanDriver" language="java" xslt-version="1.0">
         <option name="x" />
     </driver>
     
@@ -23,10 +23,14 @@
     
     <driver name="System.Xml.Xsl" baseline="no" class="Speedo.MSDriver" language="c-sharp" xslt-version="1.0">
         <option name="x" />
-    </driver>
+    </driver>-->
     
-    <driver name="SaxonHE-9.5-.NET" baseline="yes" class="Speedo.SaxonDriver" language="c-sharp" xslt-version="2.0">
+    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0">
         <option name="x" />
     </driver>
+    
+    <!--<driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">
+        <option name="x" />
+    </driver>-->
     
 </drivers>

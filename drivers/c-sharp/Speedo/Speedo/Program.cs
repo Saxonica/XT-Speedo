@@ -14,7 +14,7 @@ namespace Speedo
     {
         public static int MAX_ITERATIONS = 20;
         public static long MAX_TOTAL_TIME = 20L * 1000L * 1000L * 1000L;
-        
+
         private List<IDriver> drivers = new List<IDriver>();
         private IDriver baseline = null;
         static void Main(string[] args)
@@ -58,7 +58,7 @@ namespace Speedo
 
 
         public void run(String catalogFile, String driverFile, String outputDirectory, String testPattern)
-        {            
+        {
             buildDriverList(driverFile);
             XmlReader reader = XmlReader.Create(catalogFile);
             XmlDocument doc = new XmlDocument();
@@ -154,7 +154,7 @@ namespace Speedo
                             xmlStreamWriter.WriteAttributeString("transformTime", "" + transformTime);
                             xmlStreamWriter.WriteEndElement();
                         }
-                        catch (TransformationException e)
+                        catch (Exception e)
                         {
 
                             driver.DisplayResultDocument();
@@ -170,33 +170,39 @@ namespace Speedo
                 xmlStreamWriter.WriteEndDocument();
                 xmlStreamWriter.Close();
 
-            }            
+            }
         }
         private void buildDriverList(String driverFile)
         {
             XmlReader reader = XmlReader.Create(driverFile);
             XmlDocument doc = new XmlDocument();
             doc.Load(reader);
-            
+
             XmlElement driversElement = (XmlElement)doc.SelectSingleNode("*");
-            foreach (XmlElement testCase in driversElement.SelectNodes("driver"))
+            foreach (XmlElement driverElement in driversElement.SelectNodes("driver"))
             {
                 IDriver driver;
-                String languageAttribute = testCase.GetAttribute("language");
+                String languageAttribute = driverElement.GetAttribute("language");
                 if ("c-sharp" == languageAttribute)
                 {
-                    String className = testCase.GetAttribute("class");
+                    String className = driverElement.GetAttribute("class");
                     Type type = Type.GetType(className);
                     driver = (IDriver)Activator.CreateInstance(type);
                     //driver = new MSDriver();
 
                     drivers.Add(driver);
 
-                    driver.SetName(testCase.GetAttribute("name"));
-                    String baselineAttribute = testCase.GetAttribute("baseline");
+                    driver.SetName(driverElement.GetAttribute("name"));
+                    String baselineAttribute = driverElement.GetAttribute("baseline");
                     if ("yes" == baselineAttribute)
                     {
                         baseline = driver;
+                    }
+                    foreach (XmlElement optionElement in driverElement.SelectNodes("option")) 
+                    {
+                        String optName = optionElement.GetAttribute("name");
+                        String optValue = optionElement.GetAttribute("value");
+                        driver.SetOption(optName, optValue);
                     }
                 }
             }
@@ -205,34 +211,37 @@ namespace Speedo
 
 
 
-    interface IDriver
+    public abstract class IDriver
     {
+        private String driverName;
+        private Hashtable options = new Hashtable();
+
         /**
          * Parse a source file and build a tree representation of the XML
          * @param sourceUri the location of the XML input file
          */
 
-        void BuildSource(Uri sourceUri);
+        public abstract void BuildSource(Uri sourceUri);
 
         /**
          * Compile a stylesheet
          * @param stylesheetUri the file containing the XSLT stylesheet
          */
 
-        void CompileStylesheet(Uri stylesheetUri);
+        public abstract void CompileStylesheet(Uri stylesheetUri);
 
         /**
          * Run a transformation, transforming the supplied source document using the
          * supplied stylesheet
          */
 
-        void TreeToTreeTransform();
+        public abstract void TreeToTreeTransform();
 
         /**
          * Run a transformation, from an input file to an output file
          */
 
-        void FileToFileTransform(Uri sourceUri, String resultFileLocation);
+        public abstract void FileToFileTransform(Uri sourceUri, String resultFileLocation);
 
         /**
          * Test that the result of the transformation satisfies a given assertion
@@ -242,35 +251,65 @@ namespace Speedo
          * @return the result of testing the assertion
          */
 
-        bool TestAssertion(String assertion);
+        public abstract bool TestAssertion(String assertion);
 
         /**
          * Show the result document
          */
 
-        void DisplayResultDocument();
+        public abstract void DisplayResultDocument();
 
         /**
          * Gets version of XSLT processor supported
          * @return version of XSLT
          */
 
-        double GetXsltVersion();
+        public abstract double GetXsltVersion();
 
         /**
          * Set a short name for the driver to be used in reports
-         * @param name name to be used for driver
+         * @param name the name to be used for driver
          */
 
-        void SetName(String name);
+        public void SetName(String name)
+        {
+            this.driverName = name;
+        }
 
         /**
          * Get the short name for the driver to be used in reports
          * @return the name
          */
 
-        String GetName();
+        public String GetName()
+        {
+            return this.driverName;
+        }
+
+        /**
+         * Set an option for this driver
+         * @param name the name of the option
+         * @param value the value of the option
+         */
+
+        public void SetOption(String name, String value)
+        {
+            options.Add(name, value);
+        }
+
+        /**
+         * Get the value of an option that has been set
+         * @param name the name of the option
+         * @return the value of the option, or null if none has been set
+         */
+
+        public String GetOption(String name)
+        {
+            return (String)options["name"];
+        }
     }
+
+
     public class TransformationException : ApplicationException
     {
         public TransformationException()

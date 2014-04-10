@@ -3,6 +3,16 @@ body {margin:25px 50px;}
 /* table {width:700px;} */
 table, th, td {border:1px solid black; border-collapse:collapse;}
 th, td {padding:10px;}
-.minmax {font-size:0.8em;}
+#overview .minmax {font-size:0.8em;}
+#driver .actual {font-size:0.8em;}
 a:link, a:visited {text-decoration:none;}
 a:hover, a:active {text-decoration:underline;}
+#driver td:nth-child(2) {border-right: 0;} 
+#driver td:nth-child(3) {border-left: 0;}
+#driver td:nth-child(4) {border-right: 0;} 
+#driver td:nth-child(5) {border-left: 0;}
+#driver td:nth-child(6) {border-right: 0;} 
+#driver td:nth-child(7) {border-left: 0;}
+th {background: #c1cede;}
+tbody tr:nth-child(odd) {background: #e4eef0;}
+tbody tr:hover {background: #c1cede;}

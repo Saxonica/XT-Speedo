@@ -24,17 +24,22 @@
                         <th/>                
                         <xsl:choose>
                             <xsl:when test="$baseline/testResults/@driver='BaselineDriver'">
-                                <th colspan="3"> Times relative to average times across all drivers <br/> (smaller values represent faster times) 
-                                </th>
+                                <th colspan="3"> Times relative to average times across all drivers <br/> (smaller values represent faster times)                                     
+                                </th>                                
                             </xsl:when>
                             <xsl:otherwise>
-                                <th colspan="3"> Times relative to <xsl:value-of select="$baseline/testResults/@driver"/> driver <br/> (smaller values represent faster times) 
+                                <th colspan="3"> Times relative to <xsl:value-of select="$baseline/testResults/@driver"/> driver <br/> (smaller values represent faster times)                                    
                                 </th>
                             </xsl:otherwise>
                         </xsl:choose>     
+                        <th colspan="3"> Actual Times <br/> (in milliseconds) 
+                        </th>
                     </thead>
                     <thead>
                         <th>Test</th>
+                        <th width="120px">Transform</th>
+                        <th width="120px">Build</th>
+                        <th width="120px">Compile</th>
                         <th width="120px">Transform</th>
                         <th width="120px">Build</th>
                         <th width="120px">Compile</th>
@@ -59,9 +64,21 @@
                                         <xsl:value-of 
                                             select="format-number(./@compileTime div $baseline/testResults/test[@name = $test-name]/@compileTime, '0.0##')"/>
                                     </td>
+                                    <td>
+                                        <xsl:value-of 
+                                            select="format-number(./@transformTime, '0.0##')"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of 
+                                            select="format-number(./@buildTime, '0.0##')"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of 
+                                            select="format-number(./@compileTime, '0.0##')"/>
+                                    </td>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <td colspan="3" bgcolor="red">
+                                    <td colspan="6" bgcolor="red">
                                         <xsl:value-of select="./@run"/>
                                     </td>
                                 </xsl:otherwise>
