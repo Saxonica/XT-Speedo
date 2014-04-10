@@ -1,6 +1,0 @@
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\bin\Debug\Speedo.exe.config
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\obj\Debug\Speedo.csprojResolveAssemblyReference.cache
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\bin\Debug\Speedo.exe
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\bin\Debug\Speedo.pdb
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\obj\Debug\Speedo.exe
-C:\Users\debbie\Documents\GitHub\XT-Speedo\drivers\c-sharp\Speedo\Speedo\obj\Debug\Speedo.pdb
