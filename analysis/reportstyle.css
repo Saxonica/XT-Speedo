@@ -1,12 +1,21 @@
+/* Saxon colours
+Text blue: #3D5B96
+Dark blue: #c1cede
+Mid blue: #e4eef0 
+Light blue: #f6fffb
+mid green #B1CCC7
+rust #96433D
+*/
+
 body {font-family:arial, helvetica, sans-serif; font-size:100%;}
 body {margin:25px 50px;}
 /* table {width:700px;} */
-table, th, td {border:1px solid black; border-collapse:collapse;}
+table, th, td {border:1px solid #3D5B96; border-collapse:collapse;}
 th, td {padding:10px;}
 #overview .minmax {font-size:0.8em;}
 #driver .actual {font-size:0.8em;}
-a:link, a:visited {text-decoration:none;}
-a:hover, a:active {text-decoration:underline;}
+a:link, a:visited {text-decoration:none; color:#96433D;}
+a:hover, a:active {text-decoration:none; color:#3D5B96;}
 #driver td:nth-child(2) {border-right: 0;} 
 #driver td:nth-child(3) {border-left: 0;}
 #driver td:nth-child(4) {border-right: 0;} 
@@ -15,4 +24,4 @@ a:hover, a:active {text-decoration:underline;}
 #driver td:nth-child(7) {border-left: 0;}
 th {background: #c1cede;}
 tbody tr:nth-child(odd) {background: #e4eef0;}
-tbody tr:hover {background: #c1cede;}
+tbody tr:hover {background: #B1CCC7;}

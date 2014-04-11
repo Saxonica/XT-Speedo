@@ -5,7 +5,7 @@
     <xsl:include href="driver-module2.xsl"/>
 
     <xsl:variable name="input-docs" as="document-node(element(testResults))*"
-        select="collection('../results/selection2?*.xml')"/>
+        select="collection('../results/selection?*.xml')"/>
 
     <xsl:variable name="computed-baseline">
         <testResults>

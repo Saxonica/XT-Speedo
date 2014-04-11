@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
 
-   <test-case name="docbook-tests-001" xslt-version="2.0">
+   <!--<test-case name="docbook-tests-001" xslt-version="2.0">
       <description>
-         Shows a docbook file transformed into HTML format
+         Shows a docbook file transformed into HTML format <!-\- SaxonEE-.NET can't run this -\->
       </description>
       <created by="Debbie Lockett" on="2014-03-03"/>
       <test>
@@ -15,7 +15,7 @@
             count(/*:html/*:body//*:div)&gt; 10
          </assert>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="docbook-tests-002" xslt-version="2.0">
       <description>
@@ -809,7 +809,7 @@
    </test-case>
    
    
-   <test-case name="xmark-q1-1">
+   <!--<test-case name="xmark-q1-1">
       <description>
          Return the name of the person with ID `person0' registered in North America.
       </description>
@@ -1068,7 +1068,7 @@
    <test-case name="xmark-q9-4" xslt-version="2.0">
       <description>
          List the names of persons and the names of the items they bought
-         in Europe.  (joins person, closed\_auction, item)
+         in Europe.  (joins person, closed\_auction, item) <!-\- SaxonEE-.NET has difficulty running this -\->
       </description>
       <created by="Debbie Lockett" on="2014-03-20"/>
       <test>
@@ -1475,9 +1475,9 @@
             /result/*[1] = '15'
          </assert>
       </result>
-   </test-case>
+   </test-case>-->
    
-   <!--<test-case name="map-wordmap1-1" xslt-version="3.0">
+   <test-case name="map-wordmap1-1" xslt-version="3.0">
       <description>
          Count size of map from distinct words to set of elements containing them.
       </description>
@@ -1573,6 +1573,103 @@
       </result>
    </test-case>
    
+   <test-case name="map-wordmap4-1" xslt-version="3.0">
+      <description>
+         Retrieval from map of distinct words. THIS TEST TAKES A PRETTY LONG TIME!!
+      </description>
+      <created by="Debbie Lockett" on="2014-04-03"/>
+      <test>
+         <stylesheet file="map-tests/wordmap4.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '15927'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap4-4" xslt-version="3.0">
+      <description>
+         Retrieval from map of distinct words. THIS TEST TAKES A PRETTY LONG TIME!!
+      </description>
+      <created by="Debbie Lockett" on="2014-04-03"/>
+      <test>
+         <stylesheet file="map-tests/wordmap4.xsl"/>
+         <source file="xmark-tests/xmark4.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1] = '24829'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-wordmap5-0" xslt-version="3.0">
+      <description>
+         Removal from map of distinct words. 
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap5.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>
+   
+   <!--<test-case name="map-wordmap5-1" xslt-version="3.0">
+      <description>
+         Removal from map of distinct words. THIS TEST TAKES A VERY LONG TIME!!
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap5.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //*[1]/@initial = '1294'
+         </assert>
+      </result>
+   </test-case>-->
+   
+   <test-case name="map-wordmap8" xslt-version="3.0">
+      <description>
+         Map built by iterative process. 
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap8.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //final/@keys = '1294'
+         </assert>
+      </result>
+   </test-case>
+      
+   <test-case name="map-wordmap8a" xslt-version="3.0">
+      <description>
+         Map built by iterative process, at each step give size of current domain. 
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/wordmap8a.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //final/@keys = '1294'
+         </assert>
+      </result>
+   </test-case>
+   
+     
    <test-case name="map-numbermap1" xslt-version="3.0">
       <description>
          Create an integer map (independent of source file) related to Fibonacci sequence 
@@ -1608,6 +1705,39 @@
       </result>
    </test-case>
    
+   <test-case name="map-numbermap4" xslt-version="3.0">
+      <description>
+         Map built by iterative process.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/numbermap4.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //final/@keys = '10000'
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="map-numbermap4a" xslt-version="3.0">
+      <description>
+         Map built by iterative process, at each step give size of current domain.
+      </description>
+      <created by="Debbie Lockett" on="2014-04-04"/>
+      <test>
+         <stylesheet file="map-tests/numbermap4a.xsl"/>
+         <source file="xsltmark-tests/axis.xml"/>
+      </test>
+      <result>
+         <assert>            
+            //final/@keys = '10000'
+         </assert>
+      </result>
+   </test-case>
+   
+   
    <test-case name="map-datemap1" xslt-version="3.0">
       <description>
          Create a map (independent of source file) from dates in 2014 to the day of week of each date.
@@ -1619,7 +1749,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //last-day-of-year/@day = 'Wed'
          </assert>
       </result>
    </test-case>
@@ -1635,7 +1765,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //final/@keys = '262'
          </assert>
       </result>
    </test-case>
@@ -1651,7 +1781,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //final/@keys = '839'
          </assert>
       </result>
    </test-case>
@@ -1668,7 +1798,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '262'
          </assert>
       </result>
    </test-case>
@@ -1685,7 +1815,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '839'
          </assert>
       </result>
    </test-case>
@@ -1702,7 +1832,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '262'
          </assert>
       </result>
    </test-case>
@@ -1719,7 +1849,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '839'
          </assert>
       </result>
    </test-case>
@@ -1736,7 +1866,7 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '706'
          </assert>
       </result>
    </test-case>
@@ -1753,10 +1883,10 @@
       </test>
       <result>
          <assert>            
-            //result[1]/@final = '12'
+            //map-size/@initial = '1268'
          </assert>
       </result>
-   </test-case>-->
+   </test-case>
 
    
 </catalog>

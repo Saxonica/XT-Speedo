@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><testResults driver="SaxonEE-9.5-.NET" on="2014-04-11T10:32:52" baseline="no"><test name="map-numbermap4" run="success" buildTime="0" compileTime="116.4" transformTime="484.5" /><test name="map-numbermap4a" run="success" buildTime="0" compileTime="78.45" transformTime="7545" /></testResults>
