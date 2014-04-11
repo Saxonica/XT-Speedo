@@ -9,9 +9,13 @@
         <option name="generateByteCode" value="true"/>
     </driver>
     
-    <driver name="SaxonEE-9.5-.NET" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
-        
+    <driver name="SaxonEE-9.5-.NET-noBC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
+        <option name="generateByteCode" value="false"/>
     </driver>
+    
+    <!--<driver name="SaxonEE-9.5-.NET-BC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
+        <option name="generateByteCode" value="true"/>
+    </driver>-->
      
 
     

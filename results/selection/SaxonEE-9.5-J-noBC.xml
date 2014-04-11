@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<testResults driver="SaxonEE-9.5-noBC" on="2014-04-09T16:15:12" baseline="no">
+<testResults driver="SaxonEE-9.5-J-noBC" on="2014-04-09T16:15:12" baseline="no">
     <test name="docbook-tests-001" run="success" buildTime="7.1099863" compileTime="895.779827"
         transformTime="81.21886815"/>
     <test name="docbook-tests-002" run="success" buildTime="0.86762905" compileTime="2.1970136"

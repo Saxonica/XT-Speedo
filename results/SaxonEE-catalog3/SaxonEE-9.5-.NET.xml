@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testResults driver="SaxonEE-9.5-.NET" on="2014-04-11T10:14:13" baseline="no">
+    <test name="map-wordmap5-0" run="success" buildTime="0" compileTime="190.55"
+        transformTime="2540.35"/>
+    <test name="map-numbermap1" run="success" buildTime="0" compileTime="358.15"
+        transformTime="33487.2"/>
+    <test name="map-numbermap3" run="success" buildTime="0" compileTime="139.9"
+        transformTime="33379.65"/>
+    <test name="map-numbermap4" run="success" buildTime="0" compileTime="78" transformTime="482.2"/>
+    <test name="map-numbermap4a" run="success" buildTime="0" compileTime="81" transformTime="7627.5"/>    
+    <test name="map-datemap1" run="success" buildTime="0" compileTime="1511.55" transformTime="34.6"/>
+    <test name="map-datemap2-1" run="success" buildTime="0" compileTime="395.3"
+        transformTime="104.6"/>
+    <test name="map-datemap2-4" run="success" buildTime="0" compileTime="389.55"
+        transformTime="359.4"/>
+    <test name="map-datemap3-1" run="success" buildTime="0" compileTime="390.05"
+        transformTime="191.5"/>
+    <test name="map-datemap3-4" run="success" buildTime="0" compileTime="391.55"
+        transformTime="1252.3"/>
+    <test name="map-datemap4-1" run="success" buildTime="0" compileTime="508.3" transformTime="99.7"/>
+    <test name="map-datemap4-4" run="success" buildTime="0" compileTime="514.4"
+        transformTime="387.15"/>
+    <test name="map-datemap5-1" run="success" buildTime="0" compileTime="398.85"
+        transformTime="175.95"/>
+    <test name="map-datemap5-4" run="success" buildTime="0" compileTime="401.85"
+        transformTime="663.2"/>
+</testResults>

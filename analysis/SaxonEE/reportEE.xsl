@@ -2,10 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://www.saxonica.com/ns/xtspeedo/functions" exclude-result-prefixes="xs local">
-    <xsl:include href="driver-module2.xsl"/>
+    <xsl:include href="driver-module.xsl"/>
 
     <xsl:variable name="input-docs" as="document-node(element(testResults))*"
-        select="collection('../results/selection?*.xml')"/>
+        select="collection('../../results/SaxonEE-catalog3?*.xml')"/>
 
     <xsl:variable name="computed-baseline">
         <testResults>
@@ -44,7 +44,7 @@
         <html>
             <!--            <xsl:copy-of select="$baseline"/>-->
             <head>
-                <link rel="stylesheet" type="text/css" href="reportstyle.css"/>
+                <link rel="stylesheet" type="text/css" href="../reportstyle.css"/>
                 <title>XT-Speedo results</title>
             </head>
             <body>
@@ -67,7 +67,7 @@
                 format-dateTime($input-docs[1]/testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"/>
         </h1>
         <h3>
-            Test catalog: no XSLT version 3.0 tests.
+            Test catalog: only XSLT version 3.0 tests.
         </h3>
         <table id="overview">
             <thead>
@@ -95,7 +95,7 @@
                         <a href="{testResults/@driver}.html">
                             <xsl:value-of select="testResults/@driver"/>
                         </a>
-                    </td>                    
+                    </td>
                     <xsl:variable name="tests" select="testResults/test[@run='success']/@name[. = $baseline/testResults/test[@run='success']/@name]"/>
                     <td>                        
                         <xsl:variable name="times" as="xs:double*"

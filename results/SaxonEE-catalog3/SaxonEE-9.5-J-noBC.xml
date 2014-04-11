@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<testResults driver="SaxonEE-9.5-noBC" on="2014-04-08T17:12:52" baseline="no">
+<testResults driver="SaxonEE-9.5-J-noBC" on="2014-04-08T17:12:52" baseline="no">
     <test name="map-wordmap1-1" run="success" buildTime="35.8966774" compileTime="17.06999355"
         transformTime="1978.2703133636364"/>
     <test name="map-wordmap1-4" run="success" buildTime="60.95271325" compileTime="3.08359195"
