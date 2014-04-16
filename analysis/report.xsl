@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://www.saxonica.com/ns/xtspeedo/functions" exclude-result-prefixes="xs local">
-    <xsl:include href="driver-module2.xsl"/>
+    <xsl:include href="driver-module.xsl"/>
 
     <xsl:variable name="input-docs" as="document-node(element(testResults))*"
         select="collection('../results/selection?*.xml')"/>
@@ -13,24 +13,24 @@
             <!-- <xsl:attribute name="on" select="$input-docs[1]/testResults/@on"/> -->
 
             <xsl:for-each select="$input-docs[1]/testResults/test"> <!-- List of tests not necessarily complete. -->
-                <test>
-                    <xsl:variable name="test-build-time" as="xs:double*"
-                        select="$input-docs/testResults/test[@run='success'][@name=current()/@name]/@buildTime"/>
-                    <xsl:variable name="baseline-build-time"
-                        select="format-number(avg($test-build-time), '#.###')"/>
+                <test>                    
                     <xsl:variable name="test-compile-time" as="xs:double*"
                         select="$input-docs/testResults/test[@run='success'][@name=current()/@name]/@compileTime"/>
                     <xsl:variable name="baseline-compile-time"
                         select="format-number(avg($test-compile-time), '#.###')"/>
-                    <xsl:variable name="test-transform-time" as="xs:double*"
-                        select="$input-docs/testResults/test[@run='success'][@name=current()/@name]/@transformTime"/>
-                    <xsl:variable name="baseline-transform-time"
-                        select="format-number(avg($test-transform-time), '#.###')"/>
-                    <xsl:attribute name="name" select="./@name"/>
+                    <xsl:variable name="test-transform-time-files" as="xs:double*"
+                        select="$input-docs/testResults/test[@run='success'][@name=current()/@name]/@transformTimeFileToFile"/>
+                    <xsl:variable name="baseline-transform-time-files"
+                        select="format-number(avg($test-transform-time-files), '#.###')"/>
+                    <xsl:variable name="test-transform-time-trees" as="xs:double*"
+                        select="$input-docs/testResults/test[@run='success'][@name=current()/@name]/@transformTimeTreeToTree"/>
+                    <xsl:variable name="baseline-transform-time-trees"
+                        select="format-number(avg($test-transform-time-trees), '#.###')"/>
+                    <xsl:attribute name="name" select="./@name"/>   
                     <xsl:attribute name="run" select="'success'"/>
-                    <xsl:attribute name="buildTime" select="$baseline-build-time"/>
                     <xsl:attribute name="compileTime" select="$baseline-compile-time"/>
-                    <xsl:attribute name="transformTime" select="$baseline-transform-time"/>
+                    <xsl:attribute name="transformTimeFileToFile" select="$baseline-transform-time-files"/>      
+                    <xsl:attribute name="transformTimeTreeToTree" select="$baseline-transform-time-trees"/>                     
                 </test>
             </xsl:for-each>
         </testResults>
@@ -85,9 +85,9 @@
             </thead>
             <thead>
                 <th>Driver</th>
-                <th width="180px">Transform</th>
-                <th width="180px">Build</th>
-                <th width="180px">Compile</th>
+                <th width="180px">File to file transform</th>
+                <th width="180px">Tree to tree transform</th>
+                <th width="180px">Stylesheet compile</th>
             </thead>
             <xsl:for-each select="$input-docs">
                 <tr>
@@ -99,16 +99,16 @@
                     <xsl:variable name="tests" select="testResults/test[@run='success']/@name[. = $baseline/testResults/test[@run='success']/@name]"/>
                     <td>                        
                         <xsl:variable name="times" as="xs:double*"
-                            select="for $t in $tests return testResults/test[@name = $t]/@transformTime"/>
+                            select="for $t in $tests return testResults/test[@name = $t]/@transformTimeFileToFile"/>
                         <xsl:variable name="baseline-times" as="xs:double*"
-                            select="for $t in $tests return $baseline/testResults/test[@name = $t]/@transformTime"/>
+                            select="for $t in $tests return $baseline/testResults/test[@name = $t]/@transformTimeFileToFile"/>
                         <xsl:copy-of select="local:summary2($times, $baseline-times)"/>
                     </td>
                     <td>
                         <xsl:variable name="times" as="xs:double*"
-                            select="for $t in $tests return testResults/test[@name = $t]/@buildTime"/>
+                            select="for $t in $tests return testResults/test[@name = $t]/@transformTimeTreeToTree"/>
                         <xsl:variable name="baseline-times" as="xs:double*"
-                            select="for $t in $tests return $baseline/testResults/test[@name = $t]/@buildTime"/>
+                            select="for $t in $tests return $baseline/testResults/test[@name = $t]/@transformTimeTreeToTree"/>
                         <xsl:copy-of select="local:summary2($times, $baseline-times)"/>
                     </td>
                     <td>

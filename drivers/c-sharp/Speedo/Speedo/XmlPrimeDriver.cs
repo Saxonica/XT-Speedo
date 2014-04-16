@@ -13,12 +13,13 @@ namespace Speedo
     class XmlPrimeDriver : IDriver
     {        
         protected String resultFile;
-        NameTable nameTable = new NameTable();
-        XmlReaderSettings xmlReaderSettings;
-        XdmDocument document;
-        XsltSettings xsltSettings;
+        private NameTable nameTable = new NameTable();
+        private XmlReaderSettings xmlReaderSettings;
+        private XdmDocument document;
+        private XdmDocument sourceDocument;
+        private XdmDocument resultDocument;
+        private XsltSettings xsltSettings;
         private Xslt xslt;
-
                
 
         public XmlPrimeDriver()
@@ -30,15 +31,26 @@ namespace Speedo
 
         public override void BuildSource(Uri sourceUri)
         {
+            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), xmlReaderSettings))
+            {
+                sourceDocument = new XdmDocument(reader);
+            }
         }
 
         public override void CompileStylesheet(Uri stylesheetUri)
         {            
             xslt = Xslt.Compile(stylesheetUri.ToString(), xsltSettings);
         }
-
+               
         public override void TreeToTreeTransform()
-        {
+        {            
+            XdmNavigator contextItem = sourceDocument.CreateNavigator();
+            DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };                       
+            using (XdmDocumentWriter writer = XdmDocumentWriter.Create()) 
+            {
+                xslt.ApplyTemplates(settings, writer);
+                resultDocument = writer.Document;
+            }            
         }
 
         public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
@@ -60,22 +72,28 @@ namespace Speedo
 
         public override bool TestAssertion(string assertion)
         {
-            // XPathDocument resultDoc = new XPathDocument(resultFile);
-            // XPathNavigator navigator = resultDoc.CreateNavigator();
-            // return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
-
-            XdmDocument resultDoc;
-            using (var reader = XmlReader.Create(resultFile, xmlReaderSettings))
+            if (resultDocument != null)
             {
-                resultDoc = new XdmDocument(reader);
+                XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
+                var xpath = XPath.Compile(assertion, xpathSettings);
+                var contextItem = resultDocument.CreateNavigator();
+                var settings = new DynamicContextSettings { ContextItem = contextItem };
+                return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
             }
-
-            XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
-            var xpath = XPath.Compile(assertion, xpathSettings);
-            var contextItem = resultDoc.CreateNavigator();
-            var settings = new DynamicContextSettings { ContextItem = contextItem };
-            return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
-                        
+            if (resultFile != null)
+            {
+                XdmDocument resultDoc;
+                using (var reader = XmlReader.Create(resultFile, xmlReaderSettings))
+                {
+                    resultDoc = new XdmDocument(reader);
+                }
+                XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
+                var xpath = XPath.Compile(assertion, xpathSettings);
+                var contextItem = resultDoc.CreateNavigator();
+                var settings = new DynamicContextSettings { ContextItem = contextItem };
+                return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
+            }
+            return false;   
         }
 
         public override void DisplayResultDocument()

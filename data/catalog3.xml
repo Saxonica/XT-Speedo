@@ -97,7 +97,7 @@
       </result>
    </test-case>
    
-   <!--<test-case name="map-wordmap4-1" xslt-version="3.0">
+   <test-case name="map-wordmap4-1" xslt-version="3.0">
       <description>
          Retrieval from map of distinct words. THIS TEST TAKES A PRETTY LONG TIME!!
       </description>
@@ -127,7 +127,7 @@
             //*[1] = '24829'
          </assert>
       </result>
-   </test-case>-->
+   </test-case>
    
    <test-case name="map-wordmap5-0" xslt-version="3.0">
       <description>
@@ -145,7 +145,7 @@
       </result>
    </test-case>
    
-   <!--<test-case name="map-wordmap5-1" xslt-version="3.0">
+   <test-case name="map-wordmap5-1" xslt-version="3.0">
       <description>
          Removal from map of distinct words. THIS TEST TAKES A VERY LONG TIME!!
       </description>
@@ -159,7 +159,7 @@
             //*[1]/@initial = '1294'
          </assert>
       </result>
-   </test-case>-->
+   </test-case>
    
    <test-case name="map-wordmap8" xslt-version="3.0">
       <description>

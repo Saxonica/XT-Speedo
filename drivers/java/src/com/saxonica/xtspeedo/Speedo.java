@@ -32,6 +32,8 @@ public class Speedo {
 
     private List<IDriver> drivers = new ArrayList<IDriver>();
     private IDriver baseline = null;
+    private boolean skipSlowTests = false;
+    private boolean skipXslt3Tests = false;
 
     public static void main(String[] args) throws Exception {
         HashMap<String, String> map = new HashMap<String, String>(16);
@@ -53,16 +55,21 @@ public class Speedo {
         if (testPattern == null) {
             testPattern = ".*";
         }
-        new Speedo().run(new File(catalog), new File(driverfile), new File(map.get("-out")), testPattern);
+        String testSkip = map.get("-skip");
+        String runXslt3Tests = map.get("-v3");
+
+        new Speedo().run(new File(catalog), new File(driverfile), new File(map.get("-out")), testPattern, testSkip, runXslt3Tests);
     }
 
-    public void run(File catalogFile, File driverFile, File outputDirectory, String testPattern) throws Exception {
+    public void run(File catalogFile, File driverFile, File outputDirectory, String testPattern, String testSkip, String runXslt3Tests) throws Exception {
 
         SAXBuilder builder = new SAXBuilder();
         buildDriverList(driverFile, builder);
         Document doc = null;
 
         Pattern testPat = Pattern.compile(testPattern);
+        skipSlowTests = "slow".equals(testSkip);
+        skipXslt3Tests = "no".equals(runXslt3Tests);
 
         try {
             doc = builder.build(catalogFile);
@@ -97,25 +104,26 @@ public class Speedo {
                     if (!testPat.matcher(name).matches()) {
                         continue;
                     }
-                    System.err.println("Running " + name);
+                    if ("no".equals(driver.getTestRunOption(name))){
+                        continue;
+                    }
+                    if ("slow".equals(driver.getTestRunOption(name)) && skipSlowTests){
+                        continue;
+                    }
                     String attributeValue = testCase.getAttributeValue("xslt-version");
                     double xsltVersion = (attributeValue == null) ? 1.0 : Double.parseDouble(attributeValue);
+                    if (3.0 == xsltVersion && skipXslt3Tests){
+                        continue;
+                    }
+                    System.err.println("Running " + name);
                     String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
                     URI sourceURI = catalogURI.resolve(source);
                     String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
                     URI stylesheetURI = catalogURI.resolve(stylesheet);
                         if (xsltVersion <= driver.getXsltVersion()) {
                             try {
-                                long totalBuildSource = 0;
+                                driver.buildSource(sourceURI);
                                 int i;
-                                for (i = 0; i < MAX_ITERATIONS && totalBuildSource < MAX_TOTAL_TIME; i++) {
-                                    long start = System.nanoTime();
-                                    driver.buildSource(sourceURI);
-                                    totalBuildSource += System.nanoTime() - start;
-                                }
-                                double buildTime = totalBuildSource/(1000000.0*i);
-                                System.err.println("Average time for source parse: " + buildTime +
-                                        "ms. Number of iterations: " + i);
                                 long totalCompileStylesheet = 0;
                                 for (i = 0; i < MAX_ITERATIONS && totalCompileStylesheet < MAX_TOTAL_TIME; i++) {
                                     long start = System.nanoTime();
@@ -125,16 +133,29 @@ public class Speedo {
                                 double compileTime = totalCompileStylesheet/(1000000.0*i);
                                 System.err.println("Average time for stylesheet compile: " + compileTime +
                                         "ms. Number of iterations: " + i);
-                                long totalTransform = 0;
-                                for (i = 0; i < MAX_ITERATIONS && totalTransform < MAX_TOTAL_TIME; i++) {
+                                long totalTransformFileToFile = 0;
+                                for (i = 0; i < MAX_ITERATIONS && totalTransformFileToFile < MAX_TOTAL_TIME; i++) {
                                     long start = System.nanoTime();
-                                    //driver.treeToTreeTransform();
                                     driver.fileToFileTransform(new File(sourceURI), new File(driverOutputDir, name + ".xml"));
-                                    totalTransform += System.nanoTime() - start;
+                                    totalTransformFileToFile += System.nanoTime() - start;
                                 }
-                                double transformTime = totalTransform/(1000000.0*i);
-                                System.err.println("Average time for fileToFileTransform: " + transformTime +
+                                double transformTimeFileToFile = totalTransformFileToFile/(1000000.0*i);
+                                System.err.println("Average time for fileToFileTransform: " + transformTimeFileToFile +
                                         "ms. Number of iterations: " + i);
+                                double transformTimeTreeToTree;
+                                try {
+                                    long totalTransformTreeToTree = 0;
+                                    for (i = 0; i < MAX_ITERATIONS && totalTransformTreeToTree < MAX_TOTAL_TIME; i++) {
+                                        long start = System.nanoTime();
+                                        driver.treeToTreeTransform();
+                                        totalTransformTreeToTree += System.nanoTime() - start;
+                                    }
+                                    transformTimeTreeToTree = totalTransformTreeToTree/(1000000.0*i);
+                                    System.err.println("Average time for treeToTreeTransform: " + transformTimeTreeToTree +
+                                            "ms. Number of iterations: " + i);
+                                } catch (UnsupportedOperationException e) {
+                                    transformTimeTreeToTree = Double.NaN;
+                                }
                                 boolean ok = true;
                                 for (Element assertion : testCase.getChild("result").getChildren("assert")) {
                                     String xpath = assertion.getText();
@@ -144,9 +165,9 @@ public class Speedo {
                                 xmlStreamWriter.writeEmptyElement("test");
                                 xmlStreamWriter.writeAttribute("name", name);
                                 xmlStreamWriter.writeAttribute("run", (ok ? "success" : "wrongAnswer"));
-                                xmlStreamWriter.writeAttribute("buildTime", "" + buildTime);
                                 xmlStreamWriter.writeAttribute("compileTime", "" + compileTime);
-                                xmlStreamWriter.writeAttribute("transformTime", "" + transformTime);
+                                xmlStreamWriter.writeAttribute("transformTimeFileToFile", "" + transformTimeFileToFile);
+                                xmlStreamWriter.writeAttribute("transformTimeTreeToTree", "" + transformTimeTreeToTree);
                             } catch (TransformationException e) {
 
                                 driver.displayResultDocument();
@@ -209,6 +230,11 @@ public class Speedo {
                     String optName = optionElement.getAttributeValue("name");
                     String optValue = optionElement.getAttributeValue("value");
                     driver.setOption(optName, optValue);
+                }
+                for (Element testOptionElement : driverElement.getChildren("test-run-option")) {
+                    String testName = testOptionElement.getAttributeValue("name");
+                    String testValue = testOptionElement.getAttributeValue("value");
+                    driver.setTestRunOption(testName, testValue);
                 }
             }
         }

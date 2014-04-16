@@ -37,8 +37,8 @@
                     </thead>
                     <thead>
                         <th>Test</th>
-                        <th width="120px" colspan="2">Transform</th>
-                        <th width="120px" colspan="2">Build</th>
+                        <th width="120px" colspan="2">Files Transform</th>
+                        <th width="120px" colspan="2">Trees Transform</th>
                         <th width="120px" colspan="2">Compile</th>                        
                     </thead>
                     <xsl:for-each select="./testResults/test">
@@ -51,19 +51,19 @@
                                 <xsl:when test="./@run = 'success'">
                                     <td width="60px">
                                         <xsl:value-of 
-                                            select="format-number(./@transformTime div $baseline/testResults/test[@name = $test-name]/@transformTime, '0.0##')"/>
+                                            select="format-number(./@transformTimeFileToFile div $baseline/testResults/test[@name = $test-name]/@transformTimeFileToFile, '0.0##')"/>
                                     </td>
                                     <td width="60px" class="actual">
                                         <xsl:value-of 
-                                            select="format-number(./@transformTime, '0.0##')"/>
+                                            select="format-number(./@transformTimeFileToFile, '0.0##')"/>
                                     </td>
                                     <td width="60px">
                                         <xsl:value-of 
-                                            select="format-number(./@buildTime div $baseline/testResults/test[@name = $test-name]/@buildTime, '0.0##')"/>
+                                            select="format-number(./@transformTimeTreeToTree div $baseline/testResults/test[@name = $test-name]/@transformTimeTreeToTree, '0.0##')"/>
                                     </td>
                                     <td width="60px" class="actual">
                                         <xsl:value-of 
-                                            select="format-number(./@buildTime, '0.0##')"/>
+                                            select="format-number(./@transformTimeTreeToTree, '0.0##')"/>
                                     </td>
                                     <td width="60px">
                                         <xsl:value-of 

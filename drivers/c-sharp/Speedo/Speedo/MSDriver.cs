@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
+using System.IO;
 
 
 namespace Speedo
@@ -14,6 +15,8 @@ namespace Speedo
     {
         private XslCompiledTransform xslCompiledTransform;
         protected String resultFile;
+        private XmlDocument sourceDocument;
+        private XmlDocument resultDocument;
 
         public MSDriver()
         {
@@ -27,7 +30,8 @@ namespace Speedo
 
         public override void BuildSource(Uri sourceUri) 
         {
-                   
+            sourceDocument = new XmlDocument();
+            sourceDocument.Load(sourceUri.ToString());                               
         }
 
         /**
@@ -45,7 +49,14 @@ namespace Speedo
          * supplied stylesheet
          */
 
-        public override void TreeToTreeTransform() { }
+        public override void TreeToTreeTransform() 
+        {
+            resultDocument = new XmlDocument();
+            using (XmlWriter writer = resultDocument.CreateNavigator().AppendChild())
+            {
+                xslCompiledTransform.Transform(sourceDocument, writer);
+            };                  
+        }
 
         /**
          * Run a transformation, from an input file to an output file
@@ -68,10 +79,20 @@ namespace Speedo
          */
 
         public override bool TestAssertion(String assertion)
-        {           
-            XPathDocument resultDoc = new XPathDocument(resultFile);            
-            XPathNavigator navigator = resultDoc.CreateNavigator();            
-            return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));            
+        {
+            if (resultDocument != null)
+            {                
+                XPathNavigator navigator = resultDocument.CreateNavigator();
+                return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
+            }
+
+            if (resultFile != null)
+            {
+                XPathDocument resultDoc = new XPathDocument(resultFile);
+                XPathNavigator navigator = resultDoc.CreateNavigator();
+                return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
+            }
+            return false;           
         }
         
         /**

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testResults driver="SaxonEE-9.5-.NET-BC" on="2014-04-16T10:25:00" baseline="no">
+    <test name="map-wordmap1-1" run="success" compileTime="108.65" transformTimeFileToFile="8293.7"
+        transformTimeTreeToTree="8146.05"/>
+    <test name="map-wordmap2-1" run="success" compileTime="213.3" transformTimeFileToFile="4068.15"
+        transformTimeTreeToTree="3973.7"/>
+    <test name="map-wordmap5-0" run="success" compileTime="186.1" transformTimeFileToFile="2569.1"
+        transformTimeTreeToTree="2665.55"/>
+    <test name="map-wordmap8" run="success" compileTime="185.2" transformTimeFileToFile="5960.2"
+        transformTimeTreeToTree="5942.15"/>
+    <test name="map-numbermap4" run="success" compileTime="86.2" transformTimeFileToFile="490.25"
+        transformTimeTreeToTree="462.55"/>
+    <test name="map-numbermap4a" run="success" compileTime="116.55"
+        transformTimeFileToFile="7304.45" transformTimeTreeToTree="7318.3"/>
+    <test name="map-datemap1" run="success" compileTime="1507.4" transformTimeFileToFile="21.1"
+        transformTimeTreeToTree="6.15"/>
+    <test name="map-datemap2-1" run="success" compileTime="395.05" transformTimeFileToFile="109.45"
+        transformTimeTreeToTree="8.95"/>
+    <test name="map-datemap2-4" run="success" compileTime="400.95" transformTimeFileToFile="364.2"
+        transformTimeTreeToTree="37.7"/>
+    <test name="map-datemap3-1" run="success" compileTime="405.55" transformTimeFileToFile="187.65"
+        transformTimeTreeToTree="95.6"/>
+    <test name="map-datemap3-4" run="success" compileTime="408.35" transformTimeFileToFile="1267"
+        transformTimeTreeToTree="980.55"/>
+    <test name="map-datemap4-1" run="success" compileTime="521.65" transformTimeFileToFile="103.55"
+        transformTimeTreeToTree="10.9"/>
+    <test name="map-datemap4-4" run="success" compileTime="524.15" transformTimeFileToFile="388.75"
+        transformTimeTreeToTree="79.55"/>
+    <test name="map-datemap5-1" run="success" compileTime="406.65" transformTimeFileToFile="173.05"
+        transformTimeTreeToTree="80.45"/>
+    <test name="map-datemap5-4" run="success" compileTime="407.6" transformTimeFileToFile="655.4"
+        transformTimeTreeToTree="346.9"/>
+</testResults>

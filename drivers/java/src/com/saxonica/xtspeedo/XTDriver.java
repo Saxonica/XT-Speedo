@@ -30,4 +30,10 @@ public class XTDriver extends JAXPDriver {
             throw new TransformationException(e);
         }
     }
+
+    public void treeToTreeTransform() throws TransformationException{
+        throw new UnsupportedOperationException();
+    };
+
+
 }
