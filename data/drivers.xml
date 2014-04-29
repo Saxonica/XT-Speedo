@@ -9,11 +9,17 @@
     
     <driver name="XT" baseline="no" class="com.saxonica.xtspeedo.XTDriver" language="java" xslt-version="1.0" />        
     
-    <driver name="XSLTC" baseline="no" class="com.saxonica.xtspeedo.XSLTCDriver" language="java" xslt-version="1.0" />  
+    <driver name="XSLTC" baseline="no" class="com.saxonica.xtspeedo.XSLTCDriver" language="java" xslt-version="1.0" />
+    
+    <driver name="Altova" baseline="no" class="com.saxonica.xtspeedo.RaptureDriver" language="java" xslt-version="2.0" />
     
     <driver name="System.Xml.Xsl" baseline="no" class="Speedo.MSDriver" language="c-sharp" xslt-version="1.0" />       
     
-    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0" />       
+    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0" />
+    
+    <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0" /> 
+    
+    <driver name="Saxon-C" baseline="no" class="SaxonCDriver" language="c/c++" xslt-version="2.0" /> 
     
     <driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">    
         <test-run-option name="docbook-tests-002" value="slow"/>
