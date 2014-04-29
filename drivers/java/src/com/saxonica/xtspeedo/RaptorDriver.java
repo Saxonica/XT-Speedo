@@ -17,7 +17,7 @@ import java.io.*;
 import java.net.URI;
 
 
-public class RaptureDriver extends IDriver{
+public class RaptorDriver extends IDriver{
 
     static RaptorXMLFactory rxml = RaptorXML.getFactory();
     XSLT xsltEngine = rxml.getXSLT();
@@ -26,19 +26,19 @@ public class RaptureDriver extends IDriver{
 
     @Override
     public void buildSource(URI sourceURI) throws TransformationException {
-        xsltEngine.setInputXMLFileName(sourceURI.getPath());
+        xsltEngine.setInputXMLFileName("file://"+sourceURI.getRawPath());
     }
 
     @Override
     public void compileStylesheet(URI stylesheetURI) throws TransformationException {
-        xsltEngine.setXSLFileName(stylesheetURI.getPath());
+        xsltEngine.setXSLFileName("file://"+stylesheetURI.getRawPath());
     }
 
     @Override
     public void treeToTreeTransform() throws TransformationException {
          try {
-            rxml.setServerName("192.168.0.106");
-             rxml.setServerPort(8087);
+            rxml.setServerName("192.168.0.110");
+            rxml.setServerPort(8087);
         } catch (RaptorXMLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -50,16 +50,19 @@ public class RaptureDriver extends IDriver{
     }
 
     @Override
-    public void fileToFileTransform(File source, File result) throws TransformationException {
+    public void fileToFileTransform(File source, File outputFile) throws TransformationException {
          try {
-            rxml.setServerName("192.168.0.106");
+            rxml.setServerName("192.168.0.110");
              rxml.setServerPort(8087);
         } catch (RaptorXMLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         try {
-            xsltEngine.setInputXMLFileName(source.getPath());
-            boolean res = xsltEngine.execute(result.getPath());
+            xsltEngine.setInputXMLFileName(source.getAbsolutePath());
+            boolean res = xsltEngine.execute(outputFile.getAbsolutePath());
+            if(!res) {
+                System.err.println("File not saved: "+outputFile.getAbsolutePath() + " Name: "+outputFile.getName());
+            }
         } catch (RaptorXMLException e) {
             throw new TransformationException(e);
         }
@@ -85,11 +88,11 @@ public class RaptureDriver extends IDriver{
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (XPathExpressionException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }        return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
+
     public void displayResultDocument() {
         //To change body of implemented methods use File | Settings | File Templates.
     }
