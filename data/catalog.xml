@@ -97,6 +97,40 @@
       </result>
    </test-case>
    
+   <test-case name="musicxml-tests-101" xslt-version="2.0">
+      <description>
+         Converts music xml partwise to timewise; schema-aware variant of transformation. Schubert sample.
+      </description>
+      <created by="Michael Kay" on="2014-05-01"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
+         <source file="musicxml-tests/SchbAvMaSample.xml"/>
+         <schema file="musicxml-tests/musicxml.xsd"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-102" xslt-version="2.0">
+      <description>
+         Converts music xml partwise to timewise; schema-aware variant of transformation. Mahler sample.
+      </description>
+      <created by="Michael Kay" on="2014-05-01"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
+         <schema file="musicxml-tests/musicxml.xsd"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
    <test-case name="micro-subscripting-20000" xslt-version="2.0">
       <description>
          Subscript access to sequence of 20000 items

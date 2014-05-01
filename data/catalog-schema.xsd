@@ -6,6 +6,7 @@
         <xs:element maxOccurs="unbounded" ref="test-case"/>
       </xs:sequence>
       <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="xslt-version" use="optional" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="test-case">
@@ -31,6 +32,7 @@
       <xs:sequence>
         <xs:element ref="stylesheet"/>
         <xs:element ref="source"/>
+        <xs:element ref="schema" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,6 +42,11 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="source">
+    <xs:complexType>
+      <xs:attribute name="file" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="schema">
     <xs:complexType>
       <xs:attribute name="file" use="required"/>
     </xs:complexType>

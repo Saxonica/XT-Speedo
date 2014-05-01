@@ -116,12 +116,17 @@ public class Speedo {
                         continue;
                     }
                     System.err.println("Running " + name);
+                    String schema = testCase.getChild("test").getChild("schema").getAttributeValue("file");
+                    URI schemaURI = schema == null ? null : catalogURI.resolve(schema);
                     String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
                     URI sourceURI = catalogURI.resolve(source);
                     String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
                     URI stylesheetURI = catalogURI.resolve(stylesheet);
                         if (xsltVersion <= driver.getXsltVersion()) {
                             try {
+                                if (schemaURI != null) {
+                                    driver.loadSchema(schemaURI);
+                                }
                                 driver.buildSource(sourceURI);
                                 int i;
                                 long totalCompileStylesheet = 0;

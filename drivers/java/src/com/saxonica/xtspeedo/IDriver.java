@@ -16,6 +16,15 @@ public abstract class IDriver {
     private Map<String, String> testOptions = new HashMap<String, String>();
 
     /**
+     * Load a schema document from a specified URI
+     * @param schemaURI the location of the XSD document file
+     */
+
+    public void loadSchema(URI schemaURI) throws TransformationException {
+        throw new TransformationException("Schema processing not supported with this driver");
+    }
+
+    /**
      * Parse a source file and build a tree representation of the XML
      * @param sourceURI the location of the XML input file
      */

@@ -17,11 +17,9 @@
                 </xsl:map>
             </xsl:variable>
             <read>
-                <xsl:for-each select="1 to 2">
                     <xsl:for-each select="$doc//*/tokenize(., '\W+')[.!='']">
-                        <xsl:value-of select="count($words(.))"/>
+                        <c w="{.}"><xsl:value-of select="count($words(.))"/></c>
                     </xsl:for-each>
-                </xsl:for-each>
             </read>
         </out>
     </xsl:template>

@@ -3,9 +3,7 @@ package com.saxonica.xtspeedo.saxonhe;
 import com.saxonica.xtspeedo.IDriver;
 import com.saxonica.xtspeedo.TransformationException;
 import net.sf.saxon.Configuration;
-import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.om.DocumentInfo;
-import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.*;
 import net.sf.saxon.trans.XPathException;
 import nu.validator.htmlparser.sax.HtmlParser;
@@ -27,6 +25,7 @@ import java.net.URI;
 public class SaxonEEDriver extends IDriver {
 
     private Processor processor = new Processor(true);
+    private DocumentBuilder documentBuilder;
     private XdmNode sourceDocument;
     private XsltExecutable stylesheet;
     private XdmNode resultDocument;
@@ -55,6 +54,23 @@ public class SaxonEEDriver extends IDriver {
     }
 
     /**
+     * Load a schema document from a specified URI
+     *
+     * @param schemaURI the location of the XSD document file
+     */
+    @Override
+    public void loadSchema(URI schemaURI) throws TransformationException {
+        try {
+            SchemaManager manager = processor.getSchemaManager();
+            manager.load(new StreamSource(schemaURI.toString()));
+            documentBuilder = processor.newDocumentBuilder();
+            documentBuilder.setSchemaValidator(manager.newSchemaValidator());
+        } catch (SaxonApiException e) {
+            throw new TransformationException(e);
+        }
+    }
+
+    /**
      * Parse a source file and build a tree representation of the XML
      *
      * @param sourceURI the location of the XML input file
@@ -62,7 +78,10 @@ public class SaxonEEDriver extends IDriver {
     @Override
     public void buildSource(URI sourceURI) throws TransformationException {
         try {
-            sourceDocument = processor.newDocumentBuilder().build(new StreamSource(sourceURI.toString()));
+            if (documentBuilder == null) {
+                documentBuilder = processor.newDocumentBuilder();
+            }
+            sourceDocument = documentBuilder.build(new StreamSource(sourceURI.toString()));
         } catch (SaxonApiException e) {
             throw new TransformationException(e);
         }

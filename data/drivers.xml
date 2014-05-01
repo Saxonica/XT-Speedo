@@ -11,7 +11,7 @@
     
     <driver name="XSLTC" baseline="no" class="com.saxonica.xtspeedo.XSLTCDriver" language="java" xslt-version="1.0" />
     
-    <driver name="Altova" baseline="no" class="com.saxonica.xtspeedo.RaptureDriver" language="java" xslt-version="2.0" />
+    <driver name="Altova" baseline="no" class="com.saxonica.xtspeedo.altova.RaptorDriver" language="java" xslt-version="2.0" />
     
     <driver name="System.Xml.Xsl" baseline="no" class="Speedo.MSDriver" language="c-sharp" xslt-version="1.0" />       
     
