@@ -30,7 +30,27 @@ public class SaxonHEDriver extends IDriver {
     private XsltExecutable stylesheet;
     private XdmNode resultDocument;
     private File resultFile;
-    private String driverName;
+
+    /**
+     * Set an option for this driver
+     * @param name the name of the option
+     * @param value the value of the option
+     */
+
+    public void setOption(String name, String value) {
+        processor.setConfigurationProperty("http://saxon.sf.net/feature/" + name, value);
+
+    }
+
+    /**
+     * Get the value of an option that has been set
+     * @param name the name of the option
+     * @return the value of the option, or null if none has been set
+     */
+
+    public String getOption(String name) {
+        return processor.getConfigurationProperty(name).toString();
+    }
 
     /**
      * Parse a source file and build a tree representation of the XML
@@ -190,24 +210,5 @@ public class SaxonHEDriver extends IDriver {
     @Override
     public double getXsltVersion() {
         return 2.0;
-    }
-    /**
-     * Set a short name for the driver to be used in reports
-     *
-     * @param name name to be used for driver
-     */
-    @Override
-    public void setName(String name) {
-        this.driverName = name;
-    }
-
-    /**
-     * Get the short name for the driver to be used in reports
-     *
-     * @return the name
-     */
-    @Override
-    public String getName() {
-        return driverName;
     }
 }

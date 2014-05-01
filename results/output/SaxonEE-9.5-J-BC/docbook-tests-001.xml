@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><html><head><title>XSLT in the Browser</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"></meta><meta name="description" content="This paper is in three parts: past, present, and future. The first part discusses why the success of XSLT in the browser has so far been underwhelming. The second part discusses progress in porting Saxon to the browser. The third and final part describes a vision for the future potential of client-side XSLT."></meta></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h1 class="title"><a name="d10409e2"></a>XSLT in the Browser</h1></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Michael</span> <span class="surname">Kay</span></h3><div class="affiliation"><span class="orgname">Saxonica<br></br></span></div><code class="email">&lt;<a class="email" href="mailto:mike@saxonica.com">mike@saxonica.com</a>&gt;</code></div></div></div><div><div class="abstract"><p class="title"><b>Abstract</b></p><p>This paper is in three parts: past, present, and future. The first part discusses
+                why the success of XSLT in the browser has so far been underwhelming. The second
+                part discusses progress in porting Saxon to the browser. The third and final part
+                describes a vision for the future potential of client-side XSLT.</p></div></div></div><hr></hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="#d10409e28">The Past</a></span></dt><dt><span class="sect1"><a href="#d10409e54">The Present</a></span></dt><dt><span class="sect1"><a href="#d10409e188">The Future</a></span></dt><dt><span class="sect1"><a href="#d10409e230">Conclusions</a></span></dt><dt><span class="bibliography"><a href="#d10409e237">References</a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d10409e28"></a>The Past</h2></div></div></div><p>XSLT 1.0 [<a class="citation" href="#d10409e240"><span class="citation">1</span></a>] was published in November 1999. A year before the spec
+            was finished, Microsoft shipped an implementation as an add-on to Internet Explorer 4,
+            which became an integral part of Internet Explorer 5. In their eagerness, they shipped a
+            language (usually now referred to as WD-xsl) which had many differences from the W3C
+            specification that emerged the following year, and although they soon followed it up
+            with a conforming implementation, the WD-xsl dialect is still sometimes encountered to
+            this day. This illustrates nicely the paradox of the browser world: things can sometimes
+            move very quickly, but they can also move very slowly indeed. </p><p>The speed at which Microsoft moved demonstrates that implementation in the browser was
+            very much part of the thinking of the designers of the language. The introduction to the
+            XSLT 1.0 specification states that the language was not designed as a general-purpose
+            transformation language, but as a language whose primary purpose is converting XML into
+            presentation-oriented formats such as XSL-FO. And if you're converting XML into HTML for
+            rendition in a browser, it obviously makes sense to download the XML to the client and
+            do the conversion there. The language specification, of course, never uses the words
+            "browser" or "client", but there are many features of the language that were designed
+            with this environment in mind (for example, the fact that most run-time errors are
+            recoverable, which mirrors the way that browsers handle HTML syntax errors).</p><p>So what went wrong? Why didn't everyone immediately use the new capability?</p><p>The answer is that few web sites are interested in delivering content in a format that
+            can't be displayed by every browser. That meant that the first few years, web developers
+            were reluctant to serve XML because XSLT wasn't implemented on browsers such as IE3
+            which were still widely deployed. Later, they were reluctant because XSLT wasn't
+            implemented (or was poorly implemented) on Netscape and Firefox. Today, nearly all
+            modern desktop browsers support XSLT 1.0, and the level of compatibility is pretty good
+            despite one or two glitches (like the failure of Firefox to support the namespace axis,
+            and the very tardy support for the document() function in Opera). But there are still
+            users using ancient browsers (and why shouldn't they? My TV is twenty years old, and
+            still meets my needs). Meanwhile the younger generation, who would be horrified by a
+            20-year old TV set, expect to do their internet surfing from smartphones, many of which
+            don't yet support XSLT.</p><p>So the problem throughout this period has been the same: XSLT penetration on the
+            browser has not at any stage been ubiquitous enough to encourage a significant level of
+            adoption by web site developers.</p><p>And this of course led to the second problem: because web developers weren't using
+            XSLT in large numbers, the technology didn't progress. The failure of browser vendors to
+            implement XSLT 2.0 is widely bemoaned by XSLT afficionados, but who can blame them? If
+            we paid for our software, things might be different. So long as it's free, browser
+            vendors have no incentive to cater to minorities. They are driven by the monthly figures
+            on market share, and as a result, they have to cater to the masses.</p><p>But it's not really the failure to implement XSLT 2.0 that's the biggest issue; it's
+            the failure to modernize the role of XSLT and its relationship to the rest of the
+            browser environment, which hasn't exactly stood still since 1999. The browser in 1999
+            was still largely what its name indicates &#x2014; a way of displaying static content on a PC
+            screen, and navigating between pages by following hard-coded hyperlinks. The way XSLT
+            1.0 is implemented in the browser reflects that level of maturity in the evolution of
+            the web. It translates XML to HTML, and hands the HTML over to the browser to be
+            displayed, period. What's the story on forms, on interaction, on AJAX? Answer: you
+            generate HTML that contains Javascript. And the Javascript is the part that does all the
+            interesting stuff. So you're writing in two languages instead of one, and they have an
+            awkward relationship: writing XSLT that generates Javascript code that responds to user
+            events by invoking another XSLT transformation that in turn generates more Javascript
+            can't realistically be considered an elegant architecture.</p><p>The success of CSS hasn't helped XSLT's cause either. CSS and XSLT aren't in direct
+            competition: no-one will deny that XSLT's capabilities go far beyond what CSS can do.
+            But many of the original aspirations of XSLT &#x2014; the separation of content from
+            presentation &#x2014; can be achieved to a reasonable extent using CSS alone. So enhancements
+            to CSS reduce the incentive to learn XSLT, just as enhancements to HTML forms diminish
+            the attractions of XForms.</p><p>At this stage one could write off XSLT on the browser as a failed technology. But I
+            wouldn't be speaking on the topic if my aim was to deliver an obituary. Because the fact
+            is, the state of software development on the browser is far from rosy, and I'm convinced
+            that far better tools are both needed and feasible, and I'm also convinced that
+            developers would be much better off making more use of declarative languages if those
+            languages delivered what developers need.</p><p>The browser has become a monoculture for software developers. HTML5 plus Javascript is
+            what we're being offered, and we have very little choice but to accept it. There's very
+            little scope for those outside the charmed circle of browser vendors to offer an
+            alternative, and as a result, there's very little questioning of whether what's on offer
+            is really the best we can do or not. But I think we can do better, and that's what I
+            hope to demonstrate in the next two sections of this paper.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d10409e54"></a>The Present</h2></div></div></div><p>During XML Prague 2010, a number of speakers made complaints about the limitations of
+            browsers, similar to the complaints in the previous section: not just in relation to
+            XSLT, but also XQuery, XForms, XProc, and other technologies. A presentation on XQuery
+            in the browser [<a class="citation" href="#d10409e257"><span class="citation">2</span></a>] attracted a lot of interest (though sadly there is
+            only a skeleton paper in the proceedings). That implementation used the "plug-in"
+            mechanism offered by many browsers, which in practice has many limitations: it doesn't
+            offer seamless ability to manipulate the HTML of the page, as well as other components
+            of the browser space such as the address bar, status bar, history and cookies.</p><p>A common observation made in discussion at last year's conference was that if you 
+            implemented a processor for your
+            favourite language in Javascript, all these problems would go away. Javascript as a language
+            has matured immensely in the last few years, and browser vendors fall over each other
+            trying to excel in the performance of the Javascript engines. There appeared to be a
+            consensus forming that Javascript was becoming capable of being used as a system
+            programming platform to implement other languages.</p><p>In the twelve months since XML Prague 2010, we have seen announcements of an XProc
+            engine running on the browser[<a class="citation" href="#d10409e276"><span class="citation">3</span></a>], and the XQIB XQuery engine running on the browser has been
+            re-engineered to run as native Javascript[<a class="citation" href="#d10409e295"><span class="citation">4</span></a>]; I have also
+            produced a prototype implementation of XSLT 2.0 on the browser, which I want to say more
+            about today.</p><p>All these products were produced from existing Java engines, by cross-compiling the
+            Java to Javascript using the Google Web Toolkit (GWT)[<a class="citation" href="#d10409e304"><span class="citation">5</span></a>]. Although no
+            detailed performance data is available, all deliver a responsiveness which feels
+            perfectly adequate for production use.</p><p>At first sight, the architecture seems improbable. Javascript was hardly designed as a
+            system programming language &#x2014; it doesn't even offer integer arithmetic (GWT translates
+            all integer arithmetic into floating-point arithmetic, and emulates a
+            <code class="code">long</code> (64-bit) integer using two 64-bit <code class="code">double</code>
+            values. The code generated for common system programming operations such as bit-masking
+            and shifting looks outrageously inefficient. And yet, there is so much processor power
+            available on today's typical desktop machine that this really doesn't matter: it turns
+            out to be fast enough.</p><p>It's worth observing that one well respected client-side XForms engine (XSLTForms)[<a class="citation" href="#d10409e313"><span class="citation">6</span></a>]
+            uses an even more improbable architecture &#x2014; it is implemented entirely in XSLT 1.0.
+            Again, despite the obvious intrinsic inefficiencies, its interactive performance is
+            quite sufficient to meet the requirements of most applications.</p><p>Let's look at what was needed to implement XSLT 2.0 using Saxon[<a class="citation" href="#d10409e325"><span class="citation">7</span></a>] in the browser (I'm
+            calling it Saxon Client Edition or Saxon-CE) using the GWT cross-compiler.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>The first step was to get rid of all unnecessary code. The source code of
+                    Saxon-EE 9.3 is around 400K lines of Java. Although the generated Javascript
+                    will be cached, the time taken to view the first screen on a web site is
+                    critical, and I decided to aim to get this down to around 40K. Comments don't
+                    matter, and the first decision was to start with the functionality of Saxon Home
+                    Edition, which immediately brings it down to 143K lines of non-comment code.  At
+                    the time of writing, I hve reduced it to 60K lines, which produces a little
+                    under 900Kb of highly-compressed Javascript. The target of 40Kb looks quite
+                    feasible: Saxon 5.0, which was the first full implementation of XSLT 1.0
+                    delivered in December 1999 was just 17K lines, and XSLT 2.0 is probably only
+                    twice the size of XSLT 1.0 as a language. Looking at some sample code, the
+                    implementation of the substring() function, it's fairly clear that one can cut
+                    it down from 200 lines of code to 20 by removing a few optimizations of marginal
+                    value, diagnostics, and code for special situations such as streaming. </p><p>Getting the code down to 80K was fairly easy, by cutting out unwanted
+                    functionality such as XQuery, updates, serialization, support for JAXP, Java
+                    extension functions, and unnecessary options like the choice between TinyTree
+                    and Linked Tree, or the choice (never in practice exercised) of different
+                    sorting algorithms. </p><p>The next 20K was a little more difficult and required more delicate surgery.
+                    For example, it involved changes to the XPath parser to use a hybrid
+                    precedence-parsing approach in place of the pure recursive-descent parser used
+                    previously; offloading the data tables used by the
+                        <code class="code">normalize-unicode()</code> function into an XML data file to be loaded
+                    from the server on the rare occasions that this function is actually used;
+                    rewriting the regex handling to use the regex library provided by GWT (which is
+                    merely a wrapper around the Javascript regex library); sometimes combining two
+                    types of expression implemented separately to use a single generic
+                    implementation.</p><p>A further reduction from 60K to 40K will be more challenging still, and may
+                    turn out not to be necessary. It may involve removing some optimizations, and
+                    some of the performance-oriented machinery such as the <code class="code">NamePool</code>. A
+                    useful measure may be to implement parts of the standard function library in
+                    XSLT itself, to be compiled on demand. It may involve being a little bit less
+                    dogmatic about conformance in edge cases, such as matching of non-BMP characters
+                    in regular expressions (when there's a minor difference between the requirements
+                    of the XPath specification and the behaviour of the available Javascript
+                    library, such as the exact rules for rounding in double arithmetic, the choice
+                    is between using the library and hoping users don't mind too much, or writing
+                    thousands of lines of code that do things slightly differently; and in practice,
+                    users are no more likely to be affected by such departures from the spec than
+                    they are to be affected by the many areas where the specification leaves matters
+                    completely implementation-defined.) </p></li><li class="listitem"><p>Second, it was of course necessary to make the code compile. GWT doesn't
+                    support every single interface in the JDK. Coverage is good, but not 100%. Some
+                    of the omissions are for obvious reasons, for example there is no file I/O.
+                    Java's standard XML interfaces (such as SAX and DOM) are absent, replaced by
+                    DOM-like APIs that wrap the XML DOM and HTML DOM Javascript APIs. The standard
+                    Java regex handling is absent, replaced by a different API that wraps the
+                    Javascript regex library. Some of the omissions seem to have no particular
+                    rationale: there's no StringTokenizer, no java.net.URI, and no java.util.BitSet.
+                    In all cases it was easy enough to fill the gap by writing new classes that do
+                    what Saxon requires (in some cases, such as BitSet and URI, this was a tiny
+                    fraction of what the JDK class offers). </p></li><li class="listitem"><p>Finally, it is necessary to invoke the XSLT processor within the browser
+                    environment, and for the XSLT processor to be able to get input and deliver
+                    output within this environment. In the first place, this means being able to use
+                    both the HTML DOM and the XML DOM as input, which is done using wrappers much as
+                    the Java and ,NET product support different DOM flavours. Similary, it means
+                    being write a result tree in a form that can be attached to either an XML or
+                    HTML DOM. It means providing an invocation API: at the moment, the only thing I
+                    have implemented is invocation using the HTML &lt;script&gt; element, but some kind
+                    of Javascript API is likely to supplement this. And it is necessary to implement
+                    the document() function in terms of XmlHttpRequest calls to the server. All this
+                    is working, and it already provides as much capability as most of the browser
+                    XSLT 1.0 implementations. But I want to go beyond this, and that's the topic of
+                    the next section.</p></li></ol></div><p>Experience with GWT has been very positive indeed. I have not encountered any cases
+            where the Javascript it generates produces different results from the native Java, or
+            where the generated code even needs to be examined. The compilation process (translating
+            Java to Javascript) is slow, but the time is well spent, because it results in superbly
+            fast Javascript code. </p><p>Unfortunately it's not possible to invoke a transformation by simply sending the XML
+            document to the browser with an <code class="code">&lt;?xml-stylesheet?&gt;</code> processing
+            instruction at the start. The interpretation of this is under the control of the
+            browser, not the user application, and the browser provides no hook that would cause
+            this to invoke a third-party XSLT engine. Instead, I'm currently using a
+                <code class="code">&lt;script&gt;</code> element of the form</p><div class="informalexample"><pre class="programlisting">&lt;script src="stylesheet.xsl" type="application/xml+xslt" input="source.xml"&gt;&lt;/script&gt;</pre></div><p>This works, but it's not ideal. Firstly, it's not conformant HTML5 (the
+                <code class="code">input</code> attribute is not permitted, though of course browsers don't
+            reject it). Secondly, it seems that the browser itself fetches the XSLT code and adds it
+            to the HTML DOM, which isn't especially useful since the HTML DOM doesn't expose details
+            such as namespaces, and may do the wrong thing when the stylesheet contains HTML
+            elements such as <code class="code">&lt;br/&gt;</code>. (So Saxon currently ignores the fact that the
+            stylesheet has already been fetched, and fetches it again using an
+                <code class="code">XmlHttpRequest</code>). I'm considering replacing this with a mechanism that
+            uses a <code class="code">&lt;script&gt;</code> element such as:</p><p>
+            </p><pre class="programlisting">&lt;script id="xslt-transformation" type="application/xml"&gt;
+  &lt;stylesheet href="stylesheet.xsl"/&gt;
+  &lt;source href="source.xml"/&gt;
+  &lt;output href="#body"/&gt;
+  &lt;param name="p" value="3"/&gt;
+  &lt;initial-mode name="mode-a"/&gt;
+&lt;/script&gt;</pre><p>
+        </p><p>where the contents of the <code class="code">&lt;script&gt;</code> element would not be parsed by the
+            browser, but retained as text in the HTML DOM. This will require experimentation to
+            establish what works across a range of browser platforms. Although the details may
+            change, I'm keen to have an interface that invokes the transformation through markup of
+            this kind in a skeletal HTML page, rather than relying on Javascript coding. My design
+            aim is that it should be possible to use XSLT without using any Javascript.</p><p>The principal output of the stylesheet is of course a tree of nodes, and this is
+            inserted into the HTML page at a location identified here by an <code class="code">id</code>
+            attribute <code class="code">(href="#body"</code>). XSLT 2.0 allows a stylesheet to produce multiple
+            result trees, and each of these can populate a different part of the HTML page, using
+            the <code class="code">href</code> attribute of <code class="code">&lt;xsl:result-document&gt;</code> in the same
+            way. As well as identifying the attachment point of the result document by means of an
+            ID value, it can also be selected by means of an XPath expression, for example
+                <code class="code">&lt;xsl:result-document href="?select=//id('table')/tr[{$n}]"/&gt;</code>, which
+            allows a sequence of result documents to populate the rows of an HTML table.</p><p>In the current implementation the <code class="code">document()</code> function fetches an XML
+            document using a synchronous <code class="code">XmlHttpRequest</code>. This is of course
+            unsatisfactory, and in a production release it will be necessary to make the request
+            asynchronous. Initial experiments suggest that it should be reasonably easy to implement
+            this provided the function is used in a context such as <code class="code">&lt;xsl:apply-templates
+                select="document('xyz.xml')"/&gt;</code>; this can translate into an
+                <code class="code">XmlHttpRequest</code> with a callback function (to be invoked when the
+            document arrives) that runs on a new stack-frame, without excessive inversion of the
+            Saxon code. After issuing the call, the calling code can continue as normal, leaving a
+            place-marker element in the result tree for the result of the apply-templates
+            instruction; when the document arrives and has been fully processed, the resulting tree
+            fragment can be stitched into the result tree in place of the place-marker element. The
+            ability to make the transformation asychronous in this way, seamlessly to the user,
+            demonstrates one of the benefits of programming in a declarative language. However, the
+            limitations of the JavaScript threading model are such that it's hard to see how to
+            handle the general case, for example where the result of processing an external document
+            is used to form the value of a variable, and this variable is then used by the original
+            processing "thread". </p><p>So far, so good: we can run a stylesheet, create HTML output, add the HTML output to
+            the tree maintained by the browser, and have it rendered. That's essentially what
+            today's in-browser XSLT 1.0 implementations do. We've already delivered some benefits:
+            access to the much richer functionality of XSLT 2.0, as well as browser-independence
+            (the same XSLT engine, and therefore the same XSLT stylesheets, run in any browser that
+            supports HTML5 and JavaScript). But as I said in the first section, to make XSLT on the
+            browser a success, I think we have to go further. In particular, we have to handle
+            interaction. This is the subject of the next section.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d10409e188"></a>The Future</h2></div></div></div><p>I believe that to make the case for using XSLT on the browser compelling, it has to do
+            everything that can currently be done with JavaScript on the browser, and it has to do
+            it better.</p><p>In the first place, XSLT has to be able to handle user-initiated events.</p><p>We have a head start here, because XSLT's natural processing model is event-driven.
+            Suppose, for example, we want to sort a table when the user clicks on the column
+            heading. We should be able to write:</p><div class="informalexample"><pre class="programlisting">
+&lt;xs:template match="th" mode="onclick"&gt;
+  &lt;xsl:apply-templates select="ancestor::table[1]" mode="sort"&gt;
+    &lt;xsl:with-param name="colNr" select="count(preceding-sibling::th)+1"/&gt;
+  &lt;/xsl:apply-templates&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="table" mode="sort"&gt;
+  &lt;xsl:param name="colNr" as="xs:integer" required="yes"/&gt;
+  &lt;xsl:result-document href="?select=." method="replace-content"&gt;
+    &lt;xsl:copy-of select="thead"/&gt;
+    &lt;tbody&gt;
+      &lt;xsl:perform-sort select="tbody/tr"&gt;
+        &lt;xsl:sort select="td[$colNr]"/&gt;
+      &lt;/xsl:perform-sort&gt;
+    &lt;/tbody&gt;
+  &lt;/xsl:result-document&gt;
+&lt;/xsl:template&gt;
+</pre></div><p>Note that like CSS styling rules, this is a generic rule that applies to every element
+            that matches the match pattern. In the same way as CSS has moved the description of
+            styles from individual element instances to whole classes of elements, we are moving the
+            specification of behaviour from the instance level to the class level. The class of
+            elements to which the behaviour applies can be specialized of course by using a more
+            specific match pattern, but if written in this form, it produces consistent behaviour
+            for every table in the document. This is already a significant improvement on the
+            JavaScript way of doing things.</p><p>There's some magic, of course, buried in the <code class="code">href</code> and <code class="code">method</code>
+            attributes of the <code class="code">&lt;xsl:result-document&gt;</code> instruction. My tentative syntax
+            here uses a query URL that addresses the current document (that is, the contents of the
+            browser window); <code class="code">"?select=."</code> means the output should be located at the same
+            point in the tree, and <code class="code">method="replace-content"</code> means that the existing
+            content of the current element (but not the element itself) should be written to this
+            location.</p><p>Is this kind of in-situ update consistent with the XSLT processing model? Is it safe
+            in a declarative language, where order of execution is not defined? I believe it should
+            be possible to define the semantics rigorously, but I don't claim to have done so yet. I
+            think the formal processing model will turn out to be rather like the model for XQuery
+            Updates: all the result documents generated during a transformation phase are
+            accumulated in a pending update list; they are not allowed to conflict with each other;
+            and they are then applied together at the end of this processing phase (the processing
+            phase being all the actions needed to respond to a user input event).</p><p>This style of processing will, I believe, enable XSLT to be used to program most of
+            the interactivity that is currently implemented in JavaScript. It will need some further
+            extensions (it's not obvious to me yet, for example, how the stylesheet should update a
+            single attribute of the HTML DOM, nor how it should issue POST requests to the server).
+            It will also need the ability to interoperate with JavaScript in both directions. None
+            of these obstacles appear to be insuperable, and the existing event-based nature of the
+            XSLT language appears to make it ideally suited to handling an event-based user
+            interface.</p><p>One area where JavaScript programming of a user interface gets very messy and
+            error-prone is when implementing a structured dialog such as a flight reservation: a
+            question-and-answer wizard where the system takes the user through a series of pages,
+            managing the URLs of the successive pages and the effect of the back button as it does
+            so. This area is currently seeing much exploration and innovation; sites like Google and
+            Twitter are experimenting with new ways of using fragment identifiers in URIs to capture
+            state (see for example Jeni Tennison's article[<a class="citation" href="#d10409e337"><span class="citation">8</span></a>]). I hope in a later
+            paper to show how XSLT can be used to tackle this problem. The key, I believe, is to
+            think of a dialog as a pair of interleaved documents, one representing the communication
+            from the system to the user (the output), the other the communication from the user to
+            the system (the input), where the structure of the dialog can be represented by the
+            schemata for these two documents, and the processing logic as a (streamed)
+            transformation of the input document to the output document. This gives a structured way
+            to think about the states represented by URLs appearing in the browser window, to which
+            the user can return by hitting the back button. Hopefully this will pave the way to a
+            more declarative way of programming such dialogues, in which the maintenance of state
+            across user interactions is the responsibility of the system, not the individual web
+            developer.</p><p>I hope also to examine how XForms fits into this picture. Clearly if the aim is to
+            eliminate low-level JavaScript programming and replace it with a higher-level more
+            declarative style of user interface definition, XForms must play a significant
+            part.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d10409e230"></a>Conclusions</h2></div></div></div><p>In this paper I have outlined why I believe XSLT 1.0 on the browser has failed to
+            capture the public imagination. I've described the mechanics of how the Saxon XSLT
+            processor has been adapted to run natively in the browser, by cross-compiling it to
+            Javascript. And I've described some ideas for how we can take advantage of the
+            declarative, event-driven nature of XSLT to enable the language to be used not just for
+            rendering XML for display on the screen, but for handling interactions with the user and
+            providing a much higher-level approach to web applications design than is customary
+            today with JavaScript.</p><p>.</p></div><div class="bibliography"><div class="titlepage"><div><div><h2 class="title"><a name="d10409e237"></a>References</h2></div></div></div><div class="biblioentry"><a name="d10409e240"></a><p>[<abbr class="abbrev">1</abbr>] <span class="title"><i>XSL Transformations (XSLT) Version 1.0</i>. </span><span class="subtitle">W3C
+                Recommendation. </span><span class="date">16 November 1999. </span><span class="editor">James
+                    Clark. </span><span class="publisher"><span class="publishername">W3C. </span></span><span class="biblioid">http://www.w3.org/TR/xslt. </span></p></div><div class="biblioentry"><a name="d10409e257"></a><p>[<abbr class="abbrev">2</abbr>] <span class="title"><i>XQuery in the Browser: The same as JavaScript, just with less code</i>. </span><span class="date">23 January 2007. </span><span class="author">Ghislain Fourny et al. </span><span class="confgroup"><span class="conftitle">XML Prague. </span><span class="confdates">March, 2010. </span><span class="address">Prague, Czech Republic. </span>. </span><span class="biblioid">http://www.xmlprague.cz/2010/files/XMLPrague_2010_Proceedings.pdf. </span></p></div><div class="biblioentry"><a name="d10409e276"></a><p>[<abbr class="abbrev">3</abbr>] <span class="title"><i>XML Pipeline Processing in the Browser</i>. </span><span class="author">Toman, Vojt&#x11b;ch. </span><span class="confgroup"><span class="conftitle">Balisage. </span><span class="confdates">Aug 3-10, 2010. </span><span class="address">Montréal, Canada. </span>. </span><span class="biblioid"><a href="http://dx.doi.org/10.4242/BalisageVol5.Toman01">doi:10.4242/BalisageVol5.Toman01</a></span><span class="biblioid">http://www.balisage.net/Proceedings/vol5/html/Toman01/BalisageVol5-Toman01.html. </span></p></div><div class="biblioentry"><a name="d10409e295"></a><p>[<abbr class="abbrev">4</abbr>] <span class="title"><i>XQIB: XQuery in the Browser, JavaScript Edition</i>. </span><span class="orgname">ETH Zurich Systems Group and FLWOR Foundation. </span><span class="biblioid">http://www.xqib.org/?p=15. </span></p></div><div class="biblioentry"><a name="d10409e304"></a><p>[<abbr class="abbrev">5</abbr>] <span class="title"><i>Google Web Toolkit (GWT)</i>. </span><span class="orgname">Google. </span><span class="biblioid">http://code.google.com/webtoolkit/. </span></p></div><div class="biblioentry"><a name="d10409e313"></a><p>[<abbr class="abbrev">6</abbr>] <span class="title"><i>XSLTForms</i>. </span><span class="author">Alain Couthures. </span><span class="orgname">agenceXML. </span><span class="biblioid">http://www.agencexml.com/xsltforms. </span></p></div><div class="biblioentry"><a name="d10409e325"></a><p>[<abbr class="abbrev">7</abbr>] <span class="title"><i>The Saxon XSLT and XQuery Processor</i>. </span><span class="author">Michael Kay. </span><span class="orgname">Saxonica. </span><span class="biblioid">http://www.saxonica.com/. </span></p></div><div class="biblioentry"><a name="d10409e337"></a><p>[<abbr class="abbrev">8</abbr>] <span class="date">6 March 2011. </span><span class="title"><i>Hash URIs</i>. </span><span class="author">Jeni Tennison. </span><span class="biblioid">http://www.jenitennison.com/blog/node/154. </span></p></div></div></div></body></html>

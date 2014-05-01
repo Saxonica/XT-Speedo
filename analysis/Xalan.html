@@ -5,488 +5,723 @@
       <title>XT-Speedo Xalan results</title>
    </head>
    <body>
-      <h1>Results for Xalan at 15:27:57 on 28 March 2014</h1>
+      <h1>Results for Xalan at 15:32:23 on 11 April 2014</h1>
       <p><a href="report.html">Back to overview</a></p>
-      <table>
+      <table id="driver">
          <thead>
             <th></th>
-            <th colspan="3"> Times relative to SaxonHE-9.5-.NET driver <br> (smaller values represent faster times) 
+            <th colspan="6"> Times relative to SaxonHE-9.5-J driver <br> (smaller values represent faster times) 
                
+               <p class="actual"> Actual times (in milliseconds)</p>
             </th>
          </thead>
          <thead>
             <th>Test</th>
-            <th width="120px">Transform</th>
-            <th width="120px">Build</th>
-            <th width="120px">Compile</th>
+            <th width="120px" colspan="2">File to file transform</th>
+            <th width="120px" colspan="2">Tree to tree transform</th>
+            <th width="120px" colspan="2">Stylesheet compile</th>
          </thead>
          <tr>
             <td>musicxml-tests-001</td>
-            <td>1.124</td>
-            <td>Infinity</td>
-            <td>0.359</td>
+            <td width="60px">1.621</td>
+            <td width="60px" class="actual">103.681</td>
+            <td width="60px">7.063</td>
+            <td width="60px" class="actual">122.536</td>
+            <td width="60px">1.2</td>
+            <td width="60px" class="actual">21.087</td>
          </tr>
          <tr>
             <td>musicxml-tests-002</td>
-            <td>0.468</td>
-            <td>Infinity</td>
-            <td>2.126</td>
+            <td width="60px">1.333</td>
+            <td width="60px" class="actual">29.318</td>
+            <td width="60px">3.081</td>
+            <td width="60px" class="actual">26.812</td>
+            <td width="60px">0.611</td>
+            <td width="60px" class="actual">4.445</td>
          </tr>
          <tr>
             <td>musicxml-tests-003</td>
-            <td>1.265</td>
-            <td>Infinity</td>
-            <td>1.454</td>
+            <td width="60px">1.878</td>
+            <td width="60px" class="actual">70.928</td>
+            <td width="60px">6.739</td>
+            <td width="60px" class="actual">66.823</td>
+            <td width="60px">0.573</td>
+            <td width="60px" class="actual">9.718</td>
          </tr>
          <tr>
             <td>musicxml-tests-004</td>
-            <td>1.142</td>
-            <td>Infinity</td>
-            <td>1.343</td>
+            <td width="60px">1.802</td>
+            <td width="60px" class="actual">38.144</td>
+            <td width="60px">6.04</td>
+            <td width="60px" class="actual">34.913</td>
+            <td width="60px">0.68</td>
+            <td width="60px" class="actual">7.586</td>
          </tr>
          <tr>
             <td>xsltmark-alphabetize</td>
-            <td>2.438</td>
-            <td>Infinity</td>
-            <td>1.12</td>
+            <td width="60px">5.197</td>
+            <td width="60px" class="actual">51.739</td>
+            <td width="60px">4.148</td>
+            <td width="60px" class="actual">11.418</td>
+            <td width="60px">1.249</td>
+            <td width="60px" class="actual">1.696</td>
          </tr>
          <tr>
             <td>xsltmark-attsets</td>
-            <td>0.307</td>
-            <td>Infinity</td>
-            <td>3.112</td>
+            <td width="60px">1.745</td>
+            <td width="60px" class="actual">3.458</td>
+            <td width="60px">8.022</td>
+            <td width="60px" class="actual">2.44</td>
+            <td width="60px">1.038</td>
+            <td width="60px" class="actual">1.888</td>
          </tr>
          <tr>
             <td>xsltmark-avts</td>
-            <td>0.738</td>
-            <td>Infinity</td>
-            <td>2.066</td>
+            <td width="60px">2.169</td>
+            <td width="60px" class="actual">10.087</td>
+            <td width="60px">11.617</td>
+            <td width="60px" class="actual">5.548</td>
+            <td width="60px">2.473</td>
+            <td width="60px" class="actual">3.46</td>
          </tr>
          <tr>
             <td>xsltmark-axis</td>
-            <td>0.266</td>
-            <td>Infinity</td>
-            <td>1.834</td>
+            <td width="60px">1.931</td>
+            <td width="60px" class="actual">3.476</td>
+            <td width="60px">4.374</td>
+            <td width="60px" class="actual">1.098</td>
+            <td width="60px">0.712</td>
+            <td width="60px" class="actual">2.592</td>
          </tr>
          <tr>
             <td>xsltmark-backwards</td>
-            <td>0.461</td>
-            <td>Infinity</td>
-            <td>3.361</td>
+            <td width="60px">1.632</td>
+            <td width="60px" class="actual">4.128</td>
+            <td width="60px">5.588</td>
+            <td width="60px" class="actual">2.906</td>
+            <td width="60px">1.61</td>
+            <td width="60px" class="actual">1.49</td>
          </tr>
          <tr>
             <td>xsltmark-bottles</td>
-            <td>0.596</td>
-            <td>Infinity</td>
-            <td>0.866</td>
+            <td width="60px">0.558</td>
+            <td width="60px" class="actual">7.289</td>
+            <td width="60px">1.743</td>
+            <td width="60px" class="actual">6.24</td>
+            <td width="60px">0.889</td>
+            <td width="60px" class="actual">3.193</td>
          </tr>
          <tr>
             <td>xsltmark-breadth</td>
-            <td>0.565</td>
-            <td>Infinity</td>
-            <td>3.951</td>
+            <td width="60px">1.528</td>
+            <td width="60px" class="actual">5.879</td>
+            <td width="60px">1.118</td>
+            <td width="60px" class="actual">1.772</td>
+            <td width="60px">1.493</td>
+            <td width="60px" class="actual">1.463</td>
          </tr>
          <tr>
             <td>xsltmark-brutal</td>
-            <td>0.689</td>
-            <td>Infinity</td>
-            <td>1.832</td>
+            <td width="60px">1.245</td>
+            <td width="60px" class="actual">7.725</td>
+            <td width="60px">1.951</td>
+            <td width="60px" class="actual">1.833</td>
+            <td width="60px">0.525</td>
+            <td width="60px" class="actual">4.06</td>
          </tr>
          <tr>
             <td>xsltmark-chart</td>
-            <td>0.513</td>
-            <td>Infinity</td>
-            <td>1.789</td>
+            <td width="60px">0.771</td>
+            <td width="60px" class="actual">4.476</td>
+            <td width="60px">2.53</td>
+            <td width="60px" class="actual">1.651</td>
+            <td width="60px">0.4</td>
+            <td width="60px" class="actual">2.6</td>
          </tr>
          <tr>
             <td>xsltmark-creation</td>
-            <td>2.01</td>
-            <td>Infinity</td>
-            <td>3.109</td>
+            <td width="60px">4.017</td>
+            <td width="60px" class="actual">23.141</td>
+            <td width="60px">14.737</td>
+            <td width="60px" class="actual">17.193</td>
+            <td width="60px">0.769</td>
+            <td width="60px" class="actual">1.582</td>
          </tr>
          <tr>
             <td>xsltmark-current</td>
-            <td>0.365</td>
-            <td>Infinity</td>
-            <td>1.673</td>
+            <td width="60px">3.562</td>
+            <td width="60px" class="actual">8.073</td>
+            <td width="60px">7.347</td>
+            <td width="60px" class="actual">2.187</td>
+            <td width="60px">1.25</td>
+            <td width="60px" class="actual">2.781</td>
          </tr>
          <tr>
             <td>xsltmark-dbonerow</td>
-            <td>0.515</td>
-            <td>Infinity</td>
-            <td>1.944</td>
+            <td width="60px">1.213</td>
+            <td width="60px" class="actual">131.231</td>
+            <td width="60px">3.927</td>
+            <td width="60px" class="actual">133.119</td>
+            <td width="60px">1.174</td>
+            <td width="60px" class="actual">4.169</td>
          </tr>
          <tr>
             <td>xsltmark-dbtail</td>
-            <td>0.531</td>
-            <td>Infinity</td>
-            <td>2.577</td>
+            <td width="60px">2.123</td>
+            <td width="60px" class="actual">7.894</td>
+            <td width="60px">3.995</td>
+            <td width="60px" class="actual">2.195</td>
+            <td width="60px">1.277</td>
+            <td width="60px" class="actual">1.457</td>
          </tr>
          <tr>
             <td>xsltmark-decoy</td>
-            <td>1.119</td>
-            <td>Infinity</td>
-            <td>1.063</td>
+            <td width="60px">NaN</td>
+            <td width="60px" class="actual">21.444</td>
+            <td width="60px">NaN</td>
+            <td width="60px" class="actual">9.006</td>
+            <td width="60px">NaN</td>
+            <td width="60px" class="actual">3.199</td>
          </tr>
          <tr>
             <td>xsltmark-depth</td>
-            <td>0.447</td>
-            <td>Infinity</td>
-            <td>3.332</td>
+            <td width="60px">1.874</td>
+            <td width="60px" class="actual">5.282</td>
+            <td width="60px">4.722</td>
+            <td width="60px" class="actual">1.456</td>
+            <td width="60px">1.59</td>
+            <td width="60px" class="actual">1.297</td>
          </tr>
          <tr>
             <td>xsltmark-encrypt</td>
-            <td>0.855</td>
-            <td>Infinity</td>
-            <td>1.46</td>
+            <td width="60px">1.768</td>
+            <td width="60px" class="actual">15.792</td>
+            <td width="60px">2.779</td>
+            <td width="60px" class="actual">5.816</td>
+            <td width="60px">1.027</td>
+            <td width="60px" class="actual">1.459</td>
          </tr>
          <tr>
             <td>xsltmark-functions</td>
-            <td>0.884</td>
-            <td>Infinity</td>
-            <td>1.113</td>
+            <td width="60px">1.009</td>
+            <td width="60px" class="actual">15.179</td>
+            <td width="60px">3.146</td>
+            <td width="60px" class="actual">11.179</td>
+            <td width="60px">0.498</td>
+            <td width="60px" class="actual">1.844</td>
          </tr>
          <tr>
             <td>xsltmark-game</td>
-            <td>0.32</td>
-            <td>Infinity</td>
-            <td>1.609</td>
+            <td width="60px">1.735</td>
+            <td width="60px" class="actual">3.098</td>
+            <td width="60px">5.341</td>
+            <td width="60px" class="actual">0.935</td>
+            <td width="60px">0.807</td>
+            <td width="60px" class="actual">1.64</td>
          </tr>
          <tr>
             <td>xsltmark-html</td>
-            <td>0.276</td>
-            <td>Infinity</td>
-            <td>1.465</td>
+            <td width="60px">1.165</td>
+            <td width="60px" class="actual">2.378</td>
+            <td width="60px">4.582</td>
+            <td width="60px" class="actual">0.863</td>
+            <td width="60px">0.906</td>
+            <td width="60px" class="actual">1.57</td>
          </tr>
          <tr>
             <td>xsltmark-identity</td>
-            <td>0.482</td>
-            <td>Infinity</td>
-            <td>4.562</td>
+            <td width="60px">1.18</td>
+            <td width="60px" class="actual">22.876</td>
+            <td width="60px">3.252</td>
+            <td width="60px" class="actual">30.523</td>
+            <td width="60px">1.814</td>
+            <td width="60px" class="actual">1.333</td>
          </tr>
          <tr>
             <td>xsltmark-inventory</td>
-            <td>0.344</td>
-            <td>Infinity</td>
-            <td>1.803</td>
+            <td width="60px">2.902</td>
+            <td width="60px" class="actual">5.777</td>
+            <td width="60px">3.809</td>
+            <td width="60px" class="actual">1.827</td>
+            <td width="60px">0.909</td>
+            <td width="60px" class="actual">1.519</td>
          </tr>
          <tr>
             <td>xsltmark-metric</td>
-            <td>0.327</td>
-            <td>Infinity</td>
-            <td>1.17</td>
+            <td width="60px">1.162</td>
+            <td width="60px" class="actual">4.467</td>
+            <td width="60px">0.769</td>
+            <td width="60px" class="actual">1.446</td>
+            <td width="60px">0.91</td>
+            <td width="60px" class="actual">2.659</td>
          </tr>
          <tr>
             <td>xsltmark-number</td>
-            <td>0.503</td>
-            <td>Infinity</td>
-            <td>1.356</td>
+            <td width="60px">1.067</td>
+            <td width="60px" class="actual">5.696</td>
+            <td width="60px">0.918</td>
+            <td width="60px" class="actual">2.308</td>
+            <td width="60px">0.969</td>
+            <td width="60px" class="actual">1.799</td>
          </tr>
          <tr>
             <td>xsltmark-oddtemplate</td>
-            <td>0.275</td>
-            <td>Infinity</td>
-            <td>1.553</td>
+            <td width="60px">1.425</td>
+            <td width="60px" class="actual">3.365</td>
+            <td width="60px">0.984</td>
+            <td width="60px" class="actual">0.988</td>
+            <td width="60px">0.802</td>
+            <td width="60px" class="actual">1.494</td>
          </tr>
          <tr>
             <td>xsltmark-patterns</td>
-            <td>0.641</td>
-            <td>Infinity</td>
-            <td>1.749</td>
+            <td width="60px">1.499</td>
+            <td width="60px" class="actual">10.09</td>
+            <td width="60px">2.878</td>
+            <td width="60px" class="actual">7.694</td>
+            <td width="60px">1.018</td>
+            <td width="60px" class="actual">1.849</td>
          </tr>
          <tr>
             <td>xsltmark-prettyprint</td>
-            <td>1.013</td>
-            <td>Infinity</td>
-            <td>1.187</td>
+            <td width="60px">0.899</td>
+            <td width="60px" class="actual">35.52</td>
+            <td width="60px">1.268</td>
+            <td width="60px" class="actual">17.193</td>
+            <td width="60px">0.579</td>
+            <td width="60px" class="actual">2.069</td>
          </tr>
          <tr>
             <td>xsltmark-priority</td>
-            <td>0.315</td>
-            <td>Infinity</td>
-            <td>1.153</td>
+            <td width="60px">1.665</td>
+            <td width="60px" class="actual">2.563</td>
+            <td width="60px">5.153</td>
+            <td width="60px" class="actual">1.018</td>
+            <td width="60px">0.802</td>
+            <td width="60px" class="actual">1.834</td>
          </tr>
          <tr>
             <td>xsltmark-products</td>
-            <td>0.43</td>
-            <td>Infinity</td>
-            <td>1.683</td>
+            <td width="60px">2.035</td>
+            <td width="60px" class="actual">5.321</td>
+            <td width="60px">2.317</td>
+            <td width="60px" class="actual">1.962</td>
+            <td width="60px">0.836</td>
+            <td width="60px" class="actual">1.321</td>
          </tr>
          <tr>
             <td>xsltmark-queens</td>
-            <td>0.907</td>
-            <td>Infinity</td>
-            <td>1.025</td>
+            <td width="60px">1.51</td>
+            <td width="60px" class="actual">20.229</td>
+            <td width="60px">1.099</td>
+            <td width="60px" class="actual">7.194</td>
+            <td width="60px">0.421</td>
+            <td width="60px" class="actual">2.866</td>
          </tr>
          <tr>
             <td>xsltmark-reverser</td>
-            <td>0.295</td>
-            <td>Infinity</td>
-            <td>1.277</td>
+            <td width="60px">0.562</td>
+            <td width="60px" class="actual">2.738</td>
+            <td width="60px">1.672</td>
+            <td width="60px" class="actual">2.607</td>
+            <td width="60px">1.04</td>
+            <td width="60px" class="actual">1.403</td>
          </tr>
          <tr>
             <td>xsltmark-stringsort</td>
-            <td>0.519</td>
-            <td>Infinity</td>
-            <td>2.726</td>
+            <td width="60px">1.078</td>
+            <td width="60px" class="actual">28.464</td>
+            <td width="60px">2.722</td>
+            <td width="60px" class="actual">26.685</td>
+            <td width="60px">0.949</td>
+            <td width="60px" class="actual">1.175</td>
          </tr>
          <tr>
             <td>xsltmark-summarize</td>
-            <td>0.261</td>
-            <td>Infinity</td>
-            <td>1.544</td>
+            <td width="60px">2.388</td>
+            <td width="60px" class="actual">4.345</td>
+            <td width="60px">8.235</td>
+            <td width="60px" class="actual">1.924</td>
+            <td width="60px">0.859</td>
+            <td width="60px" class="actual">1.387</td>
          </tr>
          <tr>
             <td>xsltmark-total</td>
-            <td>0.252</td>
-            <td>Infinity</td>
-            <td>1.56</td>
+            <td width="60px">1.36</td>
+            <td width="60px" class="actual">2.859</td>
+            <td width="60px">8.424</td>
+            <td width="60px" class="actual">1.434</td>
+            <td width="60px">0.847</td>
+            <td width="60px" class="actual">1.307</td>
          </tr>
          <tr>
             <td>xsltmark-tower</td>
-            <td>0.651</td>
-            <td>Infinity</td>
-            <td>0.283</td>
+            <td width="60px">1.339</td>
+            <td width="60px" class="actual">45.698</td>
+            <td width="60px">0.481</td>
+            <td width="60px" class="actual">13.424</td>
+            <td width="60px">0.25</td>
+            <td width="60px" class="actual">2.519</td>
          </tr>
          <tr>
             <td>xsltmark-trend</td>
-            <td>2.974</td>
-            <td>Infinity</td>
-            <td>0.904</td>
+            <td width="60px">9.881</td>
+            <td width="60px" class="actual">49.453</td>
+            <td width="60px">21.559</td>
+            <td width="60px" class="actual">37.714</td>
+            <td width="60px">0.591</td>
+            <td width="60px" class="actual">1.362</td>
          </tr>
          <tr>
             <td>xsltmark-union</td>
-            <td>0.21</td>
-            <td>Infinity</td>
-            <td>1.553</td>
+            <td width="60px">1.618</td>
+            <td width="60px" class="actual">2.583</td>
+            <td width="60px">3.802</td>
+            <td width="60px" class="actual">0.862</td>
+            <td width="60px">1.061</td>
+            <td width="60px" class="actual">1.288</td>
          </tr>
          <tr>
             <td>xsltmark-xpath</td>
-            <td>0.209</td>
-            <td>Infinity</td>
-            <td>2.212</td>
+            <td width="60px">1.378</td>
+            <td width="60px" class="actual">2.304</td>
+            <td width="60px">4.417</td>
+            <td width="60px" class="actual">0.747</td>
+            <td width="60px">1.164</td>
+            <td width="60px" class="actual">1.239</td>
          </tr>
          <tr>
             <td>xsltmark-xslbench1</td>
-            <td>0.353</td>
-            <td>Infinity</td>
-            <td>0.79</td>
+            <td width="60px">2.837</td>
+            <td width="60px" class="actual">4.694</td>
+            <td width="60px">4.805</td>
+            <td width="60px" class="actual">0.828</td>
+            <td width="60px">0.749</td>
+            <td width="60px" class="actual">2.64</td>
          </tr>
          <tr>
             <td>xsltmark-xslbench2</td>
-            <td>1.336</td>
-            <td>Infinity</td>
-            <td>1.25</td>
+            <td width="60px">3.16</td>
+            <td width="60px" class="actual">33.867</td>
+            <td width="60px">3.157</td>
+            <td width="60px" class="actual">10.767</td>
+            <td width="60px">0.518</td>
+            <td width="60px" class="actual">1.425</td>
          </tr>
          <tr>
             <td>xsltmark-xslbench3</td>
-            <td>0.384</td>
-            <td>Infinity</td>
-            <td>1.212</td>
+            <td width="60px">1.178</td>
+            <td width="60px" class="actual">7.199</td>
+            <td width="60px">8.251</td>
+            <td width="60px" class="actual">4.527</td>
+            <td width="60px">0.456</td>
+            <td width="60px" class="actual">1.37</td>
          </tr>
          <tr>
             <td>xmark-q1-1</td>
-            <td>0.439</td>
-            <td>Infinity</td>
-            <td>2.277</td>
+            <td width="60px">1.161</td>
+            <td width="60px" class="actual">21.559</td>
+            <td width="60px">62.343</td>
+            <td width="60px" class="actual">12.867</td>
+            <td width="60px">1.552</td>
+            <td width="60px" class="actual">1.196</td>
          </tr>
          <tr>
             <td>xmark-q1-4</td>
-            <td>0.483</td>
-            <td>Infinity</td>
-            <td>2.644</td>
+            <td width="60px">1.043</td>
+            <td width="60px" class="actual">73.827</td>
+            <td width="60px">107.697</td>
+            <td width="60px" class="actual">48.012</td>
+            <td width="60px">1.418</td>
+            <td width="60px" class="actual">1.194</td>
          </tr>
          <tr>
             <td>xmark-q2-1</td>
-            <td>0.439</td>
-            <td>Infinity</td>
-            <td>2.621</td>
+            <td width="60px">1.04</td>
+            <td width="60px" class="actual">21.667</td>
+            <td width="60px">15.667</td>
+            <td width="60px" class="actual">14.733</td>
+            <td width="60px">1.659</td>
+            <td width="60px" class="actual">1.216</td>
          </tr>
          <tr>
             <td>xmark-q2-4</td>
-            <td>0.482</td>
-            <td>Infinity</td>
-            <td>2.319</td>
+            <td width="60px">1.241</td>
+            <td width="60px" class="actual">86.176</td>
+            <td width="60px">102.168</td>
+            <td width="60px" class="actual">51.959</td>
+            <td width="60px">1.355</td>
+            <td width="60px" class="actual">1.19</td>
          </tr>
          <tr>
             <td>xmark-q3-1</td>
-            <td>0.497</td>
-            <td>Infinity</td>
-            <td>1.358</td>
+            <td width="60px">1.139</td>
+            <td width="60px" class="actual">23.418</td>
+            <td width="60px">17.111</td>
+            <td width="60px" class="actual">15.62</td>
+            <td width="60px">1.259</td>
+            <td width="60px" class="actual">1.355</td>
          </tr>
          <tr>
             <td>xmark-q3-4</td>
-            <td>0.544</td>
-            <td>Infinity</td>
-            <td>1.831</td>
+            <td width="60px">1.125</td>
+            <td width="60px" class="actual">84.422</td>
+            <td width="60px">53.991</td>
+            <td width="60px" class="actual">61.108</td>
+            <td width="60px">1.304</td>
+            <td width="60px" class="actual">1.365</td>
          </tr>
          <tr>
             <td>xmark-q5-1</td>
-            <td>0.403</td>
-            <td>Infinity</td>
-            <td>2.323</td>
+            <td width="60px">1.069</td>
+            <td width="60px" class="actual">19.785</td>
+            <td width="60px">55.022</td>
+            <td width="60px" class="actual">12.7</td>
+            <td width="60px">1.466</td>
+            <td width="60px" class="actual">1.154</td>
          </tr>
          <tr>
             <td>xmark-q5-4</td>
-            <td>0.449</td>
-            <td>Infinity</td>
-            <td>1.047</td>
+            <td width="60px">1.069</td>
+            <td width="60px" class="actual">74.841</td>
+            <td width="60px">112.949</td>
+            <td width="60px" class="actual">50.469</td>
+            <td width="60px">1.518</td>
+            <td width="60px" class="actual">1.16</td>
          </tr>
          <tr>
             <td>xmark-q6-1</td>
-            <td>0.427</td>
-            <td>Infinity</td>
-            <td>2.186</td>
+            <td width="60px">1.105</td>
+            <td width="60px" class="actual">20.332</td>
+            <td width="60px">47.89</td>
+            <td width="60px" class="actual">13.275</td>
+            <td width="60px">1.592</td>
+            <td width="60px" class="actual">1.191</td>
          </tr>
          <tr>
             <td>xmark-q6-4</td>
-            <td>0.5</td>
-            <td>Infinity</td>
-            <td>1.796</td>
+            <td width="60px">1.015</td>
+            <td width="60px" class="actual">73.132</td>
+            <td width="60px">77.117</td>
+            <td width="60px" class="actual">52.1</td>
+            <td width="60px">1.485</td>
+            <td width="60px" class="actual">1.175</td>
          </tr>
          <tr>
             <td>xmark-q7-1</td>
-            <td>0.424</td>
-            <td>Infinity</td>
-            <td>1.955</td>
+            <td width="60px">1.067</td>
+            <td width="60px" class="actual">21.011</td>
+            <td width="60px">61.498</td>
+            <td width="60px" class="actual">14.81</td>
+            <td width="60px">1.303</td>
+            <td width="60px" class="actual">1.177</td>
          </tr>
          <tr>
             <td>xmark-q7-4</td>
-            <td>0.487</td>
-            <td>Infinity</td>
-            <td>1.944</td>
+            <td width="60px">0.919</td>
+            <td width="60px" class="actual">73.566</td>
+            <td width="60px">102.621</td>
+            <td width="60px" class="actual">57.948</td>
+            <td width="60px">1.426</td>
+            <td width="60px" class="actual">1.15</td>
          </tr>
          <tr>
             <td>xmark-q8-1</td>
-            <td>1.384</td>
-            <td>Infinity</td>
-            <td>1.01</td>
+            <td width="60px">2.773</td>
+            <td width="60px" class="actual">91.06</td>
+            <td width="60px">5.922</td>
+            <td width="60px" class="actual">75.684</td>
+            <td width="60px">0.751</td>
+            <td width="60px" class="actual">1.24</td>
          </tr>
          <tr>
             <td>xmark-q8-4</td>
-            <td>2.499</td>
-            <td>Infinity</td>
-            <td>1.412</td>
+            <td width="60px">4.019</td>
+            <td width="60px" class="actual">1014.49</td>
+            <td width="60px">5.754</td>
+            <td width="60px" class="actual">1012.461</td>
+            <td width="60px">0.849</td>
+            <td width="60px" class="actual">1.26</td>
          </tr>
          <tr>
             <td>xmark-q11-1</td>
-            <td>1.891</td>
-            <td>Infinity</td>
-            <td>1.275</td>
+            <td width="60px">3.549</td>
+            <td width="60px" class="actual">165.127</td>
+            <td width="60px">6.128</td>
+            <td width="60px" class="actual">157.082</td>
+            <td width="60px">0.763</td>
+            <td width="60px" class="actual">1.295</td>
          </tr>
          <tr>
             <td>xmark-q11-4</td>
-            <td>2.959</td>
-            <td>Infinity</td>
-            <td>1.264</td>
+            <td width="60px">4.807</td>
+            <td width="60px" class="actual">2205.312</td>
+            <td width="60px">5.95</td>
+            <td width="60px" class="actual">2306.739</td>
+            <td width="60px">0.821</td>
+            <td width="60px" class="actual">1.283</td>
          </tr>
          <tr>
             <td>xmark-q12-1</td>
-            <td>0.959</td>
-            <td>Infinity</td>
-            <td>1.272</td>
+            <td width="60px">1.889</td>
+            <td width="60px" class="actual">55.531</td>
+            <td width="60px">7.158</td>
+            <td width="60px" class="actual">51.115</td>
+            <td width="60px">0.773</td>
+            <td width="60px" class="actual">1.314</td>
          </tr>
          <tr>
             <td>xmark-q12-4</td>
-            <td>1.572</td>
-            <td>Infinity</td>
-            <td>1.273</td>
+            <td width="60px">3.197</td>
+            <td width="60px" class="actual">494.358</td>
+            <td width="60px">6.276</td>
+            <td width="60px" class="actual">510.835</td>
+            <td width="60px">0.776</td>
+            <td width="60px" class="actual">1.282</td>
          </tr>
          <tr>
             <td>xmark-q13-1</td>
-            <td>0.452</td>
-            <td>Infinity</td>
-            <td>2.062</td>
+            <td width="60px">1.172</td>
+            <td width="60px" class="actual">22.726</td>
+            <td width="60px">43.448</td>
+            <td width="60px" class="actual">14.309</td>
+            <td width="60px">1.721</td>
+            <td width="60px" class="actual">1.558</td>
          </tr>
          <tr>
             <td>xmark-q13-4</td>
-            <td>0.485</td>
-            <td>Infinity</td>
-            <td>1.872</td>
+            <td width="60px">1.173</td>
+            <td width="60px" class="actual">84.601</td>
+            <td width="60px">74.234</td>
+            <td width="60px" class="actual">51.232</td>
+            <td width="60px">1.519</td>
+            <td width="60px" class="actual">1.358</td>
          </tr>
          <tr>
             <td>xmark-q14-1</td>
-            <td>0.447</td>
-            <td>Infinity</td>
-            <td>1.864</td>
+            <td width="60px">1.17</td>
+            <td width="60px" class="actual">23.812</td>
+            <td width="60px">12.417</td>
+            <td width="60px" class="actual">16.954</td>
+            <td width="60px">1.404</td>
+            <td width="60px" class="actual">1.395</td>
          </tr>
          <tr>
             <td>xmark-q14-4</td>
-            <td>0.49</td>
-            <td>Infinity</td>
-            <td>2.041</td>
+            <td width="60px">1.064</td>
+            <td width="60px" class="actual">88.575</td>
+            <td width="60px">14.134</td>
+            <td width="60px" class="actual">65.391</td>
+            <td width="60px">1.48</td>
+            <td width="60px" class="actual">1.347</td>
          </tr>
          <tr>
             <td>xmark-q15-1</td>
-            <td>0.418</td>
-            <td>Infinity</td>
-            <td>2.208</td>
+            <td width="60px">1.09</td>
+            <td width="60px" class="actual">20.429</td>
+            <td width="60px">48.67</td>
+            <td width="60px" class="actual">13.522</td>
+            <td width="60px">1.681</td>
+            <td width="60px" class="actual">1.318</td>
          </tr>
          <tr>
             <td>xmark-q15-4</td>
-            <td>0.468</td>
-            <td>Infinity</td>
-            <td>2.168</td>
+            <td width="60px">1.082</td>
+            <td width="60px" class="actual">76.483</td>
+            <td width="60px">89.38</td>
+            <td width="60px" class="actual">48.535</td>
+            <td width="60px">1.772</td>
+            <td width="60px" class="actual">1.344</td>
          </tr>
          <tr>
             <td>xmark-q16-1</td>
-            <td>0.342</td>
-            <td>Infinity</td>
-            <td>1.818</td>
+            <td width="60px">1.216</td>
+            <td width="60px" class="actual">22.636</td>
+            <td width="60px">47.299</td>
+            <td width="60px" class="actual">14.542</td>
+            <td width="60px">1.586</td>
+            <td width="60px" class="actual">1.532</td>
          </tr>
          <tr>
             <td>xmark-q16-4</td>
-            <td>0.46</td>
-            <td>Infinity</td>
-            <td>1.408</td>
+            <td width="60px">1.088</td>
+            <td width="60px" class="actual">77.612</td>
+            <td width="60px">76.622</td>
+            <td width="60px" class="actual">48.852</td>
+            <td width="60px">1.451</td>
+            <td width="60px" class="actual">1.371</td>
          </tr>
          <tr>
             <td>xmark-q17-1</td>
-            <td>0.33</td>
-            <td>Infinity</td>
-            <td>2.257</td>
+            <td width="60px">1.174</td>
+            <td width="60px" class="actual">22.093</td>
+            <td width="60px">35.895</td>
+            <td width="60px" class="actual">14.945</td>
+            <td width="60px">1.565</td>
+            <td width="60px" class="actual">1.35</td>
          </tr>
          <tr>
             <td>xmark-q17-4</td>
-            <td>0.549</td>
-            <td>Infinity</td>
-            <td>1.378</td>
+            <td width="60px">1.158</td>
+            <td width="60px" class="actual">83.048</td>
+            <td width="60px">66.96</td>
+            <td width="60px" class="actual">53.855</td>
+            <td width="60px">1.626</td>
+            <td width="60px" class="actual">1.384</td>
          </tr>
          <tr>
             <td>xmark-q18-1</td>
-            <td>0.454</td>
-            <td>Infinity</td>
-            <td>1.243</td>
+            <td width="60px">1.12</td>
+            <td width="60px" class="actual">21.833</td>
+            <td width="60px">45.633</td>
+            <td width="60px" class="actual">14.631</td>
+            <td width="60px">1.423</td>
+            <td width="60px" class="actual">1.344</td>
          </tr>
          <tr>
             <td>xmark-q18-4</td>
-            <td>0.532</td>
-            <td>Infinity</td>
-            <td>1.612</td>
+            <td width="60px">1.143</td>
+            <td width="60px" class="actual">80.951</td>
+            <td width="60px">72.188</td>
+            <td width="60px" class="actual">50.381</td>
+            <td width="60px">1.501</td>
+            <td width="60px" class="actual">1.308</td>
          </tr>
          <tr>
             <td>xmark-q19-1</td>
-            <td>0.566</td>
-            <td>Infinity</td>
-            <td>2.138</td>
+            <td width="60px">1.458</td>
+            <td width="60px" class="actual">28.581</td>
+            <td width="60px">19.971</td>
+            <td width="60px" class="actual">18.081</td>
+            <td width="60px">1.605</td>
+            <td width="60px" class="actual">1.416</td>
          </tr>
          <tr>
             <td>xmark-q19-4</td>
-            <td>0.677</td>
-            <td>Infinity</td>
-            <td>1.951</td>
+            <td width="60px">1.385</td>
+            <td width="60px" class="actual">102.537</td>
+            <td width="60px">22.762</td>
+            <td width="60px" class="actual">69.682</td>
+            <td width="60px">1.572</td>
+            <td width="60px" class="actual">1.405</td>
          </tr>
          <tr>
             <td>xmark-q20-1</td>
-            <td>0.398</td>
-            <td>Infinity</td>
-            <td>1.544</td>
+            <td width="60px">1.145</td>
+            <td width="60px" class="actual">21.8</td>
+            <td width="60px">21.557</td>
+            <td width="60px" class="actual">15.32</td>
+            <td width="60px">1.179</td>
+            <td width="60px" class="actual">1.457</td>
          </tr>
          <tr>
             <td>xmark-q20-4</td>
-            <td>0.475</td>
-            <td>Infinity</td>
-            <td>0.617</td>
+            <td width="60px">1.119</td>
+            <td width="60px" class="actual">80.617</td>
+            <td width="60px">25.757</td>
+            <td width="60px" class="actual">54.016</td>
+            <td width="60px">1.336</td>
+            <td width="60px" class="actual">1.59</td>
          </tr>
       </table>
    </body>

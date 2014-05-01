@@ -6,13 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * XT-Speedo interface to be implemented by each driver
+ * XT-Speedo class to be implemented by each driver
  */
 
 public abstract class IDriver {
 
     private String name;
     private Map<String, String> options = new HashMap<String, String>();
+    private Map<String, String> testOptions = new HashMap<String, String>();
 
     /**
      * Parse a source file and build a tree representation of the XML
@@ -101,4 +102,29 @@ public abstract class IDriver {
     public String getOption(String name) {
         return options.get(name);
     }
+
+    public Iterable<String> iterateOptions() {
+        return options.keySet();
+    }
+
+    /**
+     * Set a test run option for this driver
+     * @param name the name of the test
+     * @param value the value of the test run option
+     */
+
+    public void setTestRunOption(String name, String value) {
+        testOptions.put(name, value);
+    }
+
+    /**
+     * Get the value of a test run option that has been set
+     * @param name the name of the test
+     * @return the value of the test run option, or null if none has been set
+     */
+
+    public String getTestRunOption(String name) {
+        return testOptions.get(name);
+    }
+
 }

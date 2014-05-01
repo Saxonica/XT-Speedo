@@ -71,12 +71,18 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="XmlPrime, Version=2.9.1.17521, Culture=neutral, PublicKeyToken=191a7149cbddb6bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\XmlPrime\XmlPrime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MSDriver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaxonDriver.cs" />
+    <Compile Include="SaxonEEDriver.cs" />
+    <Compile Include="SaxonHEDriver.cs" />
+    <Compile Include="XmlPrimeDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
