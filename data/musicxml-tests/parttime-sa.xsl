@@ -76,6 +76,11 @@
         /></xsl:copy>
     </xsl:template>
     
+    
+    <xsl:template match="score-partwise[not(self::schema-element(score-partwise))]">
+        <xsl:message terminate="yes">Input has not been validated!</xsl:message>
+    </xsl:template>
+    
     <!--
         We need to take control at the document element level
         explicitly to redo the tree. The header elements should
