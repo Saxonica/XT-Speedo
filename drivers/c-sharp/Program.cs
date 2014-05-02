@@ -114,8 +114,11 @@ namespace Speedo
                     {
                         continue;
                     }
-                    Console.WriteLine("Running " + name);                    
+                    Console.WriteLine("Running " + name);
 
+                    XmlElement schemaElement = (XmlElement)testCase.SelectSingleNode("test/schema");
+                    String schema = schemaElement == null ? null : schemaElement.GetAttribute("file").ToString();   // what if no schema?
+                    Uri schemaUri = new Uri(catalogUri, schema);
                     String source = ((XmlElement)testCase.SelectSingleNode("test/source")).GetAttribute("file");
                     Uri sourceUri = new Uri(catalogUri, source);
                     String stylesheet = ((XmlElement)testCase.SelectSingleNode("test/stylesheet")).GetAttribute("file");
@@ -124,6 +127,10 @@ namespace Speedo
                     {
                         try
                         {
+                            if (schema != null)
+                            {
+                                driver.LoadSchema(schemaUri);
+                            }
                             driver.BuildSource(sourceUri);                            
                             int i;                          
                             double totalCompileStylesheet = 0;
@@ -236,6 +243,16 @@ namespace Speedo
         private String driverName;
         private Hashtable options = new Hashtable();
         private Hashtable testOptions = new Hashtable();
+
+        /**
+        * Load a schema document from a specified URI
+        * @param schemaURI the location of the XSD document file
+        */
+
+        public virtual void LoadSchema(Uri schemaUri)
+        {
+            throw new TransformationException("Schema processing not supported with this driver");
+        }
 
         /**
          * Parse a source file and build a tree representation of the XML

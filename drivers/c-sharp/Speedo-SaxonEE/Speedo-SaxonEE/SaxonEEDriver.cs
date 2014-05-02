@@ -11,11 +11,13 @@ namespace Speedo
     class SaxonEEDriver : IDriver
     {
         private Processor processor;
+        private DocumentBuilder documentBuilder;
         private XdmNode sourceDocument;
         private XdmNode resultDocument;
         private XsltCompiler compiler;
         private XsltExecutable stylesheet;
         protected String resultFile;
+        private Boolean schemaAware = false;
 
         public SaxonEEDriver()
         {
@@ -34,9 +36,26 @@ namespace Speedo
             return processor.GetProperty(name);
         }
 
+        public override void LoadSchema(Uri schemaUri)
+        {
+            
+                SchemaManager manager = processor.SchemaManager;
+                manager.Compile(schemaUri);                
+                documentBuilder = processor.NewDocumentBuilder();
+                documentBuilder.SchemaValidationMode = SchemaValidationMode.Strict;
+                
+                
+            
+            schemaAware = true;            
+        }
+
         public override void BuildSource(Uri sourceUri)
         {
-            sourceDocument = processor.NewDocumentBuilder().Build(sourceUri);
+            if (documentBuilder == null)
+            {
+                documentBuilder = processor.NewDocumentBuilder();
+            }
+            sourceDocument = documentBuilder.Build(sourceUri);
         }
 
         public override void CompileStylesheet(Uri stylesheetUri)
@@ -47,6 +66,8 @@ namespace Speedo
         public override void TreeToTreeTransform()
         {
             XsltTransformer transformer = stylesheet.Load();
+            processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
+            //transformer.SchemaValidationMode = SchemaValidationMode.Strict;   // not working in 9.5.1.5: see bug 2062
             transformer.InitialContextNode = sourceDocument;
             XdmDestination destination = new XdmDestination();
             transformer.Run(destination);
@@ -56,6 +77,8 @@ namespace Speedo
         public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
         {
             XsltTransformer transformer = stylesheet.Load();
+            processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
+            transformer.SchemaValidationMode = SchemaValidationMode.Strict;
             transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
             Serializer serializer = processor.NewSerializer();
             serializer.SetOutputFile(resultFileLocation);
@@ -65,6 +88,7 @@ namespace Speedo
 
         public override bool TestAssertion(string assertion)
         {
+            schemaAware = false;
             if (resultDocument != null)
             {
                 XPathCompiler xPathCompiler = processor.NewXPathCompiler();
