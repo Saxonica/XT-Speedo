@@ -3,6 +3,7 @@ package com.saxonica.xtspeedo.saxonhe;
 import com.saxonica.xtspeedo.IDriver;
 import com.saxonica.xtspeedo.TransformationException;
 import net.sf.saxon.Configuration;
+import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.om.DocumentInfo;
 import net.sf.saxon.s9api.*;
 import net.sf.saxon.trans.XPathException;
@@ -30,6 +31,10 @@ public class SaxonEEDriver extends IDriver {
     private XsltExecutable stylesheet;
     private XdmNode resultDocument;
     private File resultFile;
+    private boolean schemaAware = false;
+
+    // TODO: because of bug 2062, we are having to set schema validation mode at the Processor level for those
+    // tests that are schema-aware, and then clear the option ready for the next test.
 
 
     /**
@@ -68,6 +73,7 @@ public class SaxonEEDriver extends IDriver {
         } catch (SaxonApiException e) {
             throw new TransformationException(e);
         }
+        schemaAware = true;
     }
 
     /**
@@ -109,6 +115,8 @@ public class SaxonEEDriver extends IDriver {
     public void treeToTreeTransform() throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
+            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "skip");
+            //transformer.setSchemaValidationMode(ValidationMode.STRICT);  // not working in 9.5.1.5: see bug 2062
             transformer.setSource(sourceDocument.asSource());
             XdmDestination destination = new XdmDestination();
             transformer.setDestination(destination);
@@ -129,6 +137,8 @@ public class SaxonEEDriver extends IDriver {
     public void fileToFileTransform(File source, File result) throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
+            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "skip");
+            //transformer.setSchemaValidationMode(ValidationMode.STRICT);  // not working in 9.5.1.5: see bug 2062
             transformer.setSource(new StreamSource(source));
             Destination destination = processor.newSerializer(result);
             transformer.setDestination(destination);
@@ -148,6 +158,7 @@ public class SaxonEEDriver extends IDriver {
      */
     @Override
     public boolean testAssertion(String assertion) throws TransformationException {
+        schemaAware = false;
         if (resultDocument != null) {
             try {
                 XPathCompiler compiler = processor.newXPathCompiler();

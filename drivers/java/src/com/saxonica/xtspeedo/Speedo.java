@@ -116,7 +116,8 @@ public class Speedo {
                         continue;
                     }
                     System.err.println("Running " + name);
-                    String schema = testCase.getChild("test").getChild("schema").getAttributeValue("file");
+                    final Element schemaElement = testCase.getChild("test").getChild("schema");
+                    String schema = schemaElement == null ? null : schemaElement.getAttributeValue("file");
                     URI schemaURI = schema == null ? null : catalogURI.resolve(schema);
                     String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
                     URI sourceURI = catalogURI.resolve(source);
