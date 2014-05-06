@@ -1921,6 +1921,26 @@
          </assert>
       </result>
    </test-case>
+   
+   
+   <test-case name="xquery-lexer-test" xslt-version="2.0">
+      <description>         
+         A non-typical test case in that the XSLT stylesheet functions as a lexer for XQuery code.
+         The input is initially processed as a sequence of unicode codepoints, but a lengthy regular
+         expression is used later to tokenize text that is not within XQuery comments or string-literals.
+         There's also a lot of tail-recursion going on.         
+      </description>
+      <created by="Debbie Lockett" on="2014-05-06"/>
+      <test>
+         <stylesheet file="xquery-tests/xquery2xml.xsl"/>
+         <source file="xquery-tests/input-file1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 9977
+         </assert>
+      </result>
+   </test-case>
 
    
 </catalog>

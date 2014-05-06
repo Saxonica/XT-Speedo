@@ -13,6 +13,7 @@
         <test-run-option name="map-wordmap4-1" value="slow"/>
         <test-run-option name="map-wordmap4-4" value="slow"/>
         <test-run-option name="map-wordmap5-1" value="slow"/>
+        <test-run-option name="xquery-lexer-test" value="slow"/>
     </driver>
     
     <driver name="SaxonEE-9.5-.NET-noBC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
@@ -26,7 +27,8 @@
         <test-run-option name="map-wordmap5-1" value="slow"/>        
         <test-run-option name="map-wordmap8a" value="slow"/>
         <test-run-option name="map-numbermap1" value="slow"/>
-        <test-run-option name="map-numbermap3" value="slow"/>        
+        <test-run-option name="map-numbermap3" value="slow"/>      
+        <test-run-option name="xquery-lexer-test" value="slow"/>
     </driver>
     
     <driver name="SaxonEE-9.5-.NET-BC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
@@ -41,7 +43,8 @@
         <test-run-option name="map-wordmap5-1" value="slow"/>        
         <test-run-option name="map-wordmap8a" value="slow"/>
         <test-run-option name="map-numbermap1" value="slow"/>
-        <test-run-option name="map-numbermap3" value="slow"/>        
+        <test-run-option name="map-numbermap3" value="slow"/> 
+        <test-run-option name="xquery-lexer-test" value="slow"/>
     </driver>
      
 

@@ -15,7 +15,9 @@
     
     <driver name="System.Xml.Xsl" baseline="no" class="Speedo.MSDriver" language="c-sharp" xslt-version="1.0" />       
     
-    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0" />
+    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0">
+        <test-run-option name="xquery-lexer-test" value="slow"/>
+    </driver> 
     
     <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0" /> 
     
