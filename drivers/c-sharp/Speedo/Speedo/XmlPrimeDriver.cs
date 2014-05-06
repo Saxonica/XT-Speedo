@@ -7,58 +7,77 @@ using System.IO;
 using System.Xml;
 using XmlPrime;
 using XmlPrime.Serialization;
+using System.Xml.Schema;
 
 namespace Speedo
 {
     class XmlPrimeDriver : IDriver
-    {        
+    {
         protected String resultFile;
         private NameTable nameTable = new NameTable();
         private XmlReaderSettings xmlReaderSettings;
+        private XmlReaderSettings xmlReaderSettingsSchemaAware;
         private XdmDocument document;
         private XdmDocument sourceDocument;
         private XdmDocument resultDocument;
         private XsltSettings xsltSettings;
+        private XsltSettings xsltSettingsSchemaAware;
         private Xslt xslt;
-               
+        private Boolean schemaAware = false;
+
 
         public XmlPrimeDriver()
         {
             xmlReaderSettings = new XmlReaderSettings { NameTable = nameTable };
             xsltSettings = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
             xsltSettings.ModuleResolver = new XmlUrlResolver();
+            xmlReaderSettingsSchemaAware = new XmlReaderSettings { NameTable = nameTable };
+            xsltSettingsSchemaAware = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
+            xsltSettingsSchemaAware.ModuleResolver = new XmlUrlResolver();
+        }
+
+        public override void LoadSchema(Uri schemaUri)
+        {
+            XmlSchemaSet schemaSet = new XmlSchemaSet();
+            schemaSet.Add(null, schemaUri.ToString());
+            xsltSettingsSchemaAware.Schemas = schemaSet;
+            xsltSettingsSchemaAware.IsSchemaAware = true;
+            xmlReaderSettingsSchemaAware.Schemas = schemaSet;
+            xmlReaderSettingsSchemaAware.ValidationType = ValidationType.Schema;
+            schemaAware = true;
         }
 
         public override void BuildSource(Uri sourceUri)
         {
-            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), xmlReaderSettings))
+            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
             {
                 sourceDocument = new XdmDocument(reader);
             }
         }
 
         public override void CompileStylesheet(Uri stylesheetUri)
-        {            
-            xslt = Xslt.Compile(stylesheetUri.ToString(), xsltSettings);
+        {
+            xslt = Xslt.Compile(stylesheetUri.ToString(), schemaAware ? xsltSettingsSchemaAware : xsltSettings);
         }
-               
+
         public override void TreeToTreeTransform()
-        {            
+        {
             XdmNavigator contextItem = sourceDocument.CreateNavigator();
-            DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };                       
-            using (XdmDocumentWriter writer = XdmDocumentWriter.Create()) 
+            DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
+            using (XdmDocumentWriter writer = XdmDocumentWriter.Create())
             {
                 xslt.ApplyTemplates(settings, writer);
                 resultDocument = writer.Document;
-            }            
+            }
         }
 
         public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
-        {            
-            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), xmlReaderSettings))
+        {
+            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
             {
                 document = new XdmDocument(reader);
             }
+
             XdmNavigator contextItem = document.CreateNavigator();
             DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
 
@@ -72,6 +91,7 @@ namespace Speedo
 
         public override bool TestAssertion(string assertion)
         {
+            schemaAware = false;
             if (resultDocument != null)
             {
                 XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
@@ -93,7 +113,7 @@ namespace Speedo
                 var settings = new DynamicContextSettings { ContextItem = contextItem };
                 return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
             }
-            return false;   
+            return false;
         }
 
         public override void DisplayResultDocument()
