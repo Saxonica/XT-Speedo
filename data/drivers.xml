@@ -4,8 +4,11 @@
     <driver name="Saxon-6" baseline="no" class="com.saxonica.xtspeedo.Saxon6Driver" language="java" xslt-version="1.0" /> 
     
     <driver name="SaxonHE-9.5-J" baseline="yes" class="com.saxonica.xtspeedo.saxonhe.SaxonHEDriver" language="java" xslt-version="2.0" />
-                       
-    <driver name="Xalan" baseline="no" class="com.saxonica.xtspeedo.XalanDriver" language="java" xslt-version="1.0" />            
+            
+    <driver name="Xalan" baseline="no" class="com.saxonica.xtspeedo.XalanDriver" language="java" xslt-version="1.0">
+        <test-run-option name="xmark-q8-4" value="1000"/>
+        <test-run-option name="xmark-q11-4" value="1000"/>
+    </driver>           
     
     <driver name="XT" baseline="no" class="com.saxonica.xtspeedo.XTDriver" language="java" xslt-version="1.0" />        
     
@@ -15,18 +18,30 @@
     
     <driver name="System.Xml.Xsl" baseline="no" class="Speedo.MSDriver" language="c-sharp" xslt-version="1.0" />       
     
-    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0">
-        <test-run-option name="xquery-lexer-test" value="slow"/>
+    <driver name="SaxonHE-9.5-.NET" baseline="no" class="Speedo.SaxonHEDriver" language="c-sharp" xslt-version="2.0">        
+        <test-run-option name="docbook-tests-001" value="1000"/>
+        <test-run-option name="xmark-q8-4" value="1000"/>
+        <test-run-option name="xmark-q9-4" value="1000"/>
+        <test-run-option name="xmark-q11-4" value="1000"/>
+        <test-run-option name="xquery-lexer-test" value="1000"/>
     </driver> 
     
-    <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0" /> 
+    <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0">
+        <test-run-option name="xmark-q11-4" value="1000"/>
+    </driver>            
     
-    <driver name="Saxon-C" baseline="no" class="SaxonCDriver" language="c/c++" xslt-version="2.0" /> 
+    <driver name="Saxon-C" baseline="no" class="SaxonCDriver" language="c/c++" xslt-version="2.0">
+        <test-run-option name="xmark-q9-4" value="1000"/>
+        <test-run-option name="xmark-q11-4" value="1000"/>
+    </driver>
     
-    <driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">    
-        <test-run-option name="docbook-tests-002" value="slow"/>
+    <driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">   
         <test-run-option name="xsltmark-dbonerow" value="no"/>
         <test-run-option name="xsltmark-number" value="no"/>
+        <test-run-option name="xmark-q8-4" value="1000"/>
+        <test-run-option name="xmark-q9-4" value="1000"/>
+        <test-run-option name="xmark-q11-4" value="1000"/>
+        <test-run-option name="docbook-tests-002" value="4000"/>  
     </driver>
     
 </drivers>
