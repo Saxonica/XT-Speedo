@@ -115,7 +115,7 @@ public class SaxonEEDriver extends IDriver {
     public void treeToTreeTransform() throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
-            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "skip");
+            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
             //transformer.setSchemaValidationMode(ValidationMode.STRICT);  // not working in 9.5.1.5: see bug 2062
             transformer.setSource(sourceDocument.asSource());
             XdmDestination destination = new XdmDestination();
@@ -137,7 +137,7 @@ public class SaxonEEDriver extends IDriver {
     public void fileToFileTransform(File source, File result) throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
-            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "skip");
+            processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
             //transformer.setSchemaValidationMode(ValidationMode.STRICT);  // not working in 9.5.1.5: see bug 2062
             transformer.setSource(new StreamSource(source));
             Destination destination = processor.newSerializer(result);

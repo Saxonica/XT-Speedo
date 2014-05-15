@@ -23,12 +23,12 @@ namespace Speedo
         {
             processor = new Processor(true);
             compiler = processor.NewXsltCompiler();
-           // Console.WriteLine(processor.ProductTitle + " Version:"+ processor.ProductVersion);
+            // Console.WriteLine(processor.ProductTitle + " Version:"+ processor.ProductVersion);
         }
-        
+
         public override void SetOption(String name, String value)
         {
-            processor.SetProperty("http://saxon.sf.net/feature/" + name, value);            
+            processor.SetProperty("http://saxon.sf.net/feature/" + name, value);
         }
 
         public override String GetOption(String name)
@@ -38,15 +38,11 @@ namespace Speedo
 
         public override void LoadSchema(Uri schemaUri)
         {
-            
-                SchemaManager manager = processor.SchemaManager;
-                manager.Compile(schemaUri);                
-                documentBuilder = processor.NewDocumentBuilder();
-                documentBuilder.SchemaValidationMode = SchemaValidationMode.Strict;
-                
-                
-            
-            schemaAware = true;            
+            SchemaManager manager = processor.SchemaManager;
+            manager.Compile(schemaUri);
+            documentBuilder = processor.NewDocumentBuilder();
+            documentBuilder.SchemaValidationMode = SchemaValidationMode.Strict;
+            schemaAware = true;
         }
 
         public override void BuildSource(Uri sourceUri)
@@ -78,12 +74,13 @@ namespace Speedo
         {
             XsltTransformer transformer = stylesheet.Load();
             processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
-            transformer.SchemaValidationMode = SchemaValidationMode.Strict;
+            //transformer.SchemaValidationMode = SchemaValidationMode.Strict;    // not working in 9.5.1.5: see bug 2062
             transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
             Serializer serializer = processor.NewSerializer();
             serializer.SetOutputFile(resultFileLocation);
             transformer.Run(serializer);
             resultFile = resultFileLocation;
+            //serializer.Close();
         }
 
         public override bool TestAssertion(string assertion)
@@ -107,7 +104,7 @@ namespace Speedo
                 selector.ContextItem = resultDoc;
                 return selector.EffectiveBooleanValue();
             }
-            return false;  
+            return false;
         }
 
         public override void DisplayResultDocument()

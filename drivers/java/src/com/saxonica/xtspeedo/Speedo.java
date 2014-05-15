@@ -26,13 +26,12 @@ import java.util.regex.Pattern;
  */
 public class Speedo {
 
-    public static final int MAX_ITERATIONS = 20;
-    public static final long MAX_TOTAL_TIME = 20L*1000L*1000L*1000L;
+    public static final int MIN_ITERATIONS = 5;
+    public static final long MAX_TOTAL_TIME = 1L*1000L*1000L*1000L;
     private XMLOutputFactory xmlOutputFactory;
 
     private List<IDriver> drivers = new ArrayList<IDriver>();
     private IDriver baseline = null;
-    private boolean skipSlowTests = false;
     private boolean skipXslt3Tests = false;
 
     public static void main(String[] args) throws Exception {
@@ -68,7 +67,6 @@ public class Speedo {
         Document doc = null;
 
         Pattern testPat = Pattern.compile(testPattern);
-        skipSlowTests = "slow".equals(testSkip);
         skipXslt3Tests = "no".equals(runXslt3Tests);
 
         try {
@@ -107,7 +105,8 @@ public class Speedo {
                     if ("no".equals(driver.getTestRunOption(name))){
                         continue;
                     }
-                    if ("slow".equals(driver.getTestRunOption(name)) && skipSlowTests){
+                    if ((testSkip != null) && (driver.getTestRunOption(name) != null) &&
+                            Integer.parseInt(driver.getTestRunOption(name)) >= Integer.parseInt(testSkip)){
                         continue;
                     }
                     String attributeValue = testCase.getAttributeValue("xslt-version");
@@ -131,7 +130,14 @@ public class Speedo {
                                 driver.buildSource(sourceURI);
                                 int i;
                                 long totalCompileStylesheet = 0;
-                                for (i = 0; i < MAX_ITERATIONS && totalCompileStylesheet < MAX_TOTAL_TIME; i++) {
+                                for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
+                                    long start = System.nanoTime();
+                                    driver.compileStylesheet(stylesheetURI);
+                                    totalCompileStylesheet += System.nanoTime() - start;
+                                }
+                                totalCompileStylesheet = 0;
+                                System.gc();
+                                for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
                                     long start = System.nanoTime();
                                     driver.compileStylesheet(stylesheetURI);
                                     totalCompileStylesheet += System.nanoTime() - start;
@@ -140,7 +146,14 @@ public class Speedo {
                                 System.err.println("Average time for stylesheet compile: " + compileTime +
                                         "ms. Number of iterations: " + i);
                                 long totalTransformFileToFile = 0;
-                                for (i = 0; i < MAX_ITERATIONS && totalTransformFileToFile < MAX_TOTAL_TIME; i++) {
+                                for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
+                                    long start = System.nanoTime();
+                                    driver.fileToFileTransform(new File(sourceURI), new File(driverOutputDir, name + ".xml"));
+                                    totalTransformFileToFile += System.nanoTime() - start;
+                                }
+                                totalTransformFileToFile = 0;
+                                System.gc();
+                                for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
                                     long start = System.nanoTime();
                                     driver.fileToFileTransform(new File(sourceURI), new File(driverOutputDir, name + ".xml"));
                                     totalTransformFileToFile += System.nanoTime() - start;
@@ -151,7 +164,14 @@ public class Speedo {
                                 double transformTimeTreeToTree;
                                 try {
                                     long totalTransformTreeToTree = 0;
-                                    for (i = 0; i < MAX_ITERATIONS && totalTransformTreeToTree < MAX_TOTAL_TIME; i++) {
+                                    for (i = 0; totalTransformTreeToTree < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
+                                        long start = System.nanoTime();
+                                        driver.treeToTreeTransform();
+                                        totalTransformTreeToTree += System.nanoTime() - start;
+                                    }
+                                    totalTransformTreeToTree = 0;
+                                    System.gc();
+                                    for (i = 0; totalTransformTreeToTree < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
                                         long start = System.nanoTime();
                                         driver.treeToTreeTransform();
                                         totalTransformTreeToTree += System.nanoTime() - start;

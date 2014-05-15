@@ -12,12 +12,11 @@ namespace Speedo
 {
     class RunSpeedo
     {
-        public static int MAX_ITERATIONS = 20;
-        public static long MAX_TOTAL_TIME = 20L * 1000L * 1000L * 1000L;
+        public static int MIN_ITERATIONS = 5;
+        public static long MAX_TOTAL_TIME = 1L * 1000L * 1000L * 1000L;
 
         private List<IDriver> drivers = new List<IDriver>();
         private IDriver baseline = null;
-        private Boolean skipSlowTests = false;
         private Boolean skipXslt3Tests = false;
         static void Main(string[] args)
         {
@@ -69,7 +68,6 @@ namespace Speedo
             doc.Load(reader);
 
             Regex testPat = new Regex(testPattern);
-            skipSlowTests = ("slow" == testSkip);
             skipXslt3Tests = ("no" == runXslt3Tests);
 
             System.Uri catalogUri = new System.Uri(catalogFile);
@@ -92,6 +90,8 @@ namespace Speedo
                 xmlStreamWriter.WriteAttributeString("baseline", (driver == baseline ? "yes" : "no"));
                 Console.WriteLine("Driver implemented: " + driver.GetName());
                 System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                double frequency = System.Diagnostics.Stopwatch.Frequency;
+                double nanosecPerTick = (1000 * 1000 * 1000) / frequency;
                 foreach (XmlElement testCase in catalogElement.SelectNodes("test-case"))
                 {
                     String name = testCase.GetAttribute("name");
@@ -104,7 +104,8 @@ namespace Speedo
                     {
                         continue;
                     }
-                    if ("slow" == driver.GetTestRunOption(name) && skipSlowTests)
+                    if ((testSkip != null) && (driver.GetTestRunOption(name) != null) && 
+                        int.Parse(driver.GetTestRunOption(name)) >= int.Parse(testSkip))
                     {
                         continue;
                     }
@@ -131,36 +132,63 @@ namespace Speedo
                             {
                                 driver.LoadSchema(schemaUri);
                             }
-                            driver.BuildSource(sourceUri);                            
+                            driver.BuildSource(sourceUri);
+                           // double starthere = stopwatch.ElapsedTicks * nanosecPerTick;
+                           // driver.CompileStylesheet(stylesheetUri);
+                           // Console.WriteLine("Time for first stylesheet compile: " + ((stopwatch.ElapsedTicks * nanosecPerTick - starthere) / 1000000.0) + "ms.");
                             int i;                          
                             double totalCompileStylesheet = 0;
-                            for (i = 0; i < MAX_ITERATIONS && totalCompileStylesheet < MAX_TOTAL_TIME; i++)
+                            for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
-                                double start = stopwatch.ElapsedMilliseconds;
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;
                                 driver.CompileStylesheet(stylesheetUri);
-                                totalCompileStylesheet += stopwatch.ElapsedMilliseconds - start;
+                                totalCompileStylesheet += stopwatch.ElapsedTicks * nanosecPerTick - start;
                             }
-                            double compileTime = totalCompileStylesheet / i;
+                            totalCompileStylesheet = 0;
+                            GC.Collect();
+                            for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
+                            {
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;
+                                driver.CompileStylesheet(stylesheetUri);
+                                totalCompileStylesheet += stopwatch.ElapsedTicks * nanosecPerTick - start;
+                            }
+                            double compileTime = totalCompileStylesheet / (1000000.0*i);
                             Console.WriteLine("Average time for stylesheet compile: " + compileTime +
                                     "ms. Number of iterations: " + i);
                             double totalTransformFileToFile = 0;
-                            for (i = 0; i < MAX_ITERATIONS && totalTransformFileToFile < MAX_TOTAL_TIME; i++)
+                            for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
-                                double start = stopwatch.ElapsedMilliseconds;
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;
                                 driver.FileToFileTransform(sourceUri, driverOutputDir + "/" + name + ".xml");
-                                totalTransformFileToFile += stopwatch.ElapsedMilliseconds - start;
+                                totalTransformFileToFile += stopwatch.ElapsedTicks * nanosecPerTick - start;
                             }
-                            double transformTimeFileToFile = totalTransformFileToFile / i;
+                            totalTransformFileToFile = 0;
+                            GC.Collect();
+                            for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
+                            {
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;
+                                driver.FileToFileTransform(sourceUri, driverOutputDir + "/" + name + ".xml");
+                                totalTransformFileToFile += stopwatch.ElapsedTicks * nanosecPerTick - start;
+                            }
+                            double transformTimeFileToFile = totalTransformFileToFile / (1000000.0 * i);
                             Console.WriteLine("Average time for FileToFileTransform: " + transformTimeFileToFile +
                                     "ms. Number of iterations: " + i);
                             double totalTransformTreeToTree = 0;
-                            for (i = 0; i < MAX_ITERATIONS && totalTransformTreeToTree < MAX_TOTAL_TIME; i++)
+                            for (i = 0; totalTransformTreeToTree < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
-                                double start = stopwatch.ElapsedMilliseconds;                                
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;                                
                                 driver.TreeToTreeTransform();
-                                totalTransformTreeToTree += stopwatch.ElapsedMilliseconds - start;
+                                totalTransformTreeToTree += stopwatch.ElapsedTicks * nanosecPerTick - start;
                             }
-                            double transformTimeTreeToTree = totalTransformTreeToTree / i;
+                            totalTransformTreeToTree = 0;
+                            GC.Collect();
+                            for (i = 0; totalTransformTreeToTree < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
+                            {
+                                double start = stopwatch.ElapsedTicks * nanosecPerTick;
+                                driver.TreeToTreeTransform();
+                                totalTransformTreeToTree += stopwatch.ElapsedTicks * nanosecPerTick - start;
+                            }
+                            double transformTimeTreeToTree = totalTransformTreeToTree / (1000000.0 * i);
                             Console.WriteLine("Average time for TreeToTreeTransform: " + transformTimeTreeToTree +
                                     "ms. Number of iterations: " + i);
                             bool ok = true;
