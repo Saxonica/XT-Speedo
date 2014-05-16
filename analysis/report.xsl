@@ -37,6 +37,11 @@
             <xsl:value-of select="'Overview of results at', 
                 format-dateTime($baseline/testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"/>
         </h1>
+        <p>
+            For further information about how these results were calculated, and what the numbers mean,
+            please see <a href="report-info.html">Understanding the XT-Speedo reports</a>
+        </p>
+        <br/>
         <table id="overview">
             <thead>
                 <th/>

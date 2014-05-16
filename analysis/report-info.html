@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" type="text/css" href="reportstyle.css"/>
+        <title>
+            XT-Speedo results
+        </title>
+    </head>
+    <body>
+        <p>
+            <a href="report.html">Back to overview</a>
+        </p>
+        <h1>Understanding the XT-Speedo reports</h1>
+        <h3>Performance metric</h3>
+        <p>
+            In the overview table, as our "bottom-line" metric we use the sum of the process times (over all tests) 
+            for the driver, 
+            relative to the sum for the baseline driver. This of course gives greater weighting to tests which 
+            take longer; a different choice of computation could well give a different picture. We also give 
+            the minimum and maximum values of the relative times for the individual tests, to give an idea of 
+            the spread.           
+        </p>
+        <h3>Measured times and averages</h3>
+        <p>
+            The times for the three processes for each test are calculated as the average time over a number of runs.
+            Currently for each process we run two blocks of iterations, calculating the average time from the 2nd block. 
+            For each block, we iterate a process at least 5 times, and for at least 1 second.             
+        </p>
+        <h3>Relative times</h3>
+        <p>
+            For individual test processes, we look at the performance times relative to the baseline driver.
+            A value of 2 means that the driver takes 2 times as long to perform the process (i.e. it is 2 times slower than the baseline).
+            A value of 0.5 means that the driver takes half the time to perform the process (i.e. it is 2 times faster than the baseline).         
+        </p>
+        <h3>Bar charts</h3>
+        <p>
+            The bar charts plot a driver's process speeds for each test relative to the baseline driver.
+            The axis represents the baseline driver speed. Bars above the axis mean that the
+            driver performs a test slower than the baseline, and bars below the axis mean that the driver
+            is faster than the baseline.
+            The height of the bars corresponds to the number of times slower (above the axis) or faster 
+            (below the axis) that the driver is compared to the baseline.
+            (This is achieved by using a reciprocal scale below the axis.)            
+        </p>
+        
+    </body>
+</html>

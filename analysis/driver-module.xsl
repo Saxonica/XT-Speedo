@@ -13,6 +13,12 @@
                 <title>XT-Speedo <xsl:value-of select="testResults/@driver"/> results</title>
             </head>
             <body>
+                <p>
+                    <a href="report.html">Back to overview</a>
+                </p>
+                <p>
+                    <a href="report-info.html">Understanding the XT-Speedo reports</a>
+                </p>
                 <h1>
                     <xsl:value-of
                         select="'Results for', testResults/@driver, 'at', 
@@ -21,11 +27,8 @@
                 </h1>
                 <h3> Comparing performance to baseline driver <xsl:value-of
                         select="$baseline/testResults/@driver"/>
-                </h3>
-                <p>
-                    <a href="report.html">Back to overview</a>
-                </p>
-
+                </h3>                
+                
                 <xsl:variable name="tests"
                     select="testResults/test[@run='success']/@name[. = $baseline/testResults/test[@run='success']/@name]"/>
 

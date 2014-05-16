@@ -1,1 +1,225 @@
-<?xml version="1.0" ?><testResults driver="SaxonEE-9.5-J-BC" on="2014-04-11T15:55:42" baseline="no"><test name="docbook-tests-001" run="success" compileTime="3921.0665405" transformTimeFileToFile="75.0947027" transformTimeTreeToTree="46.08652805"/><test name="docbook-tests-002" run="success" compileTime="9.03295995" transformTimeFileToFile="21.45417815" transformTimeTreeToTree="13.07110265"/><test name="musicxml-tests-001" run="success" compileTime="16.41725645" transformTimeFileToFile="45.3155903" transformTimeTreeToTree="16.61230665"/><test name="musicxml-tests-002" run="success" compileTime="23.59128765" transformTimeFileToFile="28.5742252" transformTimeTreeToTree="10.63687635"/><test name="musicxml-tests-003" run="success" compileTime="9.407024" transformTimeFileToFile="33.19685145" transformTimeTreeToTree="13.7381525"/><test name="musicxml-tests-004" run="success" compileTime="9.3498586" transformTimeFileToFile="18.36034245" transformTimeTreeToTree="7.50242465"/><test name="micro-subscripting-20000" run="success" compileTime="6.1843868" transformTimeFileToFile="6.3991419" transformTimeTreeToTree="2.48756875"/><test name="micro-subscripting-40000" run="success" compileTime="7.0122594" transformTimeFileToFile="10.92883575" transformTimeTreeToTree="4.69269745"/><test name="micro-subscripting-80000" run="success" compileTime="5.86161225" transformTimeFileToFile="16.02281995" transformTimeTreeToTree="9.13176765"/><test name="micro-subscripting-160000" run="success" compileTime="5.9002787" transformTimeFileToFile="30.69812135" transformTimeTreeToTree="21.4098155"/><test name="xsltmark-alphabetize" run="success" compileTime="5.03728055" transformTimeFileToFile="7.3544565" transformTimeTreeToTree="2.99974855"/><test name="xsltmark-attsets" run="success" compileTime="6.5903435" transformTimeFileToFile="2.8684067" transformTimeTreeToTree="0.55500255"/><test name="xsltmark-avts" run="success" compileTime="4.86904305" transformTimeFileToFile="3.61214755" transformTimeTreeToTree="0.57673445"/><test name="xsltmark-axis" run="success" compileTime="9.9072985" transformTimeFileToFile="1.93138585" transformTimeTreeToTree="0.1448637"/><test name="xsltmark-backwards" run="success" compileTime="2.76811045" transformTimeFileToFile="2.30080615" transformTimeTreeToTree="0.4619675"/><test name="xsltmark-bottles" run="success" compileTime="7.04581975" transformTimeFileToFile="4.339185" transformTimeTreeToTree="1.8088704"/><test name="xsltmark-breadth" run="success" compileTime="3.2989435" transformTimeFileToFile="2.68800685" transformTimeTreeToTree="0.4543216"/><test name="xsltmark-brutal" run="success" compileTime="21.83185955" transformTimeFileToFile="3.0528599" transformTimeTreeToTree="0.45126815"/><test name="xsltmark-chart" run="success" compileTime="7.04717935" transformTimeFileToFile="4.50906505" transformTimeTreeToTree="0.47648965"/><test name="xsltmark-creation" run="success" compileTime="4.95325165" transformTimeFileToFile="4.699394" transformTimeTreeToTree="0.9738393"/><test name="xsltmark-current" run="success" compileTime="9.8366115" transformTimeFileToFile="1.6980032" transformTimeTreeToTree="0.15007215"/><test name="xsltmark-dbonerow" run="success" compileTime="5.06606865" transformTimeFileToFile="120.28626345" transformTimeTreeToTree="39.8239108"/><test name="xsltmark-dbtail" run="success" compileTime="2.3213069" transformTimeFileToFile="3.81643425" transformTimeTreeToTree="0.4092665"/><test name="xsltmark-decoy" run="success" compileTime="19.2118201" transformTimeFileToFile="10.84832175" transformTimeTreeToTree="3.98613445"/><test name="xsltmark-depth" run="success" compileTime="3.04257125" transformTimeFileToFile="2.31861255" transformTimeTreeToTree="0.4527563"/><test name="xsltmark-encrypt" run="success" compileTime="4.0876623" transformTimeFileToFile="7.8930638" transformTimeTreeToTree="2.0331959"/><test name="xsltmark-functions" run="success" compileTime="8.7103651" transformTimeFileToFile="8.0983255" transformTimeTreeToTree="4.51078395"/><test name="xsltmark-game" run="success" compileTime="15.5969273" transformTimeFileToFile="2.25128675" transformTimeTreeToTree="0.1550498"/><test name="xsltmark-html" run="success" compileTime="5.03238015" transformTimeFileToFile="1.9543242" transformTimeTreeToTree="0.15622995"/><test name="xsltmark-identity" run="success" compileTime="2.36081955" transformTimeFileToFile="26.2781915" transformTimeTreeToTree="9.55160535"/><test name="xsltmark-inventory" run="success" compileTime="5.72362525" transformTimeFileToFile="2.4661447" transformTimeTreeToTree="0.33647555"/><test name="xsltmark-metric" run="success" compileTime="7.7671869" transformTimeFileToFile="3.677626" transformTimeTreeToTree="1.53938735"/><test name="xsltmark-number" run="success" compileTime="4.78722045" transformTimeFileToFile="4.97601005" transformTimeTreeToTree="1.56927855"/><test name="xsltmark-oddtemplate" run="success" compileTime="6.22903125" transformTimeFileToFile="2.6141642" transformTimeTreeToTree="0.3258532"/><test name="xsltmark-patterns" run="success" compileTime="8.4537109" transformTimeFileToFile="7.9114088" transformTimeTreeToTree="3.0703843"/><test name="xsltmark-prettyprint" run="success" compileTime="9.86219235" transformTimeFileToFile="37.33487955" transformTimeTreeToTree="9.1689202"/><test name="xsltmark-priority" run="success" compileTime="14.90101235" transformTimeFileToFile="1.96166225" transformTimeTreeToTree="0.1509444"/><test name="xsltmark-products" run="success" compileTime="6.75822205" transformTimeFileToFile="3.01842745" transformTimeTreeToTree="0.2466478"/><test name="xsltmark-queens" run="success" compileTime="6.8494352" transformTimeFileToFile="13.35084895" transformTimeTreeToTree="9.1202989"/><test name="xsltmark-reverser" run="success" compileTime="4.7959697" transformTimeFileToFile="5.85730195" transformTimeTreeToTree="3.97204845"/><test name="xsltmark-stringsort" run="success" compileTime="3.57997265" transformTimeFileToFile="24.6633449" transformTimeTreeToTree="10.18216995"/><test name="xsltmark-summarize" run="success" compileTime="4.87281465" transformTimeFileToFile="2.892679" transformTimeTreeToTree="0.24590375"/><test name="xsltmark-total" run="success" compileTime="7.912615" transformTimeFileToFile="3.04606065" transformTimeTreeToTree="0.1509702"/><test name="xsltmark-tower" run="success" compileTime="13.87249625" transformTimeFileToFile="47.9939243" transformTimeTreeToTree="36.29094345"/><test name="xsltmark-trend" run="success" compileTime="6.64245405" transformTimeFileToFile="8.0039052" transformTimeTreeToTree="3.67103175"/><test name="xsltmark-union" run="success" compileTime="7.2282203" transformTimeFileToFile="2.8224023" transformTimeTreeToTree="0.18799435"/><test name="xsltmark-xpath" run="success" compileTime="5.1798866" transformTimeFileToFile="2.745429" transformTimeTreeToTree="0.14216945"/><test name="xsltmark-xslbench1" run="success" compileTime="14.83817675" transformTimeFileToFile="2.09885425" transformTimeTreeToTree="0.1488405"/><test name="xsltmark-xslbench2" run="success" compileTime="9.7732371" transformTimeFileToFile="10.3102535" transformTimeTreeToTree="3.05262915"/><test name="xsltmark-xslbench3" run="success" compileTime="7.39684315" transformTimeFileToFile="6.91050075" transformTimeTreeToTree="0.4351809"/><test name="xmark-q1-1" run="success" compileTime="5.0876212" transformTimeFileToFile="22.3734432" transformTimeTreeToTree="0.1566149"/><test name="xmark-q1-4" run="success" compileTime="4.3321804" transformTimeFileToFile="74.76163955" transformTimeTreeToTree="0.16567185"/><test name="xmark-q2-1" run="success" compileTime="5.30414675" transformTimeFileToFile="20.3071746" transformTimeTreeToTree="0.2794385"/><test name="xmark-q2-4" run="success" compileTime="4.9674917" transformTimeFileToFile="75.6073186" transformTimeTreeToTree="0.5575169"/><test name="xmark-q3-1" run="success" compileTime="5.779559" transformTimeFileToFile="21.60022155" transformTimeTreeToTree="0.89111875"/><test name="xmark-q3-4" run="success" compileTime="5.6227134" transformTimeFileToFile="75.3488427" transformTimeTreeToTree="1.0411652"/><test name="xmark-q5-1" run="success" compileTime="5.586382" transformTimeFileToFile="23.33045105" transformTimeTreeToTree="0.50440535"/><test name="xmark-q5-4" run="success" compileTime="4.85323765" transformTimeFileToFile="74.2214932" transformTimeTreeToTree="0.76839785"/><test name="xmark-q6-1" run="success" compileTime="4.17387215" transformTimeFileToFile="20.41922185" transformTimeTreeToTree="0.2421321"/><test name="xmark-q6-4" run="success" compileTime="4.0879957" transformTimeFileToFile="71.70444325" transformTimeTreeToTree="0.6093969"/><test name="xmark-q7-1" run="success" compileTime="4.01381915" transformTimeFileToFile="20.88219005" transformTimeTreeToTree="0.21824475"/><test name="xmark-q7-4" run="success" compileTime="4.0120231" transformTimeFileToFile="75.690578" transformTimeTreeToTree="0.48174965"/><test name="xmark-q8-1" run="success" compileTime="5.9243713" transformTimeFileToFile="22.89108805" transformTimeTreeToTree="2.3141225"/><test name="xmark-q8-4" run="success" compileTime="6.92356055" transformTimeFileToFile="75.82869365" transformTimeTreeToTree="1.78023625"/><test name="xmark-q9-1" run="success" compileTime="20.60541995" transformTimeFileToFile="37.55191845" transformTimeTreeToTree="14.41318185"/><test name="xmark-q9-4" run="success" compileTime="19.6602146" transformTimeFileToFile="259.90937685" transformTimeTreeToTree="179.19722085"/><test name="xmark-q10-1" run="success" compileTime="13.96917475" transformTimeFileToFile="36.27531795" transformTimeTreeToTree="6.46395365"/><test name="xmark-q10-4" run="success" compileTime="15.30609685" transformTimeFileToFile="115.82227905" transformTimeTreeToTree="18.362241"/><test name="xmark-q11-1" run="success" compileTime="11.37050805" transformTimeFileToFile="43.7764339" transformTimeTreeToTree="20.70258585"/><test name="xmark-q11-4" run="success" compileTime="10.972454" transformTimeFileToFile="379.63627595" transformTimeTreeToTree="293.4616393"/><test name="xmark-q12-1" run="success" compileTime="13.10866575" transformTimeFileToFile="27.4492363" transformTimeTreeToTree="6.96315045"/><test name="xmark-q12-4" run="success" compileTime="12.8640447" transformTimeFileToFile="150.66681895" transformTimeTreeToTree="77.54671005"/><test name="xmark-q13-1" run="success" compileTime="5.1122271" transformTimeFileToFile="22.24802825" transformTimeTreeToTree="0.23333125"/><test name="xmark-q13-4" run="success" compileTime="4.82745165" transformTimeFileToFile="74.0646986" transformTimeTreeToTree="0.8654867"/><test name="xmark-q14-1" run="success" compileTime="4.7459372" transformTimeFileToFile="22.71992535" transformTimeTreeToTree="1.5449035"/><test name="xmark-q14-4" run="success" compileTime="4.8552647" transformTimeFileToFile="80.40213375" transformTimeTreeToTree="14.25751635"/><test name="xmark-q15-1" run="success" compileTime="9.39588835" transformTimeFileToFile="20.13760235" transformTimeTreeToTree="0.2697654"/><test name="xmark-q15-4" run="success" compileTime="9.03909205" transformTimeFileToFile="73.06992245" transformTimeTreeToTree="0.6685637"/><test name="xmark-q16-1" run="success" compileTime="10.23430675" transformTimeFileToFile="19.97193035" transformTimeTreeToTree="0.4490103"/><test name="xmark-q16-4" run="success" compileTime="9.3457532" transformTimeFileToFile="73.90639025" transformTimeTreeToTree="1.3619638"/><test name="xmark-q17-1" run="success" compileTime="4.67576325" transformTimeFileToFile="18.99857845" transformTimeTreeToTree="0.44403265"/><test name="xmark-q17-4" run="success" compileTime="4.73680295" transformTimeFileToFile="73.1276525" transformTimeTreeToTree="1.16229555"/><test name="xmark-q18-1" run="success" compileTime="4.44050745" transformTimeFileToFile="21.80807495" transformTimeTreeToTree="0.3281112"/><test name="xmark-q18-4" run="success" compileTime="4.16617485" transformTimeFileToFile="72.01949465" transformTimeTreeToTree="0.9881564"/><test name="xmark-q19-1" run="success" compileTime="3.8068384" transformTimeFileToFile="21.0619993" transformTimeTreeToTree="1.1036418"/><test name="xmark-q19-4" run="success" compileTime="3.72640135" transformTimeFileToFile="78.67616335" transformTimeTreeToTree="2.97445015"/><test name="xmark-q20-1" run="success" compileTime="10.85093875" transformTimeFileToFile="22.06152225" transformTimeTreeToTree="1.59788685"/><test name="xmark-q20-4" run="success" compileTime="11.46703245" transformTimeFileToFile="77.2246284" transformTimeTreeToTree="3.18817895"/></testResults>
+<?xml version="1.0" ?>
+<testResults driver="SaxonEE-9.5-J-BC" on="2014-05-15T09:56:12" baseline="no">
+    <test name="docbook-tests-001" run="success" compileTime="3135.1152276"
+        transformTimeFileToFile="64.3899935625" transformTimeTreeToTree="29.871048558823528"/>
+    <test name="docbook-tests-002" run="success" compileTime="4.101529942622951"
+        transformTimeFileToFile="14.368412028571429" transformTimeTreeToTree="11.114458022222221"/>
+    <test name="micro-subscripting-20000" run="success" compileTime="3.743723962686567"
+        transformTimeFileToFile="3.879016085271318" transformTimeTreeToTree="2.3139520877598154"/>
+    <test name="micro-subscripting-40000" run="success" compileTime="3.4619228615916957"
+        transformTimeFileToFile="6.482120490322581" transformTimeTreeToTree="4.705404624413146"/>
+    <test name="micro-subscripting-80000" run="success" compileTime="3.8115395285171103"
+        transformTimeFileToFile="11.401463647727272" transformTimeTreeToTree="9.675763548076922"/>
+    <test name="micro-subscripting-160000" run="success" compileTime="3.3805037804054052"
+        transformTimeFileToFile="21.1466859375" transformTimeTreeToTree="18.27224449090909"/>
+    <test name="xsltmark-alphabetize" run="success" compileTime="2.3175266550925926"
+        transformTimeFileToFile="4.902687666666667" transformTimeTreeToTree="1.8361080733944954"/>
+    <test name="xsltmark-attsets" run="success" compileTime="3.1088155341614905"
+        transformTimeFileToFile="1.382280752762431" transformTimeTreeToTree="0.13228592447089946"/>
+    <test name="xsltmark-avts" run="success" compileTime="2.454249218137255"
+        transformTimeFileToFile="2.47126824691358" transformTimeTreeToTree="0.24832229692154917"/>
+    <test name="xsltmark-axis" run="success" compileTime="4.998897766169154"
+        transformTimeFileToFile="1.1769468964705883" transformTimeTreeToTree="0.030984560743609606"/>
+    <test name="xsltmark-backwards" run="success" compileTime="1.4926070059701493"
+        transformTimeFileToFile="1.4334572750716332" transformTimeTreeToTree="0.1965867796343621"/>
+    <test name="xsltmark-bottles" run="success" compileTime="3.2237913279742765"
+        transformTimeFileToFile="1.871155846728972" transformTimeTreeToTree="0.490766514720314"/>
+    <test name="xsltmark-breadth" run="success" compileTime="1.7803364341637011"
+        transformTimeFileToFile="1.5158854681818181" transformTimeTreeToTree="0.16090471557271557"/>
+    <test name="xsltmark-brutal" run="success" compileTime="13.44935984"
+        transformTimeFileToFile="2.060156751028807" transformTimeTreeToTree="0.17241096431649716"/>
+    <test name="xsltmark-chart" run="success" compileTime="4.819734052884615"
+        transformTimeFileToFile="1.4594224810495626" transformTimeTreeToTree="0.07859001933202357"/>
+    <test name="xsltmark-creation" run="success" compileTime="2.4668016945812807"
+        transformTimeFileToFile="3.0404339209726445" transformTimeTreeToTree="0.6933794178794179"/>
+    <test name="xsltmark-current" run="success" compileTime="5.455542853260869"
+        transformTimeFileToFile="1.2576861659192826" transformTimeTreeToTree="0.03062374693002603"/>
+    <test name="xsltmark-dbonerow" run="success" compileTime="3.045206671732523"
+        transformTimeFileToFile="92.87338036363636" transformTimeTreeToTree="34.38470813333333"/>
+    <test name="xsltmark-dbtail" run="success" compileTime="1.2846258600770217"
+        transformTimeFileToFile="1.9309794131274132" transformTimeTreeToTree="0.1896274053849071"/>
+    <test name="xsltmark-decoy" run="success" compileTime="12.752413506329114"
+        transformTimeFileToFile="4.680210771028038" transformTimeTreeToTree="2.320185621809745"/>
+    <test name="xsltmark-depth" run="success" compileTime="1.85926256133829"
+        transformTimeFileToFile="1.3492960539083558" transformTimeTreeToTree="0.19251905736284888"/>
+    <test name="xsltmark-encrypt" run="success" compileTime="2.3468968360655738"
+        transformTimeFileToFile="3.8914838638132294" transformTimeTreeToTree="1.903995199619772"/>
+    <test name="xsltmark-functions" run="success" compileTime="4.623932981566821"
+        transformTimeFileToFile="3.839753846743295" transformTimeTreeToTree="1.8603928271375465"/>
+    <test name="xsltmark-game" run="success" compileTime="9.305152870370371"
+        transformTimeFileToFile="1.40533689747191" transformTimeTreeToTree="0.04007618494770168"/>
+    <test name="xsltmark-html" run="success" compileTime="3.0710310613496934"
+        transformTimeFileToFile="1.0211778887755103" transformTimeTreeToTree="0.02623614558190786"/>
+    <test name="xsltmark-identity" run="success" compileTime="1.0376882748962655"
+        transformTimeFileToFile="18.40678290909091" transformTimeTreeToTree="8.801116350877193"/>
+    <test name="xsltmark-inventory" run="success" compileTime="3.346063966555184"
+        transformTimeFileToFile="1.278575109833972" transformTimeTreeToTree="0.09862302258382644"/>
+    <test name="xsltmark-metric" run="success" compileTime="4.399579122807017"
+        transformTimeFileToFile="1.6738120050167224" transformTimeTreeToTree="0.09197400303504093"/>
+    <test name="xsltmark-number" run="success" compileTime="3.0787435784615385"
+        transformTimeFileToFile="1.4499900507246377" transformTimeTreeToTree="0.1940911872695517"/>
+    <test name="xsltmark-oddtemplate" run="success" compileTime="3.892729813229572"
+        transformTimeFileToFile="1.084398213434453" transformTimeTreeToTree="0.07109918057727854"/>
+    <test name="xsltmark-patterns" run="success" compileTime="5.950113668639053"
+        transformTimeFileToFile="3.8183960190839694" transformTimeTreeToTree="1.5072544156626506"/>
+    <test name="xsltmark-prettyprint" run="success" compileTime="6.809891210884354"
+        transformTimeFileToFile="17.684975719298247" transformTimeTreeToTree="8.699851095652173"/>
+    <test name="xsltmark-priority" run="success" compileTime="10.04154461"
+        transformTimeFileToFile="1.1086741884700666" transformTimeTreeToTree="0.035604778263963"/>
+    <test name="xsltmark-products" run="success" compileTime="4.19914280334728"
+        transformTimeFileToFile="1.1735216682297773" transformTimeTreeToTree="0.0475365881066692"/>
+    <test name="xsltmark-queens" run="success" compileTime="4.5863845479452054"
+        transformTimeFileToFile="9.350566205607477" transformTimeTreeToTree="7.8138229765625"/>
+    <test name="xsltmark-reverser" run="success" compileTime="2.749463239010989"
+        transformTimeFileToFile="3.93220188627451" transformTimeTreeToTree="2.467198566502463"/>
+    <test name="xsltmark-stringsort" run="success" compileTime="2.0477800961145194"
+        transformTimeFileToFile="19.965991294117647" transformTimeTreeToTree="9.637627673076922"/>
+    <test name="xsltmark-summarize" run="success" compileTime="3.0311458424242423"
+        transformTimeFileToFile="1.327122225464191" transformTimeTreeToTree="0.0413437273854804"/>
+    <test name="xsltmark-total" run="success" compileTime="4.393351570175438"
+        transformTimeFileToFile="1.0859986395222585" transformTimeTreeToTree="0.027120892167498373"/>
+    <test name="xsltmark-tower" run="success" compileTime="9.566444923809524"
+        transformTimeFileToFile="32.99128890322581" transformTimeTreeToTree="28.501147472222222"/>
+    <test name="xsltmark-trend" run="success" compileTime="4.110823467213114"
+        transformTimeFileToFile="2.144075777301927" transformTimeTreeToTree="0.7590091676783004"/>
+    <test name="xsltmark-union" run="success" compileTime="3.2798107344262295"
+        transformTimeFileToFile="1.1905158964285714" transformTimeTreeToTree="0.02717624056308938"/>
+    <test name="xsltmark-xpath" run="success" compileTime="2.2491767258426965"
+        transformTimeFileToFile="0.9561215506692161" transformTimeTreeToTree="0.037068956296104086"/>
+    <test name="xsltmark-xslbench1" run="success" compileTime="8.6656035"
+        transformTimeFileToFile="1.2332291097410604" transformTimeTreeToTree="0.0577344832861844"/>
+    <test name="xsltmark-xslbench2" run="success" compileTime="5.490362672131147"
+        transformTimeFileToFile="7.8548949453125" transformTimeTreeToTree="2.297784389908257"/>
+    <test name="xsltmark-xslbench3" run="success" compileTime="4.329286437229437"
+        transformTimeFileToFile="4.325507064655173" transformTimeTreeToTree="0.30768921039680097"/>
+    <test name="xmark-q1-1" run="success" compileTime="2.9958725389221557"
+        transformTimeFileToFile="18.110675375" transformTimeTreeToTree="0.03270856969974488"/>
+    <test name="xmark-q1-4" run="success" compileTime="2.782619902777778"
+        transformTimeFileToFile="64.8562219375" transformTimeTreeToTree="0.09270832020024103"/>
+    <test name="xmark-q2-1" run="success" compileTime="3.052511774390244"
+        transformTimeFileToFile="17.213946355932205" transformTimeTreeToTree="0.095823973265619"/>
+    <test name="xmark-q2-4" run="success" compileTime="2.9084505610465117"
+        transformTimeFileToFile="64.1430725" transformTimeTreeToTree="0.3559502274021352"/>
+    <test name="xmark-q3-1" run="success" compileTime="3.448489968965517"
+        transformTimeFileToFile="17.421618655172413" transformTimeTreeToTree="0.16367754140752863"/>
+    <test name="xmark-q3-4" run="success" compileTime="3.2212602154340835"
+        transformTimeFileToFile="66.1508018125" transformTimeTreeToTree="0.6551628107400131"/>
+    <test name="xmark-q5-1" run="success" compileTime="3.2226412829581994"
+        transformTimeFileToFile="16.92022235" transformTimeTreeToTree="0.07239984007818721"/>
+    <test name="xmark-q5-4" run="success" compileTime="3.094782191358025"
+        transformTimeFileToFile="64.3610006875" transformTimeTreeToTree="0.24980497302697302"/>
+    <test name="xmark-q6-1" run="success" compileTime="2.2016976175824174"
+        transformTimeFileToFile="16.650387475409836" transformTimeTreeToTree="0.13030051374592833"/>
+    <test name="xmark-q6-4" run="success" compileTime="2.1928358402625823"
+        transformTimeFileToFile="64.4526619375" transformTimeTreeToTree="0.5062962095141701"/>
+    <test name="xmark-q7-1" run="success" compileTime="2.0889960793319418"
+        transformTimeFileToFile="18.355934472727274" transformTimeTreeToTree="0.05010135756513026"/>
+    <test name="xmark-q7-4" run="success" compileTime="2.063862769072165"
+        transformTimeFileToFile="69.41786613333333" transformTimeTreeToTree="0.16784543286337697"/>
+    <test name="xmark-q8-1" run="success" compileTime="3.312738248344371"
+        transformTimeFileToFile="18.91656720754717" transformTimeTreeToTree="0.35522516015625"/>
+    <test name="xmark-q8-4" run="success" compileTime="3.3474746889632105"
+        transformTimeFileToFile="66.914039" transformTimeTreeToTree="1.3905359611111112"/>
+    <test name="xmark-q9-1" run="success" compileTime="13.573884878378378"
+        transformTimeFileToFile="28.24813627777778" transformTimeTreeToTree="9.36821474766355"/>
+    <test name="xmark-q9-4" run="success" compileTime="13.33713919736842"
+        transformTimeFileToFile="219.1657216" transformTimeTreeToTree="146.04218828571427"/>
+    <test name="xmark-q10-1" run="success" compileTime="9.092203954954956"
+        transformTimeFileToFile="21.969177565217393" transformTimeTreeToTree="2.772550783933518"/>
+    <test name="xmark-q10-4" run="success" compileTime="8.935787571428571"
+        transformTimeFileToFile="85.53829383333333" transformTimeTreeToTree="12.75846088607595"/>
+    <test name="xmark-q11-1" run="success" compileTime="6.947469909722222"
+        transformTimeFileToFile="38.712468538461536" transformTimeTreeToTree="18.045954339285714"/>
+    <test name="xmark-q11-4" run="success" compileTime="7.0871071197183095"
+        transformTimeFileToFile="390.7292368" transformTimeTreeToTree="288.6957278"/>
+    <test name="xmark-q12-1" run="success" compileTime="8.262871319672131"
+        transformTimeFileToFile="23.567355372093022" transformTimeTreeToTree="5.961687869047619"/>
+    <test name="xmark-q12-4" run="success" compileTime="10.47656084375"
+        transformTimeFileToFile="162.68853657142859" transformTimeTreeToTree="72.15324842857143"/>
+    <test name="xmark-q13-1" run="success" compileTime="3.390036918918919"
+        transformTimeFileToFile="18.83520777777778" transformTimeTreeToTree="0.14751449852507376"/>
+    <test name="xmark-q13-4" run="success" compileTime="3.210463657051282"
+        transformTimeFileToFile="69.98014113333333" transformTimeTreeToTree="0.5273066441750132"/>
+    <test name="xmark-q14-1" run="success" compileTime="2.747687583561644"
+        transformTimeFileToFile="19.347431807692306" transformTimeTreeToTree="0.9823248251473478"/>
+    <test name="xmark-q14-4" run="success" compileTime="2.806147025210084"
+        transformTimeFileToFile="78.52362946153846" transformTimeTreeToTree="4.311758202586207"/>
+    <test name="xmark-q15-1" run="success" compileTime="6.369256512658228"
+        transformTimeFileToFile="17.15644752542373" transformTimeTreeToTree="0.09827011408077037"/>
+    <test name="xmark-q15-4" run="success" compileTime="6.213739413580247"
+        transformTimeFileToFile="66.22578575" transformTimeTreeToTree="0.3043853907486306"/>
+    <test name="xmark-q16-1" run="success" compileTime="6.882771705479452"
+        transformTimeFileToFile="17.24836874137931" transformTimeTreeToTree="0.11069068223574986"/>
+    <test name="xmark-q16-4" run="success" compileTime="6.830169326530612"
+        transformTimeFileToFile="66.127838375" transformTimeTreeToTree="0.3679126840750276"/>
+    <test name="xmark-q17-1" run="success" compileTime="3.4094574863945577"
+        transformTimeFileToFile="17.62743996491228" transformTimeTreeToTree="0.109969664394106"/>
+    <test name="xmark-q17-4" run="success" compileTime="3.311668432343234"
+        transformTimeFileToFile="66.4041693125" transformTimeTreeToTree="0.3933459056232796"/>
+    <test name="xmark-q18-1" run="success" compileTime="2.969795367952522"
+        transformTimeFileToFile="17.229019016949152" transformTimeTreeToTree="0.0943945548423636"/>
+    <test name="xmark-q18-4" run="success" compileTime="2.9409513108504397"
+        transformTimeFileToFile="66.60032075" transformTimeTreeToTree="0.3249638086419753"/>
+    <test name="xmark-q19-1" run="success" compileTime="2.613557261096606"
+        transformTimeFileToFile="19.192670679245282" transformTimeTreeToTree="0.5180932659079152"/>
+    <test name="xmark-q19-4" run="success" compileTime="2.611168362924282"
+        transformTimeFileToFile="69.0533932" transformTimeTreeToTree="2.183538320960699"/>
+    <test name="xmark-q20-1" run="success" compileTime="7.8288967265625"
+        transformTimeFileToFile="17.68697436842105" transformTimeTreeToTree="0.47742665775656323"/>
+    <test name="xmark-q20-4" run="success" compileTime="7.87044178125"
+        transformTimeFileToFile="69.26850553333334" transformTimeTreeToTree="1.8162156588021778"/>
+    <test name="map-wordmap1-1" run="success" compileTime="2.6982753773584904"
+        transformTimeFileToFile="2280.8213472" transformTimeTreeToTree="2239.6608084"/>
+    <test name="map-wordmap2-1" run="success" compileTime="6.64791578807947"
+        transformTimeFileToFile="1565.889211" transformTimeTreeToTree="1439.8523154"/>
+    <test name="map-wordmap2-4" run="success" compileTime="6.383082394904458"
+        transformTimeFileToFile="3584.1465556" transformTimeTreeToTree="3625.2281718"/>
+    <test name="map-wordmap3-1" run="success" compileTime="6.750088449664429"
+        transformTimeFileToFile="3620.662476" transformTimeTreeToTree="3613.2904682"/>
+    <test name="map-wordmap3-4" run="success" compileTime="6.569919549019608"
+        transformTimeFileToFile="6611.7434254" transformTimeTreeToTree="7274.1453752"/>
+    <test name="map-wordmap5-0" run="success" compileTime="4.295406690987124"
+        transformTimeFileToFile="754.3704428" transformTimeTreeToTree="743.178345"/>
+    <test name="map-wordmap8" run="success" compileTime="4.210647827731092"
+        transformTimeFileToFile="1269.3564594" transformTimeTreeToTree="1253.5956894"/>
+    <test name="map-wordmap8a" run="success" compileTime="3.6891917757352943"
+        transformTimeFileToFile="3749.8403592" transformTimeTreeToTree="3498.3734188"/>
+    <test name="map-numbermap1" run="success" compileTime="12.256599792682927"
+        transformTimeFileToFile="5041.6586018" transformTimeTreeToTree="4910.508993"/>
+    <test name="map-numbermap3" run="success" compileTime="7.000327440559441"
+        transformTimeFileToFile="6689.4125978" transformTimeTreeToTree="6908.8805646"/>
+    <test name="map-numbermap4" run="success" compileTime="3.116033722741433"
+        transformTimeFileToFile="225.3301862" transformTimeTreeToTree="222.763002"/>
+    <test name="map-numbermap4a" run="success" compileTime="3.331727681063123"
+        transformTimeFileToFile="2926.3899422" transformTimeTreeToTree="2984.9418346"/>
+    <test name="map-datemap1" run="success" compileTime="158.36422614285715"
+        transformTimeFileToFile="3.2257086270096464" transformTimeTreeToTree="1.434072611747851"/>
+    <test name="map-datemap2-1" run="success" compileTime="9.420105140186916"
+        transformTimeFileToFile="22.252942755555555" transformTimeTreeToTree="2.4440169609756097"/>
+    <test name="map-datemap2-4" run="success" compileTime="9.363749841121495"
+        transformTimeFileToFile="83.61231558333333" transformTimeTreeToTree="10.315224546391752"/>
+    <test name="map-datemap3-1" run="success" compileTime="9.642527240384615"
+        transformTimeFileToFile="37.835326555555554" transformTimeTreeToTree="17.20190040677966"/>
+    <test name="map-datemap3-4" run="success" compileTime="9.700577278846154"
+        transformTimeFileToFile="250.7336498" transformTimeTreeToTree="164.39761757142858"/>
+    <test name="map-datemap4-1" run="success" compileTime="12.5318729625"
+        transformTimeFileToFile="23.21710890909091" transformTimeTreeToTree="3.0199355361445783"/>
+    <test name="map-datemap4-4" run="success" compileTime="13.178170921052631"
+        transformTimeFileToFile="98.64374609090909" transformTimeTreeToTree="19.66066731372549"/>
+    <test name="map-datemap5-1" run="success" compileTime="27.52962218918919"
+        transformTimeFileToFile="37.521431148148146" transformTimeTreeToTree="18.8035065"/>
+    <test name="map-datemap5-4" run="success" compileTime="27.459903324324323"
+        transformTimeFileToFile="162.5933107142857" transformTimeTreeToTree="91.42746518181818"/>
+    <test name="musicxml-tests-001" run="success" compileTime="11.546086804597701"
+        transformTimeFileToFile="33.73909776666667" transformTimeTreeToTree="15.361813121212121"/>
+    <test name="musicxml-tests-002" run="success" compileTime="14.191668591549297"
+        transformTimeFileToFile="22.00757454347826" transformTimeTreeToTree="9.250220403669724"/>
+    <test name="musicxml-tests-003" run="success" compileTime="6.69568016"
+        transformTimeFileToFile="23.72988053488372" transformTimeTreeToTree="12.969135346153847"/>
+    <test name="musicxml-tests-004" run="success" compileTime="6.608649269736842"
+        transformTimeFileToFile="13.984918301369863" transformTimeTreeToTree="6.732389979865772"/>
+    <test name="musicxml-tests-101" run="success" compileTime="14.781420985294117"
+        transformTimeFileToFile="122.35632522222222" transformTimeTreeToTree="52.44305325"/>
+    <test name="musicxml-tests-102" run="success" compileTime="14.170701676056337"
+        transformTimeFileToFile="65.9961835" transformTimeTreeToTree="29.1404966"/>
+</testResults>
