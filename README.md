@@ -11,7 +11,7 @@ Benchmarking framework for XSLT, developed by Saxonica. The project contains a s
 
 XT-Speedo benchmark packages (contained in the `drivers` directory) have been produced on different platforms, to test a range of products. The main input to run the Speedo is the tests catalog file `data/catalog.xml` and the drivers catalog file `data/drivers.xml` (command line `-cat:` and `-dr:` input). 
 
-When the Speedo is run, for each driver (on the relevant platform) in the `drivers.xml` catalog, all (selected) test transformations in the `catalog.xml` are carried out (each test case basically consists of a source document and a stylesheet, and possibly a schema, for some transformation - all of this test material is found in the `data` directory). The output of each transformation is tested using an XPATH test assertion to check that it has worked. For each successful test case, times are measured for: stylesheet compile, file-to-file transform, and tree-to-tree transform. For each of these processes (for each test), an average time over a number of runs is recorded.
+When the Speedo is run, for each driver (on the relevant platform) in the `drivers.xml` catalog, all (selected) test transformations in the `catalog.xml` are carried out (each test case basically consists of a source document and a stylesheet, and possibly a schema, for some transformation --- all of this test material is found in the `data` directory). The output of each transformation is tested using an XPATH test assertion to check that it has worked. For each successful test case, times are measured for: stylesheet compile, file-to-file transform, and tree-to-tree transform. For each of these processes (for each test), an average time over a number of runs is recorded.
 
 ### Speedo results
 
