@@ -11,7 +11,7 @@ Benchmarking framework for XSLT, developed by Saxonica. The project contains a s
 
 XT-Speedo benchmark packages (contained in the `drivers` directory) have been produced on different platforms, to test a range of products. The main input to run the Speedo is the tests catalog file `data/catalog.xml` and the drivers catalog file `data/drivers.xml` (command line `-cat:` and `-dr:` input). 
 
-When the Speedo is run, for each driver (on the relevant platform) in the `drivers.xml` catalog, all (selected) test transformations in the `catalog.xml` are carried out (each test case basically consists of a source document and a stylesheet, and possibly a schema, for some transformation --- all of this test material is found in the `data` directory). The output of each transformation is tested using an XPATH test assertion to check that it has worked. For each successful test case, times are measured for: stylesheet compile, file-to-file transform, and tree-to-tree transform. For each of these processes (for each test), an average time over a number of runs is recorded.
+When the Speedo is run, for each driver (on the relevant platform) in the `drivers.xml` catalog, all (selected) test transformations in the `catalog.xml` are carried out (each test case basically consists of a source document and a stylesheet, and possibly a schema, for some transformation — all of this test material is found in the `data` directory). The output of each transformation is tested using an XPath test assertion to check that it has worked. For each successful test case, times are measured for: stylesheet compile, file-to-file transform, and tree-to-tree transform. For each of these processes (for each test), an average time over a number of runs is recorded.
 
 ### Speedo results
 
@@ -19,7 +19,7 @@ The Speedo is configured to save one result document (XML file) per driver. The 
 
 ### Analysing the results
 
-The reporting stylesheet `analysis/report.xsl` produces HTML reports to view the results of a collection of drivers (currently set up to use the driver results XML files found in `results/selection`). The report consists of an overview page containing a table comparing the performance of all the drivers, with links (click on the driver name) to driver pages which contain further information. These driver pages contain bar charts for each of the three measured processes (file-to-file transform, tree-to-tree transform, and stylesheet compile) showing the driver's performance for each test compared to a selected baseline driver (chosen in the drivers catalog - see **Selecting a baseline driver** below for more details). Under the bar charts is the full table of results for the driver, giving process times for each test (performance relative to the baseline, and actual times).
+The reporting stylesheet `analysis/report.xsl` produces HTML reports to view the results of a collection of drivers (currently set up to use the driver results XML files found in `results/selection`). The report consists of an overview page containing a table comparing the performance of all the drivers, with links (click on the driver name) to driver pages which contain further information. These driver pages contain bar charts for each of the three measured processes (file-to-file transform, tree-to-tree transform, and stylesheet compile) showing the driver's performance for each test compared to a selected baseline driver (chosen in the drivers catalog — see **Selecting a baseline driver** below for more details). Under the bar charts is the full table of results for the driver, giving process times for each test (performance relative to the baseline, and actual times).
 
 =========
 
@@ -27,7 +27,7 @@ The reporting stylesheet `analysis/report.xsl` produces HTML reports to view the
 
 ### Selecting which tests to run
 
-Further command line options for the Speedo are provided to select which test cases from the catalog to use -- primarily by providing a regular expression name pattern (`-t:` input), but also for example by choosing to skip tests which are particularly slow (`-skip:` input) by providing an upper bound for test times in milliseconds (see **Driver options** below for more details).
+Further command line options for the Speedo are provided to select which test cases from the catalog to use — primarily by providing a regular expression name pattern (`-t:` input), but also for example by choosing to skip tests which are particularly slow (`-skip:` input) by providing an upper bound for test times in milliseconds (see **Driver options** below for more details).
 
 ### Getting a full set of results
 
@@ -47,13 +47,13 @@ To run the new driver in the Speedo, details should be added to the `data/driver
 
 ### Driver options
 
-Initialization option settings and test run options can be added to the driver data in `data/drivers.xml`. Several entries in the drivers catalog can be used to run the same product with different configuration options (optimization on or off, bytecode generation on or off, and so on), using `<option>` elements. Similarly, `<test-run-option>` elements are used to indicate that particular tests should not be run with a particular driver (for example because they are known to crash), or that they are excessively slow and should sometimes be skipped. Setting the `value` attribute to 'no' for a specified test means the it will never run for this driver; alternatively the `value` can be set to an integer (the order of magnitude of the slowest process time in milliseconds, for example '1000' or '10000') - and then when the command line `-skip:` input is set to a corresponding integer, any tests with values greater than or equal to the input integer will not run.
+Initialization option settings and test run options can be added to the driver data in `data/drivers.xml`. Several entries in the drivers catalog can be used to run the same product with different configuration options (optimization on or off, bytecode generation on or off, and so on), using `<option>` elements. Similarly, `<test-run-option>` elements are used to indicate that particular tests should not be run with a particular driver (for example because they are known to crash), or that they are excessively slow and should sometimes be skipped. Setting the `value` attribute to 'no' for a specified test means the it will never run for this driver; alternatively the `value` can be set to an integer (the order of magnitude of the slowest process time in milliseconds, for example '1000' or '10000'), and then when the command line `-skip:` input is set to a corresponding integer, any tests with values greater than or equal to the input integer will not run.
 
 ###  How to add tests
 
 A test case basically consists of a source XML file with an XSLT stylesheet file (which may of course link to a number of other stylesheets), and possibly an XSD schema file. These files should be added to the `data` directory. In order to add a new test to the benchmark, it must be added to `catalog.xml` as a new `<test-case>` element. New test-cases should take the same form as used for the existing test-cases, see the schema `data/catalog-schema.xsd` for details.
 
-As well as providing paths to the source, stylesheet and schema documents, these `<test-case>` elements also contain one or more test assertions - XPath expressions to be applied to the output of the transformation to check the results are plausible. Furthermore, the `<test-case>` elements should contain a description of the test transformation, some creation information, and for tests which use XSLT version 2.0 or higher, an `xslt-version` attribute (without this attribute the version is assumed to be 1.0).
+As well as providing paths to the source, stylesheet and schema documents, these `<test-case>` elements also contain one or more test assertions — XPath expressions to be applied to the output of the transformation to check the results are plausible. Furthermore, the `<test-case>` elements should contain a description of the test transformation, some creation information, and for tests which use XSLT version 2.0 or higher, an `xslt-version` attribute (without this attribute the version is assumed to be 1.0).
 
 ###  More on the test catalog
 
