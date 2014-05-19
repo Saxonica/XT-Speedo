@@ -1,10 +1,8 @@
-<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <link rel="stylesheet" type="text/css" href="reportstyle.css"/>
-        <title>
-            XT-Speedo results
-        </title>
+        <link rel="stylesheet" type="text/css" href="reportstyle.css" />
+        <title> XT-Speedo results </title>
     </head>
     <body>
         <p>
@@ -12,36 +10,166 @@
         </p>
         <h1>Understanding the XT-Speedo reports</h1>
         <h3>Performance metric</h3>
-        <p>
-            In the overview table, as our "bottom-line" metric we use the sum of the process times (over all tests) 
-            for the driver, 
-            relative to the sum for the baseline driver. This of course gives greater weighting to tests which 
-            take longer; a different choice of computation could well give a different picture. We also give 
-            the minimum and maximum values of the relative times for the individual tests, to give an idea of 
-            the spread.           
-        </p>
+        <p> In the overview table, as our "bottom-line" metric we use the sum of the process times
+            (over all tests) for the driver, relative to the sum for the baseline driver. This of
+            course gives greater weighting to tests which take longer; a different choice of
+            computation could well give a different picture. We also give the minimum and maximum
+            values of the relative times for the individual tests, to give an idea of the spread. </p>
         <h3>Measured times and averages</h3>
-        <p>
-            The times for the three processes for each test are calculated as the average time over a number of runs.
-            Currently for each process we run two blocks of iterations, calculating the average time from the 2nd block. 
-            For each block, we iterate a process at least 5 times, and for at least 1 second.             
-        </p>
+        <p> The times for the three processes for each test are calculated as the average time over
+            a number of runs. Currently for each process we run two blocks of iterations,
+            calculating the average time from the 2nd block. For each block, we iterate a process at
+            least 5 times, and for at least 1 second. </p>
         <h3>Relative times</h3>
-        <p>
-            For individual test processes, we look at the performance times relative to the baseline driver.
-            A value of 2 means that the driver takes 2 times as long to perform the process (i.e. it is 2 times slower than the baseline).
-            A value of 0.5 means that the driver takes half the time to perform the process (i.e. it is 2 times faster than the baseline).         
-        </p>
+        <p> For individual test processes, we look at the performance times relative to the baseline
+            driver. A value of 2 means that the driver takes 2 times as long to perform the process
+            (i.e. it is 2 times slower than the baseline). A value of 0.5 means that the driver
+            takes half the time to perform the process (i.e. it is 2 times faster than the
+            baseline). </p>
         <h3>Bar charts</h3>
-        <p>
-            The bar charts plot a driver's process speeds for each test relative to the baseline driver.
-            The axis represents the baseline driver speed. Bars above the axis mean that the
-            driver performs a test slower than the baseline, and bars below the axis mean that the driver
-            is faster than the baseline.
-            The height of the bars corresponds to the number of times slower (above the axis) or faster 
-            (below the axis) that the driver is compared to the baseline.
-            (This is achieved by using a reciprocal scale below the axis.)            
-        </p>
+        <p> The bar charts plot a driver's process speeds for each test relative to the baseline
+            driver. The axis represents the baseline driver speed. Bars above the axis mean that the
+            driver performs a test slower than the baseline, and bars below the axis mean that the
+            driver is faster than the baseline. The height of the bars corresponds to the number of
+            times slower (above the axis) or faster (below the axis) that the driver is compared to
+            the baseline. (This is achieved by using a reciprocal scale below the axis.) </p>
+        <p> Bars are highlighted and shown with an arrow head to indicate that the test result is
+            off the scale of the chart, which is based on the 5th to 95th percentile range. The
+            actual numbers are available in the detailed results table, or can be obtained by
+            hovering the pointer over the bar.</p>
+        <!--<h4> Example chart: Driver X process speeds relative to baseline driver
+        </h4>-->
+        <svg version="1.1" baseProfile="basic" id="svg2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1040" height="350" viewBox="0 0 1040 350" xml:space="preserve">
+            <line x1="30" y1="183.47550753349488" x2="925" y2="183.47550753349488" style="stroke:black; stroke-width:1"></line>
+            <text x="0" y="187.47550753349488" font-size="12px">1</text>
+            <line x1="30" y1="141.409189313798954" x2="925" y2="141.409189313798954" style="stroke:grey; stroke-width:1"></line>
+            <text x="0" y="145.409189313798954" font-size="12px">2</text>
+            <line x1="30" y1="225.5418257531908" x2="925" y2="225.5418257531908" style="stroke:grey; stroke-width:1"></line>         
+            <text x="0" y="229.5418257531908" font-size="12px">.5</text>
+            <rect x="40" y="170.56911992570545" width="5" height="12.906387607789421" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="50" y="182.21314403985164" width="5" height="1.2623634936432329" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="60" y="183.47550753349488" width="5" height="3.3273615614058376" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="70" y="176.01308699522886" width="5" height="7.462420538266014" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="80" y="165.41392666877971" width="5" height="18.06158086471516" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="90" y="177.6850632146483" width="5" height="5.7904443188465855" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="100" y="183.47550753349488" width="5" height="10.390165309231081" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="110" y="183.47550753349488" width="5" height="8.651809893204215" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="120" y="183.47550753349488" width="5" height="41" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>        
+            
+            <rect x="70" y="270" width="205" height="60" style="fill:none; stroke-width:2; stroke:black"></rect>
+            <text x="80" y="290" font-size="14px">Relative time = <tspan style="font-weight:bold">0.5</tspan> : driver is
+                <tspan x="80" y="310"><tspan style="font-weight:bold">2 times faster</tspan> than baseline</tspan>
+            </text>
+            <line x1="122.5" y1="235" x2="122.5" y2="270" style="stroke:black; stroke-width:2"></line>
+            <polyline points="117.5,243 122.5,235 127.5,243" style="fill:none; stroke:black; stroke-width:2"></polyline>         
         
+            <rect x="130" y="183.47550753349488" width="5" height="37.255993807703184" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="140" y="183.47550753349488" width="5" height="0.6909585712490809" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="150" y="172.92774469317303" width="5" height="10.547762840321859" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="160" y="183.47550753349488" width="5" height="30.586474098301746" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="170" y="183.47550753349488" width="5" height="53.99031834411814" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="180" y="183.47550753349488" width="5" height="11.966712530792927" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="190" y="183.47550753349488" width="5" height="19.376078000367983" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="200" y="159.585939795172045" width="5" height="23.889567738322828" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="210" y="182.51842435712692" width="5" height="0.9570831763679631" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="220" y="183.47550753349488" width="5" height="17.197352930005913" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="230" y="181.89817768961157" width="5" height="1.5773298438832968" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="240" y="160.413361361526434" width="5" height="23.06214617196844" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="250" y="176.95510230797143" width="5" height="6.52040522552345" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="260" y="169.78690566929589" width="5" height="13.68860186419898" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="270" y="137.40179346543535" width="5" height="46.07371406805954" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="280" y="120" width="5" height="63.47550753349488" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></rect>
+            <polygon points="279,120 282.5,117 286,120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></polygon>
+            <rect x="290" y="137.525494380675696" width="5" height="45.950013152819174" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="300" y="183.47550753349488" width="5" height="19.978122166809445" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="310" y="179.22082043886078" width="5" height="4.254687094634102" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="320" y="141.79151843085582" width="5" height="41.68398910263907" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+         
+            <rect x="250" y="30" width="210" height="60" style="fill:none; stroke-width:2; stroke:black"></rect>
+            <text x="260" y="50" font-size="14px">Relative time = <tspan style="font-weight:bold">2</tspan> : driver is
+                <tspan x="260" y="70"><tspan style="font-weight:bold">2 times slower</tspan> than baseline</tspan>
+            </text>            
+            <line x1="322.5" y1="130" x2="322.5" y2="90" style="stroke:black; stroke-width:2"></line>
+            <polyline points="317.5,122 322.5,130 327.5,122" style="fill:none; stroke:black; stroke-width:2"></polyline>
+                
+            <rect x="330" y="142.45545562124618" width="5" height="41.0200519122487" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="340" y="183.47550753349488" width="5" height="12.607343527472983" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="350" y="130" width="5" height="53.47550753349488" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="360" y="135.483539051289114" width="5" height="47.99196848220576" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="370" y="155.25139445520419" width="5" height="28.22411307829068" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="380" y="132.7889530935401" width="5" height="50.686554439954776" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="390" y="120" width="5" height="63.47550753349488" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></rect>
+            <polygon points="389,120 392.5,117 396,120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></polygon>
+            <rect x="400" y="165.66887214251632" width="5" height="17.806635390978556" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="410" y="167.87634087077763" width="5" height="15.599166662717254" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="420" y="183.47550753349488" width="5" height="2.184608457076808" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="430" y="134.00040013848441" width="5" height="49.47510739501047" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="440" y="127.453975397676825" width="5" height="56.02153213581805" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="450" y="175.13462766400309" width="5" height="8.340879869491788" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="460" y="124.916108590221324" width="5" height="58.55939894327355" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="470" y="183.47550753349488" width="5" height="7.699778115459904" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="480" y="183.47550753349488" width="5" height="19.66867674430231" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="490" y="183.47550753349488" width="5" height="6.823344879359286" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="500" y="183.47550753349488" width="5" height="8.169973819832244" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="510" y="182.52877730806432" width="5" height="0.9467302254305514" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="520" y="183.47550753349488" width="5" height="46.52449246650512" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="530" y="183.47550753349488" width="5" height="8.796323260943147" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="540" y="183.47550753349488" width="5" height="7.223161695362918" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="550" y="183.47550753349488" width="5" height="10.303747948012688" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="560" y="183.47550753349488" width="5" height="11.611658453432694" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="570" y="183.47550753349488" width="5" height="12.180553850007863" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="580" y="183.47550753349488" width="5" height="15.30748545839158" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="590" y="183.47550753349488" width="5" height="9.090578351551855" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="600" y="183.47550753349488" width="5" height="9.721651958082779" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="610" y="183.47550753349488" width="5" height="56.52449246650512" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></rect>
+            <polygon points="609,240 612.5,243 616,240" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></polygon>
+            <rect x="620" y="183.47550753349488" width="5" height="56.52449246650512" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></rect>
+            <polygon points="619,240 622.5,243 626,240" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"></polygon>
+            <rect x="630" y="183.47550753349488" width="5" height="17.117517104368716" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="640" y="183.47550753349488" width="5" height="23.792938845799917" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="650" y="183.47550753349488" width="5" height="1.7321851509542943" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="660" y="183.47550753349488" width="5" height="7.883635768192115" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="670" y="183.47550753349488" width="5" height="2.66733484444189" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="680" y="183.47550753349488" width="5" height="0.5108255002240563" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="690" y="183.47550753349488" width="5" height="2.6067189817948955" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="700" y="183.47550753349488" width="5" height="2.200962425639479" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="710" y="183.47550753349488" width="5" height="8.689220759476692" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="720" y="183.47550753349488" width="5" height="21.37706443514015" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="730" y="183.47550753349488" width="5" height="10.997662778446228" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="740" y="183.47550753349488" width="5" height="8.37217115004759" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="750" y="183.47550753349488" width="5" height="10.703709653756171" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="760" y="183.47550753349488" width="5" height="9.10887761667333" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="770" y="183.47550753349488" width="5" height="7.190388649953248" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="780" y="183.47550753349488" width="5" height="7.9788969482652785" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="790" y="183.47550753349488" width="5" height="8.65516961999903" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="800" y="183.47550753349488" width="5" height="6.847775175774634" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="810" y="183.47550753349488" width="5" height="4.313618090847071" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="820" y="183.47550753349488" width="5" height="6.771795248004696" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="830" y="183.47550753349488" width="5" height="13.374450446159438" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="840" y="183.47550753349488" width="5" height="5.608629766784974" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="850" y="183.47550753349488" width="5" height="5.598326329496928" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="860" y="183.47550753349488" width="5" height="6.168970654886104" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="870" y="176.66068949587833" width="5" height="6.814818037616554" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="880" y="174.47817297511807" width="5" height="8.997334558376805" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="890" y="166.69100409973072" width="5" height="16.78450343376417" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="900" y="170.41355274150514" width="5" height="13.061954791989734" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <rect x="910" y="171.77921731092991" width="5" height="11.696290222564961" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"></rect>
+            <text x="970" y="217.47550753349488" font-size="12px">Faster</text>
+            <line x1="960" y1="198.47550753349488" x2="960" y2="233.47550753349486" style="stroke:black; stroke-width:1"></line>
+            <line x1="960" y1="233.47550753349486" x2="955" y2="225.47550753349486" style="stroke:black; stroke-width:1"></line>
+            <line x1="960" y1="233.47550753349486" x2="965" y2="225.47550753349486" style="stroke:black; stroke-width:1"></line>
+            <text x="970" y="157.47550753349488" font-size="12px">Slower</text>
+            <line x1="960" y1="168.47550753349488" x2="960" y2="133.47550753349488" style="stroke:black; stroke-width:1"></line>
+            <line x1="960" y1="133.47550753349488" x2="955" y2="141.47550753349488" style="stroke:black; stroke-width:1"></line>
+            <line x1="960" y1="133.47550753349488" x2="965" y2="141.47550753349488" style="stroke:black; stroke-width:1"></line>
+            <text x="940" y="187.47550753349488" font-size="12px">Baseline speed</text>
+            
+            <rect x="570" y="280" width="160" height="60" style="fill:none; stroke-width:2; stroke:black"></rect>
+            <text x="580" y="300" font-size="14px">Relative time is off the
+                <tspan x="580" y="320">scale of the chart</tspan>
+            </text>
+            <line x1="622.5" y1="250" x2="622.5" y2="280" style="stroke:black; stroke-width:2"></line>
+            <polyline points="617.5,258 622.5,250 627.5,258" style="fill:none; stroke:black; stroke-width:2"></polyline>  
+        </svg>
     </body>
 </html>
