@@ -185,6 +185,14 @@ public abstract class JAXPDriver extends IDriver {
 
     }
 
+    @Override
+    public void resetVariables() {
+        sourceDocument = null;
+        stylesheet = null;
+        resultDocument = null;
+        resultFile = null;
+    }
+
     /**
      * Gets version of XSLT processor supported
      *

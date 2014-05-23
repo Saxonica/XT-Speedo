@@ -101,6 +101,11 @@ namespace Speedo
 
         public override void DisplayResultDocument() { }
 
+        public override void ResetVariables()
+        {
+            throw new NotImplementedException();
+        }
+
         /**
          * Gets version of XSLT processor supported
          * @return version of XSLT

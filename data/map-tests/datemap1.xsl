@@ -5,7 +5,7 @@
     version="3.0">
     <xsl:output method="xml" indent="yes"/>
     
-    <xsl:template match="/">
+    <xsl:template name="main">
         <out>
             <xsl:variable name="date" as="map(xs:date, xs:string)">
                 <xsl:map>

@@ -64,7 +64,14 @@ namespace Speedo
             XsltTransformer transformer = stylesheet.Load();
             processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
             //transformer.SchemaValidationMode = SchemaValidationMode.Strict;   // not working in 9.5.1.5: see bug 2062
-            transformer.InitialContextNode = sourceDocument;
+            if (sourceDocument != null)
+            {
+                transformer.InitialContextNode = sourceDocument;
+            }
+            else
+            {
+                transformer.InitialTemplate = new QName("main");
+            }            
             XdmDestination destination = new XdmDestination();
             transformer.Run(destination);
             resultDocument = destination.XdmNode;
@@ -75,7 +82,14 @@ namespace Speedo
             XsltTransformer transformer = stylesheet.Load();
             processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
             //transformer.SchemaValidationMode = SchemaValidationMode.Strict;    // not working in 9.5.1.5: see bug 2062
-            transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
+            if (sourceUri != null)
+            {
+                transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
+            }
+            else
+            {
+                transformer.InitialTemplate = new QName("main");
+            }            
             Serializer serializer = processor.NewSerializer();
             serializer.SetOutputFile(resultFileLocation);
             transformer.Run(serializer);
@@ -110,6 +124,17 @@ namespace Speedo
         public override void DisplayResultDocument()
         {
 
+        }
+
+        public override void ResetVariables()
+        {
+            documentBuilder = null;
+            sourceDocument = null;
+            stylesheet = null;
+            resultDocument = null;
+            resultFile = null;
+            schemaAware = false;
+            processor.SetProperty(net.sf.saxon.lib.FeatureKeys.SCHEMA_VALIDATION_MODE, "strip");
         }
 
         public override double GetXsltVersion()

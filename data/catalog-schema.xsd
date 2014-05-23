@@ -30,7 +30,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="stylesheet"/>
-        <xs:element ref="source"/>
+        <xs:element ref="source" minOccurs="0"/>
         <xs:element ref="schema" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>

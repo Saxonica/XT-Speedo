@@ -5,7 +5,7 @@
     version="3.0">
     <xsl:output method="xml" indent="yes"/>
     
-    <xsl:template match="/">
+    <xsl:template name="main">
         <out>
             <xsl:variable name="numbers" as="map(xs:integer, xs:integer)" select="map:new()"/>
             <xsl:iterate select="1 to 10000">

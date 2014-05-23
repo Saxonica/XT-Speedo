@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URI;
+import java.util.concurrent.SynchronousQueue;
 
 /**
  *XT-Speedo driver for Saxon-HE XSLT Processor
@@ -88,7 +89,12 @@ public class SaxonHEDriver extends IDriver {
     public void treeToTreeTransform() throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
-            transformer.setSource(sourceDocument.asSource());
+            if (sourceDocument != null){
+                transformer.setSource(sourceDocument.asSource());
+            }
+            else {
+                transformer.setInitialTemplate(new QName("main"));
+            }
             XdmDestination destination = new XdmDestination();
             transformer.setDestination(destination);
             transformer.transform();
@@ -108,7 +114,12 @@ public class SaxonHEDriver extends IDriver {
     public void fileToFileTransform(File source, File result) throws TransformationException {
         try {
             XsltTransformer transformer = stylesheet.load();
-            transformer.setSource(new StreamSource(source));
+            if (source != null) {
+                transformer.setSource(new StreamSource(source));
+            }
+            else {
+                transformer.setInitialTemplate(new QName("main"));
+            }
             Destination destination = processor.newSerializer(result);
             transformer.setDestination(destination);
             transformer.transform();
@@ -127,13 +138,19 @@ public class SaxonHEDriver extends IDriver {
      */
     @Override
     public boolean testAssertion(String assertion) throws TransformationException {
+        boolean docOK = true;
+        boolean fileOK = true;
         if (resultDocument != null) {
             try {
                 XPathCompiler compiler = processor.newXPathCompiler();
                 XPathExecutable exec = compiler.compile(assertion);
                 XPathSelector selector = exec.load();
                 selector.setContextItem(resultDocument);
-                return selector.effectiveBooleanValue();
+                docOK = selector.effectiveBooleanValue();
+                // System.err.println("Testing " + assertion + "against result tree " + docOK);
+                if (!docOK) {
+                    displayResultDocument();
+                }
 
             } catch (SaxonApiException e) {
                 throw new TransformationException(e);
@@ -174,13 +191,14 @@ public class SaxonHEDriver extends IDriver {
                 XPathExecutable exec = compiler.compile(assertion);
                 XPathSelector selector = exec.load();
                 selector.setContextItem(resultDoc);
-                return selector.effectiveBooleanValue();
+                fileOK = selector.effectiveBooleanValue();
+                // System.err.println("Testing " + assertion + "against result file " + fileOK);
 
             } catch (SaxonApiException e) {
                 throw new TransformationException(e);
             }
         }
-        return false;
+        return docOK && fileOK;
     }
 
     /**
@@ -200,6 +218,17 @@ public class SaxonHEDriver extends IDriver {
         } else {
             //
         }
+    }
+
+    /**
+     * Reset variables to null
+     */
+
+    public void resetVariables() {
+        sourceDocument = null;
+        stylesheet = null;
+        resultDocument = null;
+        resultFile = null;
     }
 
     /**

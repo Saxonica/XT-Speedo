@@ -22,7 +22,7 @@ namespace Speedo
         private XdmDocument resultDocument;
         private XsltSettings xsltSettings;
         private XsltSettings xsltSettingsSchemaAware;
-        private Xslt xslt;
+        private Xslt stylesheet;
         private Boolean schemaAware = false;
 
 
@@ -57,7 +57,7 @@ namespace Speedo
 
         public override void CompileStylesheet(Uri stylesheetUri)
         {
-            xslt = Xslt.Compile(stylesheetUri.ToString(), schemaAware ? xsltSettingsSchemaAware : xsltSettings);
+            stylesheet = Xslt.Compile(stylesheetUri.ToString(), schemaAware ? xsltSettingsSchemaAware : xsltSettings);
         }
 
         public override void TreeToTreeTransform()
@@ -66,7 +66,7 @@ namespace Speedo
             DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
             using (XdmDocumentWriter writer = XdmDocumentWriter.Create())
             {
-                xslt.ApplyTemplates(settings, writer);
+                stylesheet.ApplyTemplates(settings, writer);
                 resultDocument = writer.Document;
             }
         }
@@ -83,15 +83,14 @@ namespace Speedo
 
             using (var outputStream = File.Create(resultFileLocation))
             {
-                xslt.ApplyTemplates(settings, outputStream);
+                stylesheet.ApplyTemplates(settings, outputStream);
             }
 
             this.resultFile = resultFileLocation;
         }
 
         public override bool TestAssertion(string assertion)
-        {
-            schemaAware = false;
+        {            
             if (resultDocument != null)
             {
                 XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
@@ -118,6 +117,15 @@ namespace Speedo
 
         public override void DisplayResultDocument()
         {
+        }
+
+        public override void ResetVariables()
+        {
+            sourceDocument = null;
+            stylesheet = null;
+            resultDocument = null;
+            resultFile = null;
+            schemaAware = false;
         }
 
         public override double GetXsltVersion()

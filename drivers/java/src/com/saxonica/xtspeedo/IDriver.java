@@ -68,6 +68,12 @@ public abstract class IDriver {
     public abstract void displayResultDocument();
 
     /**
+     * Reset all variables to initial state
+     */
+
+    public abstract void resetVariables();
+
+    /**
      * Gets version of XSLT processor supported
      * @return version of XSLT
      */

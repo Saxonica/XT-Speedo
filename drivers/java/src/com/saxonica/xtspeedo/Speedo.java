@@ -115,11 +115,13 @@ public class Speedo {
                         continue;
                     }
                     System.err.println("Running " + name);
+                    driver.resetVariables();
                     final Element schemaElement = testCase.getChild("test").getChild("schema");
                     String schema = schemaElement == null ? null : schemaElement.getAttributeValue("file");
                     URI schemaURI = schema == null ? null : catalogURI.resolve(schema);
-                    String source = testCase.getChild("test").getChild("source").getAttributeValue("file");
-                    URI sourceURI = catalogURI.resolve(source);
+                    final Element sourceElement = testCase.getChild("test").getChild("source");
+                    String source = sourceElement == null ? null : sourceElement.getAttributeValue("file");
+                    URI sourceURI = source == null ? null : catalogURI.resolve(source);
                     String stylesheet = testCase.getChild("test").getChild("stylesheet").getAttributeValue("file");
                     URI stylesheetURI = catalogURI.resolve(stylesheet);
                         if (xsltVersion <= driver.getXsltVersion()) {
@@ -127,7 +129,9 @@ public class Speedo {
                                 if (schemaURI != null) {
                                     driver.loadSchema(schemaURI);
                                 }
-                                driver.buildSource(sourceURI);
+                                if (sourceURI != null) {
+                                    driver.buildSource(sourceURI);
+                                }
                                 int i;
                                 long totalCompileStylesheet = 0;
                                 for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
@@ -146,16 +150,17 @@ public class Speedo {
                                 System.err.println("Average time for stylesheet compile: " + compileTime +
                                         "ms. Number of iterations: " + i);
                                 long totalTransformFileToFile = 0;
+                                File sourceFile = sourceURI == null ? null : new File(sourceURI);
                                 for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
                                     long start = System.nanoTime();
-                                    driver.fileToFileTransform(new File(sourceURI), new File(driverOutputDir, name + ".xml"));
+                                    driver.fileToFileTransform(sourceFile, new File(driverOutputDir, name + ".xml"));
                                     totalTransformFileToFile += System.nanoTime() - start;
                                 }
                                 totalTransformFileToFile = 0;
                                 System.gc();
                                 for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++) {
                                     long start = System.nanoTime();
-                                    driver.fileToFileTransform(new File(sourceURI), new File(driverOutputDir, name + ".xml"));
+                                    driver.fileToFileTransform(sourceFile, new File(driverOutputDir, name + ".xml"));
                                     totalTransformFileToFile += System.nanoTime() - start;
                                 }
                                 double transformTimeFileToFile = totalTransformFileToFile/(1000000.0*i);

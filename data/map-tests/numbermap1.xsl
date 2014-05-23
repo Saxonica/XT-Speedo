@@ -6,7 +6,7 @@
     version="3.0">
     <xsl:output method="xml" indent="yes"/>
             
-    <xsl:template match="/">
+    <xsl:template name="main">
         <out>
             <xsl:variable name="fib" as="map(xs:integer, xs:integer)">
                 <xsl:map>

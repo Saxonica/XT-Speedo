@@ -46,7 +46,14 @@ namespace Speedo
         public override void TreeToTreeTransform()
         {
             XsltTransformer transformer = stylesheet.Load();
-            transformer.InitialContextNode = sourceDocument;
+            if (sourceDocument != null)
+            {
+                transformer.InitialContextNode = sourceDocument;
+            }
+            else
+            {
+                transformer.InitialTemplate = new QName("main");
+            }
             XdmDestination destination = new XdmDestination();            
             transformer.Run(destination);
             resultDocument = destination.XdmNode;
@@ -55,7 +62,14 @@ namespace Speedo
         public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
         {
             XsltTransformer transformer = stylesheet.Load();
-            transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
+            if (sourceUri != null)
+            {
+                transformer.SetInputStream(File.Open(sourceUri.AbsolutePath, FileMode.Open), sourceUri);
+            }
+            else
+            {
+                transformer.InitialTemplate = new QName("main");
+            }
             Serializer serializer = processor.NewSerializer();
             serializer.SetOutputFile(resultFileLocation);
             transformer.Run(serializer);
@@ -64,13 +78,15 @@ namespace Speedo
 
         public override bool TestAssertion(string assertion)
         {
+            bool DocOK = true;
+            bool FileOK = true;
             if (resultDocument != null)
             {
                 XPathCompiler xPathCompiler = processor.NewXPathCompiler();
                 XPathExecutable exec = xPathCompiler.Compile(assertion);
                 XPathSelector selector = exec.Load();
                 selector.ContextItem = resultDocument;
-                return selector.EffectiveBooleanValue(); 
+                DocOK = selector.EffectiveBooleanValue(); 
             }
             if (resultFile != null)
             {
@@ -80,14 +96,22 @@ namespace Speedo
                 XPathExecutable exec = xPathCompiler.Compile(assertion);
                 XPathSelector selector = exec.Load();
                 selector.ContextItem = resultDoc;
-                return selector.EffectiveBooleanValue();  
+                FileOK = selector.EffectiveBooleanValue();  
             }
-            return false;                                      
+            return DocOK && FileOK;                                      
         }
 
         public override void DisplayResultDocument()
         {
             
+        }
+
+        public override void ResetVariables()
+        {
+            sourceDocument = null;
+            stylesheet = null;
+            resultDocument = null;
+            resultFile = null;
         }
 
         public override double GetXsltVersion()

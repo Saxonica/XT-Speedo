@@ -3,7 +3,9 @@
     
     <driver name="Saxon-6" baseline="no" class="com.saxonica.xtspeedo.Saxon6Driver" language="java" xslt-version="1.0" /> 
     
-    <driver name="SaxonHE-9.5-J" baseline="yes" class="com.saxonica.xtspeedo.saxonhe.SaxonHEDriver" language="java" xslt-version="2.0" />
+    <driver name="SaxonHE-9.5-J" baseline="yes" class="com.saxonica.xtspeedo.saxonhe.SaxonHEDriver" language="java" xslt-version="2.0" >
+        <test-run-option name="regex-matches3-4" value="1000"/>
+    </driver>
             
     <driver name="Xalan" baseline="no" class="com.saxonica.xtspeedo.XalanDriver" language="java" xslt-version="1.0">
         <test-run-option name="xmark-q8-4" value="1000"/>
@@ -24,6 +26,12 @@
         <test-run-option name="xmark-q9-4" value="1000"/>
         <test-run-option name="xmark-q11-4" value="1000"/>
         <test-run-option name="xquery-lexer-test" value="1000"/>
+        <test-run-option name="regex-replace1-4" value="1000"/>
+        <test-run-option name="regex-matches2-4" value="1000"/>
+        <test-run-option name="regex-matches3-1" value="1000"/>
+        <test-run-option name="regex-analyze2-4" value="1000"/>
+        <test-run-option name="regex-matches3-4" value="9000"/>
+        
     </driver> 
     
     <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0">

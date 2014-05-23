@@ -116,12 +116,13 @@ namespace Speedo
                         continue;
                     }
                     Console.WriteLine("Running " + name);
-
+                    driver.ResetVariables();
                     XmlElement schemaElement = (XmlElement)testCase.SelectSingleNode("test/schema");
-                    String schema = schemaElement == null ? null : schemaElement.GetAttribute("file").ToString();   // what if no schema?
-                    Uri schemaUri = new Uri(catalogUri, schema);
-                    String source = ((XmlElement)testCase.SelectSingleNode("test/source")).GetAttribute("file");
-                    Uri sourceUri = new Uri(catalogUri, source);
+                    String schema = schemaElement == null ? null : schemaElement.GetAttribute("file").ToString();   
+                    Uri schemaUri = schema == null ? null : new Uri(catalogUri, schema);
+                    XmlElement sourceElement = (XmlElement)testCase.SelectSingleNode("test/source");
+                    String source = sourceElement == null ? null : sourceElement.GetAttribute("file").ToString();
+                    Uri sourceUri = source == null ? null : new Uri(catalogUri, source);
                     String stylesheet = ((XmlElement)testCase.SelectSingleNode("test/stylesheet")).GetAttribute("file");
                     Uri stylesheetUri = new Uri(catalogUri, stylesheet);
                     if (xsltVersion <= driver.GetXsltVersion())
@@ -132,10 +133,10 @@ namespace Speedo
                             {
                                 driver.LoadSchema(schemaUri);
                             }
-                            driver.BuildSource(sourceUri);
-                           // double starthere = stopwatch.ElapsedTicks * nanosecPerTick;
-                           // driver.CompileStylesheet(stylesheetUri);
-                           // Console.WriteLine("Time for first stylesheet compile: " + ((stopwatch.ElapsedTicks * nanosecPerTick - starthere) / 1000000.0) + "ms.");
+                            if (source != null)
+                            {
+                                driver.BuildSource(sourceUri);
+                            }    
                             int i;                          
                             double totalCompileStylesheet = 0;
                             for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
@@ -324,6 +325,12 @@ namespace Speedo
          */
 
         public abstract void DisplayResultDocument();
+
+        /**
+         * Reset all variables to initial state
+         */
+
+        public abstract void ResetVariables();
 
         /**
          * Gets version of XSLT processor supported

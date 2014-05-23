@@ -100,6 +100,11 @@ public class RaptorDriver extends IDriver {
     }
 
     @Override
+    public void resetVariables() {
+
+    }
+
+    @Override
     public double getXsltVersion() {
         return 2.0;
     }

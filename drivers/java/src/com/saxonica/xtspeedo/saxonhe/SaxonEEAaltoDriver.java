@@ -117,7 +117,12 @@ public class SaxonEEAaltoDriver extends IDriver {
             XsltTransformer transformer = stylesheet.load();
             processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, schemaAware ? "strict" : "strip");
             //transformer.setSchemaValidationMode(ValidationMode.STRICT);  // not working in 9.5.1.5: see bug 2062
-            transformer.setSource(sourceDocument.asSource());
+            if (sourceDocument != null){
+                transformer.setSource(sourceDocument.asSource());
+            }
+            else {
+                transformer.setInitialTemplate(new QName("main"));
+            }
             XdmDestination destination = new XdmDestination();
             transformer.setDestination(destination);
             transformer.transform();
@@ -148,10 +153,15 @@ public class SaxonEEAaltoDriver extends IDriver {
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
             }
-            try {
-                transformer.setSource(new SAXSource(reader, new InputSource(new FileInputStream(source))));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            if (source != null) {
+                try {
+                    transformer.setSource(new SAXSource(reader, new InputSource(new FileInputStream(source))));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                transformer.setInitialTemplate(new QName("main"));
             }
             Destination destination = processor.newSerializer(result);
             transformer.setDestination(destination);
@@ -171,7 +181,7 @@ public class SaxonEEAaltoDriver extends IDriver {
      */
     @Override
     public boolean testAssertion(String assertion) throws TransformationException {
-        schemaAware = false;
+        //schemaAware = false;
         if (resultDocument != null) {
             try {
                 XPathCompiler compiler = processor.newXPathCompiler();
@@ -245,6 +255,17 @@ public class SaxonEEAaltoDriver extends IDriver {
         } else {
             //
         }
+    }
+
+    @Override
+    public void resetVariables() {
+        documentBuilder = null;
+        sourceDocument = null;
+        stylesheet = null;
+        resultDocument = null;
+        resultFile = null;
+        schemaAware = false;
+        processor.setConfigurationProperty(FeatureKeys.SCHEMA_VALIDATION_MODE, "strip");
     }
 
     /**

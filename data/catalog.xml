@@ -33,103 +33,7 @@
       </result>
    </test-case>
    
-   <test-case name="musicxml-tests-001">
-      <description>
-         Converts music xml partwise to timewise
-      </description>
-      <created by="Debbie Lockett" on="2014-03-04"/>
-      <test>
-         <stylesheet file="musicxml-tests/parttime.xsl"/>
-         <source file="musicxml-tests/SchbAvMaSample.xml"/>
-      </test>
-      <result>
-         <assert>
-            /score-timewise/@version="3.0"
-         </assert>
-      </result>
-   </test-case>
    
-   <test-case name="musicxml-tests-002">
-      <description>
-         Converts music xml timewise to partwise
-      </description>
-      <created by="Debbie Lockett" on="2014-03-07"/>
-      <test>
-         <stylesheet file="musicxml-tests/timepart.xsl"/>
-         <source file="musicxml-tests/MahlFaGe4SampleT.xml"/>
-      </test>
-      <result>
-         <assert>
-            /score-partwise/@version="3.0"
-         </assert>
-      </result>
-   </test-case>
-   
-   <test-case name="musicxml-tests-003">
-      <description>
-         Converts music xml 3.0 files to 2.0 files
-      </description>
-      <created by="Debbie Lockett" on="2014-03-07"/>
-      <test>
-         <stylesheet file="musicxml-tests/to20.xsl"/>
-         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
-      </test>
-      <result>
-         <assert>
-            /score-partwise/@version="2.0"
-         </assert>
-      </result>
-   </test-case>
-   
-   <test-case name="musicxml-tests-004">
-      <description>
-         Converts music xml 3.0 files to 2.0 files
-      </description>
-      <created by="Debbie Lockett" on="2014-03-07"/>
-      <test>
-         <stylesheet file="musicxml-tests/to20.xsl"/>
-         <source file="musicxml-tests/Echigo-Jishi.xml"/>
-      </test>
-      <result>
-         <assert>
-            /score-partwise/@version="2.0"
-         </assert>
-      </result>
-   </test-case>
-   
-   <test-case name="musicxml-tests-101" xslt-version="2.0">
-      <description>
-         Converts music xml partwise to timewise; schema-aware variant of transformation. Schubert sample.
-      </description>
-      <created by="Michael Kay" on="2014-05-01"/>
-      <test>
-         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
-         <source file="musicxml-tests/SchbAvMaSample.xml"/>
-         <schema file="musicxml-tests/musicxml.xsd"/>
-      </test>
-      <result>
-         <assert>
-            /score-timewise/@version="3.0"
-         </assert>
-      </result>
-   </test-case>
-   
-   <test-case name="musicxml-tests-102" xslt-version="2.0">
-      <description>
-         Converts music xml partwise to timewise; schema-aware variant of transformation. Mahler sample.
-      </description>
-      <created by="Michael Kay" on="2014-05-01"/>
-      <test>
-         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
-         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
-         <schema file="musicxml-tests/musicxml.xsd"/>
-      </test>
-      <result>
-         <assert>
-            /score-timewise/@version="3.0"
-         </assert>
-      </result>
-   </test-case>
    
    <test-case name="micro-subscripting-20000" xslt-version="2.0">
       <description>
@@ -1706,14 +1610,13 @@
      
    <test-case name="map-numbermap1" xslt-version="3.0">
       <description>
-         Create an integer map (independent of source file) related to Fibonacci sequence 
+         Create an integer map related to Fibonacci sequence 
          (recursive), and change all values in the map.
          Map has 10000 pairs, only first 100 are printed in output.
       </description>
       <created by="Debbie Lockett" on="2014-04-02"/>
       <test>
          <stylesheet file="map-tests/numbermap1.xsl"/>
-         <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
          <assert>            
@@ -1724,13 +1627,12 @@
    
    <test-case name="map-numbermap3" xslt-version="3.0">
       <description>
-         Create an integer map (independent of source file) from a quadratic, and change all values in the map.
+         Create an integer map from a quadratic, and change all values in the map.
          Map has 10000 pairs, only first 100 are printed in output.
       </description>
       <created by="Debbie Lockett" on="2014-04-02"/>
       <test>
          <stylesheet file="map-tests/numbermap3.xsl"/>
-         <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
          <assert>            
@@ -1746,7 +1648,6 @@
       <created by="Debbie Lockett" on="2014-04-04"/>
       <test>
          <stylesheet file="map-tests/numbermap4.xsl"/>
-         <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
          <assert>            
@@ -1762,7 +1663,6 @@
       <created by="Debbie Lockett" on="2014-04-04"/>
       <test>
          <stylesheet file="map-tests/numbermap4a.xsl"/>
-         <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
          <assert>            
@@ -1774,12 +1674,11 @@
    
    <test-case name="map-datemap1" xslt-version="3.0">
       <description>
-         Create a map (independent of source file) from dates in 2014 to the day of week of each date.
+         Create a map from dates in 2014 to the day of week of each date.
       </description>
       <created by="Debbie Lockett" on="2014-04-07"/>
       <test>
          <stylesheet file="map-tests/datemap1.xsl"/>
-         <source file="xsltmark-tests/axis.xml"/>
       </test>
       <result>
          <assert>            
@@ -1941,6 +1840,316 @@
          </assert>
       </result>
    </test-case>
-
    
+   <test-case name="musicxml-tests-001">
+      <description>
+         Converts music xml partwise to timewise
+      </description>
+      <created by="Debbie Lockett" on="2014-03-04"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime.xsl"/>
+         <source file="musicxml-tests/SchbAvMaSample.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-002">
+      <description>
+         Converts music xml timewise to partwise
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/timepart.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4SampleT.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-003">
+      <description>
+         Converts music xml 3.0 files to 2.0 files
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/to20.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="2.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-004">
+      <description>
+         Converts music xml 3.0 files to 2.0 files
+      </description>
+      <created by="Debbie Lockett" on="2014-03-07"/>
+      <test>
+         <stylesheet file="musicxml-tests/to20.xsl"/>
+         <source file="musicxml-tests/Echigo-Jishi.xml"/>
+      </test>
+      <result>
+         <assert>
+            /score-partwise/@version="2.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-101" xslt-version="2.0">
+      <description>
+         Converts music xml partwise to timewise; schema-aware variant of transformation. Schubert sample.
+      </description>
+      <created by="Michael Kay" on="2014-05-01"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
+         <source file="musicxml-tests/SchbAvMaSample.xml"/>
+         <schema file="musicxml-tests/musicxml.xsd"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="musicxml-tests-102" xslt-version="2.0">
+      <description>
+         Converts music xml partwise to timewise; schema-aware variant of transformation. Mahler sample.
+      </description>
+      <created by="Michael Kay" on="2014-05-01"/>
+      <test>
+         <stylesheet file="musicxml-tests/parttime-sa.xsl"/>
+         <source file="musicxml-tests/MahlFaGe4Sample.xml"/>
+         <schema file="musicxml-tests/musicxml.xsd"/>
+      </test>
+      <result>
+         <assert>
+            /score-timewise/@version="3.0"
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-replace1-1" xslt-version="2.0">
+      <description>
+         Copy text file reformating all dates  
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-replace1-1.xsl"/>         
+      </test>
+      <result>
+         <assert>            
+            contains(/out, '2000-07-05')
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-replace1-4" xslt-version="2.0">
+      <description>
+         Copy text file reformating all dates  
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-replace1-4.xsl"/>         
+      </test>
+      <result>
+         <assert>            
+            contains(/out, '2000-07-05')
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-tokenize1-1" xslt-version="2.0">
+      <description>
+         Count number of words per line in text file  
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-tokenize1-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            contains(/out, '33')
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-tokenize2-1" xslt-version="2.0">
+      <description>
+         Find comma separated lists of payment types, reformat with elements        
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-tokenize2.xsl"/>
+         <source file="xmark-tests/xmark1.xml"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 872
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-matches1-1" xslt-version="2.0">
+      <description>
+         Finds phone numbers in lines of text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches1-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(tokenize(/out,'\+')) = 125
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-matches2-1" xslt-version="2.0">
+      <description>
+         Finds webpage addresses (backtracking regex) in lines of text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches2-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(tokenize(/out,'\n')) = 118
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-matches2-4" xslt-version="2.0">
+      <description>
+         Finds webpage addresses (backtracking regex) in lines of text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches2-4.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(tokenize(/out,'\n')) = 496
+         </assert>
+      </result>
+   </test-case>
+      
+   <test-case name="regex-matches3-1" xslt-version="2.0">
+      <description>
+         Finds particular sequence of letters (backtracking regex) in lines of text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches3-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(tokenize(/out,'\n')) = 236
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-matches3-4" xslt-version="2.0">
+      <description>
+         Finds particular sequence of letters (backtracking regex) in lines of text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches3-4.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(tokenize(/out,'\n')) = 881
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-matches4" xslt-version="2.0">
+      <description>
+         Finds particular sequence of letters (backtracking regex) in text 
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-matches4.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            contains(/out, 'match')
+         </assert>
+      </result>
+   </test-case>
+         
+   <test-case name="regex-analyze1-1" xslt-version="2.0">
+      <description>
+         Find credit card numbers in text file using regex         
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-analyze1-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 138
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-analyze2-1" xslt-version="2.0">
+      <description>
+         Add markup for email addresses.   
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-analyze2-1.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 666
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-analyze2-4" xslt-version="2.0">
+      <description>
+         Add markup for email addresses.   
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-analyze2-4.xsl"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 2755
+         </assert>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-analyze3" xslt-version="2.0">
+      <description>
+         Make copy of xml doc replacing "The/the" with "A/a" in text.   
+      </description>
+      <created by="Debbie Lockett" on="2014-05-22"/>
+      <test>
+         <stylesheet file="regex-tests/regex-analyze3.xsl"/>
+         <source file="docbook-tests/prague2011mhk.xml"/>
+      </test>
+      <result>
+         <assert>            
+            count(//*) = 173 and
+            contains(//*:abstract, 'a success')
+         </assert>
+      </result>
+   </test-case>
+      
 </catalog>
