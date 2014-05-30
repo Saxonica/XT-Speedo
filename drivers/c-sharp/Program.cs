@@ -199,8 +199,18 @@ namespace Speedo
                                 ok &= driver.TestAssertion(xpath);
                             }
                             Console.WriteLine("Test run succeeded with " + driver.GetName());
+                            String scale = testCase.GetAttribute("scale");
+                            String scaleFactor = testCase.GetAttribute("scale-factor");
                             xmlStreamWriter.WriteStartElement("test");
                             xmlStreamWriter.WriteAttributeString("name", name);
+                            if (scale != null && !scale.Equals(""))
+                            {
+                                xmlStreamWriter.WriteAttributeString("scale", scale);
+                            }
+                            if (scaleFactor != null && !scale.Equals(""))
+                            {
+                                xmlStreamWriter.WriteAttributeString("scale-factor", scaleFactor);
+                            }
                             xmlStreamWriter.WriteAttributeString("run", (ok ? "success" : "wrongAnswer"));
                             xmlStreamWriter.WriteAttributeString("compileTime", "" + compileTime);
                             xmlStreamWriter.WriteAttributeString("transformTimeFileToFile", "" + transformTimeFileToFile);

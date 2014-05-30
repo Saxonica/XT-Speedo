@@ -64,7 +64,6 @@ namespace Speedo
 
         public override void FileToFileTransform(Uri sourceUri, String resultFileLocation)
         {
-            //String resultString = result.ToString().Replace("file:///", "");
             xslCompiledTransform.Transform(sourceUri.ToString(), resultFileLocation);
 
             this.resultFile = resultFileLocation;
@@ -80,19 +79,21 @@ namespace Speedo
 
         public override bool TestAssertion(String assertion)
         {
+            bool DocOK = true;
+            bool FileOK = true;
             if (resultDocument != null)
             {                
                 XPathNavigator navigator = resultDocument.CreateNavigator();
-                return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
+                DocOK = (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
             }
 
             if (resultFile != null)
             {
                 XPathDocument resultDoc = new XPathDocument(resultFile);
                 XPathNavigator navigator = resultDoc.CreateNavigator();
-                return (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
+                FileOK = (bool)navigator.Evaluate(XPathExpression.Compile(assertion));
             }
-            return false;           
+            return DocOK && FileOK;           
         }
         
         /**
@@ -103,7 +104,9 @@ namespace Speedo
 
         public override void ResetVariables()
         {
-            throw new NotImplementedException();
+            sourceDocument = null;
+            resultDocument = null;
+            resultFile = null;
         }
 
         /**

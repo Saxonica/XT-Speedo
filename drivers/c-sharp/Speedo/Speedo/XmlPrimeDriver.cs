@@ -24,16 +24,30 @@ namespace Speedo
         private XsltSettings xsltSettingsSchemaAware;
         private Xslt stylesheet;
         private Boolean schemaAware = false;
+        private XmlReaderDocumentResolver documentResolver;
+        private XmlReaderDocumentResolver documentResolverSchemaAware;
+        private XmlResourceResolver resourceResolver;
+
 
 
         public XmlPrimeDriver()
         {
-            xmlReaderSettings = new XmlReaderSettings { NameTable = nameTable };
+            var uriResolver = new XmlUrlResolver();
+            xmlReaderSettings = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver };
+            xmlReaderSettings.CloseInput = true;
             xsltSettings = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
             xsltSettings.ModuleResolver = new XmlUrlResolver();
-            xmlReaderSettingsSchemaAware = new XmlReaderSettings { NameTable = nameTable };
+
+            xmlReaderSettingsSchemaAware = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver };
+            xmlReaderSettingsSchemaAware.CloseInput = true;
             xsltSettingsSchemaAware = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
             xsltSettingsSchemaAware.ModuleResolver = new XmlUrlResolver();
+            
+            //var xmlReaderSettingsUnparsedText = new XmlReaderSettings { XmlResolver = uriResolver };
+            //xmlReaderSettingsUnparsedText.CloseInput = true;
+            documentResolver = new XmlReaderDocumentResolver(xmlReaderSettings);
+            documentResolverSchemaAware = new XmlReaderDocumentResolver(xmlReaderSettingsSchemaAware);
+            resourceResolver = new XmlResourceResolver(uriResolver);
         }
 
         public override void LoadSchema(Uri schemaUri)
@@ -52,6 +66,7 @@ namespace Speedo
             using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
             {
                 sourceDocument = new XdmDocument(reader);
+                reader.Close();
             }
         }
 
@@ -62,42 +77,79 @@ namespace Speedo
 
         public override void TreeToTreeTransform()
         {
-            XdmNavigator contextItem = sourceDocument.CreateNavigator();
-            DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
-            using (XdmDocumentWriter writer = XdmDocumentWriter.Create())
+            if (sourceDocument != null)
             {
-                stylesheet.ApplyTemplates(settings, writer);
-                resultDocument = writer.Document;
+                XdmNavigator contextItem = sourceDocument.CreateNavigator();
+                var documentSet = new DocumentSet(nameTable, stylesheet.InputSettings, schemaAware ? documentResolverSchemaAware : documentResolver, null, resourceResolver);
+                DynamicContextSettings settings = new DynamicContextSettings();
+                settings.ContextItem = contextItem;
+                settings.DocumentSet = documentSet;
+                //DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
+                using (XdmDocumentWriter writer = XdmDocumentWriter.Create())
+                {
+                    stylesheet.ApplyTemplates(settings, writer);
+                    resultDocument = writer.Document;
+                }
             }
+            else
+            {                
+                var documentSet = new DocumentSet(nameTable, stylesheet.InputSettings, documentResolver, null, resourceResolver);
+                DynamicContextSettings settings = new DynamicContextSettings { DocumentSet = documentSet };
+                XmlQualifiedName qname = new XmlQualifiedName("main");
+                using (XdmDocumentWriter writer = XdmDocumentWriter.Create())
+                {
+                    stylesheet.CallTemplate(qname, settings, writer);
+                    resultDocument = writer.Document;
+                }
+            }
+
         }
 
         public override void FileToFileTransform(Uri sourceUri, string resultFileLocation)
         {
-            using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
+            if (sourceUri != null)
             {
-                document = new XdmDocument(reader);
+                using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
+                {
+                    document = new XdmDocument(reader);
+                    reader.Close();
+                }
+                XdmNavigator contextItem = document.CreateNavigator();
+                var documentSet = new DocumentSet(nameTable, stylesheet.InputSettings, schemaAware ? documentResolverSchemaAware : documentResolver, null, resourceResolver);
+                DynamicContextSettings settings = new DynamicContextSettings();
+                settings.ContextItem = contextItem;
+                settings.DocumentSet = documentSet;
+                //DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
+                stylesheet.SerializationSettings.CloseOutput = true;
+                TextWriter writer = new StreamWriter(resultFileLocation);
+                stylesheet.ApplyTemplates(settings, writer);
+                writer.Close();                    
             }
-
-            XdmNavigator contextItem = document.CreateNavigator();
-            DynamicContextSettings settings = new DynamicContextSettings { ContextItem = contextItem };
-
-            using (var outputStream = File.Create(resultFileLocation))
+            else
             {
-                stylesheet.ApplyTemplates(settings, outputStream);
+                var documentSet = new DocumentSet(nameTable, stylesheet.InputSettings, documentResolver, null, resourceResolver);
+                DynamicContextSettings settings = new DynamicContextSettings { DocumentSet = documentSet };
+                stylesheet.SerializationSettings.CloseOutput = true;
+                XmlQualifiedName qname = new XmlQualifiedName("main");
+                TextWriter writer = new StreamWriter(resultFileLocation);
+                stylesheet.CallTemplate(qname, settings, writer);
+                writer.Close();         
             }
 
             this.resultFile = resultFileLocation;
         }
 
         public override bool TestAssertion(string assertion)
-        {            
+        {
+            bool DocOK = true;
+            bool FileOK = true;
             if (resultDocument != null)
             {
                 XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
                 var xpath = XPath.Compile(assertion, xpathSettings);
                 var contextItem = resultDocument.CreateNavigator();
                 var settings = new DynamicContextSettings { ContextItem = contextItem };
-                return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
+                DocOK = xpath.EvaluateToItem(contextItem).ValueAsBoolean;
             }
             if (resultFile != null)
             {
@@ -105,14 +157,15 @@ namespace Speedo
                 using (var reader = XmlReader.Create(resultFile, xmlReaderSettings))
                 {
                     resultDoc = new XdmDocument(reader);
+                    reader.Close();
                 }
                 XPathSettings xpathSettings = new XPathSettings(nameTable) { ContextItemType = XdmType.Node };
                 var xpath = XPath.Compile(assertion, xpathSettings);
                 var contextItem = resultDoc.CreateNavigator();
                 var settings = new DynamicContextSettings { ContextItem = contextItem };
-                return xpath.EvaluateToItem(contextItem).ValueAsBoolean;
+                FileOK = xpath.EvaluateToItem(contextItem).ValueAsBoolean;
             }
-            return false;
+            return DocOK && FileOK; 
         }
 
         public override void DisplayResultDocument()

@@ -99,14 +99,15 @@ namespace Speedo
 
         public override bool TestAssertion(string assertion)
         {
-            schemaAware = false;
+            bool DocOK = true;
+            bool FileOK = true;
             if (resultDocument != null)
             {
                 XPathCompiler xPathCompiler = processor.NewXPathCompiler();
                 XPathExecutable exec = xPathCompiler.Compile(assertion);
                 XPathSelector selector = exec.Load();
                 selector.ContextItem = resultDocument;
-                return selector.EffectiveBooleanValue();
+                DocOK = selector.EffectiveBooleanValue();
             }
             if (resultFile != null)
             {
@@ -116,9 +117,9 @@ namespace Speedo
                 XPathExecutable exec = xPathCompiler.Compile(assertion);
                 XPathSelector selector = exec.Load();
                 selector.ContextItem = resultDoc;
-                return selector.EffectiveBooleanValue();
+                FileOK = selector.EffectiveBooleanValue();
             }
-            return false;
+            return DocOK && FileOK;
         }
 
         public override void DisplayResultDocument()

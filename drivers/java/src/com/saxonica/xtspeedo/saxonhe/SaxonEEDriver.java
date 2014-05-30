@@ -168,14 +168,15 @@ public class SaxonEEDriver extends IDriver {
      */
     @Override
     public boolean testAssertion(String assertion) throws TransformationException {
-        //schemaAware = false;
+        boolean docOK = true;
+        boolean fileOK = true;
         if (resultDocument != null) {
             try {
                 XPathCompiler compiler = processor.newXPathCompiler();
                 XPathExecutable exec = compiler.compile(assertion);
                 XPathSelector selector = exec.load();
                 selector.setContextItem(resultDocument);
-                return selector.effectiveBooleanValue();
+                docOK = selector.effectiveBooleanValue();
 
             } catch (SaxonApiException e) {
                 throw new TransformationException(e);
@@ -216,13 +217,13 @@ public class SaxonEEDriver extends IDriver {
                 XPathExecutable exec = compiler.compile(assertion);
                 XPathSelector selector = exec.load();
                 selector.setContextItem(resultDoc);
-                return selector.effectiveBooleanValue();
+                fileOK = selector.effectiveBooleanValue();
 
             } catch (SaxonApiException e) {
                 throw new TransformationException(e);
             }
         }
-        return false;
+        return docOK && fileOK;
     }
 
     /**

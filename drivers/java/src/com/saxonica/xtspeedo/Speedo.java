@@ -193,8 +193,16 @@ public class Speedo {
                                     ok &= driver.testAssertion(xpath);
                                 }
                                 System.err.println("Test run succeeded with " + driver.getName());
+                                String scale = testCase.getAttributeValue("scale");
+                                String scaleFactor = testCase.getAttributeValue("scale-factor");
                                 xmlStreamWriter.writeEmptyElement("test");
                                 xmlStreamWriter.writeAttribute("name", name);
+                                if (scale != null) {
+                                    xmlStreamWriter.writeAttribute("scale", scale);
+                                }
+                                if (scaleFactor != null) {
+                                    xmlStreamWriter.writeAttribute("scale-factor", scaleFactor);
+                                }
                                 xmlStreamWriter.writeAttribute("run", (ok ? "success" : "wrongAnswer"));
                                 xmlStreamWriter.writeAttribute("compileTime", "" + compileTime);
                                 xmlStreamWriter.writeAttribute("transformTimeFileToFile", "" + transformTimeFileToFile);

@@ -147,9 +147,11 @@ public abstract class JAXPDriver extends IDriver {
      */
 
     public boolean testAssertion(String assertion) throws TransformationException {
+        boolean docOK = true;
+        boolean fileOK = true;
         if (resultDocument != null) {
             try {
-                return (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDocument, XPathConstants.BOOLEAN);
+                docOK = (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDocument, XPathConstants.BOOLEAN);
 
             } catch (XPathExpressionException e) {
                 throw new TransformationException(e);
@@ -158,7 +160,7 @@ public abstract class JAXPDriver extends IDriver {
         if (resultFile != null) {
             try {
                 Document resultDoc = documentBuilder.parse(resultFile);
-                return (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDoc, XPathConstants.BOOLEAN);
+                fileOK = (Boolean)xPathFactory.newXPath().evaluate(assertion, resultDoc, XPathConstants.BOOLEAN);
 
             } catch (XPathExpressionException e) {
                 throw new TransformationException(e);
@@ -168,7 +170,7 @@ public abstract class JAXPDriver extends IDriver {
                 throw new TransformationException(e);
             }
         }
-        return false;
+        return docOK && fileOK;
     }
 
     /**
