@@ -30,9 +30,24 @@
         <test-run-option name="regex-matches2-4" value="1000"/>
         <test-run-option name="regex-matches3-1" value="1000"/>
         <test-run-option name="regex-analyze2-4" value="1000"/>
-        <test-run-option name="regex-matches3-4" value="9000"/>
-        
+        <test-run-option name="regex-matches3-4" value="9000"/>        
     </driver> 
+    
+    <driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">   
+        <test-run-option name="xsltmark-dbonerow" value="no"/>
+        <test-run-option name="xsltmark-number" value="no"/>
+        <test-run-option name="xmark-q8-4" value="1000"/>
+        <test-run-option name="xmark-q9-4" value="1000"/>
+        <test-run-option name="xmark-q11-4" value="1000"/>
+        <test-run-option name="regex-replace1-4" value="1000"/>
+        <test-run-option name="regex-matches2-4" value="1000"/>
+        <test-run-option name="regex-analyze2-4" value="1000"/>
+        <test-run-option name="docbook-tests-002" value="4000"/>  
+        <test-run-option name="xquery-lexer-test" value="no"/>
+        <test-run-option name="regex-matches3-1" value="no"/> 
+        <test-run-option name="regex-matches3-4" value="no"/>
+        <test-run-option name="regex-matches4" value="no"/>
+    </driver>
     
     <driver name="libxsl" baseline="no" class="LibxmlDriver" language="c/c++" xslt-version="1.0">
         <test-run-option name="xmark-q11-4" value="1000"/>
@@ -41,15 +56,7 @@
     <driver name="Saxon-C" baseline="no" class="SaxonCDriver" language="c/c++" xslt-version="2.0">
         <test-run-option name="xmark-q9-4" value="1000"/>
         <test-run-option name="xmark-q11-4" value="1000"/>
-    </driver>
+    </driver>   
     
-    <driver name="XmlPrime" baseline="no" class="Speedo.XmlPrimeDriver" language="c-sharp" xslt-version="2.0">   
-        <test-run-option name="xsltmark-dbonerow" value="no"/>
-        <test-run-option name="xsltmark-number" value="no"/>
-        <test-run-option name="xmark-q8-4" value="1000"/>
-        <test-run-option name="xmark-q9-4" value="1000"/>
-        <test-run-option name="xmark-q11-4" value="1000"/>
-        <test-run-option name="docbook-tests-002" value="4000"/>  
-    </driver>
     
 </drivers>

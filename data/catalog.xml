@@ -51,7 +51,7 @@
       </result>
    </test-case>
    
-   <test-case name="micro-subscripting-40000" xslt-version="2.0">
+   <test-case name="micro-subscripting-40000" xslt-version="2.0" scale="micro-subscripting-20000" scale-factor="2">
       <description>
          Subscript access to sequence of 40000 items
       </description>
@@ -67,7 +67,7 @@
       </result>
    </test-case>
    
-   <test-case name="micro-subscripting-80000" xslt-version="2.0">
+   <test-case name="micro-subscripting-80000" xslt-version="2.0" scale="micro-subscripting-20000" scale-factor="4">
       <description>
          Subscript access to sequence of 80000 items
       </description>
@@ -83,7 +83,7 @@
       </result>
    </test-case>
    
-   <test-case name="micro-subscripting-160000" xslt-version="2.0">
+   <test-case name="micro-subscripting-160000" xslt-version="2.0" scale="micro-subscripting-20000" scale-factor="8">
       <description>
          Subscript access to sequence of 160000 items
       </description>
@@ -764,7 +764,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q1-4">
+   <test-case name="xmark-q1-4" scale="xmark-q1-1" scale-factor="4">
       <description>
          Return the name of the person with ID `person0' registered in North America.
       </description>
@@ -798,7 +798,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q2-4">
+   <test-case name="xmark-q2-4" scale="xmark-q2-1" scale-factor="4">
       <description>
          Return the initial increases of all open auctions.
       </description>
@@ -833,7 +833,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q3-4">
+   <test-case name="xmark-q3-4" scale="xmark-q3-1" scale-factor="4">
       <description>
          Return the IDs of all open auctions whose current 
          increase is at least twice as high as the initial increase.
@@ -867,7 +867,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q5-4">
+   <test-case name="xmark-q5-4" scale="xmark-q5-1" scale-factor="4">
       <description>
          How many sold items cost more than 40?
       </description>
@@ -900,7 +900,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q6-4">
+   <test-case name="xmark-q6-4" scale="xmark-q6-1" scale-factor="4">
       <description>
          How many items are listed on all continents?
       </description>
@@ -933,7 +933,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q7-4">
+   <test-case name="xmark-q7-4" scale="xmark-q7-1" scale-factor="4">
       <description>
          How many pieces of prose are in our database?
       </description>
@@ -967,7 +967,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q8-4">
+   <test-case name="xmark-q8-4" scale="xmark-q8-1" scale-factor="4">
       <description>
          List the names of persons and the number of items they bought.
          (joins person, closed_auction)
@@ -1003,7 +1003,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q9-4" xslt-version="2.0">
+   <test-case name="xmark-q9-4" xslt-version="2.0" scale="xmark-q9-1" scale-factor="4">
       <description>
          List the names of persons and the names of the items they bought
          in Europe.  (joins person, closed\_auction, item) 
@@ -1039,7 +1039,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q10-4" xslt-version="2.0">
+   <test-case name="xmark-q10-4" xslt-version="2.0" scale="xmark-q10-1" scale-factor="4">
       <description>
          List all persons according to their interest;
          use French markup in the result.
@@ -1075,7 +1075,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q11-4">
+   <test-case name="xmark-q11-4" scale="xmark-q11-1" scale-factor="4">
       <description>
          For each person, list the number of items currently on sale whose
          price does not exceed 0.02% of the person's income.
@@ -1112,7 +1112,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q12-4">
+   <test-case name="xmark-q12-4" scale="xmark-q12-1" scale-factor="4">
       <description>
          For each richer-than-average person, list the number of items 
          currently on sale whose price does not exceed 0.02% of the 
@@ -1149,7 +1149,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q13-4">
+   <test-case name="xmark-q13-4" scale="xmark-q13-1" scale-factor="4">
       <description>
          List the names of items registered in Australia along with 
          their descriptions.
@@ -1185,7 +1185,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q14-4">
+   <test-case name="xmark-q14-4" scale="xmark-q14-1" scale-factor="4">
       <description>
          Return the names of all items whose description contains the 
          word 'gold'.
@@ -1220,7 +1220,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q15-4">
+   <test-case name="xmark-q15-4" scale="xmark-q15-1" scale-factor="4">
       <description>
          Print the keywords in emphasis in annotations of closed auctions.
       </description>
@@ -1255,7 +1255,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q16-4">
+   <test-case name="xmark-q16-4" scale="xmark-q16-1" scale-factor="4">
       <description>
          Return the IDs of those auctions
          that have one or more keywords in emphasis.
@@ -1290,7 +1290,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q17-4">
+   <test-case name="xmark-q17-4" scale="xmark-q17-1" scale-factor="4">
       <description>
          Which persons don't have a homepage?
       </description>
@@ -1325,7 +1325,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q18-4">
+   <test-case name="xmark-q18-4" scale="xmark-q18-1" scale-factor="4">
       <description>
          Convert the currency of the reserve of all open auctions to 
          another currency.
@@ -1361,7 +1361,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q19-4">
+   <test-case name="xmark-q19-4" scale="xmark-q19-1" scale-factor="4">
       <description>
          Give an alphabetically ordered list of all
          items along with their location.
@@ -1397,7 +1397,7 @@
       </result>
    </test-case>
    
-   <test-case name="xmark-q20-4">
+   <test-case name="xmark-q20-4" scale="xmark-q20-1" scale-factor="4">
       <description>
          Group customers by their
          income and output the cardinality of each group.
@@ -1431,7 +1431,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap1-4" xslt-version="3.0">
+   <test-case name="map-wordmap1-4" xslt-version="3.0" scale="map-wordmap1-1" scale-factor="4">
       <description>
          Count size of map from distinct words to set of elements containing them.
       </description>
@@ -1463,7 +1463,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap2-4" xslt-version="3.0">
+   <test-case name="map-wordmap2-4" xslt-version="3.0" scale="map-wordmap2-1" scale-factor="4">
       <description>
          Change values, and add pairs, to word frequency map (compare to list of 1226 words).
       </description>
@@ -1495,7 +1495,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap3-4" xslt-version="3.0">
+   <test-case name="map-wordmap3-4" xslt-version="3.0" scale="map-wordmap3-1" scale-factor="4">
       <description>
          Change values, and add pairs, to word frequency map (compare to list of 10000+ words).
       </description>
@@ -1527,7 +1527,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap4-4" xslt-version="3.0">
+   <test-case name="map-wordmap4-4" xslt-version="3.0" scale="map-wordmap4-1" scale-factor="4">
       <description>
          Retrieval from map of distinct words. <!--THIS TEST TAKES A PRETTY LONG TIME!!-->
       </description>
@@ -1559,7 +1559,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-wordmap5-1" xslt-version="3.0">
+   <test-case name="map-wordmap5-1" xslt-version="3.0" scale="map-wordmap5-0" scale-factor="4">
       <description>
          Removal from map of distinct words. <!--THIS TEST TAKES A VERY LONG TIME!!-->
       </description>
@@ -1703,7 +1703,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-datemap2-4" xslt-version="3.0">
+   <test-case name="map-datemap2-4" xslt-version="3.0" scale="map-datemap2-1" scale-factor="4">
       <description>
          Create a map from dates (from particular elements in doc) to corresponding item ids.
       </description>
@@ -1736,7 +1736,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-datemap3-4" xslt-version="3.0">
+   <test-case name="map-datemap3-4" xslt-version="3.0" scale="map-datemap3-1" scale-factor="4">
       <description>
          Create a map from dates (from particular elements in doc) to corresponding item ids.
          Remove all pairs from map.
@@ -1770,7 +1770,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-datemap4-4" xslt-version="3.0">
+   <test-case name="map-datemap4-4" xslt-version="3.0" scale="map-datemap4-1" scale-factor="4">
       <description>
          Create a map from dates (from particular elements in doc) to corresponding item ids.
          Edit pairs in year 2000.
@@ -1804,7 +1804,7 @@
       </result>
    </test-case>
    
-   <test-case name="map-datemap5-4" xslt-version="3.0">
+   <test-case name="map-datemap5-4" xslt-version="3.0" scale="map-datemap5-1" scale-factor="4">
       <description>
          Create a map from all dates found in doc (to date string).
          Edit pairs pre year 2000.
@@ -1954,7 +1954,7 @@
       </result>
    </test-case>
    
-   <test-case name="regex-replace1-4" xslt-version="2.0">
+   <test-case name="regex-replace1-4" xslt-version="2.0" scale="regex-replace1-1" scale-factor="4">
       <description>
          Copy text file reformating all dates  
       </description>
@@ -2030,7 +2030,7 @@
       </result>
    </test-case>
    
-   <test-case name="regex-matches2-4" xslt-version="2.0">
+   <test-case name="regex-matches2-4" xslt-version="2.0" scale="regex-matches2-1" scale-factor="4">
       <description>
          Finds webpage addresses (backtracking regex) in lines of text 
       </description>
@@ -2060,7 +2060,7 @@
       </result>
    </test-case>
    
-   <test-case name="regex-matches3-4" xslt-version="2.0">
+   <test-case name="regex-matches3-4" xslt-version="2.0" scale="regex-matches3-1" scale-factor="4">
       <description>
          Finds particular sequence of letters (backtracking regex) in lines of text 
       </description>
@@ -2120,7 +2120,7 @@
       </result>
    </test-case>
    
-   <test-case name="regex-analyze2-4" xslt-version="2.0">
+   <test-case name="regex-analyze2-4" xslt-version="2.0" scale="regex-analyze2-1" scale-factor="4">
       <description>
          Add markup for email addresses.   
       </description>
