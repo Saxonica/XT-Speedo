@@ -5,6 +5,7 @@ Mid blue: #e4eef0
 Light blue: #f6fffb
 mid green #B1CCC7
 rust #96433D
+light grey #bbbbbb
 */
 
 body {font-family:arial, helvetica, sans-serif; font-size:100%;}
@@ -12,16 +13,43 @@ body {margin:25px 50px;}
 /* table {width:700px;} */
 table, th, td {border:1px solid #3D5B96; border-collapse:collapse;}
 th, td {padding:10px;}
+th {background: #c1cede;}
+tbody tr:nth-child(odd) {background: #e4eef0;}
+tbody tr:hover {background: #B1CCC7;}
+
+a:link, a:visited {text-decoration:none; color:#3D5B96;}
+a:hover, a:active {text-decoration:none; color:#96433D;}
+
+a.button:link, a.button:visited {text-decoration:none; color:white; background-color:#3D5B96; /*display:block;*/
+font-weight:bold; width:150px; text-align:center; padding:4px;}
+a.button:hover, a.button:active {text-decoration:none; background-color:#96433D;}
+
+.nav li {float:left;}
+ul.nav  {list-style-type:none; margin:0; padding:0; overflow:hidden;}
+.nav a:link, .nav a:visited {display:block; width:180px; font-weight:bold; color:#FFFFFF; background-color:#3D5B96;
+text-align:center; padding:4px; text-decoration:none; }
+.nav a:hover,.nav a:active {background-color:#96433D;}
+
 #overview .minmax {font-size:0.8em;}
+
 #driver .actual {font-size:0.8em;}
-a:link, a:visited {text-decoration:none; color:#96433D;}
-a:hover, a:active {text-decoration:none; color:#3D5B96;}
 #driver td:nth-child(2) {border-right: 0;} 
 #driver td:nth-child(3) {border-left: 0;}
 #driver td:nth-child(4) {border-right: 0;} 
 #driver td:nth-child(5) {border-left: 0;}
 #driver td:nth-child(6) {border-right: 0;} 
 #driver td:nth-child(7) {border-left: 0;}
-th {background: #c1cede;}
-tbody tr:nth-child(odd) {background: #e4eef0;}
-tbody tr:hover {background: #B1CCC7;}
+
+#scalable .actual {font-size:0.8em;}
+#scalable td:nth-child(2) {text-align: center;} 
+#scalable td:nth-child(3) {border-right: 0;} 
+#scalable td:nth-child(4) {border-left: 0;}
+#scalable td:nth-child(5) {border-right: 0;} 
+#scalable td:nth-child(6) {border-left: 0;}
+#scalable td:nth-child(7) {border-right: 0;} 
+#scalable td:nth-child(8) {border-left: 0;}
+
+
+#charts:hover {text-decoration:none; color:black;}
+#driver-table:hover {text-decoration:none; color:black;}
+#scalable-table:hover {text-decoration:none; color:black;}

@@ -1,0 +1,2094 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:xlink="http://www.w3.org/1999/xlink">
+   <head>
+      <link rel="stylesheet" type="text/css" href="../../reportstyle.css"></link>
+      <title>XT-Speedo SaxonEE-9.5-.NET-noBC results</title>
+   </head>
+   <body>
+      <ul class="nav">
+         <li>
+            <a href="../report.html">XT-SPEEDO</a>
+         </li>
+         <li>
+            <a href="overview.html">Overview</a>
+         </li>
+         <li>
+            <a href="../report-info.html">Reports explained</a>
+         </li>
+         <li>
+            <a href="https://github.com/Saxonica/XT-Speedo/">GitHub project</a>
+         </li>
+      </ul>
+      <h1>SaxonEE-9.5-.NET-noBC  results at 16:16:14 on 30 May 2014</h1>
+      <h3>
+         <i>Comparing performance to baseline driver: </i>SaxonEE-9.5-J-BC
+      </h3>
+      <p>
+         <ul>
+            <li>
+               <a href="#charts">Bar charts of relative speeds</a>
+            </li>
+            <li>
+               <a href="#driver-table">Full table of test results</a>
+            </li>
+            <li>
+               <a href="#scalable-table">Scalable test results</a>
+            </li>
+         </ul>
+      </p>
+      <h4>
+         <a id="charts"> File-to-file transform:
+            SaxonEE-9.5-.NET-noBC speeds relative to SaxonEE-9.5-J-BC
+         </a>
+      </h4>
+      <svg width="1340" height="160" viewBox="0 0 1330 160">
+         <line x1="30" y1="140" x2="1225" y2="140" style="stroke:black; stroke-width:1"></line>
+         <text x="0" y="144" font-size="12px">1</text>
+         <line x1="30" y1="113.96119177869062" x2="1225" y2="113.96119177869062" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="117.96119177869062" font-size="12px">3</text>
+         <line x1="30" y1="87.92238355738122" x2="1225" y2="87.92238355738122" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="91.92238355738122" font-size="12px">5</text>
+         <line x1="30" y1="61.88357533607184" x2="1225" y2="61.88357533607184" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="65.88357533607184" font-size="12px">7</text>
+         <line x1="30" y1="35.844767114762455" x2="1225" y2="35.844767114762455" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="39.844767114762455" font-size="12px">9</text>
+         <rect x="40" y="115.99061953568793" width="5" height="24.009380464312088" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-001: relative time = 2.844"></rect>
+         <rect x="50" y="86.79811884235394" width="5" height="53.20188115764606" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-002: relative time = 5.086"></rect>
+         <rect x="60" y="50.758107171153114" width="5" height="89.24189282884689" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-20000: relative time = 7.855"></rect>
+         <rect x="70" y="53.79327141352845" width="5" height="86.20672858647156" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-40000: relative time = 7.621"></rect>
+         <rect x="80" y="46.91145462830546" width="5" height="93.08854537169455" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-80000: relative time = 8.15"></rect>
+         <rect x="90" y="45.83718682544009" width="5" height="94.16281317455991" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-160000: relative time = 8.232"></rect>
+         <rect x="100" y="70.65438188152496" width="5" height="69.34561811847504" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-alphabetize: relative time = 6.326"></rect>
+         <rect x="110" y="54.18176534167069" width="5" height="85.81823465832932" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-attsets: relative time = 7.592"></rect>
+         <rect x="120" y="56.28491980642579" width="5" height="83.71508019357421" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-avts: relative time = 7.43"></rect>
+         <rect x="130" y="51.55970389732195" width="5" height="88.44029610267806" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-axis: relative time = 7.793"></rect>
+         <rect x="140" y="39.15089339996114" width="5" height="100.84910660003887" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-backwards: relative time = 8.746"></rect>
+         <rect x="150" y="68.36193958148839" width="5" height="71.63806041851161" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-bottles: relative time = 6.502"></rect>
+         <rect x="160" y="56.696236216752915" width="5" height="83.30376378324709" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-breadth: relative time = 7.398"></rect>
+         <rect x="170" y="82.29677162894593" width="5" height="57.703228371054074" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-brutal: relative time = 5.432"></rect>
+         <rect x="180" y="52.46074657739782" width="5" height="87.53925342260219" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-chart: relative time = 7.724"></rect>
+         <rect x="190" y="62.786685302644635" width="5" height="77.21331469735537" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-creation: relative time = 6.931"></rect>
+         <rect x="200" y="37.26011141081726" width="5" height="102.73988858918275" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-current: relative time = 8.891"></rect>
+         <rect x="210" y="69.41506113559828" width="5" height="70.58493886440174" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbonerow: relative time = 6.422"></rect>
+         <rect x="220" y="69.77597734196789" width="5" height="70.22402265803213" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbtail: relative time = 6.394"></rect>
+         <rect x="230" y="87.08396150532742" width="5" height="52.91603849467258" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-decoy: relative time = 5.064"></rect>
+         <rect x="240" y="36.90032441580947" width="5" height="103.09967558419054" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-depth: relative time = 8.919"></rect>
+         <rect x="250" y="67.15896026737082" width="5" height="72.84103973262918" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-encrypt: relative time = 6.595"></rect>
+         <rect x="260" y="64.77845987049639" width="5" height="75.22154012950362" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-functions: relative time = 6.778"></rect>
+         <rect x="270" y="24.249357814096214" width="5" height="115.75064218590379" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-game: relative time = 9.891"></rect>
+         <rect x="280" y="42.864896629042576" width="5" height="97.13510337095744" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-html: relative time = 8.461"></rect>
+         <rect x="290" y="80.17111476732917" width="5" height="59.82888523267083" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-identity: relative time = 5.595"></rect>
+         <rect x="300" y="40.39854642654626" width="5" height="99.60145357345374" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-inventory: relative time = 8.65"></rect>
+         <rect x="310" y="43.729333154418796" width="5" height="96.2706668455812" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-metric: relative time = 8.394"></rect>
+         <rect x="320" y="50.932359006433785" width="5" height="89.06764099356622" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-number: relative time = 7.841"></rect>
+         <rect x="330" y="34.151504392297156" width="5" height="105.84849560770284" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-oddtemplate: relative time = 9.13"></rect>
+         <rect x="340" y="71.27683842462787" width="5" height="68.72316157537213" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-patterns: relative time = 6.279"></rect>
+         <rect x="350" y="74.9577170195912" width="5" height="65.04228298040881" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-prettyprint: relative time = 5.996"></rect>
+         <rect x="360" y="20.46366555636148" width="5" height="119.53633444363852" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-priority: relative time = 10.181"></rect>
+         <rect x="370" y="42.56917347669568" width="5" height="97.43082652330433" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-products: relative time = 8.484"></rect>
+         <rect x="380" y="97.41233692297628" width="5" height="42.58766307702373" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-queens: relative time = 4.271"></rect>
+         <rect x="390" y="103.51986208015977" width="5" height="36.48013791984023" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-reverser: relative time = 3.802"></rect>
+         <rect x="400" y="87.0074308463216" width="5" height="52.99256915367842" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-stringsort: relative time = 5.07"></rect>
+         <rect x="410" y="25.59244967293195" width="5" height="114.40755032706805" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-summarize: relative time = 9.787"></rect>
+         <rect x="420" y="20.146545283861283" width="5" height="119.85345471613873" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-total: relative time = 10.206"></rect>
+         <rect x="430" y="89.90254343057703" width="5" height="50.09745656942299" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-tower: relative time = 4.848"></rect>
+         <rect x="440" y="52.48381759642023" width="5" height="87.51618240357978" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-trend: relative time = 7.722"></rect>
+         <rect x="450" y="28.3397660611551" width="5" height="111.66023393884491" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-union: relative time = 9.576"></rect>
+         <rect x="460" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-xpath: relative time = 10.911"></rect>
+         <polygon points="459,20 462.5,17 466,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-xpath: relative time = 10.911"></polygon>
+         <rect x="470" y="30.90909090909091" width="5" height="109.0909090909091" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench1: relative time = 9.379"></rect>
+         <rect x="480" y="73.87608091851284" width="5" height="66.12391908148716" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench2: relative time = 6.079"></rect>
+         <rect x="490" y="70.53549320133158" width="5" height="69.46450679866844" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench3: relative time = 6.335"></rect>
+         <rect x="500" y="71.73309638513686" width="5" height="68.26690361486314" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q1-1: relative time = 6.243"></rect>
+         <rect x="510" y="78.26584586360698" width="5" height="61.73415413639302" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q1-4: relative time = 5.742"></rect>
+         <rect x="520" y="79.94153095483816" width="5" height="60.05846904516184" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-1: relative time = 5.613"></rect>
+         <rect x="530" y="78.91985913358731" width="5" height="61.0801408664127" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-4: relative time = 5.691"></rect>
+         <rect x="540" y="77.21396569518762" width="5" height="62.78603430481238" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-1: relative time = 5.822"></rect>
+         <rect x="550" y="80.38310488590113" width="5" height="59.61689511409888" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-4: relative time = 5.579"></rect>
+         <rect x="560" y="76.42011169280268" width="5" height="63.57988830719733" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-1: relative time = 5.883"></rect>
+         <rect x="570" y="81.38955159538935" width="5" height="58.61044840461065" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-4: relative time = 5.502"></rect>
+         <rect x="580" y="77.12129548331245" width="5" height="62.87870451668756" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-1: relative time = 5.83"></rect>
+         <rect x="590" y="79.82050298430063" width="5" height="60.179497015699376" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-4: relative time = 5.622"></rect>
+         <rect x="600" y="77.84189845948835" width="5" height="62.15810154051165" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-1: relative time = 5.774"></rect>
+         <rect x="610" y="83.92213836463323" width="5" height="56.07786163536677" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-4: relative time = 5.307"></rect>
+         <rect x="620" y="68.47784780094602" width="5" height="71.52215219905399" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-1: relative time = 6.494"></rect>
+         <rect x="630" y="81.31696168769014" width="5" height="58.68303831230986" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-4: relative time = 5.507"></rect>
+         <rect x="640" y="77.85131972031357" width="5" height="62.148680279686445" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-1: relative time = 5.774"></rect>
+         <rect x="650" y="80.55097890673045" width="5" height="59.44902109326956" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-4: relative time = 5.566"></rect>
+         <rect x="660" y="85.52949352643024" width="5" height="54.470506473569756" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-1: relative time = 5.184"></rect>
+         <rect x="670" y="91.4221106411188" width="5" height="48.57788935888121" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-4: relative time = 4.731"></rect>
+         <rect x="680" y="88.27579365091614" width="5" height="51.724206349083865" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-1: relative time = 4.973"></rect>
+         <rect x="690" y="85.88085796405883" width="5" height="54.11914203594118" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-4: relative time = 5.157"></rect>
+         <rect x="700" y="83.51186084628947" width="5" height="56.48813915371053" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-1: relative time = 5.339"></rect>
+         <rect x="710" y="85.69068703094224" width="5" height="54.30931296905776" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-4: relative time = 5.171"></rect>
+         <rect x="720" y="76.96807701760376" width="5" height="63.031922982396246" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-1: relative time = 5.841"></rect>
+         <rect x="730" y="93.22479743462858" width="5" height="46.77520256537142" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-4: relative time = 4.593"></rect>
+         <rect x="740" y="84.29331259966591" width="5" height="55.7066874003341" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-1: relative time = 5.279"></rect>
+         <rect x="750" y="84.80341133869217" width="5" height="55.19658866130784" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-4: relative time = 5.24"></rect>
+         <rect x="760" y="80.36749063693486" width="5" height="59.63250936306515" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-1: relative time = 5.58"></rect>
+         <rect x="770" y="83.74876433284798" width="5" height="56.251235667152024" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-4: relative time = 5.321"></rect>
+         <rect x="780" y="81.3650893690954" width="5" height="58.634910630904606" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-1: relative time = 5.504"></rect>
+         <rect x="790" y="85.20466807918756" width="5" height="54.79533192081245" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-4: relative time = 5.209"></rect>
+         <rect x="800" y="90.180684420778" width="5" height="49.81931557922201" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-1: relative time = 4.827"></rect>
+         <rect x="810" y="80.83956825444663" width="5" height="59.16043174555337" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-4: relative time = 5.544"></rect>
+         <rect x="820" y="79.33841452172697" width="5" height="60.66158547827303" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-1: relative time = 5.659"></rect>
+         <rect x="830" y="85.33014757965474" width="5" height="54.66985242034527" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-4: relative time = 5.199"></rect>
+         <rect x="840" y="80.16060851686755" width="5" height="59.83939148313245" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-1: relative time = 5.596"></rect>
+         <rect x="850" y="84.58993024114184" width="5" height="55.41006975885817" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-4: relative time = 5.256"></rect>
+         <rect x="860" y="80.2707677643406" width="5" height="59.7292322356594" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-1: relative time = 5.588"></rect>
+         <rect x="870" y="84.9482617407569" width="5" height="55.0517382592431" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-4: relative time = 5.228"></rect>
+         <rect x="880" y="91.86135884725556" width="5" height="48.13864115274444" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap1-1: relative time = 4.697"></rect>
+         <rect x="890" y="109.25113554163377" width="5" height="30.74886445836624" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap2-1: relative time = 3.362"></rect>
+         <rect x="900" y="85.07263661911358" width="5" height="54.92736338088642" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap5-0: relative time = 5.219"></rect>
+         <rect x="910" y="77.0993518518585" width="5" height="62.90064814814151" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap8: relative time = 5.831"></rect>
+         <rect x="920" y="102.77425906566987" width="5" height="37.22574093433013" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-numbermap4: relative time = 3.859"></rect>
+         <rect x="930" y="110.71357566728973" width="5" height="29.286424332710265" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-numbermap4a: relative time = 3.249"></rect>
+         <rect x="940" y="92.41710826005065" width="5" height="47.58289173994935" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap1: relative time = 4.655"></rect>
+         <rect x="950" y="85.60469932952016" width="5" height="54.39530067047985" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-1: relative time = 5.178"></rect>
+         <rect x="960" y="82.41122815979173" width="5" height="57.588771840208274" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-4: relative time = 5.423"></rect>
+         <rect x="970" y="74.14487608510632" width="5" height="65.8551239148937" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-1: relative time = 6.058"></rect>
+         <rect x="980" y="67.35832565466808" width="5" height="72.64167434533192" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-4: relative time = 6.579"></rect>
+         <rect x="990" y="85.20408118435016" width="5" height="54.795918815649856" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-1: relative time = 5.209"></rect>
+         <rect x="1000" y="81.76279778624317" width="5" height="58.23720221375683" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-4: relative time = 5.473"></rect>
+         <rect x="1010" y="74.83620787730479" width="5" height="65.16379212269521" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap5-1: relative time = 6.005"></rect>
+         <rect x="1020" y="82.2279975012226" width="5" height="57.7720024987774" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap5-4: relative time = 5.437"></rect>
+         <rect x="1030" y="100.60135301194121" width="5" height="39.398646988058786" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-001: relative time = 4.026"></rect>
+         <rect x="1040" y="89.44204744456165" width="5" height="50.55795255543836" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-002: relative time = 4.883"></rect>
+         <rect x="1050" y="108.95658663936345" width="5" height="31.04341336063655" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-003: relative time = 3.384"></rect>
+         <rect x="1060" y="96.06222270448319" width="5" height="43.93777729551682" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-004: relative time = 4.375"></rect>
+         <rect x="1070" y="103.96083933397941" width="5" height="36.03916066602061" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-101: relative time = 3.768"></rect>
+         <rect x="1080" y="106.4159515444485" width="5" height="33.5840484555515" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-102: relative time = 3.58"></rect>
+         <rect x="1090" y="100.11434795013052" width="5" height="39.885652049869485" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-1: relative time = 4.064"></rect>
+         <rect x="1100" y="112.08651506098249" width="5" height="27.91348493901751" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-4: relative time = 3.144"></rect>
+         <rect x="1110" y="100.71515897133278" width="5" height="39.284841028667216" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize1-1: relative time = 4.017"></rect>
+         <rect x="1120" y="90.1003024458643" width="5" height="49.8996975541357" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize2-1: relative time = 4.833"></rect>
+         <rect x="1130" y="90.84856745705133" width="5" height="49.15143254294867" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches1-1: relative time = 4.775"></rect>
+         <rect x="1140" y="88.64231599551779" width="5" height="51.35768400448222" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-1: relative time = 4.945"></rect>
+         <rect x="1150" y="93.01553698272556" width="5" height="46.984463017274436" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-4: relative time = 4.609"></rect>
+         <rect x="1160" y="105.3789486311147" width="5" height="34.62105136888532" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches3-1: relative time = 3.659"></rect>
+         <rect x="1170" y="102.13402949829569" width="5" height="37.865970501704325" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches4: relative time = 3.908"></rect>
+         <rect x="1180" y="91.8605855594787" width="5" height="48.139414440521314" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze1-1: relative time = 4.698"></rect>
+         <rect x="1190" y="88.93118010536672" width="5" height="51.06881989463328" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-1: relative time = 4.923"></rect>
+         <rect x="1200" y="88.6836119840932" width="5" height="51.3163880159068" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-4: relative time = 4.942"></rect>
+         <rect x="1210" y="102.40898225991232" width="5" height="37.59101774008768" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze3: relative time = 3.887"></rect>
+         <text x="1270" y="114" font-size="12px">Slower</text>
+         <line x1="1260" y1="125" x2="1260" y2="90" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="90" x2="1255" y2="98" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="90" x2="1265" y2="98" style="stroke:black; stroke-width:1"></line>
+         <text x="1240" y="144" font-size="12px">Baseline speed</text>
+      </svg>
+      <h4> Tree-to-tree transform: SaxonEE-9.5-.NET-noBC
+         speeds relative to SaxonEE-9.5-J-BC
+      </h4>
+      <svg width="1340" height="160" viewBox="0 0 1330 160">
+         <line x1="30" y1="140" x2="1225" y2="140" style="stroke:black; stroke-width:1"></line>
+         <text x="0" y="144" font-size="12px">1</text>
+         <line x1="30" y1="109.60834270294546" x2="1225" y2="109.60834270294546" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="113.60834270294546" font-size="12px">3</text>
+         <line x1="30" y1="79.21668540589093" x2="1225" y2="79.21668540589093" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="83.21668540589093" font-size="12px">5</text>
+         <line x1="30" y1="48.82502810883639" x2="1225" y2="48.82502810883639" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="52.82502810883639" font-size="12px">7</text>
+         <rect x="40" y="70.58713129490192" width="5" height="69.41286870509808" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-001: relative time = 5.568"></rect>
+         <rect x="50" y="79.75563882677639" width="5" height="60.2443611732236" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-002: relative time = 4.965"></rect>
+         <rect x="60" y="36.35321318520859" width="5" height="103.64678681479141" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-20000: relative time = 7.821"></rect>
+         <rect x="70" y="30.909090909090914" width="5" height="109.0909090909091" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-40000: relative time = 8.179"></rect>
+         <rect x="80" y="26.3006039020221" width="5" height="113.6993960979779" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-80000: relative time = 8.482"></rect>
+         <rect x="90" y="26.94175678814761" width="5" height="113.05824321185239" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-160000: relative time = 8.44"></rect>
+         <rect x="100" y="72.2802893478853" width="5" height="67.7197106521147" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-alphabetize: relative time = 5.456"></rect>
+         <rect x="110" y="98.05062492428456" width="5" height="41.949375075715444" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-attsets: relative time = 3.761"></rect>
+         <rect x="120" y="45.948874354870085" width="5" height="94.05112564512991" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-avts: relative time = 7.189"></rect>
+         <rect x="130" y="79.49803916708642" width="5" height="60.50196083291358" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-axis: relative time = 4.981"></rect>
+         <rect x="140" y="89.26871226235983" width="5" height="50.73128773764017" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-backwards: relative time = 4.339"></rect>
+         <rect x="150" y="88.07899576777564" width="5" height="51.92100423222436" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-bottles: relative time = 4.417"></rect>
+         <rect x="160" y="68.29902791252843" width="5" height="71.70097208747158" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-breadth: relative time = 5.718"></rect>
+         <rect x="170" y="98.32597982256176" width="5" height="41.674020177438244" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-brutal: relative time = 3.742"></rect>
+         <rect x="180" y="34.57941581520925" width="5" height="105.42058418479075" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-chart: relative time = 7.937"></rect>
+         <rect x="190" y="24.117641432821017" width="5" height="115.88235856717898" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-creation: relative time = 8.626"></rect>
+         <rect x="200" y="72.4907213249991" width="5" height="67.5092786750009" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-current: relative time = 5.443"></rect>
+         <rect x="210" y="80.48103618088973" width="5" height="59.51896381911027" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbonerow: relative time = 4.917"></rect>
+         <rect x="220" y="88.1675431120186" width="5" height="51.832456887981394" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbtail: relative time = 4.411"></rect>
+         <rect x="230" y="88.93120118667501" width="5" height="51.06879881332499" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-decoy: relative time = 4.361"></rect>
+         <rect x="240" y="68.65805053304521" width="5" height="71.34194946695479" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-depth: relative time = 5.695"></rect>
+         <rect x="250" y="67.00000666273323" width="5" height="72.99999333726677" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-encrypt: relative time = 5.804"></rect>
+         <rect x="260" y="57.477146454796134" width="5" height="82.52285354520387" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-functions: relative time = 6.431"></rect>
+         <rect x="270" y="73.12995791917488" width="5" height="66.87004208082512" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-game: relative time = 5.401"></rect>
+         <rect x="280" y="70.75513474209492" width="5" height="69.24486525790508" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-html: relative time = 5.557"></rect>
+         <rect x="290" y="72.15632949681824" width="5" height="67.84367050318176" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-identity: relative time = 5.465"></rect>
+         <rect x="300" y="88.23388075868235" width="5" height="51.76611924131766" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-inventory: relative time = 4.407"></rect>
+         <rect x="310" y="68.81125902865682" width="5" height="71.18874097134318" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-metric: relative time = 5.685"></rect>
+         <rect x="320" y="71.52751787785105" width="5" height="68.47248212214895" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-number: relative time = 5.506"></rect>
+         <rect x="330" y="85.01731850902556" width="5" height="54.98268149097444" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-oddtemplate: relative time = 4.618"></rect>
+         <rect x="340" y="81.16663707572737" width="5" height="58.833362924272635" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-patterns: relative time = 4.872"></rect>
+         <rect x="350" y="48.908941425807726" width="5" height="91.09105857419229" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-prettyprint: relative time = 6.994"></rect>
+         <rect x="360" y="68.21340513258616" width="5" height="71.78659486741384" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-priority: relative time = 5.724"></rect>
+         <rect x="370" y="75.1325920981557" width="5" height="64.86740790184432" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-products: relative time = 5.269"></rect>
+         <rect x="380" y="101.6074345484329" width="5" height="38.39256545156709" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-queens: relative time = 3.527"></rect>
+         <rect x="390" y="140" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-reverser: relative time = 0.744"></rect>
+         <polygon points="389,140 392.5,143 396,140" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-reverser: relative time = 0.744"></polygon>
+         <rect x="400" y="67.24986036004302" width="5" height="72.75013963995698" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-stringsort: relative time = 5.788"></rect>
+         <rect x="410" y="78.0262391425329" width="5" height="61.973760857467106" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-summarize: relative time = 5.078"></rect>
+         <rect x="420" y="62.43320206388522" width="5" height="77.56679793611478" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-total: relative time = 6.104"></rect>
+         <rect x="430" y="85.20502311438594" width="5" height="54.79497688561407" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-tower: relative time = 4.606"></rect>
+         <rect x="440" y="71.44783966325207" width="5" height="68.55216033674793" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-trend: relative time = 5.511"></rect>
+         <rect x="450" y="68.0746808646289" width="5" height="71.9253191353711" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-union: relative time = 5.733"></rect>
+         <rect x="460" y="91.08646970488924" width="5" height="48.91353029511077" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xpath: relative time = 4.219"></rect>
+         <rect x="470" y="65.65726360731226" width="5" height="74.34273639268774" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench1: relative time = 5.892"></rect>
+         <rect x="480" y="63.97409435233971" width="5" height="76.0259056476603" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench2: relative time = 6.003"></rect>
+         <rect x="490" y="84.08981554587773" width="5" height="55.91018445412227" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench3: relative time = 4.679"></rect>
+         <rect x="500" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xmark-q1-1: relative time = 12.919"></rect>
+         <polygon points="499,20 502.5,17 506,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xmark-q1-1: relative time = 12.919"></polygon>
+         <rect x="510" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xmark-q1-4: relative time = 16.565"></rect>
+         <polygon points="509,20 512.5,17 516,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xmark-q1-4: relative time = 16.565"></polygon>
+         <rect x="520" y="71.6641618288867" width="5" height="68.33583817111331" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-1: relative time = 5.497"></rect>
+         <rect x="530" y="71.77010830168511" width="5" height="68.22989169831489" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-4: relative time = 5.49"></rect>
+         <rect x="540" y="69.67749178963659" width="5" height="70.32250821036341" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-1: relative time = 5.628"></rect>
+         <rect x="550" y="64.27888704737839" width="5" height="75.72111295262161" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-4: relative time = 5.983"></rect>
+         <rect x="560" y="82.21274048012727" width="5" height="57.78725951987274" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-1: relative time = 4.803"></rect>
+         <rect x="570" y="85.45117943866828" width="5" height="54.54882056133173" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-4: relative time = 4.59"></rect>
+         <rect x="580" y="77.70443907703904" width="5" height="62.29556092296096" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-1: relative time = 5.1"></rect>
+         <rect x="590" y="77.76816569174359" width="5" height="62.23183430825641" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-4: relative time = 5.095"></rect>
+         <rect x="600" y="119.0660596569277" width="5" height="20.9339403430723" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-1: relative time = 2.378"></rect>
+         <rect x="610" y="131.94455047552063" width="5" height="8.055449524479366" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-4: relative time = 1.53"></rect>
+         <rect x="620" y="36.27942266341833" width="5" height="103.72057733658167" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-1: relative time = 7.826"></rect>
+         <rect x="630" y="30.499051688308548" width="5" height="109.50094831169146" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-4: relative time = 8.206"></rect>
+         <rect x="640" y="54.63710325700372" width="5" height="85.36289674299627" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-1: relative time = 6.618"></rect>
+         <rect x="650" y="54.674829713693" width="5" height="85.325170286307" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-4: relative time = 6.615"></rect>
+         <rect x="660" y="85.6796770543315" width="5" height="54.3203229456685" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-1: relative time = 4.575"></rect>
+         <rect x="670" y="81.24445041321911" width="5" height="58.755549586780894" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-4: relative time = 4.867"></rect>
+         <rect x="680" y="75.47988097150849" width="5" height="64.52011902849152" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-1: relative time = 5.246"></rect>
+         <rect x="690" y="75.46615410194326" width="5" height="64.53384589805674" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-4: relative time = 5.247"></rect>
+         <rect x="700" y="73.887976133345" width="5" height="66.11202386665501" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-1: relative time = 5.351"></rect>
+         <rect x="710" y="78.60401754605067" width="5" height="61.39598245394934" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-4: relative time = 5.04"></rect>
+         <rect x="720" y="88.57647002790263" width="5" height="51.42352997209737" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-1: relative time = 4.384"></rect>
+         <rect x="730" y="82.87956182535268" width="5" height="57.12043817464732" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-4: relative time = 4.759"></rect>
+         <rect x="740" y="95.37918769388955" width="5" height="44.62081230611045" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-1: relative time = 3.936"></rect>
+         <rect x="750" y="96.87433264588088" width="5" height="43.125667354119116" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-4: relative time = 3.838"></rect>
+         <rect x="760" y="99.55884496972843" width="5" height="40.441155030271574" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-1: relative time = 3.661"></rect>
+         <rect x="770" y="102.72429152500992" width="5" height="37.27570847499009" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-4: relative time = 3.453"></rect>
+         <rect x="780" y="93.17245280647434" width="5" height="46.82754719352566" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-1: relative time = 4.082"></rect>
+         <rect x="790" y="93.55696011606105" width="5" height="46.44303988393895" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-4: relative time = 4.056"></rect>
+         <rect x="800" y="57.804916722677305" width="5" height="82.1950832773227" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-1: relative time = 6.409"></rect>
+         <rect x="810" y="56.27692411472366" width="5" height="83.72307588527634" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-4: relative time = 6.51"></rect>
+         <rect x="820" y="60.0150872899364" width="5" height="79.9849127100636" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-1: relative time = 6.264"></rect>
+         <rect x="830" y="60.25053285131604" width="5" height="79.74946714868396" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-4: relative time = 6.248"></rect>
+         <rect x="840" y="64.864010119945" width="5" height="75.135989880055" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-1: relative time = 5.945"></rect>
+         <rect x="850" y="62.77115084001514" width="5" height="77.22884915998486" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-4: relative time = 6.082"></rect>
+         <rect x="860" y="86.28817250164776" width="5" height="53.71182749835224" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-1: relative time = 4.535"></rect>
+         <rect x="870" y="86.27404078570513" width="5" height="53.725959214294875" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-4: relative time = 4.536"></rect>
+         <rect x="880" y="84.12372180313609" width="5" height="55.87627819686391" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap1-1: relative time = 4.677"></rect>
+         <rect x="890" y="98.84302282309996" width="5" height="41.15697717690005" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap2-1: relative time = 3.708"></rect>
+         <rect x="900" y="76.69904870389347" width="5" height="63.30095129610653" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap5-0: relative time = 5.166"></rect>
+         <rect x="910" y="60.708380983971644" width="5" height="79.29161901602836" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap8: relative time = 6.218"></rect>
+         <rect x="920" y="97.50263737659981" width="5" height="42.497362623400186" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-numbermap4: relative time = 3.797"></rect>
+         <rect x="930" y="101.35125308857297" width="5" height="38.64874691142703" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-numbermap4a: relative time = 3.543"></rect>
+         <rect x="940" y="40.818123949393225" width="5" height="99.18187605060677" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap1: relative time = 7.527"></rect>
+         <rect x="950" y="66.46553087643389" width="5" height="73.53446912356611" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-1: relative time = 5.839"></rect>
+         <rect x="960" y="64.05322060221681" width="5" height="75.9467793977832" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-4: relative time = 5.998"></rect>
+         <rect x="970" y="41.22419937100234" width="5" height="98.77580062899766" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-1: relative time = 7.5"></rect>
+         <rect x="980" y="41.24717597972844" width="5" height="98.75282402027156" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-4: relative time = 7.499"></rect>
+         <rect x="990" y="63.25250804664581" width="5" height="76.7474919533542" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-1: relative time = 6.051"></rect>
+         <rect x="1000" y="60.22009786507633" width="5" height="79.77990213492367" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-4: relative time = 6.25"></rect>
+         <rect x="1010" y="63.20967075803413" width="5" height="76.79032924196588" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap5-1: relative time = 6.053"></rect>
+         <rect x="1020" y="70.35421591946682" width="5" height="69.64578408053318" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap5-4: relative time = 5.583"></rect>
+         <rect x="1030" y="79.57405511622645" width="5" height="60.42594488377355" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-001: relative time = 4.976"></rect>
+         <rect x="1040" y="81.05915459834534" width="5" height="58.940845401654656" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-002: relative time = 4.879"></rect>
+         <rect x="1050" y="90.9864154054618" width="5" height="49.0135845945382" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-003: relative time = 4.225"></rect>
+         <rect x="1060" y="93.92744513540192" width="5" height="46.07255486459808" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-004: relative time = 4.032"></rect>
+         <rect x="1070" y="93.7453453229428" width="5" height="46.25465467705721" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-101: relative time = 4.044"></rect>
+         <rect x="1080" y="94.51078061783379" width="5" height="45.48921938216622" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-102: relative time = 3.994"></rect>
+         <rect x="1090" y="95.75577769582027" width="5" height="44.24422230417973" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-1: relative time = 3.912"></rect>
+         <rect x="1100" y="116.4851319353488" width="5" height="23.514868064651203" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-4: relative time = 2.547"></rect>
+         <rect x="1110" y="90.18022155907636" width="5" height="49.81977844092364" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize1-1: relative time = 4.279"></rect>
+         <rect x="1120" y="87.78982202658646" width="5" height="52.21017797341354" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize2-1: relative time = 4.436"></rect>
+         <rect x="1130" y="79.59251446205636" width="5" height="60.40748553794365" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches1-1: relative time = 4.975"></rect>
+         <rect x="1140" y="83.20399057347589" width="5" height="56.796009426524115" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-1: relative time = 4.738"></rect>
+         <rect x="1150" y="82.79834277174268" width="5" height="57.20165722825731" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-4: relative time = 4.764"></rect>
+         <rect x="1160" y="99.31115137978921" width="5" height="40.6888486202108" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches3-1: relative time = 3.678"></rect>
+         <rect x="1170" y="92.02924099726758" width="5" height="47.97075900273242" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches4: relative time = 4.157"></rect>
+         <rect x="1180" y="81.52997408802457" width="5" height="58.47002591197543" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze1-1: relative time = 4.848"></rect>
+         <rect x="1190" y="72.82356404796866" width="5" height="67.17643595203134" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-1: relative time = 5.421"></rect>
+         <rect x="1200" y="74.10025288580638" width="5" height="65.89974711419362" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-4: relative time = 5.337"></rect>
+         <rect x="1210" y="98.32216253312089" width="5" height="41.67783746687911" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze3: relative time = 3.743"></rect>
+         <text x="1270" y="114" font-size="12px">Slower</text>
+         <line x1="1260" y1="125" x2="1260" y2="90" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="90" x2="1255" y2="98" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="90" x2="1265" y2="98" style="stroke:black; stroke-width:1"></line>
+         <text x="1240" y="144" font-size="12px">Baseline speed</text>
+      </svg>
+      <h4> Stylesheet compile: SaxonEE-9.5-.NET-noBC 
+         speeds relative to SaxonEE-9.5-J-BC
+      </h4>
+      <svg width="1340" height="160" viewBox="0 0 1330 160">
+         <line x1="30" y1="20" x2="1225" y2="20" style="stroke:black; stroke-width:1"></line>
+         <text x="0" y="24" font-size="12px">1</text>
+         <line x1="30" y1="51.04322033348263" x2="1225" y2="51.04322033348263" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="55.04322033348263" font-size="12px">.333</text>
+         <line x1="30" y1="82.08644066696526" x2="1225" y2="82.08644066696526" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="86.08644066696526" font-size="12px">.2</text>
+         <line x1="30" y1="113.1296610004479" x2="1225" y2="113.1296610004479" style="stroke:grey; stroke-width:1"></line>
+         <text x="0" y="117.1296610004479" font-size="12px">.143</text>
+         <rect x="40" y="20" width="5" height="3.648518370661307" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-001: relative time = 0.81"></rect>
+         <rect x="50" y="20" width="5" height="52.735298557618286" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="docbook-tests-002: relative time = 0.227"></rect>
+         <rect x="60" y="20" width="5" height="67.52809034711794" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-20000: relative time = 0.187"></rect>
+         <rect x="70" y="20" width="5" height="68.7548189739569" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-40000: relative time = 0.184"></rect>
+         <rect x="80" y="20" width="5" height="60.6963193533403" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-80000: relative time = 0.204"></rect>
+         <rect x="90" y="20" width="5" height="63.021484359235934" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="micro-subscripting-160000: relative time = 0.198"></rect>
+         <rect x="100" y="20" width="5" height="40.75711272439116" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-alphabetize: relative time = 0.276"></rect>
+         <rect x="110" y="20" width="5" height="42.698786896391574" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-attsets: relative time = 0.267"></rect>
+         <rect x="120" y="20" width="5" height="35.4438069529381" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-avts: relative time = 0.305"></rect>
+         <rect x="130" y="20" width="5" height="26.926322289839383" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-axis: relative time = 0.366"></rect>
+         <rect x="140" y="20" width="5" height="36.84326385356951" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-backwards: relative time = 0.296"></rect>
+         <rect x="150" y="20" width="5" height="15.06868539263826" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-bottles: relative time = 0.507"></rect>
+         <rect x="160" y="20" width="5" height="43.4651452384158" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-breadth: relative time = 0.263"></rect>
+         <rect x="170" y="20" width="5" height="37.69807385787327" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-brutal: relative time = 0.292"></rect>
+         <rect x="180" y="20" width="5" height="11.298431494948089" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-chart: relative time = 0.579"></rect>
+         <rect x="190" y="20" width="5" height="40.241784616550206" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-creation: relative time = 0.278"></rect>
+         <rect x="200" y="20" width="5" height="44.07839919176265" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-current: relative time = 0.26"></rect>
+         <rect x="210" y="20" width="5" height="7.241431734335466" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbonerow: relative time = 0.682"></rect>
+         <rect x="220" y="20" width="5" height="8.713067775335865" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-dbtail: relative time = 0.64"></rect>
+         <rect x="230" y="20" width="5" height="57.27536409059589" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-decoy: relative time = 0.213"></rect>
+         <rect x="240" y="20" width="5" height="43.20732836145692" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-depth: relative time = 0.264"></rect>
+         <rect x="250" y="20" width="5" height="39.96318353599285" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-encrypt: relative time = 0.28"></rect>
+         <rect x="260" y="20" width="5" height="22.117208830212725" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-functions: relative time = 0.412"></rect>
+         <rect x="270" y="20" width="5" height="65.11090637206499" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-game: relative time = 0.192"></rect>
+         <rect x="280" y="20" width="5" height="17.572675928282365" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-html: relative time = 0.469"></rect>
+         <rect x="290" y="20" width="5" height="29.087440604015132" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-identity: relative time = 0.348"></rect>
+         <rect x="300" y="20" width="5" height="23.48224695444328" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-inventory: relative time = 0.398"></rect>
+         <rect x="310" y="20" width="5" height="13.33670757374239" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-metric: relative time = 0.538"></rect>
+         <rect x="320" y="20" width="5" height="17.443974983530794" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-number: relative time = 0.471"></rect>
+         <rect x="330" y="20" width="5" height="36.735306965129745" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-oddtemplate: relative time = 0.297"></rect>
+         <rect x="340" y="20" width="5" height="48.34491292278527" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-patterns: relative time = 0.243"></rect>
+         <rect x="350" y="20" width="5" height="26.236951948329516" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-prettyprint: relative time = 0.372"></rect>
+         <rect x="360" y="20" width="5" height="62.37618062736884" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-priority: relative time = 0.199"></rect>
+         <rect x="370" y="20" width="5" height="35.41092612516812" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-products: relative time = 0.305"></rect>
+         <rect x="380" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-queens: relative time = 1.275"></rect>
+         <polygon points="379,20 382.5,17 386,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-queens: relative time = 1.275"></polygon>
+         <rect x="390" y="20" width="5" height="22.514365304697684" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-reverser: relative time = 0.408"></rect>
+         <rect x="400" y="20" width="5" height="37.52266655759289" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-stringsort: relative time = 0.293"></rect>
+         <rect x="410" y="20" width="5" height="21.199385481843326" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-summarize: relative time = 0.423"></rect>
+         <rect x="420" y="20" width="5" height="42.90463503764213" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-total: relative time = 0.266"></rect>
+         <rect x="430" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-tower: relative time = 2.044"></rect>
+         <polygon points="429,20 432.5,17 436,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="xsltmark-tower: relative time = 2.044"></polygon>
+         <rect x="440" y="20" width="5" height="19.830163495472952" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-trend: relative time = 0.439"></rect>
+         <rect x="450" y="20" width="5" height="31.660903132801536" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-union: relative time = 0.329"></rect>
+         <rect x="460" y="20" width="5" height="31.29266421162403" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xpath: relative time = 0.332"></rect>
+         <rect x="470" y="20" width="5" height="4.09818868279914" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench1: relative time = 0.791"></rect>
+         <rect x="480" y="20" width="5" height="32.40948079756789" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench2: relative time = 0.324"></rect>
+         <rect x="490" y="20" width="5" height="26.816796801836613" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xsltmark-xslbench3: relative time = 0.367"></rect>
+         <rect x="500" y="20" width="5" height="53.327833707263885" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q1-1: relative time = 0.225"></rect>
+         <rect x="510" y="20" width="5" height="54.03028178118001" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q1-4: relative time = 0.223"></rect>
+         <rect x="520" y="20" width="5" height="59.29970360324905" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-1: relative time = 0.207"></rect>
+         <rect x="530" y="20" width="5" height="60.795033507316795" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q2-4: relative time = 0.203"></rect>
+         <rect x="540" y="20" width="5" height="40.99862149341742" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-1: relative time = 0.275"></rect>
+         <rect x="550" y="20" width="5" height="34.778246453629954" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q3-4: relative time = 0.309"></rect>
+         <rect x="560" y="20" width="5" height="63.745967659841796" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-1: relative time = 0.196"></rect>
+         <rect x="570" y="20" width="5" height="62.751066502103455" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q5-4: relative time = 0.198"></rect>
+         <rect x="580" y="20" width="5" height="40.46746673260522" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-1: relative time = 0.277"></rect>
+         <rect x="590" y="20" width="5" height="40.69047438093832" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q6-4: relative time = 0.276"></rect>
+         <rect x="600" y="20" width="5" height="31.598931002250215" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-1: relative time = 0.329"></rect>
+         <rect x="610" y="20" width="5" height="32.31121773858873" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q7-4: relative time = 0.324"></rect>
+         <rect x="620" y="20" width="5" height="29.478488188197744" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-1: relative time = 0.345"></rect>
+         <rect x="630" y="20" width="5" height="30.500248425207864" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q8-4: relative time = 0.337"></rect>
+         <rect x="640" y="20" width="5" height="94.66039280495767" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-1: relative time = 0.141"></rect>
+         <rect x="650" y="20" width="5" height="84.2495149156377" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q9-4: relative time = 0.156"></rect>
+         <rect x="660" y="20" width="5" height="46.07765268979537" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-1: relative time = 0.252"></rect>
+         <rect x="670" y="20" width="5" height="45.43906143631236" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q10-4: relative time = 0.255"></rect>
+         <rect x="680" y="20" width="5" height="57.95746336990097" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-1: relative time = 0.211"></rect>
+         <rect x="690" y="20" width="5" height="57.94540940771787" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q11-4: relative time = 0.211"></rect>
+         <rect x="700" y="20" width="5" height="68.00607921422066" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-1: relative time = 0.186"></rect>
+         <rect x="710" y="20" width="5" height="67.19932639746305" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q12-4: relative time = 0.188"></rect>
+         <rect x="720" y="20" width="5" height="45.46783688980132" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-1: relative time = 0.254"></rect>
+         <rect x="730" y="20" width="5" height="47.17927164401847" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q13-4: relative time = 0.248"></rect>
+         <rect x="740" y="20" width="5" height="39.90643747507614" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-1: relative time = 0.28"></rect>
+         <rect x="750" y="20" width="5" height="40.61211985918858" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q14-4: relative time = 0.277"></rect>
+         <rect x="760" y="20" width="5" height="118.05226333465184" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-1: relative time = 0.116"></rect>
+         <rect x="770" y="20" width="5" height="118.31211817629982" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q15-4: relative time = 0.116"></rect>
+         <rect x="780" y="20" width="5" height="108.76265752810629" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-1: relative time = 0.125"></rect>
+         <rect x="790" y="20" width="5" height="109.0909090909091" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q16-4: relative time = 0.125"></rect>
+         <rect x="800" y="20" width="5" height="61.818266135233756" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-1: relative time = 0.201"></rect>
+         <rect x="810" y="20" width="5" height="63.407224305639126" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q17-4: relative time = 0.197"></rect>
+         <rect x="820" y="20" width="5" height="44.61433803804374" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-1: relative time = 0.258"></rect>
+         <rect x="830" y="20" width="5" height="44.84391950061008" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q18-4: relative time = 0.257"></rect>
+         <rect x="840" y="20" width="5" height="39.5350006930164" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-1: relative time = 0.282"></rect>
+         <rect x="850" y="20" width="5" height="39.9269894581265" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q19-4: relative time = 0.28"></rect>
+         <rect x="860" y="20" width="5" height="83.02977438829278" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-1: relative time = 0.157"></rect>
+         <rect x="870" y="20" width="5" height="82.9170075712873" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="xmark-q20-4: relative time = 0.158"></rect>
+         <rect x="880" y="20" width="5" height="31.01507248191048" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap1-1: relative time = 0.334"></rect>
+         <rect x="890" y="20" width="5" height="23.33439012436054" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap2-1: relative time = 0.399"></rect>
+         <rect x="900" y="20" width="5" height="25.69371057075032" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap5-0: relative time = 0.377"></rect>
+         <rect x="910" y="20" width="5" height="25.367943364615996" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-wordmap8: relative time = 0.38"></rect>
+         <rect x="920" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-numbermap4: relative time = 1.69"></rect>
+         <polygon points="919,20 922.5,17 926,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-numbermap4: relative time = 1.69"></polygon>
+         <rect x="930" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-numbermap4a: relative time = 1.608"></rect>
+         <polygon points="929,20 932.5,17 936,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-numbermap4a: relative time = 1.608"></polygon>
+         <rect x="940" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap1: relative time = 0.019"></rect>
+         <polygon points="939,140 942.5,143 946,140" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap1: relative time = 0.019"></polygon>
+         <rect x="950" y="20" width="5" height="49.705685054322295" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-1: relative time = 0.238"></rect>
+         <rect x="960" y="20" width="5" height="49.79857315299664" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap2-4: relative time = 0.238"></rect>
+         <rect x="970" y="20" width="5" height="40.38431363705972" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-1: relative time = 0.278"></rect>
+         <rect x="980" y="20" width="5" height="32.48920282464629" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap3-4: relative time = 0.323"></rect>
+         <rect x="990" y="20" width="5" height="44.12007442735398" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-1: relative time = 0.26"></rect>
+         <rect x="1000" y="20" width="5" height="43.0630280015215" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="map-datemap4-4: relative time = 0.265"></rect>
+         <rect x="1010" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap5-1: relative time = 0.111"></rect>
+         <polygon points="1009,140 1012.5,143 1016,140" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap5-1: relative time = 0.111"></polygon>
+         <rect x="1020" y="20" width="5" height="120" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap5-4: relative time = 0.096"></rect>
+         <polygon points="1019,140 1022.5,143 1026,140" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="map-datemap5-4: relative time = 0.096"></polygon>
+         <rect x="1030" y="20" width="5" height="36.71927941201379" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-001: relative time = 0.297"></rect>
+         <rect x="1040" y="20" width="5" height="47.25888330166897" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-002: relative time = 0.247"></rect>
+         <rect x="1050" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-003: relative time = 1.374"></rect>
+         <polygon points="1049,20 1052.5,17 1056,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-003: relative time = 1.374"></polygon>
+         <rect x="1060" y="20" width="5" height="0" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-004: relative time = 1.426"></rect>
+         <polygon points="1059,20 1062.5,17 1066,20" style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-004: relative time = 1.426"></polygon>
+         <rect x="1070" y="20" width="5" height="47.54750793376078" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-101: relative time = 0.246"></rect>
+         <rect x="1080" y="20" width="5" height="48.13262696258935" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="musicxml-tests-102: relative time = 0.244"></rect>
+         <rect x="1090" y="20" width="5" height="18.16777526779711" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-1: relative time = 0.461"></rect>
+         <rect x="1100" y="20" width="5" height="15.465157719371907" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-replace1-4: relative time = 0.501"></rect>
+         <rect x="1110" y="20" width="5" height="15.30467986569866" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize1-1: relative time = 0.504"></rect>
+         <rect x="1120" y="20" width="5" height="30.519067520397318" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-tokenize2-1: relative time = 0.337"></rect>
+         <rect x="1130" y="20" width="5" height="14.676941910201512" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches1-1: relative time = 0.514"></rect>
+         <rect x="1140" y="20" width="5" height="14.197645876085627" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-1: relative time = 0.522"></rect>
+         <rect x="1150" y="20" width="5" height="17.691291620234285" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches2-4: relative time = 0.467"></rect>
+         <rect x="1160" y="20" width="5" height="16.84019035575792" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches3-1: relative time = 0.48"></rect>
+         <rect x="1170" y="20" width="5" height="13.91567963091085" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-matches4: relative time = 0.527"></rect>
+         <rect x="1180" y="20" width="5" height="10.557565188930786" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze1-1: relative time = 0.595"></rect>
+         <rect x="1190" y="20" width="5" height="10.034312979642307" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-1: relative time = 0.607"></rect>
+         <rect x="1200" y="20" width="5" height="8.923854227567443" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze2-4: relative time = 0.635"></rect>
+         <rect x="1210" y="20" width="5" height="73.8904284358173" style="fill:#c1cede; stroke-width:1; stroke:#3D5B96" title="regex-analyze3: relative time = 0.174"></rect>
+         <text x="1270" y="54" font-size="12px">Faster</text>
+         <line x1="1260" y1="35" x2="1260" y2="70" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="70" x2="1255" y2="62" style="stroke:black; stroke-width:1"></line>
+         <line x1="1260" y1="70" x2="1265" y2="62" style="stroke:black; stroke-width:1"></line>
+         <text x="1240" y="24" font-size="12px">Baseline speed</text>
+      </svg>
+      <br></br>
+      <br></br>
+      <h4>
+         <a id="driver-table">Full table of test results for SaxonEE-9.5-.NET-noBC relative to SaxonEE-9.5-J-BC</a>
+      </h4>
+      <table id="driver">
+         <thead>
+            <th></th>
+            <th colspan="6">
+               <p>Times relative to SaxonEE-9.5-J-BC driver 
+                  <br></br> (smaller
+                  values represent faster times)
+               </p>
+               <p class="actual"> Actual times (in
+                  milliseconds)
+               </p>
+            </th>
+         </thead>
+         <thead>
+            <th>Test</th>
+            <th width="120px" colspan="2">File-to-file transform</th>
+            <th width="120px" colspan="2">Tree-to-tree transform</th>
+            <th width="120px" colspan="2">Stylesheet compile</th>
+         </thead>
+         <tr>
+            <td>docbook-tests-001</td>
+            <td width="60px">2.844</td>
+            <td width="60px" class="actual">192.585</td>
+            <td width="60px">5.568</td>
+            <td width="60px" class="actual">171.578</td>
+            <td width="60px">0.81</td>
+            <td width="60px" class="actual">2705.666</td>
+         </tr>
+         <tr>
+            <td>docbook-tests-002</td>
+            <td width="60px">5.086</td>
+            <td width="60px" class="actual">73.695</td>
+            <td width="60px">4.965</td>
+            <td width="60px" class="actual">55.204</td>
+            <td width="60px">0.227</td>
+            <td width="60px" class="actual">0.971</td>
+         </tr>
+         <tr>
+            <td>micro-subscripting-20000</td>
+            <td width="60px">7.855</td>
+            <td width="60px" class="actual">30.515</td>
+            <td width="60px">7.821</td>
+            <td width="60px" class="actual">18.082</td>
+            <td width="60px">0.187</td>
+            <td width="60px" class="actual">0.746</td>
+         </tr>
+         <tr>
+            <td>micro-subscripting-40000</td>
+            <td width="60px">7.621</td>
+            <td width="60px" class="actual">49.499</td>
+            <td width="60px">8.179</td>
+            <td width="60px" class="actual">36.084</td>
+            <td width="60px">0.184</td>
+            <td width="60px" class="actual">0.743</td>
+         </tr>
+         <tr>
+            <td>micro-subscripting-80000</td>
+            <td width="60px">8.15</td>
+            <td width="60px" class="actual">86.354</td>
+            <td width="60px">8.482</td>
+            <td width="60px" class="actual">74.002</td>
+            <td width="60px">0.204</td>
+            <td width="60px" class="actual">0.744</td>
+         </tr>
+         <tr>
+            <td>micro-subscripting-160000</td>
+            <td width="60px">8.232</td>
+            <td width="60px" class="actual">159.995</td>
+            <td width="60px">8.44</td>
+            <td width="60px" class="actual">146.262</td>
+            <td width="60px">0.198</td>
+            <td width="60px" class="actual">0.743</td>
+         </tr>
+         <tr>
+            <td>xsltmark-alphabetize</td>
+            <td width="60px">6.326</td>
+            <td width="60px" class="actual">26.627</td>
+            <td width="60px">5.456</td>
+            <td width="60px" class="actual">9.952</td>
+            <td width="60px">0.276</td>
+            <td width="60px" class="actual">0.695</td>
+         </tr>
+         <tr>
+            <td>xsltmark-attsets</td>
+            <td width="60px">7.592</td>
+            <td width="60px" class="actual">13.32</td>
+            <td width="60px">3.761</td>
+            <td width="60px" class="actual">0.489</td>
+            <td width="60px">0.267</td>
+            <td width="60px" class="actual">0.901</td>
+         </tr>
+         <tr>
+            <td>xsltmark-avts</td>
+            <td width="60px">7.43</td>
+            <td width="60px" class="actual">18.27</td>
+            <td width="60px">7.189</td>
+            <td width="60px" class="actual">1.717</td>
+            <td width="60px">0.305</td>
+            <td width="60px" class="actual">0.812</td>
+         </tr>
+         <tr>
+            <td>xsltmark-axis</td>
+            <td width="60px">7.793</td>
+            <td width="60px" class="actual">12.854</td>
+            <td width="60px">4.981</td>
+            <td width="60px" class="actual">0.146</td>
+            <td width="60px">0.366</td>
+            <td width="60px" class="actual">1.884</td>
+         </tr>
+         <tr>
+            <td>xsltmark-backwards</td>
+            <td width="60px">8.746</td>
+            <td width="60px" class="actual">15.58</td>
+            <td width="60px">4.339</td>
+            <td width="60px" class="actual">0.807</td>
+            <td width="60px">0.296</td>
+            <td width="60px" class="actual">0.522</td>
+         </tr>
+         <tr>
+            <td>xsltmark-bottles</td>
+            <td width="60px">6.502</td>
+            <td width="60px" class="actual">15.52</td>
+            <td width="60px">4.417</td>
+            <td width="60px" class="actual">2.156</td>
+            <td width="60px">0.507</td>
+            <td width="60px" class="actual">1.735</td>
+         </tr>
+         <tr>
+            <td>xsltmark-breadth</td>
+            <td width="60px">7.398</td>
+            <td width="60px" class="actual">14.131</td>
+            <td width="60px">5.718</td>
+            <td width="60px" class="actual">0.922</td>
+            <td width="60px">0.263</td>
+            <td width="60px" class="actual">0.531</td>
+         </tr>
+         <tr>
+            <td>xsltmark-brutal</td>
+            <td width="60px">5.432</td>
+            <td width="60px" class="actual">14.638</td>
+            <td width="60px">3.742</td>
+            <td width="60px" class="actual">0.711</td>
+            <td width="60px">0.292</td>
+            <td width="60px" class="actual">4.035</td>
+         </tr>
+         <tr>
+            <td>xsltmark-chart</td>
+            <td width="60px">7.724</td>
+            <td width="60px" class="actual">14.331</td>
+            <td width="60px">7.937</td>
+            <td width="60px" class="actual">0.575</td>
+            <td width="60px">0.579</td>
+            <td width="60px" class="actual">2.76</td>
+         </tr>
+         <tr>
+            <td>xsltmark-creation</td>
+            <td width="60px">6.931</td>
+            <td width="60px" class="actual">23.393</td>
+            <td width="60px">8.626</td>
+            <td width="60px" class="actual">5.189</td>
+            <td width="60px">0.278</td>
+            <td width="60px" class="actual">0.841</td>
+         </tr>
+         <tr>
+            <td>xsltmark-current</td>
+            <td width="60px">8.891</td>
+            <td width="60px" class="actual">12.72</td>
+            <td width="60px">5.443</td>
+            <td width="60px" class="actual">0.167</td>
+            <td width="60px">0.26</td>
+            <td width="60px" class="actual">1.491</td>
+         </tr>
+         <tr>
+            <td>xsltmark-dbonerow</td>
+            <td width="60px">6.422</td>
+            <td width="60px" class="actual">563.532</td>
+            <td width="60px">4.917</td>
+            <td width="60px" class="actual">173.904</td>
+            <td width="60px">0.682</td>
+            <td width="60px" class="actual">2.179</td>
+         </tr>
+         <tr>
+            <td>xsltmark-dbtail</td>
+            <td width="60px">6.394</td>
+            <td width="60px" class="actual">18.272</td>
+            <td width="60px">4.411</td>
+            <td width="60px" class="actual">0.908</td>
+            <td width="60px">0.64</td>
+            <td width="60px" class="actual">0.895</td>
+         </tr>
+         <tr>
+            <td>xsltmark-decoy</td>
+            <td width="60px">5.064</td>
+            <td width="60px" class="actual">27.141</td>
+            <td width="60px">4.361</td>
+            <td width="60px" class="actual">10.605</td>
+            <td width="60px">0.213</td>
+            <td width="60px" class="actual">2.844</td>
+         </tr>
+         <tr>
+            <td>xsltmark-depth</td>
+            <td width="60px">8.919</td>
+            <td width="60px" class="actual">14.495</td>
+            <td width="60px">5.695</td>
+            <td width="60px" class="actual">1.112</td>
+            <td width="60px">0.264</td>
+            <td width="60px" class="actual">0.528</td>
+         </tr>
+         <tr>
+            <td>xsltmark-encrypt</td>
+            <td width="60px">6.595</td>
+            <td width="60px" class="actual">26.34</td>
+            <td width="60px">5.804</td>
+            <td width="60px" class="actual">10.424</td>
+            <td width="60px">0.28</td>
+            <td width="60px" class="actual">0.735</td>
+         </tr>
+         <tr>
+            <td>xsltmark-functions</td>
+            <td width="60px">6.778</td>
+            <td width="60px" class="actual">28.028</td>
+            <td width="60px">6.431</td>
+            <td width="60px" class="actual">11.785</td>
+            <td width="60px">0.412</td>
+            <td width="60px" class="actual">2.032</td>
+         </tr>
+         <tr>
+            <td>xsltmark-game</td>
+            <td width="60px">9.891</td>
+            <td width="60px" class="actual">13.356</td>
+            <td width="60px">5.401</td>
+            <td width="60px" class="actual">0.211</td>
+            <td width="60px">0.192</td>
+            <td width="60px" class="actual">1.773</td>
+         </tr>
+         <tr>
+            <td>xsltmark-html</td>
+            <td width="60px">8.461</td>
+            <td width="60px" class="actual">12.543</td>
+            <td width="60px">5.557</td>
+            <td width="60px" class="actual">0.137</td>
+            <td width="60px">0.469</td>
+            <td width="60px" class="actual">1.562</td>
+         </tr>
+         <tr>
+            <td>xsltmark-identity</td>
+            <td width="60px">5.595</td>
+            <td width="60px" class="actual">105.666</td>
+            <td width="60px">5.465</td>
+            <td width="60px" class="actual">45.004</td>
+            <td width="60px">0.348</td>
+            <td width="60px" class="actual">0.395</td>
+         </tr>
+         <tr>
+            <td>xsltmark-inventory</td>
+            <td width="60px">8.65</td>
+            <td width="60px" class="actual">13.349</td>
+            <td width="60px">4.407</td>
+            <td width="60px" class="actual">0.472</td>
+            <td width="60px">0.398</td>
+            <td width="60px" class="actual">1.444</td>
+         </tr>
+         <tr>
+            <td>xsltmark-metric</td>
+            <td width="60px">8.394</td>
+            <td width="60px" class="actual">13.17</td>
+            <td width="60px">5.685</td>
+            <td width="60px" class="actual">0.51</td>
+            <td width="60px">0.538</td>
+            <td width="60px" class="actual">2.478</td>
+         </tr>
+         <tr>
+            <td>xsltmark-number</td>
+            <td width="60px">7.841</td>
+            <td width="60px" class="actual">13.913</td>
+            <td width="60px">5.506</td>
+            <td width="60px" class="actual">1.059</td>
+            <td width="60px">0.471</td>
+            <td width="60px" class="actual">1.579</td>
+         </tr>
+         <tr>
+            <td>xsltmark-oddtemplate</td>
+            <td width="60px">9.13</td>
+            <td width="60px" class="actual">13.011</td>
+            <td width="60px">4.618</td>
+            <td width="60px" class="actual">0.335</td>
+            <td width="60px">0.297</td>
+            <td width="60px" class="actual">1.252</td>
+         </tr>
+         <tr>
+            <td>xsltmark-patterns</td>
+            <td width="60px">6.279</td>
+            <td width="60px" class="actual">24.164</td>
+            <td width="60px">4.872</td>
+            <td width="60px" class="actual">7.037</td>
+            <td width="60px">0.243</td>
+            <td width="60px" class="actual">1.511</td>
+         </tr>
+         <tr>
+            <td>xsltmark-prettyprint</td>
+            <td width="60px">5.996</td>
+            <td width="60px" class="actual">103.292</td>
+            <td width="60px">6.994</td>
+            <td width="60px" class="actual">58.264</td>
+            <td width="60px">0.372</td>
+            <td width="60px" class="actual">2.613</td>
+         </tr>
+         <tr>
+            <td>xsltmark-priority</td>
+            <td width="60px">10.181</td>
+            <td width="60px" class="actual">13.341</td>
+            <td width="60px">5.724</td>
+            <td width="60px" class="actual">0.206</td>
+            <td width="60px">0.199</td>
+            <td width="60px" class="actual">2.054</td>
+         </tr>
+         <tr>
+            <td>xsltmark-products</td>
+            <td width="60px">8.484</td>
+            <td width="60px" class="actual">13.192</td>
+            <td width="60px">5.269</td>
+            <td width="60px" class="actual">0.235</td>
+            <td width="60px">0.305</td>
+            <td width="60px" class="actual">1.346</td>
+         </tr>
+         <tr>
+            <td>xsltmark-queens</td>
+            <td width="60px">4.271</td>
+            <td width="60px" class="actual">39.67</td>
+            <td width="60px">3.527</td>
+            <td width="60px" class="actual">26.746</td>
+            <td width="60px">1.275</td>
+            <td width="60px" class="actual">6.156</td>
+         </tr>
+         <tr>
+            <td>xsltmark-reverser</td>
+            <td width="60px">3.802</td>
+            <td width="60px" class="actual">14.724</td>
+            <td width="60px">0.744</td>
+            <td width="60px" class="actual">1.81</td>
+            <td width="60px">0.408</td>
+            <td width="60px" class="actual">1.215</td>
+         </tr>
+         <tr>
+            <td>xsltmark-stringsort</td>
+            <td width="60px">5.07</td>
+            <td width="60px" class="actual">100.774</td>
+            <td width="60px">5.788</td>
+            <td width="60px" class="actual">52.629</td>
+            <td width="60px">0.293</td>
+            <td width="60px" class="actual">0.631</td>
+         </tr>
+         <tr>
+            <td>xsltmark-summarize</td>
+            <td width="60px">9.787</td>
+            <td width="60px" class="actual">13.728</td>
+            <td width="60px">5.078</td>
+            <td width="60px" class="actual">0.213</td>
+            <td width="60px">0.423</td>
+            <td width="60px" class="actual">1.385</td>
+         </tr>
+         <tr>
+            <td>xsltmark-total</td>
+            <td width="60px">10.206</td>
+            <td width="60px" class="actual">13.102</td>
+            <td width="60px">6.104</td>
+            <td width="60px" class="actual">0.158</td>
+            <td width="60px">0.266</td>
+            <td width="60px" class="actual">1.217</td>
+         </tr>
+         <tr>
+            <td>xsltmark-tower</td>
+            <td width="60px">4.848</td>
+            <td width="60px" class="actual">149.361</td>
+            <td width="60px">4.606</td>
+            <td width="60px" class="actual">120.756</td>
+            <td width="60px">2.044</td>
+            <td width="60px" class="actual">19.488</td>
+         </tr>
+         <tr>
+            <td>xsltmark-trend</td>
+            <td width="60px">7.722</td>
+            <td width="60px" class="actual">17.44</td>
+            <td width="60px">5.511</td>
+            <td width="60px" class="actual">4.146</td>
+            <td width="60px">0.439</td>
+            <td width="60px" class="actual">1.869</td>
+         </tr>
+         <tr>
+            <td>xsltmark-union</td>
+            <td width="60px">9.576</td>
+            <td width="60px" class="actual">12.655</td>
+            <td width="60px">5.733</td>
+            <td width="60px" class="actual">0.156</td>
+            <td width="60px">0.329</td>
+            <td width="60px" class="actual">1.149</td>
+         </tr>
+         <tr>
+            <td>xsltmark-xpath</td>
+            <td width="60px">10.911</td>
+            <td width="60px" class="actual">12.481</td>
+            <td width="60px">4.219</td>
+            <td width="60px" class="actual">0.159</td>
+            <td width="60px">0.332</td>
+            <td width="60px" class="actual">0.811</td>
+         </tr>
+         <tr>
+            <td>xsltmark-xslbench1</td>
+            <td width="60px">9.379</td>
+            <td width="60px" class="actual">13.105</td>
+            <td width="60px">5.892</td>
+            <td width="60px" class="actual">0.329</td>
+            <td width="60px">0.791</td>
+            <td width="60px" class="actual">6.916</td>
+         </tr>
+         <tr>
+            <td>xsltmark-xslbench2</td>
+            <td width="60px">6.079</td>
+            <td width="60px" class="actual">45.618</td>
+            <td width="60px">6.003</td>
+            <td width="60px" class="actual">13.03</td>
+            <td width="60px">0.324</td>
+            <td width="60px" class="actual">1.808</td>
+         </tr>
+         <tr>
+            <td>xsltmark-xslbench3</td>
+            <td width="60px">6.335</td>
+            <td width="60px" class="actual">28.365</td>
+            <td width="60px">4.679</td>
+            <td width="60px" class="actual">1.525</td>
+            <td width="60px">0.367</td>
+            <td width="60px" class="actual">1.607</td>
+         </tr>
+         <tr>
+            <td>xmark-q1-1</td>
+            <td width="60px">6.243</td>
+            <td width="60px" class="actual">101.85</td>
+            <td width="60px">12.919</td>
+            <td width="60px" class="actual">0.41</td>
+            <td width="60px">0.225</td>
+            <td width="60px" class="actual">0.653</td>
+         </tr>
+         <tr>
+            <td>xmark-q1-4</td>
+            <td width="60px">5.742</td>
+            <td width="60px" class="actual">356.847</td>
+            <td width="60px">16.565</td>
+            <td width="60px" class="actual">1.4</td>
+            <td width="60px">0.223</td>
+            <td width="60px" class="actual">0.648</td>
+         </tr>
+         <tr>
+            <td>xmark-q2-1</td>
+            <td width="60px">5.613</td>
+            <td width="60px" class="actual">95.209</td>
+            <td width="60px">5.497</td>
+            <td width="60px" class="actual">0.485</td>
+            <td width="60px">0.207</td>
+            <td width="60px" class="actual">0.649</td>
+         </tr>
+         <tr>
+            <td>xmark-q2-4</td>
+            <td width="60px">5.691</td>
+            <td width="60px" class="actual">355.458</td>
+            <td width="60px">5.49</td>
+            <td width="60px" class="actual">1.779</td>
+            <td width="60px">0.203</td>
+            <td width="60px" class="actual">0.641</td>
+         </tr>
+         <tr>
+            <td>xmark-q3-1</td>
+            <td width="60px">5.822</td>
+            <td width="60px" class="actual">96.155</td>
+            <td width="60px">5.628</td>
+            <td width="60px" class="actual">0.906</td>
+            <td width="60px">0.275</td>
+            <td width="60px" class="actual">0.985</td>
+         </tr>
+         <tr>
+            <td>xmark-q3-4</td>
+            <td width="60px">5.579</td>
+            <td width="60px" class="actual">352.425</td>
+            <td width="60px">5.983</td>
+            <td width="60px" class="actual">3.727</td>
+            <td width="60px">0.309</td>
+            <td width="60px" class="actual">1.053</td>
+         </tr>
+         <tr>
+            <td>xmark-q5-1</td>
+            <td width="60px">5.883</td>
+            <td width="60px" class="actual">96.766</td>
+            <td width="60px">4.803</td>
+            <td width="60px" class="actual">0.339</td>
+            <td width="60px">0.196</td>
+            <td width="60px" class="actual">0.66</td>
+         </tr>
+         <tr>
+            <td>xmark-q5-4</td>
+            <td width="60px">5.502</td>
+            <td width="60px" class="actual">344.195</td>
+            <td width="60px">4.59</td>
+            <td width="60px" class="actual">1.126</td>
+            <td width="60px">0.198</td>
+            <td width="60px" class="actual">0.668</td>
+         </tr>
+         <tr>
+            <td>xmark-q6-1</td>
+            <td width="60px">5.83</td>
+            <td width="60px" class="actual">95.86</td>
+            <td width="60px">5.1</td>
+            <td width="60px" class="actual">0.731</td>
+            <td width="60px">0.277</td>
+            <td width="60px" class="actual">0.677</td>
+         </tr>
+         <tr>
+            <td>xmark-q6-4</td>
+            <td width="60px">5.622</td>
+            <td width="60px" class="actual">352.326</td>
+            <td width="60px">5.095</td>
+            <td width="60px" class="actual">2.758</td>
+            <td width="60px">0.276</td>
+            <td width="60px" class="actual">0.676</td>
+         </tr>
+         <tr>
+            <td>xmark-q7-1</td>
+            <td width="60px">5.774</td>
+            <td width="60px" class="actual">100.093</td>
+            <td width="60px">2.378</td>
+            <td width="60px" class="actual">0.117</td>
+            <td width="60px">0.329</td>
+            <td width="60px" class="actual">0.75</td>
+         </tr>
+         <tr>
+            <td>xmark-q7-4</td>
+            <td width="60px">5.307</td>
+            <td width="60px" class="actual">348.565</td>
+            <td width="60px">1.53</td>
+            <td width="60px" class="actual">0.254</td>
+            <td width="60px">0.324</td>
+            <td width="60px" class="actual">0.744</td>
+         </tr>
+         <tr>
+            <td>xmark-q8-1</td>
+            <td width="60px">6.494</td>
+            <td width="60px" class="actual">110.258</td>
+            <td width="60px">7.826</td>
+            <td width="60px" class="actual">2.627</td>
+            <td width="60px">0.345</td>
+            <td width="60px" class="actual">1.221</td>
+         </tr>
+         <tr>
+            <td>xmark-q8-4</td>
+            <td width="60px">5.507</td>
+            <td width="60px" class="actual">356.867</td>
+            <td width="60px">8.206</td>
+            <td width="60px" class="actual">10.476</td>
+            <td width="60px">0.337</td>
+            <td width="60px" class="actual">1.206</td>
+         </tr>
+         <tr>
+            <td>xmark-q9-1</td>
+            <td width="60px">5.774</td>
+            <td width="60px" class="actual">158.907</td>
+            <td width="60px">6.618</td>
+            <td width="60px" class="actual">60.175</td>
+            <td width="60px">0.141</td>
+            <td width="60px" class="actual">1.932</td>
+         </tr>
+         <tr>
+            <td>xmark-q9-4</td>
+            <td width="60px">5.566</td>
+            <td width="60px" class="actual">1259.948</td>
+            <td width="60px">6.615</td>
+            <td width="60px" class="actual">919.025</td>
+            <td width="60px">0.156</td>
+            <td width="60px" class="actual">2.099</td>
+         </tr>
+         <tr>
+            <td>xmark-q10-1</td>
+            <td width="60px">5.184</td>
+            <td width="60px" class="actual">111.323</td>
+            <td width="60px">4.575</td>
+            <td width="60px" class="actual">13.186</td>
+            <td width="60px">0.252</td>
+            <td width="60px" class="actual">2.35</td>
+         </tr>
+         <tr>
+            <td>xmark-q10-4</td>
+            <td width="60px">4.731</td>
+            <td width="60px" class="actual">424.537</td>
+            <td width="60px">4.867</td>
+            <td width="60px" class="actual">62.077</td>
+            <td width="60px">0.255</td>
+            <td width="60px" class="actual">2.37</td>
+         </tr>
+         <tr>
+            <td>xmark-q11-1</td>
+            <td width="60px">4.973</td>
+            <td width="60px" class="actual">184.186</td>
+            <td width="60px">5.246</td>
+            <td width="60px" class="actual">89.204</td>
+            <td width="60px">0.211</td>
+            <td width="60px" class="actual">1.528</td>
+         </tr>
+         <tr>
+            <td>xmark-q11-4</td>
+            <td width="60px">5.157</td>
+            <td width="60px" class="actual">1739.503</td>
+            <td width="60px">5.247</td>
+            <td width="60px" class="actual">1371.288</td>
+            <td width="60px">0.211</td>
+            <td width="60px" class="actual">1.519</td>
+         </tr>
+         <tr>
+            <td>xmark-q12-1</td>
+            <td width="60px">5.339</td>
+            <td width="60px" class="actual">123.231</td>
+            <td width="60px">5.351</td>
+            <td width="60px" class="actual">29.262</td>
+            <td width="60px">0.186</td>
+            <td width="60px" class="actual">1.589</td>
+         </tr>
+         <tr>
+            <td>xmark-q12-4</td>
+            <td width="60px">5.171</td>
+            <td width="60px" class="actual">681.575</td>
+            <td width="60px">5.04</td>
+            <td width="60px" class="actual">333.737</td>
+            <td width="60px">0.188</td>
+            <td width="60px" class="actual">1.586</td>
+         </tr>
+         <tr>
+            <td>xmark-q13-1</td>
+            <td width="60px">5.841</td>
+            <td width="60px" class="actual">102.387</td>
+            <td width="60px">4.384</td>
+            <td width="60px" class="actual">0.578</td>
+            <td width="60px">0.254</td>
+            <td width="60px" class="actual">0.809</td>
+         </tr>
+         <tr>
+            <td>xmark-q13-4</td>
+            <td width="60px">4.593</td>
+            <td width="60px" class="actual">343.873</td>
+            <td width="60px">4.759</td>
+            <td width="60px" class="actual">2.441</td>
+            <td width="60px">0.248</td>
+            <td width="60px" class="actual">0.803</td>
+         </tr>
+         <tr>
+            <td>xmark-q14-1</td>
+            <td width="60px">5.279</td>
+            <td width="60px" class="actual">100.567</td>
+            <td width="60px">3.936</td>
+            <td width="60px" class="actual">3.843</td>
+            <td width="60px">0.28</td>
+            <td width="60px" class="actual">0.837</td>
+         </tr>
+         <tr>
+            <td>xmark-q14-4</td>
+            <td width="60px">5.24</td>
+            <td width="60px" class="actual">399.382</td>
+            <td width="60px">3.838</td>
+            <td width="60px" class="actual">16.496</td>
+            <td width="60px">0.277</td>
+            <td width="60px" class="actual">0.825</td>
+         </tr>
+         <tr>
+            <td>xmark-q15-1</td>
+            <td width="60px">5.58</td>
+            <td width="60px" class="actual">94.351</td>
+            <td width="60px">3.661</td>
+            <td width="60px" class="actual">0.357</td>
+            <td width="60px">0.116</td>
+            <td width="60px" class="actual">0.744</td>
+         </tr>
+         <tr>
+            <td>xmark-q15-4</td>
+            <td width="60px">5.321</td>
+            <td width="60px" class="actual">344.118</td>
+            <td width="60px">3.453</td>
+            <td width="60px" class="actual">1.034</td>
+            <td width="60px">0.116</td>
+            <td width="60px" class="actual">0.746</td>
+         </tr>
+         <tr>
+            <td>xmark-q16-1</td>
+            <td width="60px">5.504</td>
+            <td width="60px" class="actual">94.292</td>
+            <td width="60px">4.082</td>
+            <td width="60px" class="actual">0.454</td>
+            <td width="60px">0.125</td>
+            <td width="60px" class="actual">0.89</td>
+         </tr>
+         <tr>
+            <td>xmark-q16-4</td>
+            <td width="60px">5.209</td>
+            <td width="60px" class="actual">337.421</td>
+            <td width="60px">4.056</td>
+            <td width="60px" class="actual">1.49</td>
+            <td width="60px">0.125</td>
+            <td width="60px" class="actual">0.89</td>
+         </tr>
+         <tr>
+            <td>xmark-q17-1</td>
+            <td width="60px">4.827</td>
+            <td width="60px" class="actual">95.149</td>
+            <td width="60px">6.409</td>
+            <td width="60px" class="actual">0.694</td>
+            <td width="60px">0.201</td>
+            <td width="60px" class="actual">0.715</td>
+         </tr>
+         <tr>
+            <td>xmark-q17-4</td>
+            <td width="60px">5.544</td>
+            <td width="60px" class="actual">360.865</td>
+            <td width="60px">6.51</td>
+            <td width="60px" class="actual">2.509</td>
+            <td width="60px">0.197</td>
+            <td width="60px" class="actual">0.717</td>
+         </tr>
+         <tr>
+            <td>xmark-q18-1</td>
+            <td width="60px">5.659</td>
+            <td width="60px" class="actual">96.715</td>
+            <td width="60px">6.264</td>
+            <td width="60px" class="actual">0.588</td>
+            <td width="60px">0.258</td>
+            <td width="60px" class="actual">0.832</td>
+         </tr>
+         <tr>
+            <td>xmark-q18-4</td>
+            <td width="60px">5.199</td>
+            <td width="60px" class="actual">339.4</td>
+            <td width="60px">6.248</td>
+            <td width="60px" class="actual">1.995</td>
+            <td width="60px">0.257</td>
+            <td width="60px" class="actual">0.829</td>
+         </tr>
+         <tr>
+            <td>xmark-q19-1</td>
+            <td width="60px">5.596</td>
+            <td width="60px" class="actual">102.679</td>
+            <td width="60px">5.945</td>
+            <td width="60px" class="actual">3.274</td>
+            <td width="60px">0.282</td>
+            <td width="60px" class="actual">0.804</td>
+         </tr>
+         <tr>
+            <td>xmark-q19-4</td>
+            <td width="60px">5.256</td>
+            <td width="60px" class="actual">354.065</td>
+            <td width="60px">6.082</td>
+            <td width="60px" class="actual">13.916</td>
+            <td width="60px">0.28</td>
+            <td width="60px" class="actual">0.8</td>
+         </tr>
+         <tr>
+            <td>xmark-q20-1</td>
+            <td width="60px">5.588</td>
+            <td width="60px" class="actual">98.322</td>
+            <td width="60px">4.535</td>
+            <td width="60px" class="actual">2.093</td>
+            <td width="60px">0.157</td>
+            <td width="60px" class="actual">1.276</td>
+         </tr>
+         <tr>
+            <td>xmark-q20-4</td>
+            <td width="60px">5.228</td>
+            <td width="60px" class="actual">348.84</td>
+            <td width="60px">4.536</td>
+            <td width="60px" class="actual">7.783</td>
+            <td width="60px">0.158</td>
+            <td width="60px" class="actual">1.279</td>
+         </tr>
+         <tr>
+            <td>map-wordmap1-1</td>
+            <td width="60px">4.697</td>
+            <td width="60px" class="actual">10649.737</td>
+            <td width="60px">4.677</td>
+            <td width="60px" class="actual">10395.282</td>
+            <td width="60px">0.334</td>
+            <td width="60px" class="actual">0.974</td>
+         </tr>
+         <tr>
+            <td>map-wordmap2-1</td>
+            <td width="60px">3.362</td>
+            <td width="60px" class="actual">5058.421</td>
+            <td width="60px">3.708</td>
+            <td width="60px" class="actual">4974.612</td>
+            <td width="60px">0.399</td>
+            <td width="60px" class="actual">2.697</td>
+         </tr>
+         <tr>
+            <td>map-wordmap5-0</td>
+            <td width="60px">5.219</td>
+            <td width="60px" class="actual">3860.481</td>
+            <td width="60px">5.166</td>
+            <td width="60px" class="actual">3779.781</td>
+            <td width="60px">0.377</td>
+            <td width="60px" class="actual">1.714</td>
+         </tr>
+         <tr>
+            <td>map-wordmap8</td>
+            <td width="60px">5.831</td>
+            <td width="60px" class="actual">7224.858</td>
+            <td width="60px">6.218</td>
+            <td width="60px" class="actual">7705.063</td>
+            <td width="60px">0.38</td>
+            <td width="60px" class="actual">1.45</td>
+         </tr>
+         <tr>
+            <td>map-numbermap4</td>
+            <td width="60px">3.859</td>
+            <td width="60px" class="actual">862.955</td>
+            <td width="60px">3.797</td>
+            <td width="60px" class="actual">846.64</td>
+            <td width="60px">1.69</td>
+            <td width="60px" class="actual">5.527</td>
+         </tr>
+         <tr>
+            <td>map-numbermap4a</td>
+            <td width="60px">3.249</td>
+            <td width="60px" class="actual">11151.22</td>
+            <td width="60px">3.543</td>
+            <td width="60px" class="actual">11129.685</td>
+            <td width="60px">1.608</td>
+            <td width="60px" class="actual">5.679</td>
+         </tr>
+         <tr>
+            <td>map-datemap1</td>
+            <td width="60px">4.655</td>
+            <td width="60px" class="actual">13.349</td>
+            <td width="60px">7.527</td>
+            <td width="60px" class="actual">10.283</td>
+            <td width="60px">0.019</td>
+            <td width="60px" class="actual">3.092</td>
+         </tr>
+         <tr>
+            <td>map-datemap2-1</td>
+            <td width="60px">5.178</td>
+            <td width="60px" class="actual">112.335</td>
+            <td width="60px">5.839</td>
+            <td width="60px" class="actual">14.14</td>
+            <td width="60px">0.238</td>
+            <td width="60px" class="actual">2.328</td>
+         </tr>
+         <tr>
+            <td>map-datemap2-4</td>
+            <td width="60px">5.423</td>
+            <td width="60px" class="actual">426.37</td>
+            <td width="60px">5.998</td>
+            <td width="60px" class="actual">61.023</td>
+            <td width="60px">0.238</td>
+            <td width="60px" class="actual">2.285</td>
+         </tr>
+         <tr>
+            <td>map-datemap3-1</td>
+            <td width="60px">6.058</td>
+            <td width="60px" class="actual">225.626</td>
+            <td width="60px">7.5</td>
+            <td width="60px" class="actual">127.683</td>
+            <td width="60px">0.278</td>
+            <td width="60px" class="actual">2.716</td>
+         </tr>
+         <tr>
+            <td>map-datemap3-4</td>
+            <td width="60px">6.579</td>
+            <td width="60px" class="actual">1583.969</td>
+            <td width="60px">7.499</td>
+            <td width="60px" class="actual">1213.338</td>
+            <td width="60px">0.323</td>
+            <td width="60px" class="actual">3.166</td>
+         </tr>
+         <tr>
+            <td>map-datemap4-1</td>
+            <td width="60px">5.209</td>
+            <td width="60px" class="actual">114.467</td>
+            <td width="60px">6.051</td>
+            <td width="60px" class="actual">17.454</td>
+            <td width="60px">0.26</td>
+            <td width="60px" class="actual">3.241</td>
+         </tr>
+         <tr>
+            <td>map-datemap4-4</td>
+            <td width="60px">5.473</td>
+            <td width="60px" class="actual">486.973</td>
+            <td width="60px">6.25</td>
+            <td width="60px" class="actual">117.246</td>
+            <td width="60px">0.265</td>
+            <td width="60px" class="actual">3.245</td>
+         </tr>
+         <tr>
+            <td>map-datemap5-1</td>
+            <td width="60px">6.005</td>
+            <td width="60px" class="actual">218.672</td>
+            <td width="60px">6.053</td>
+            <td width="60px" class="actual">113.55</td>
+            <td width="60px">0.111</td>
+            <td width="60px" class="actual">3.086</td>
+         </tr>
+         <tr>
+            <td>map-datemap5-4</td>
+            <td width="60px">5.437</td>
+            <td width="60px" class="actual">815.408</td>
+            <td width="60px">5.583</td>
+            <td width="60px" class="actual">460.912</td>
+            <td width="60px">0.096</td>
+            <td width="60px" class="actual">2.678</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-001</td>
+            <td width="60px">4.026</td>
+            <td width="60px" class="actual">161.608</td>
+            <td width="60px">4.976</td>
+            <td width="60px" class="actual">76.025</td>
+            <td width="60px">0.297</td>
+            <td width="60px" class="actual">3.308</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-002</td>
+            <td width="60px">4.883</td>
+            <td width="60px" class="actual">114.136</td>
+            <td width="60px">4.879</td>
+            <td width="60px" class="actual">43.3</td>
+            <td width="60px">0.247</td>
+            <td width="60px" class="actual">3.55</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-003</td>
+            <td width="60px">3.384</td>
+            <td width="60px" class="actual">99.882</td>
+            <td width="60px">4.225</td>
+            <td width="60px" class="actual">49.887</td>
+            <td width="60px">1.374</td>
+            <td width="60px" class="actual">9.709</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-004</td>
+            <td width="60px">4.375</td>
+            <td width="60px" class="actual">61.623</td>
+            <td width="60px">4.032</td>
+            <td width="60px" class="actual">27.429</td>
+            <td width="60px">1.426</td>
+            <td width="60px" class="actual">9.753</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-101</td>
+            <td width="60px">3.768</td>
+            <td width="60px" class="actual">454.756</td>
+            <td width="60px">4.044</td>
+            <td width="60px" class="actual">205.916</td>
+            <td width="60px">0.246</td>
+            <td width="60px" class="actual">3.561</td>
+         </tr>
+         <tr>
+            <td>musicxml-tests-102</td>
+            <td width="60px">3.58</td>
+            <td width="60px" class="actual">258.382</td>
+            <td width="60px">3.994</td>
+            <td width="60px" class="actual">120.417</td>
+            <td width="60px">0.244</td>
+            <td width="60px" class="actual">3.58</td>
+         </tr>
+         <tr>
+            <td>regex-replace1-1</td>
+            <td width="60px">4.064</td>
+            <td width="60px" class="actual">578.288</td>
+            <td width="60px">3.912</td>
+            <td width="60px" class="actual">438.987</td>
+            <td width="60px">0.461</td>
+            <td width="60px" class="actual">0.617</td>
+         </tr>
+         <tr>
+            <td>regex-replace1-4</td>
+            <td width="60px">3.144</td>
+            <td width="60px" class="actual">2290.84</td>
+            <td width="60px">2.547</td>
+            <td width="60px" class="actual">1836.491</td>
+            <td width="60px">0.501</td>
+            <td width="60px" class="actual">0.609</td>
+         </tr>
+         <tr>
+            <td>regex-tokenize1-1</td>
+            <td width="60px">4.017</td>
+            <td width="60px" class="actual">1337.343</td>
+            <td width="60px">4.279</td>
+            <td width="60px" class="actual">1246.427</td>
+            <td width="60px">0.504</td>
+            <td width="60px" class="actual">0.752</td>
+         </tr>
+         <tr>
+            <td>regex-tokenize2-1</td>
+            <td width="60px">4.833</td>
+            <td width="60px" class="actual">105.953</td>
+            <td width="60px">4.436</td>
+            <td width="60px" class="actual">6.818</td>
+            <td width="60px">0.337</td>
+            <td width="60px" class="actual">1.006</td>
+         </tr>
+         <tr>
+            <td>regex-matches1-1</td>
+            <td width="60px">4.775</td>
+            <td width="60px" class="actual">282.202</td>
+            <td width="60px">4.975</td>
+            <td width="60px" class="actual">289.311</td>
+            <td width="60px">0.514</td>
+            <td width="60px" class="actual">0.745</td>
+         </tr>
+         <tr>
+            <td>regex-matches2-1</td>
+            <td width="60px">4.945</td>
+            <td width="60px" class="actual">704.438</td>
+            <td width="60px">4.738</td>
+            <td width="60px" class="actual">662.259</td>
+            <td width="60px">0.522</td>
+            <td width="60px" class="actual">0.745</td>
+         </tr>
+         <tr>
+            <td>regex-matches2-4</td>
+            <td width="60px">4.609</td>
+            <td width="60px" class="actual">2723.676</td>
+            <td width="60px">4.764</td>
+            <td width="60px" class="actual">2754.981</td>
+            <td width="60px">0.467</td>
+            <td width="60px" class="actual">0.711</td>
+         </tr>
+         <tr>
+            <td>regex-matches3-1</td>
+            <td width="60px">3.659</td>
+            <td width="60px" class="actual">2643.311</td>
+            <td width="60px">3.678</td>
+            <td width="60px" class="actual">2624.802</td>
+            <td width="60px">0.48</td>
+            <td width="60px" class="actual">0.667</td>
+         </tr>
+         <tr>
+            <td>regex-matches4</td>
+            <td width="60px">3.908</td>
+            <td width="60px" class="actual">32.756</td>
+            <td width="60px">4.157</td>
+            <td width="60px" class="actual">31.54</td>
+            <td width="60px">0.527</td>
+            <td width="60px" class="actual">0.63</td>
+         </tr>
+         <tr>
+            <td>regex-analyze1-1</td>
+            <td width="60px">4.698</td>
+            <td width="60px" class="actual">171.538</td>
+            <td width="60px">4.848</td>
+            <td width="60px" class="actual">164.685</td>
+            <td width="60px">0.595</td>
+            <td width="60px" class="actual">0.779</td>
+         </tr>
+         <tr>
+            <td>regex-analyze2-1</td>
+            <td width="60px">4.923</td>
+            <td width="60px" class="actual">399.806</td>
+            <td width="60px">5.421</td>
+            <td width="60px" class="actual">284.892</td>
+            <td width="60px">0.607</td>
+            <td width="60px" class="actual">0.8</td>
+         </tr>
+         <tr>
+            <td>regex-analyze2-4</td>
+            <td width="60px">4.942</td>
+            <td width="60px" class="actual">1588.166</td>
+            <td width="60px">5.337</td>
+            <td width="60px" class="actual">1196.941</td>
+            <td width="60px">0.635</td>
+            <td width="60px" class="actual">0.813</td>
+         </tr>
+         <tr>
+            <td>regex-analyze3</td>
+            <td width="60px">3.887</td>
+            <td width="60px" class="actual">96.606</td>
+            <td width="60px">3.743</td>
+            <td width="60px" class="actual">77.747</td>
+            <td width="60px">0.174</td>
+            <td width="60px" class="actual">0.812</td>
+         </tr>
+      </table>
+      <br></br>
+      <h4>
+         <a id="scalable-table">Table of scalable test results for SaxonEE-9.5-.NET-noBC</a>
+      </h4>
+      <table id="scalable">
+         <thead>
+            <th colspan="2"></th>
+            <th colspan="6"> Performance scale factor for test pair 
+               <p class="actual"> Actual
+                  times (in milliseconds)
+               </p>
+            </th>
+         </thead>
+         <thead>
+            <th>Tests</th>
+            <th width="40px">Scale factor</th>
+            <th width="120px" colspan="2">File-to-file transform</th>
+            <th width="120px" colspan="2">Tree-to-tree transform</th>
+            <th width="120px" colspan="2">Stylesheet compile</th>
+         </thead>
+         <tr>
+            <td class="actual">micro-subscripting-20000
+               <br></br>micro-subscripting-40000
+            </td>
+            <td>2</td>
+            <td width="60px">1.622</td>
+            <td width="60px" class="actual">30.515
+               <br></br>49.499
+            </td>
+            <td width="60px">1.996</td>
+            <td width="60px" class="actual">18.082
+               <br></br>36.084
+            </td>
+            <td width="60px">0.996</td>
+            <td width="60px" class="actual">0.746
+               <br></br>0.743
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">micro-subscripting-20000
+               <br></br>micro-subscripting-80000
+            </td>
+            <td>4</td>
+            <td width="60px">2.83</td>
+            <td width="60px" class="actual">30.515
+               <br></br>86.354
+            </td>
+            <td width="60px">4.093</td>
+            <td width="60px" class="actual">18.082
+               <br></br>74.002
+            </td>
+            <td width="60px">0.997</td>
+            <td width="60px" class="actual">0.746
+               <br></br>0.744
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">micro-subscripting-20000
+               <br></br>micro-subscripting-160000
+            </td>
+            <td>8</td>
+            <td width="60px">5.243</td>
+            <td width="60px" class="actual">30.515
+               <br></br>159.995
+            </td>
+            <td width="60px">8.089</td>
+            <td width="60px" class="actual">18.082
+               <br></br>146.262
+            </td>
+            <td width="60px">0.995</td>
+            <td width="60px" class="actual">0.746
+               <br></br>0.743
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q1-1
+               <br></br>xmark-q1-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.504</td>
+            <td width="60px" class="actual">101.85
+               <br></br>356.847
+            </td>
+            <td width="60px">3.417</td>
+            <td width="60px" class="actual">0.41
+               <br></br>1.4
+            </td>
+            <td width="60px">0.992</td>
+            <td width="60px" class="actual">0.653
+               <br></br>0.648
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q2-1
+               <br></br>xmark-q2-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.733</td>
+            <td width="60px" class="actual">95.209
+               <br></br>355.458
+            </td>
+            <td width="60px">3.67</td>
+            <td width="60px" class="actual">0.485
+               <br></br>1.779
+            </td>
+            <td width="60px">0.987</td>
+            <td width="60px" class="actual">0.649
+               <br></br>0.641
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q3-1
+               <br></br>xmark-q3-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.665</td>
+            <td width="60px" class="actual">96.155
+               <br></br>352.425
+            </td>
+            <td width="60px">4.112</td>
+            <td width="60px" class="actual">0.906
+               <br></br>3.727
+            </td>
+            <td width="60px">1.068</td>
+            <td width="60px" class="actual">0.985
+               <br></br>1.053
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q5-1
+               <br></br>xmark-q5-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.557</td>
+            <td width="60px" class="actual">96.766
+               <br></br>344.195
+            </td>
+            <td width="60px">3.317</td>
+            <td width="60px" class="actual">0.339
+               <br></br>1.126
+            </td>
+            <td width="60px">1.013</td>
+            <td width="60px" class="actual">0.66
+               <br></br>0.668
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q6-1
+               <br></br>xmark-q6-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.675</td>
+            <td width="60px" class="actual">95.86
+               <br></br>352.326
+            </td>
+            <td width="60px">3.774</td>
+            <td width="60px" class="actual">0.731
+               <br></br>2.758
+            </td>
+            <td width="60px">0.999</td>
+            <td width="60px" class="actual">0.677
+               <br></br>0.676
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q7-1
+               <br></br>xmark-q7-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.482</td>
+            <td width="60px" class="actual">100.093
+               <br></br>348.565
+            </td>
+            <td width="60px">2.178</td>
+            <td width="60px" class="actual">0.117
+               <br></br>0.254
+            </td>
+            <td width="60px">0.992</td>
+            <td width="60px" class="actual">0.75
+               <br></br>0.744
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q8-1
+               <br></br>xmark-q8-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.237</td>
+            <td width="60px" class="actual">110.258
+               <br></br>356.867
+            </td>
+            <td width="60px">3.988</td>
+            <td width="60px" class="actual">2.627
+               <br></br>10.476
+            </td>
+            <td width="60px">0.988</td>
+            <td width="60px" class="actual">1.221
+               <br></br>1.206
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q9-1
+               <br></br>xmark-q9-4
+            </td>
+            <td>4</td>
+            <td width="60px">7.929</td>
+            <td width="60px" class="actual">158.907
+               <br></br>1259.948
+            </td>
+            <td width="60px">15.273</td>
+            <td width="60px" class="actual">60.175
+               <br></br>919.025
+            </td>
+            <td width="60px">1.086</td>
+            <td width="60px" class="actual">1.932
+               <br></br>2.099
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q10-1
+               <br></br>xmark-q10-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.814</td>
+            <td width="60px" class="actual">111.323
+               <br></br>424.537
+            </td>
+            <td width="60px">4.708</td>
+            <td width="60px" class="actual">13.186
+               <br></br>62.077
+            </td>
+            <td width="60px">1.009</td>
+            <td width="60px" class="actual">2.35
+               <br></br>2.37
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q11-1
+               <br></br>xmark-q11-4
+            </td>
+            <td>4</td>
+            <td width="60px">9.444</td>
+            <td width="60px" class="actual">184.186
+               <br></br>1739.503
+            </td>
+            <td width="60px">15.372</td>
+            <td width="60px" class="actual">89.204
+               <br></br>1371.288
+            </td>
+            <td width="60px">0.995</td>
+            <td width="60px" class="actual">1.528
+               <br></br>1.519
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q12-1
+               <br></br>xmark-q12-4
+            </td>
+            <td>4</td>
+            <td width="60px">5.531</td>
+            <td width="60px" class="actual">123.231
+               <br></br>681.575
+            </td>
+            <td width="60px">11.405</td>
+            <td width="60px" class="actual">29.262
+               <br></br>333.737
+            </td>
+            <td width="60px">0.998</td>
+            <td width="60px" class="actual">1.589
+               <br></br>1.586
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q13-1
+               <br></br>xmark-q13-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.359</td>
+            <td width="60px" class="actual">102.387
+               <br></br>343.873
+            </td>
+            <td width="60px">4.222</td>
+            <td width="60px" class="actual">0.578
+               <br></br>2.441
+            </td>
+            <td width="60px">0.992</td>
+            <td width="60px" class="actual">0.809
+               <br></br>0.803
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q14-1
+               <br></br>xmark-q14-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.971</td>
+            <td width="60px" class="actual">100.567
+               <br></br>399.382
+            </td>
+            <td width="60px">4.292</td>
+            <td width="60px" class="actual">3.843
+               <br></br>16.496
+            </td>
+            <td width="60px">0.986</td>
+            <td width="60px" class="actual">0.837
+               <br></br>0.825
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q15-1
+               <br></br>xmark-q15-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.647</td>
+            <td width="60px" class="actual">94.351
+               <br></br>344.118
+            </td>
+            <td width="60px">2.892</td>
+            <td width="60px" class="actual">0.357
+               <br></br>1.034
+            </td>
+            <td width="60px">1.002</td>
+            <td width="60px" class="actual">0.744
+               <br></br>0.746
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q16-1
+               <br></br>xmark-q16-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.578</td>
+            <td width="60px" class="actual">94.292
+               <br></br>337.421
+            </td>
+            <td width="60px">3.281</td>
+            <td width="60px" class="actual">0.454
+               <br></br>1.49
+            </td>
+            <td width="60px">1.0</td>
+            <td width="60px" class="actual">0.89
+               <br></br>0.89
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q17-1
+               <br></br>xmark-q17-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.793</td>
+            <td width="60px" class="actual">95.149
+               <br></br>360.865
+            </td>
+            <td width="60px">3.617</td>
+            <td width="60px" class="actual">0.694
+               <br></br>2.509
+            </td>
+            <td width="60px">1.003</td>
+            <td width="60px" class="actual">0.715
+               <br></br>0.717
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q18-1
+               <br></br>xmark-q18-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.509</td>
+            <td width="60px" class="actual">96.715
+               <br></br>339.4
+            </td>
+            <td width="60px">3.394</td>
+            <td width="60px" class="actual">0.588
+               <br></br>1.995
+            </td>
+            <td width="60px">0.996</td>
+            <td width="60px" class="actual">0.832
+               <br></br>0.829
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q19-1
+               <br></br>xmark-q19-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.448</td>
+            <td width="60px" class="actual">102.679
+               <br></br>354.065
+            </td>
+            <td width="60px">4.25</td>
+            <td width="60px" class="actual">3.274
+               <br></br>13.916
+            </td>
+            <td width="60px">0.996</td>
+            <td width="60px" class="actual">0.804
+               <br></br>0.8
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">xmark-q20-1
+               <br></br>xmark-q20-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.548</td>
+            <td width="60px" class="actual">98.322
+               <br></br>348.84
+            </td>
+            <td width="60px">3.719</td>
+            <td width="60px" class="actual">2.093
+               <br></br>7.783
+            </td>
+            <td width="60px">1.002</td>
+            <td width="60px" class="actual">1.276
+               <br></br>1.279
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">map-datemap2-1
+               <br></br>map-datemap2-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.796</td>
+            <td width="60px" class="actual">112.335
+               <br></br>426.37
+            </td>
+            <td width="60px">4.316</td>
+            <td width="60px" class="actual">14.14
+               <br></br>61.023
+            </td>
+            <td width="60px">0.981</td>
+            <td width="60px" class="actual">2.328
+               <br></br>2.285
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">map-datemap3-1
+               <br></br>map-datemap3-4
+            </td>
+            <td>4</td>
+            <td width="60px">7.02</td>
+            <td width="60px" class="actual">225.626
+               <br></br>1583.969
+            </td>
+            <td width="60px">9.503</td>
+            <td width="60px" class="actual">127.683
+               <br></br>1213.338
+            </td>
+            <td width="60px">1.166</td>
+            <td width="60px" class="actual">2.716
+               <br></br>3.166
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">map-datemap4-1
+               <br></br>map-datemap4-4
+            </td>
+            <td>4</td>
+            <td width="60px">4.254</td>
+            <td width="60px" class="actual">114.467
+               <br></br>486.973
+            </td>
+            <td width="60px">6.717</td>
+            <td width="60px" class="actual">17.454
+               <br></br>117.246
+            </td>
+            <td width="60px">1.001</td>
+            <td width="60px" class="actual">3.241
+               <br></br>3.245
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">map-datemap5-1
+               <br></br>map-datemap5-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.729</td>
+            <td width="60px" class="actual">218.672
+               <br></br>815.408
+            </td>
+            <td width="60px">4.059</td>
+            <td width="60px" class="actual">113.55
+               <br></br>460.912
+            </td>
+            <td width="60px">0.868</td>
+            <td width="60px" class="actual">3.086
+               <br></br>2.678
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">regex-replace1-1
+               <br></br>regex-replace1-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.961</td>
+            <td width="60px" class="actual">578.288
+               <br></br>2290.84
+            </td>
+            <td width="60px">4.183</td>
+            <td width="60px" class="actual">438.987
+               <br></br>1836.491
+            </td>
+            <td width="60px">0.986</td>
+            <td width="60px" class="actual">0.617
+               <br></br>0.609
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">regex-matches2-1
+               <br></br>regex-matches2-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.866</td>
+            <td width="60px" class="actual">704.438
+               <br></br>2723.676
+            </td>
+            <td width="60px">4.16</td>
+            <td width="60px" class="actual">662.259
+               <br></br>2754.981
+            </td>
+            <td width="60px">0.954</td>
+            <td width="60px" class="actual">0.745
+               <br></br>0.711
+            </td>
+         </tr>
+         <tr>
+            <td class="actual">regex-analyze2-1
+               <br></br>regex-analyze2-4
+            </td>
+            <td>4</td>
+            <td width="60px">3.972</td>
+            <td width="60px" class="actual">399.806
+               <br></br>1588.166
+            </td>
+            <td width="60px">4.201</td>
+            <td width="60px" class="actual">284.892
+               <br></br>1196.941
+            </td>
+            <td width="60px">1.016</td>
+            <td width="60px" class="actual">0.8
+               <br></br>0.813
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

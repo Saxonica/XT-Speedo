@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <link rel="stylesheet" type="text/css" href="reportstyle.css" />
-        <title> XT-Speedo results </title>
+        <link rel="stylesheet" type="text/css" href="../reportstyle.css" />
+        <title> XT-Speedo report info </title>
     </head>
     <body>
-        <p>
-            <a href="report.html">Back to overview</a>
-        </p>
-        <h1>Understanding the XT-Speedo reports</h1>
+        <ul class="nav">
+            <li><a href="report.html">XT-SPEEDO</a></li>
+            <li><a href="">*</a></li>
+            <li><a href="report-info.html">Reports explained</a></li>
+            <li><a href="diagram.html">XT-Speedo diagram</a></li>
+            <li><a href="https://github.com/Saxonica/XT-Speedo/">GitHub project</a></li>                    
+        </ul>
+        <h1>XT-Speedo reports explained</h1>
         <h3>Performance metric</h3>
         <p> In the overview table, as our "bottom-line" metric we use the sum of the process times
             (over all tests) for the driver, relative to the sum for the baseline driver. This of
@@ -33,7 +37,7 @@
             driver is faster than the baseline. The height of the bars corresponds to the number of
             times slower (above the axis) or faster (below the axis) that the driver is compared to
             the baseline. (This is achieved by using a reciprocal scale below the axis.) </p>
-        <p> Bars are highlighted and shown with an arrow head to indicate that the test result is
+        <p> Bars are highlighted and shown with an arrow head to indicate that a test result is
             off the scale of the chart, which is based on the 5th to 95th percentile range. The
             actual numbers are available in the detailed results table, or can be obtained by
             hovering the pointer over the bar.</p>

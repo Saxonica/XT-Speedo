@@ -5,53 +5,120 @@
     <xsl:include href="driver-module.xsl"/>
 
     <xsl:variable name="input-docs" as="document-node(element(testResults))*"
-        select="collection('../results/selection?*.xml')"/>
-       
-    <xsl:variable name="input-baseline" select="$input-docs[testResults/@baseline='yes'][1]"/>       
-        
+        select="collection(concat('../results/', $driverSetDir, '?*.xml'))"/>
+           
+    <xsl:variable name="input-baseline" select="$input-docs[testResults/@baseline='yes'][1]"/>               
     <xsl:variable name="baseline" select="if (exists($input-baseline)) then $input-baseline else $input-docs[1]"/>
-         
+    
+    <!-- Update manually, but must contain the key word 'driverSet-' -->
+    <xsl:variable name="driverSetDir" select="'driverSet-All/'" />
+    <xsl:variable name="rootHTML" select="'html/'" />
+    
+    <xsl:output method="xhtml" />
+    
+    
+    <!-- Update list of 'dirs' manually, to produce home-page with links to (previously produced) reports for sets of drivers -->
+    <xsl:template name="home-page">
+        
+        <xsl:variable name="dirs" select="('driverSet-All', 'driverSet-Java','driverSet-SaxonHE-Java-vs-.NET', 'driverSet-SaxonEE-vs-XmlPrime',
+            'driverSet-Saxon-9.5-vs-9.6', 'driverSet-SaxonEE', 'driverSet-SaxonEE-BC', 'driverSet-SaxonEE-noBC')" />
+        <xsl:result-document href="{$rootHTML}report.html">
+            <html>
+                <head>
+                    <link rel="stylesheet" type="text/css" href="../reportstyle.css"/>
+                    <title>XT-Speedo results report</title>
+                </head>
+                <body>
+                    <ul class="nav">
+                        <li><a href="report.html">XT-SPEEDO</a></li>
+                        <li><a href="">*</a></li>
+                        <li><a href="report-info.html">Reports explained</a></li>
+                        <li><a href="diagram.html">XT-Speedo diagram</a></li>
+                        <li><a href="https://github.com/Saxonica/XT-Speedo/">GitHub project</a></li>
+                    </ul>
+                    <h1>XT-Speedo results reports</h1>    
+                    <h3>Comparisons of results for selected sets of drivers:</h3>
+                    <ul>
+                        <xsl:for-each select="$dirs">                       
+                            <li><a href="{.}/overview.html">
+                                <xsl:analyze-string select="." regex="driverSet-(.+)|(.+)">
+                                    <xsl:matching-substring>
+                                        <xsl:value-of select="regex-group(1)" />
+                                        <xsl:value-of select="regex-group(2)" />
+                                    </xsl:matching-substring>
+                                </xsl:analyze-string>
+                                </a></li>
+                        </xsl:for-each>
+                    </ul>                    
+                </body>
+            </html>
+        </xsl:result-document>        
+    </xsl:template>
+    
+    <!-- 'main' template produces reports for drivers: overview page and driver pages -->
     <xsl:template name="main">
+        
+        <xsl:result-document href="{$rootHTML}{$driverSetDir}overview.html">
         <html>
-            <!--            <xsl:copy-of select="$baseline"/>-->
             <head>
-                <link rel="stylesheet" type="text/css" href="reportstyle.css"/>
-                <title>XT-Speedo results</title>
+                <link rel="stylesheet" type="text/css" href="../../reportstyle.css"/>
+                <title>XT-Speedo results overview</title>
             </head>
             <body>
+                <xsl:call-template name="nav-bar"/>
                 <xsl:call-template name="body"/>
             </body>
         </html>
+        </xsl:result-document>
         <xsl:for-each select="$input-docs">
-            <xsl:result-document href="{testResults/@driver}.html">
+            <xsl:result-document href="{$rootHTML}{$driverSetDir}{testResults/@driver}.html">
                 <xsl:call-template name="driver-page">
                     <xsl:with-param name="baseline" select="$baseline"/>
                     <xsl:with-param name="input-doc" select="."/>
+                    <xsl:with-param name="driverSetDir" select="$driverSetDir"/>
                 </xsl:call-template>
             </xsl:result-document>
         </xsl:for-each>
     </xsl:template>
     
-    <xsl:template name="body">
+    <xsl:template name="nav-bar">
+        <ul class="nav">
+            <li><a href="../report.html">XT-SPEEDO</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="../report-info.html">Reports explained</a></li>
+            <li><a href="../diagram.html">XT-Speedo diagram</a></li>
+            <li><a href="https://github.com/Saxonica/XT-Speedo/">GitHub project</a></li>
+        </ul>
+    </xsl:template>
+    
+    <!-- Body of overview page -->
+    <xsl:template name="body">        
         <h1>
             <xsl:value-of select="'Overview of results at', 
                 format-dateTime($baseline/testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"/>
         </h1>
-        <p>
-            For further information about how these results were calculated, and what the numbers mean,
-            please see <a href="report-info.html">Understanding the XT-Speedo reports</a>
-        </p>
-        <br/>
+        <h3> <i>Set of drivers: </i> 
+            <xsl:analyze-string select="$driverSetDir" regex="driverSet-(.+)/|(.+)/">
+                <xsl:matching-substring>
+                    <xsl:value-of select="regex-group(1)" />
+                    <xsl:value-of select="regex-group(2)" />
+                </xsl:matching-substring>
+            </xsl:analyze-string>
+        </h3> 
+        <h3> <i>Comparing performance to baseline driver: </i> <xsl:value-of
+            select="$baseline/testResults/@driver"/>
+        </h3>        
         <table id="overview">
             <thead>
                 <th/>
-                <th colspan="3"> Times relative to <xsl:value-of select="$baseline/testResults/@driver"/> driver <br/> (smaller values represent faster times) 
+                <th colspan="3"> Times relative to <xsl:value-of select="$baseline/testResults/@driver"/> driver <br/>
+                    (smaller values represent faster times) 
                 </th>                           
             </thead>
             <thead>
                 <th>Driver</th>
-                <th width="180px">File to file transform</th>
-                <th width="180px">Tree to tree transform</th>
+                <th width="180px">File-to-file transform</th>
+                <th width="180px">Tree-to-tree transform</th>
                 <th width="180px">Stylesheet compile</th>
             </thead>
             <xsl:for-each select="$input-docs">
@@ -86,6 +153,10 @@
                 </tr>
             </xsl:for-each>
         </table>
+        <p>
+            For further information about how these results were calculated, and what the numbers mean,
+            see <a href="../report-info.html">Reports explained</a>
+        </p>
     </xsl:template>
 
 
@@ -102,6 +173,6 @@
                 <xsl:value-of select="'-\-', format-number($ratios[current()], '0.0##')"/>
             </xsl:for-each>-->            
         </p>
-    </xsl:function>
-
+    </xsl:function>    
+    
 </xsl:stylesheet>
