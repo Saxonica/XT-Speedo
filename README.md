@@ -19,7 +19,7 @@ The Speedo is configured to save one result document (XML file) per driver. The 
 
 ### Analysing the results
 
-The reporting stylesheet `analysis/report.xsl` produces HTML reports to view the results of a collection of drivers (currently set up to use the driver results XML files found in `results/selection`). The report consists of an overview page containing a table comparing the performance of all the drivers, with links (click on the driver name) to driver pages which contain further information. These driver pages contain bar charts for each of the three measured processes (file-to-file transform, tree-to-tree transform, and stylesheet compile) showing the driver's performance for each test compared to a selected baseline driver (chosen in the drivers catalog — see **Selecting a baseline driver** below for more details). Under the bar charts is the full table of results for the driver, giving process times for each test (performance relative to the baseline, and actual times).
+The reporting stylesheet `analysis/report.xsl` produces HTML reports to view the results of a collection of drivers (currently set up to use the driver results XML files found in `results/selection`). The report consists of an index page which allows you to select a baseline against which to compare, for each baseline there exists overview page containing a table comparing the performance of all the drivers, with links (click on the driver name) to driver pages which contain further information. These driver pages contain bar charts for each of the three measured processes (file-to-file transform, tree-to-tree transform, and stylesheet compile) showing the driver's performance for each test compared to a selected baseline driver. Under the bar charts is the full table of results for the driver, giving process times for each test (performance relative to the baseline, and actual times).
 
 =========
 
@@ -35,9 +35,6 @@ Collecting a full set of data for all processors requires more than one program 
 
 For the Java platform, the open source JAR files used by the drivers are contained in `drivers/java/lib` (for products which are not open source, these are stored externally).
 
-### Selecting a baseline driver
-
-For the HTML reports, results are displayed comparing each driver's performance to some baseline driver. A baseline is selected by setting the `baseline` attribute to 'yes' in the driver's results XML document, and setting the attribute to 'no' for all others. This can be configured in the drivers catalog before running the Speedo by making the corresponding changes, or the results files can just be edited manually. If no baseline is chosen, then by default the first driver on the list is taken as the baseline; or if more than one driver has 'yes' in its `baseline` attribute, then the first of these is taken. 
 
 ### How to add drivers
 
