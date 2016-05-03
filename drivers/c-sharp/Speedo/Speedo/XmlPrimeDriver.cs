@@ -33,15 +33,17 @@ namespace Speedo
         public XmlPrimeDriver()
         {
             var uriResolver = new XmlUrlResolver();
-            xmlReaderSettings = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver };
+            xmlReaderSettings = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver, ProhibitDtd = false };
             xmlReaderSettings.CloseInput = true;
             xsltSettings = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
             xsltSettings.ModuleResolver = new XmlUrlResolver();
+            xsltSettings.CodeGeneration = CodeGeneration.DynamicMethods;
 
-            xmlReaderSettingsSchemaAware = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver };
+            xmlReaderSettingsSchemaAware = new XmlReaderSettings { NameTable = nameTable, XmlResolver = uriResolver, ProhibitDtd = false };
             xmlReaderSettingsSchemaAware.CloseInput = true;
             xsltSettingsSchemaAware = new XsltSettings(nameTable) { ContextItemType = XdmType.Node };
             xsltSettingsSchemaAware.ModuleResolver = new XmlUrlResolver();
+            xsltSettingsSchemaAware.CodeGeneration = CodeGeneration.DynamicMethods;
             
             //var xmlReaderSettingsUnparsedText = new XmlReaderSettings { XmlResolver = uriResolver };
             //xmlReaderSettingsUnparsedText.CloseInput = true;
@@ -65,7 +67,7 @@ namespace Speedo
         {
             using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
             {
-                sourceDocument = new XdmDocument(reader);
+                sourceDocument = new XdmDocument(reader, XmlSpace.Preserve);
                 reader.Close();
             }
         }
@@ -73,6 +75,7 @@ namespace Speedo
         public override void CompileStylesheet(Uri stylesheetUri)
         {
             stylesheet = Xslt.Compile(stylesheetUri.ToString(), schemaAware ? xsltSettingsSchemaAware : xsltSettings);
+            stylesheet.SerializationSettings.NewLineChars = "\n";
         }
 
         public override void TreeToTreeTransform()
@@ -111,7 +114,7 @@ namespace Speedo
             {
                 using (XmlReader reader = XmlReader.Create(sourceUri.ToString(), schemaAware ? xmlReaderSettingsSchemaAware : xmlReaderSettings))
                 {
-                    document = new XdmDocument(reader);
+                    document = new XdmDocument(reader, XmlSpace.Preserve);
                     reader.Close();
                 }
                 XdmNavigator contextItem = document.CreateNavigator();
@@ -184,6 +187,16 @@ namespace Speedo
         public override double GetXsltVersion()
         {
             return 2.0;
+        }
+
+        public override void SetOption(string name, string value)
+        {
+            if (name == "generateByteCode")
+            {
+                var codeGeneration = value == "true" ? CodeGeneration.DynamicMethods : CodeGeneration.None;
+                xsltSettingsSchemaAware.CodeGeneration = codeGeneration;
+                xsltSettings.CodeGeneration = codeGeneration;
+            }
         }
     }
 }
