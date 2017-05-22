@@ -12,17 +12,34 @@
         <xsl:param name="driverSetDir"/>
         <html>
             <head>
-                <link rel="stylesheet" type="text/css" href="../../reportstyle.css"/>
+                <link rel="stylesheet" type="text/css" href="../../../reportstyle.css"/>
                 <title>XT-Speedo <xsl:value-of select="testResults/@driver"/> results</title>
             </head>
             <body>
                 <ul class="nav">
-                    <li><a href="../report.html">XT-SPEEDO</a></li>
-                    <li><a href="overview.html">Overview</a></li>
-                    <li><a href="../report-info.html">Reports explained</a></li>
-                    <li><a href="../diagram.html">XT-Speedo diagram</a></li>
+                    <li><a href="../../report.html">XT-SPEEDO</a></li>
+                    <li><a href="../../report-info.html">Reports explained</a></li>
+                    <li><a href="../../diagram.html">XT-Speedo diagram</a></li>
                     <li><a href="https://github.com/Saxonica/XT-Speedo/">GitHub project</a></li>
                 </ul>
+        <nav>
+          <a href="../../report.html">XTSpeedo</a>
+                  <span> &gt; </span>
+          <a href="../overview.html">
+                    <xsl:text>Driver set </xsl:text>
+            <xsl:value-of select="local:driver-set($driverSetDir)" />
+          </a>
+                  <span> &gt; </span>
+          <a href="./overview.html">
+                    <xsl:text>Baseline </xsl:text>
+            <xsl:value-of select="local:baseline($baseline)" />
+          </a>
+                  <span> &gt; </span>
+          <span>
+                    <xsl:text>Comparison </xsl:text>
+            <xsl:value-of select="testResults/@driver" />
+          </span>
+        </nav>
                                 
                 <h1>
                     <xsl:value-of
@@ -30,14 +47,7 @@
                         format-dateTime(testResults/@on, '[H]:[m]:[s] on [D] [MNn] [Y]')"
                     />
                 </h1>
-                <p> <b><a href="overview.html">Back to overview</a></b> for set of drivers:                    
-                    <xsl:analyze-string select="$driverSetDir" regex="driverSet-(.+)/|(.+)/">
-                        <xsl:matching-substring>
-                            <xsl:value-of select="regex-group(1)" />
-                            <xsl:value-of select="regex-group(2)" />
-                        </xsl:matching-substring>
-                    </xsl:analyze-string>
-                </p>
+
                 <h3> <i>Comparing performance to baseline driver: </i><xsl:value-of
                         select="$baseline/testResults/@driver"/>
                 </h3>
@@ -383,37 +393,51 @@
             <!--Bars-->
             <xsl:for-each select="1 to count($ratios)">
                 <xsl:if test="string($ratios[current()]) ne 'NaN'">
+                    <xsl:variable name="slower"
+                                  select="$ratios[current()] > 1" />
                     <xsl:choose>
                         <xsl:when
                             test="(($ratios[current()] ge 1) and ($ratios[current()] - 1 le $baseline-axis)) 
                             or (($ratios[current()] le 1) and ($ratios[current()] ne 0) and ((1 div $ratios[current()]) - 1 le $range-factor - $baseline-axis))">
+                            <xsl:variable name="fill"
+                                          select="if ($slower) 
+                                                  then 'FFCEDE' 
+                                                  else 'C1FFDE'" />
+                            <xsl:variable name="stroke"
+                                          select="if ($slower) 
+                                                  then 'FF5B96' 
+                                                  else '008800'" />
                             <rect x="{current()*10 + 30}"
-                                y="{if ($ratios[current()] > 1) then (($baseline-axis - ($ratios[current()] - 1))*$scale-factor + 20) else ($baseline-axis*$scale-factor + 20)}"
+                                y="{if ($slower) then (($baseline-axis - ($ratios[current()] - 1))*$scale-factor + 20) else ($baseline-axis*$scale-factor + 20)}"
                                 width="5"
-                                height="{if ($ratios[current()] > 1) then (($ratios[current()] - 1)*$scale-factor) else (((1 div $ratios[current()]) - 1)*$scale-factor)}"
-                                style="fill:#c1cede; stroke-width:1; stroke:#3D5B96"
+                                height="{if ($slower) then (($ratios[current()] - 1)*$scale-factor) else (((1 div $ratios[current()]) - 1)*$scale-factor)}"
+                                style="fill:#{$fill}; stroke-width:1; stroke:#{$stroke}"
                                 title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
                             />
                         </xsl:when>
                         <xsl:otherwise>
+                            <xsl:variable name="fill"
+                                          select="if ($slower) 
+                                                  then 'FF5B96' 
+                                                  else '008800'" />
                             <rect x="{current()*10 + 30}"
-                                y="{if ($ratios[current()] > 1) then (20) else ($baseline-axis*$scale-factor + 20)}"
+                                y="{if ($slower) then (20) else ($baseline-axis*$scale-factor + 20)}"
                                 width="5"
-                                height="{if ($ratios[current()] > 1) then ($baseline-axis*$scale-factor) else (($range-factor - $baseline-axis)*$scale-factor)}"
-                                style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"
+                                height="{if ($slower) then ($baseline-axis*$scale-factor) else (($range-factor - $baseline-axis)*$scale-factor)}"
+                                style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
                                 title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"/>
                             <xsl:choose>
-                                <xsl:when test="$ratios[current()] > 1">
+                                <xsl:when test="$slower">
                                     <polygon
                                         points="{current()*10 + 29},{20} {current()*10 + 32.5},{17} {current()*10 + 36},{20}"
-                                        style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"
+                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
                                         title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
                                     />
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <polygon
                                         points="{current()*10 + 29},{$range-factor*$scale-factor + 20} {current()*10 + 32.5},{$range-factor*$scale-factor + 23} {current()*10 + 36},{$range-factor*$scale-factor + 20}"
-                                        style="fill:#3D5B96; stroke-width:1; stroke:#3D5B96"
+                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
                                         title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
                                     />
                                 </xsl:otherwise>

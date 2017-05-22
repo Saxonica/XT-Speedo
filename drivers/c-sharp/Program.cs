@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
@@ -20,6 +22,8 @@ namespace Speedo
         private Boolean skipXslt3Tests = false;
         static void Main(string[] args)
         {
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            Thread.CurrentThread.Priority = ThreadPriority.Highest;
             Hashtable map = new Hashtable(16);
             foreach (String pair in args)
             {
@@ -147,6 +151,13 @@ namespace Speedo
                             }
                             totalCompileStylesheet = 0;
                             GC.Collect();
+                            // Wait for all finalizers to complete before continuing.
+                            // Without this call to GC.WaitForPendingFinalizers, 
+                            // the worker loop below might execute at the same time 
+                            // as the finalizers.
+                            // With this call, the worker loop executes only after
+                            // all finalizers have been called.
+                            GC.WaitForPendingFinalizers();
                             for (i = 0; totalCompileStylesheet < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
                                 double start = stopwatch.ElapsedTicks * nanosecPerTick;
@@ -165,6 +176,7 @@ namespace Speedo
                             }
                             totalTransformFileToFile = 0;
                             GC.Collect();
+                            GC.WaitForPendingFinalizers();
                             for (i = 0; totalTransformFileToFile < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
                                 double start = stopwatch.ElapsedTicks * nanosecPerTick;
@@ -183,6 +195,7 @@ namespace Speedo
                             }
                             totalTransformTreeToTree = 0;
                             GC.Collect();
+                            GC.WaitForPendingFinalizers();
                             for (i = 0; totalTransformTreeToTree < MAX_TOTAL_TIME || i < MIN_ITERATIONS; i++)
                             {
                                 double start = stopwatch.ElapsedTicks * nanosecPerTick;

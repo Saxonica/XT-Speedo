@@ -24,6 +24,8 @@ a.button:link, a.button:visited {text-decoration:none; color:white; background-c
 font-weight:bold; width:150px; text-align:center; padding:4px;}
 a.button:hover, a.button:active {text-decoration:none; background-color:#96433D;}
 
+nav { margin: 1em 0 }
+
 .nav li {float:left;}
 ul.nav  {list-style-type:none; margin:0; padding:0; overflow:hidden;}
 .nav a:link, .nav a:visited {display:block; width:180px; font-weight:bold; color:#FFFFFF; background-color:#3D5B96;
