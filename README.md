@@ -1,11 +1,15 @@
-XT-Speedo
-=========
+# XT-Speedo
 
-Benchmarking framework for XSLT, developed by Saxonica. The project contains a set of test material, a set of test drivers for various XSLT processors, and tools for analyzing the test results.
+Benchmarking framework for XSLT, developed by Saxonica. The project contains a
+set of test material, a set of test drivers for various XSLT processors, and
+tools for analyzing the test results.
 
-This version is forked from [https://github.com/Saxonica/XT-Speedo](https://github.com/Saxonica/XT-Speedo)
+## Saxonica2025 branch
 
-=========
+A more recent build for XT-Speedo can be found on the `Saxonica2025` branch. The
+focus of this build is (currently) on performance testing between Saxon running
+on different platforms. It isn’t currently configured to test against third
+party implementations, but that may come in time.
 
 ## What the Speedo does
 
