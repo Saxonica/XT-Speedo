@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+    
+    <driver name="SaxonEE-12.9-J-noBC" baseline="no" class="com.saxonica.xtspeedo.saxonhe.SaxonEEDriver" language="java" xslt-version="3.0">        
+        <option name="generateByteCode" value="false"/>
+        <test-run-option name="map-wordmap1-1" value="1000"/>        
+        <test-run-option name="map-wordmap2-1" value="1000"/>
+        <test-run-option name="map-wordmap2-4" value="1000"/>
+        <test-run-option name="map-wordmap3-1" value="1000"/>
+        <test-run-option name="map-wordmap3-4" value="1000"/> 
+        <test-run-option name="map-wordmap8" value="1000"/>
+        <test-run-option name="map-wordmap8a" value="1000"/>
+        <test-run-option name="map-numbermap1" value="1000"/>
+        <test-run-option name="map-numbermap3" value="1000"/>
+        <test-run-option name="map-numbermap4a" value="1000"/> 
+        <test-run-option name="xquery-lexer-test" value="1000"/>
+        <test-run-option name="regex-matches3-4" value="1000"/>
+        <test-run-option name="map-wordmap1-4" value="10000"/>
+        <test-run-option name="map-wordmap4-1" value="10000"/>
+        <test-run-option name="map-wordmap4-4" value="10000"/>        
+        <test-run-option name="map-wordmap5-1" value="10000"/>        
+    </driver>
+    
+    <driver name="SaxonEE-12.9-J-BC" baseline="no" class="com.saxonica.xtspeedo.saxonhe.SaxonEEDriver" language="java" xslt-version="3.0">        
+        <option name="generateByteCode" value="true"/>
+        <test-run-option name="docbook-tests-001" value="1000"/>
+        <test-run-option name="map-wordmap1-1" value="1000"/>
+        <test-run-option name="map-wordmap2-1" value="1000"/>
+        <test-run-option name="map-wordmap2-4" value="1000"/>
+        <test-run-option name="map-wordmap3-1" value="1000"/>
+        <test-run-option name="map-wordmap3-4" value="1000"/>
+        <test-run-option name="map-wordmap8" value="1000"/>
+        <test-run-option name="map-wordmap8a" value="1000"/>
+        <test-run-option name="map-numbermap1" value="1000"/>
+        <test-run-option name="map-numbermap3" value="1000"/>
+        <test-run-option name="map-numbermap4a" value="1000"/> 
+        <test-run-option name="regex-matches3-4" value="1000"/>
+        <test-run-option name="map-wordmap1-4" value="10000"/>        
+        <test-run-option name="map-wordmap4-1" value="10000"/>
+        <test-run-option name="map-wordmap4-4" value="10000"/>
+        <test-run-option name="map-wordmap5-1" value="10000"/>               
+        <test-run-option name="xquery-lexer-test" value="50000"/>
+    </driver>
+   
+    <driver name="SaxonEE-12.9-.NET-noBC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
+        <option name="generateByteCode" value="false"/>        
+        <test-run-option name="map-wordmap1-1" value="1000"/>
+        <test-run-option name="map-wordmap2-1" value="1000"/> 
+        <test-run-option name="map-wordmap5-0" value="1000"/>
+        <test-run-option name="map-wordmap8" value="1000"/>
+        <test-run-option name="map-numbermap4a" value="1000"/> 
+        <test-run-option name="map-datemap3-4" value="1000"/>
+        <test-run-option name="regex-replace1-4" value="1000"/>
+        <test-run-option name="regex-tokenize1-1" value="1000"/>
+        <test-run-option name="regex-matches2-4" value="1000"/>
+        <test-run-option name="regex-matches3-1" value="1000"/>
+        <test-run-option name="regex-analyze2-4" value="1000"/>        
+        <test-run-option name="map-wordmap1-4" value="10000"/>        
+        <test-run-option name="map-wordmap2-4" value="10000"/>
+        <test-run-option name="map-wordmap3-1" value="10000"/>
+        <test-run-option name="map-wordmap3-4" value="10000"/>
+        <test-run-option name="map-wordmap4-1" value="10000"/>
+        <test-run-option name="map-wordmap4-4" value="10000"/>        
+        <test-run-option name="map-wordmap5-1" value="10000"/>        
+        <test-run-option name="map-wordmap8a" value="10000"/>
+        <test-run-option name="map-numbermap1" value="10000"/>
+        <test-run-option name="map-numbermap3" value="10000"/>      
+        <test-run-option name="xquery-lexer-test" value="10000"/>
+        <test-run-option name="regex-matches3-4" value="10000"/>
+    </driver>
+    
+    <driver name="SaxonEE-12.9-.NET-BC" baseline="no" class="Speedo.SaxonEEDriver" language="c-sharp" xslt-version="3.0">
+        <option name="generateByteCode" value="true"/>
+        <test-run-option name="docbook-tests-001" value="no"/>    
+        <test-run-option name="map-wordmap1-1" value="1000"/>
+        <test-run-option name="map-wordmap2-1" value="1000"/> 
+        <test-run-option name="map-wordmap5-0" value="1000"/>
+        <test-run-option name="map-wordmap8" value="1000"/>
+        <test-run-option name="map-numbermap4a" value="1000"/> 
+        <test-run-option name="map-datemap1" value="1000"/>
+        <test-run-option name="map-datemap3-4" value="1000"/>
+        <test-run-option name="regex-replace1-4" value="1000"/>
+        <test-run-option name="regex-matches2-4" value="1000"/>
+        <test-run-option name="regex-matches3-1" value="1000"/>
+        <test-run-option name="regex-analyze2-4" value="1000"/>        
+        <test-run-option name="map-wordmap1-4" value="10000"/>        
+        <test-run-option name="map-wordmap2-4" value="10000"/>
+        <test-run-option name="map-wordmap3-1" value="10000"/>
+        <test-run-option name="map-wordmap3-4" value="10000"/>
+        <test-run-option name="map-wordmap4-1" value="10000"/>
+        <test-run-option name="map-wordmap4-4" value="10000"/>
+        <test-run-option name="map-wordmap5-1" value="10000"/>        
+        <test-run-option name="map-wordmap8a" value="10000"/>
+        <test-run-option name="map-numbermap1" value="10000"/>
+        <test-run-option name="map-numbermap3" value="10000"/> 
+        <test-run-option name="xquery-lexer-test" value="10000"/>
+        <test-run-option name="regex-matches3-4" value="10000"/>
+    </driver>
+     
+
+    
+</drivers>

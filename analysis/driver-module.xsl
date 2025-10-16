@@ -412,8 +412,11 @@
                                 width="5"
                                 height="{if ($slower) then (($ratios[current()] - 1)*$scale-factor) else (((1 div $ratios[current()]) - 1)*$scale-factor)}"
                                 style="fill:#{$fill}; stroke-width:1; stroke:#{$stroke}"
-                                title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
-                            />
+                                >
+                              <title>
+                                <xsl:value-of select="$tests[current()] || ': relative time = ' || format-number($ratios[current()], '0.0##')"/>
+                              </title>
+                            </rect>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:variable name="fill"
@@ -424,22 +427,29 @@
                                 y="{if ($slower) then (20) else ($baseline-axis*$scale-factor + 20)}"
                                 width="5"
                                 height="{if ($slower) then ($baseline-axis*$scale-factor) else (($range-factor - $baseline-axis)*$scale-factor)}"
-                                style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
-                                title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"/>
+                                style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}">
+                              <title>
+                                <xsl:value-of select="$tests[current()] || ': relative time = ' || format-number($ratios[current()], '0.0##')"/>
+                              </title>
+                            </rect>
                             <xsl:choose>
                                 <xsl:when test="$slower">
                                     <polygon
                                         points="{current()*10 + 29},{20} {current()*10 + 32.5},{17} {current()*10 + 36},{20}"
-                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
-                                        title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
-                                    />
+                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}">
+                                      <title>
+                                        <xsl:value-of select="$tests[current()] || ': relative time = ' || format-number($ratios[current()], '0.0##')"/>
+                                      </title>
+                                    </polygon>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <polygon
                                         points="{current()*10 + 29},{$range-factor*$scale-factor + 20} {current()*10 + 32.5},{$range-factor*$scale-factor + 23} {current()*10 + 36},{$range-factor*$scale-factor + 20}"
-                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}"
-                                        title="{$tests[current()]}: relative time = {format-number($ratios[current()], '0.0##')}"
-                                    />
+                                        style="fill:#{$fill}; stroke-width:1; stroke:#{$fill}">
+                                      <title>
+                                        <xsl:value-of select="$tests[current()] || ': relative time = ' || format-number($ratios[current()], '0.0##')"/>
+                                      </title>
+                                    </polygon>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:otherwise>
