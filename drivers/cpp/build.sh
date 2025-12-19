@@ -5,5 +5,7 @@
 #
 #  Created by O'Neil Delpratt on 23/04/2014.
 #
-g++ -c SaxonProcessor.cpp -I/usr/include/libxml2 -lxml2 -lxslt -lstdc++ -lsaxon -ldl -DCPP_ONLY
-g++ -o main main.cpp SaxonProcessor.o -I/usr/include/libxml2 -lxml2 -lxslt -lstdc++ -lsaxon -ldl
+
+library_dir=/Users/ond1/work/development/git/saxon-dev2/temp/SaxonCEE-macos-arm64-12-9-0/SaxonCEE/lib/
+g++ -g -c SaxonHECDriver.cpp -I/Users/ond1/work/development/git/saxon-dev2/temp/SaxonCEE-macos-arm64-12-9-0/SaxonCEE/include/
+g++ -g -o main main.cpp SaxonHECDriver.o -I/Users/ond1/work/development/git/saxon-dev2/temp/SaxonCEE-macos-arm64-12-9-0/SaxonCEE/include/  -Wl,-rpath,$library_dir -L /Users/ond1/work/development/git/saxon-dev2/temp/SaxonCEE-macos-arm64-12-9-0/SaxonCEE/lib/ -lsaxonc-ee -ldl
