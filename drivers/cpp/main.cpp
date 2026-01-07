@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 #ifdef DEBUG
     fprintf(stderr, "%s	", cwd.c_str());
 #endif
-    string testPattern =  ".*";
+    string testPattern;
 	int nbparams = 0;
     
 	if (argc <= 1) {
@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
         } else if(strncmp(argv[i], "-t:", 3)==0){
             if(sizeof(argv[i])<=3) {
                 fprintf(stderr, "pattern parameter not supplied\n");
-                testPattern = ".*";
+                //testPattern = ".*";
                 continue;
             }
             testPattern = argv[i];
@@ -173,14 +173,15 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
     /*Traverse through drivers*/
     for(std::list<IDriver*>::iterator it=drivers.begin(); it != drivers.end(); ++it){
         xsltversion = (*it)->getXsltVersion();
-        string driverOutputDir = outputDirectory + "/output/"+(*it)->getName()+"/";
+        string driverOutputDir = outputDirectory + "/driverSet-All/output/"+(*it)->getName()+"/";
         
         
         XdmNode * attribute;
         const char* value;
         bool outcomeBool = false;
                 ofstream pFile;
-        string resultFilename = cwd + outputDirectory + "/selection/"+(*it)->getName()+".xml";
+        string resultFilename = outputDirectory + "/driverSet-All/"+(*it)->getName()+".xml";
+		cout<<"Result file:"<<resultFilename<<endl;
         pFile.open(resultFilename.c_str());
         pFile <<"<testResults driver='"<<(*it)->getName()<<"' baseline='no'>"<<endl;
 
@@ -219,7 +220,7 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 			for(int j =0; j < childSize; j++) {
   				if (getenv("SAXONC_XSPEEDO_DEBUG_MODE")) {
 					if(childNodes[j] != nullptr){
-						std::cerr << "child:"<<childNodes[j]->toString() << std::endl;
+						std::cerr << "outer child:"<<childNodes[j]->toString() << std::endl;
 					} else {
 						std::cerr << "childNodes["<<j<<"] is nullptr"  << std::endl;
 					}
@@ -233,10 +234,12 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 					}
   				}
 				if(childName != nullptr && strcmp("test", childName)==0) {
-
-                    if(strcmp((*it)->getTestRunOption(childName).c_str(), "no")) {
+					if (getenv("SAXONC_XSPEEDO_DEBUG_MODE")) {
+							std::cerr << "Found test node"<< std::endl;
+  					}
+                    /*if(strcmp((*it)->getTestRunOption(childName).c_str(), "no")) {
                         continue;
-                    }
+                    }*/
 					XdmNode ** testNodes = childNodes[j]->getChildren();
 					int testNodeChildSize = childNodes[j]->getChildCount();
 
@@ -251,14 +254,14 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 								std::cerr << "childNodes["<<z<<"] is nullptr"  << std::endl;
 							}
   						}
-						const char * testCaseName = testNodes[z]->getNodeName();
-						if(testCaseName != nullptr && strcmp("stylesheet", testCaseName)==0) {
+						const char * testCaseNamei = testNodes[z]->getNodeName();
+						if(testCaseNamei != nullptr && strcmp("stylesheet", testCaseNamei)==0) {
 							const char * stylesheetURI = testNodes[z]->getAttributeValue("file");
 							if(stylesheetURI != nullptr) {
 			                   	xpathStylesheet = string(stylesheetURI);
                 			}
 
-						} else if(testCaseName != nullptr && strcmp("source", testCaseName)==0) {
+						} else if(testCaseNamei != nullptr && strcmp("source", testCaseNamei)==0) {
 							const char * sourceURI  = testNodes[z]->getAttributeValue("file");
 
 							if(sourceURI != nullptr) {
@@ -282,90 +285,101 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 
 			bool patternCheck = false;
 
-			if(!testPattern.empty()){
 				cerr<<"testPattern: "<<testPattern<<endl;
-				patternCheck = 	testCaseName.compare(0, testPattern.length(),testPattern);
-				if(patternCheck){
+				cerr<<"testCaseName: "<<testCaseName<<endl;
+				patternCheck = 	0;
+				if(!testPattern.empty()){
+					patternCheck = testCaseName.compare(0, testPattern.length(),testPattern);
+				}
+				cerr<<"patternCheck = "<<patternCheck<<endl;
+				if(patternCheck==0){
 						cerr<<"patternCheck is true: "<<endl;
 				} else {
 					cerr<<"patternCheck is false: "<<endl;
+					continue;
 				}
 				cerr<<"xsltversion = "<<xsltversion <<" xsltversonAttr = " << xsltversionAtrr<<std::endl;
-            	if(xsltversion >= xsltversionAtrr && patternCheck) {
-        	
-                	XdmNode * assertNodes = NULL;//xpathAssertObj->nodesetval;
-                	int assertNodeSize = 0;//(assertNodes) ? assertNodes->nodeNr : 0;
-                	float msConst = 1000.0;
-                	float compiledTime = 0;
-                	int y =0;
+            	if(xsltversion >= xsltversionAtrr && patternCheck==0) {
+
+					try {
+                		XdmNode * assertNodes = NULL;//xpathAssertObj->nodesetval;
+                		int assertNodeSize = 0;//(assertNodes) ? assertNodes->nodeNr : 0;
+                		float msConst = 1000.0;
+                		float compiledTime = 0;
+                		int y =0;
 		
-	               	//Stylesheet
-					if(!xpathStylesheet.empty()) {
-        	       		string stylesheetFile =  xpathStylesheet;
-						(*it)->compileStylesheetString("<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\nversion=\"2.0\">\n<xsl:template match=\"/\">\n<xsl:copy-of select=\".\"/>\n</xsl:template></xsl:stylesheet>");
-//              	    (*it)->compileStylesheet("data/"+stylesheetFile);
-		   				for (y = 0; y < MAX_ITERATIONS && compiledTime < MAX_TOTAL_TIME; y++) {
-							begin = clock();
-                        	(*it)->compileStylesheet(stylesheetFile);
-                        	compiledTime += (((double)(clock() - begin) / (float)CLOCKS_PER_SEC)); //seconds
-                    	}
-                    	compiledTime = ( (float)compiledTime / (float)y)*(double)msConst; // in ms
-                	}
+	               		//Stylesheet
+						if(!xpathStylesheet.empty()) {
+        	       			string stylesheetFile =  xpathStylesheet;
+							//(*it)->compileStylesheetString("<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\nversion=\"2.0\">\n<xsl:template match=\"/\">\n<xsl:copy-of select=\".\"/>\n</xsl:template></xsl:stylesheet>");
+	              	    	(*it)->compileStylesheet(stylesheetFile);
+		   					for (y = 0; y < MAX_ITERATIONS && compiledTime < MAX_TOTAL_TIME; y++) {
+								begin = clock();
+                        		(*it)->compileStylesheet(stylesheetFile);
+                        		compiledTime += (((double)(clock() - begin) / (float)CLOCKS_PER_SEC)); //seconds
+                    		}
+                    		compiledTime = ( (float)compiledTime / (float)y)*(double)msConst; // in ms
+                		}
 
-if (getenv("SAXONC_XSPEEDO_DEBUG_MODE")) {
-	cerr<<"compiledTime: "<<compiledTime<<endl;
-}
-                	string sourceFile = "";
+						if (getenv("SAXONC_XSPEEDO_DEBUG_MODE")) {
+							cerr<<"compiledTime: "<<compiledTime<<endl;
+						}
+                		string sourceFile = "";
 	
-                	//Source document
-                	if(!xpathSource.empty()) {
-                   
-                    	sourceFile =  xpathSource;
-                    	(*it)->buildSource(sourceFile);
-                	}
+                		//Source document
+                		if(!xpathSource.empty()) {
+                    		sourceFile =  xpathSource;
+                    		(*it)->buildSource(sourceFile);
+                		}
                             
-                	double transformTimeTreeToTree = 0.0;
-                	double transformTimeFileToFile = 0.0;
+                		double transformTimeTreeToTree = 0.0;
+                		double transformTimeFileToFile = 0.0;
                 
-                	for (y = 0; y < MAX_ITERATIONS && transformTimeFileToFile < MAX_TOTAL_TIME; y++) {
-                   		begin = clock();
-                    	(*it)->fileToFileTransform(sourceFile, driverOutputDir+testCaseName+".xml");
-                    	transformTimeFileToFile += ((double)(clock() - begin) / (float)CLOCKS_PER_SEC);
-                	}
-                	transformTimeFileToFile = ((float)transformTimeFileToFile / (float)y)*(double)msConst;
-                
-               
-                	for (y = 0; y < MAX_ITERATIONS && transformTimeTreeToTree < MAX_TOTAL_TIME; y++) {
-		    			begin = clock();
-                    	(*it)->treeToTreeTransform();
-                    	transformTimeTreeToTree += (double)(clock() - begin) /(float) CLOCKS_PER_SEC;
-                	}
-                	transformTimeTreeToTree = ((float) transformTimeTreeToTree / (double) y)*(double)msConst;
-                
-                
-                	string outcome = "failure";
-                	outcomeBool = false;
-                
-                	if(assertData != NULL) {
+                		for (y = 0; y < MAX_ITERATIONS && transformTimeFileToFile < MAX_TOTAL_TIME; y++) {
+                   			begin = clock();
+                    		(*it)->fileToFileTransform(sourceFile, driverOutputDir+testCaseName+".xml");
+                    		transformTimeFileToFile += ((double)(clock() - begin) / (float)CLOCKS_PER_SEC);
+                		}
+                		transformTimeFileToFile = ((float)transformTimeFileToFile / (float)y)*(double)msConst;
 
-                    	outcomeBool = (*it)->testAssertion((const char *)assertData);
-                    	if(outcomeBool){
-                        	outcome = "success";
-                    	}
-                    	assertData = NULL ;
-                	}
+                		for (y = 0; y < MAX_ITERATIONS && transformTimeTreeToTree < MAX_TOTAL_TIME; y++) {
+		    				begin = clock();
+                    		(*it)->treeToTreeTransform();
+                    		transformTimeTreeToTree += (double)(clock() - begin) /(float) CLOCKS_PER_SEC;
+                		}
+                		transformTimeTreeToTree = ((float) transformTimeTreeToTree / (double) y)*(double)msConst;
+
+                		string outcome = "failure";
+                		outcomeBool = false;
+                
+                		if(assertData != NULL) {
+
+                    		outcomeBool = (*it)->testAssertion((const char *)assertData);
+                    		if(outcomeBool){
+                        		outcome = "success";
+                    		}
+                    		assertData = NULL ;
+                		}
             
-                	(*it)->cleanUp();
-		 			std::stringstream outputData;
+                		(*it)->cleanUp();
+		 				std::stringstream outputData;
 
-		  			outputData <<std::setprecision(15)<<"<test name='"<<testCaseName<<"' run='"<<outcome<<"' compileTime='"<<(compiledTime)<<"' transformTimeFileToFile='"<<(transformTimeFileToFile)<<"' transformTimeTreeToTree='"<<(transformTimeTreeToTree)<<"' />";
+		  				outputData <<std::setprecision(15)<<"<test name='"<<testCaseName<<"' run='"<<outcome<<"' compileTime='"<<(compiledTime)<<"' transformTimeFileToFile='"<<(transformTimeFileToFile)<<"' transformTimeTreeToTree='"<<(transformTimeTreeToTree)<<"' />";
 
-					cout<<outputData.str()<<endl;
-                	pFile<< outputData.str()<<endl;
+						cout<<outputData.str()<<endl;
+                		pFile<< outputData.str()<<endl;
+					} catch(SaxonApiException &e) {
+						std::stringstream outputData;
+						std:cerr << "Failure in test: "<< e.what()<< std::endl;
+						outputData <<std::setprecision(15)<<"<test name='"<<testCaseName<<"' run='failure' compileTime='0' transformTimeFileToFile='0' transformTimeTreeToTree='0' />";
+
+						cout<<outputData.str()<<endl;
+                		pFile<< outputData.str()<<endl;
+					}
             	}
             
       		} // inner for loop to traverse test cases
-		}
+
         pFile<<"</testResults>"<<endl;
         pFile.close();
     } //outer for loop

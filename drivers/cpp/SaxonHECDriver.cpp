@@ -4,6 +4,7 @@
 SaxonHECDriver::SaxonHECDriver(string cwdi){
 	processor = new SaxonProcessor(true);
 	processor->setcwd(cwdi.c_str());
+	setName("SaxonHECDriver");
 	xsltProcessor = nullptr;
 	builder = nullptr;
 	validator = nullptr;
@@ -25,11 +26,14 @@ void SaxonHECDriver::buildSource(string sourceUri){
 	}
 	sourceNode = builder->parseXmlFromFile(sourceUri.c_str());
 
+	if(sourceNode == nullptr){
+		std::cerr << "Source node is null. Failed to build source."  << std::endl;
+	}
+
 }
 
 
 void SaxonHECDriver::compileStylesheet(string stylesheetUri){
-
 	processor->setConfigurationProperty("http://saxon.sf.net/feature/schema-validation-mode", (schemaAware ? "strict" : "strip"));
 	xsltProcessor = processor->newXslt30Processor();
 	executable = xsltProcessor->compileFromFile(stylesheetUri.c_str());
@@ -76,11 +80,23 @@ void SaxonHECDriver::treeToTreeTransform(){
 
 
 void SaxonHECDriver::fileToFileTransform(string sourceUri, string resultFileLocation){
+	if(executable == nullptr){
+		std::cerr << "executable is NULL!"  << std::endl;
+		return;
+	}
 	if (sourceNode != nullptr){
 		executable->setGlobalContextItem(sourceNode);
+		executable->setInitialMatchSelection(sourceNode);
 		executable->applyTemplatesReturningFile(resultFileLocation.c_str());
 	}
 	else {
+		if (getenv("SAXONC_XSPEEDO_DEBUG_MODE")) {
+			if(!resultFileLocation.empty()){
+				std::cerr << "resultFileLocation: "<<resultFileLocation << std::endl;
+			} else {
+				std::cerr << "resultFileLocation is empty"  << std::endl;
+			}
+		}
 		executable->callTemplateReturningFile("main", resultFileLocation.c_str());
 	}
 	resultFile = resultFileLocation;
