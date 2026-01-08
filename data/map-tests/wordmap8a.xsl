@@ -7,16 +7,16 @@
     
     <xsl:template match="/">
         <out>
-            <xsl:variable name="words" as="map(xs:string, xs:string*)" select="map:new()"/>
+            <xsl:variable name="words" as="map(xs:string, xs:string*)" select="map{}"/>
             <xsl:iterate select="//*/tokenize(., '\W+')[.!='']">
                 <xsl:param name="words2" select="$words" as="map(xs:string, xs:string)"/>
-                <result keys="{count(map:keys($words2))}"/>            
-                <xsl:next-iteration>
-                    <xsl:with-param name="words2" select="map:new(($words2, map{. := .}))"/>
-                </xsl:next-iteration>
                 <xsl:on-completion>
                     <final keys="{count(map:keys($words2))}"/>
                 </xsl:on-completion>
+                <result keys="{count(map:keys($words2))}"/>            
+                <xsl:next-iteration>
+                    <xsl:with-param name="words2" select="map:merge(($words2, map{. : .}))"/>
+                </xsl:next-iteration>
             </xsl:iterate>
         </out>
     </xsl:template>

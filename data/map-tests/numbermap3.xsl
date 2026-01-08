@@ -19,24 +19,23 @@
                         
             <xsl:iterate select="1 to 10000">
                 <xsl:param name="map2" select="$quadratic-map" as="map(xs:integer, xs:integer)"/>
-                <xsl:choose>
-                    <xsl:when test="$map2(.) mod 7 = 0">
-                        <xsl:next-iteration>
-                            <xsl:with-param name="map2" select="map:new(($map2, map{. := 0}))"/>
-                        </xsl:next-iteration>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:next-iteration>
-                            <xsl:with-param name="map2" select="map:new(($map2, map{. := $map2(.)+1}))"/>
-                        </xsl:next-iteration>
-                    </xsl:otherwise>
-                </xsl:choose>
                 <xsl:on-completion>
                     <xsl:for-each select="1 to 100">
                         <result initial="{$quadratic-map(.)}" final="{$map2(.)}"/>
                     </xsl:for-each>
-                                         
                 </xsl:on-completion>
+                <xsl:choose>
+                    <xsl:when test="$map2(.) mod 7 = 0">
+                        <xsl:next-iteration>
+                            <xsl:with-param name="map2" select="map:merge(($map2, map{. : 0}))"/>
+                        </xsl:next-iteration>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:next-iteration>
+                            <xsl:with-param name="map2" select="map:merge(($map2, map{. : $map2(.)+1}))"/>
+                        </xsl:next-iteration>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:iterate>
                     
         </out>

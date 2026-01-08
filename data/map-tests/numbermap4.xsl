@@ -7,16 +7,16 @@
 
     <xsl:template name="main">
         <out>
-            <xsl:variable name="numbers" as="map(xs:integer, xs:integer)" select="map:new()"/>
+            <xsl:variable name="numbers" as="map(xs:integer, xs:integer)" select="map{}"/>
             <xsl:iterate select="1 to 10000">
                 <xsl:param name="numbers2" select="$numbers" as="map(xs:integer, xs:integer)"/>
                 <!--<result keys="{map:keys($numbers2)}"/>-->                 
-                <xsl:next-iteration>
-                    <xsl:with-param name="numbers2" select="map:new(($numbers2, map{. := 2*.}))"/>
-                </xsl:next-iteration>
                 <xsl:on-completion>
                     <final keys="{count(map:keys($numbers2))}"/>
                 </xsl:on-completion>
+                <xsl:next-iteration>
+                    <xsl:with-param name="numbers2" select="map:merge(($numbers2, map{. : 2*.}))"/>
+                </xsl:next-iteration>
             </xsl:iterate>
         </out>
     </xsl:template>

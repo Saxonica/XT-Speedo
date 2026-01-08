@@ -31,21 +31,21 @@
             
             <xsl:iterate select="$biggerwordlist">
                 <xsl:param name="words2" select="$words" as="map(xs:string, xs:integer)"/>
+                <xsl:on-completion>
+                    <result initial="{map:size($words)}" final="{map:size($words2)}" difference="{map:size($words2) - map:size($words)}"/>                     
+                </xsl:on-completion>
                 <xsl:choose>
                     <xsl:when test="map:contains($words2,.)">
                         <xsl:next-iteration>
-                            <xsl:with-param name="words2" select="map:new(($words2, map{. := $words2(.)+1}))"/>
+                            <xsl:with-param name="words2" select="map:merge(($words2, map{. : $words2(.)+1}))"/>
                         </xsl:next-iteration>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:next-iteration>
-                            <xsl:with-param name="words2" select="map:new(($words2, map{. := 1}))"/>
+                            <xsl:with-param name="words2" select="map:merge(($words2, map{. : 1}))"/>
                         </xsl:next-iteration>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:on-completion>
-                    <result initial="{map:size($words)}" final="{map:size($words2)}" difference="{map:size($words2) - map:size($words)}"/>                     
-                </xsl:on-completion>
             </xsl:iterate>
             
         </out>

@@ -16,43 +16,43 @@
             </xsl:variable>    
             <xsl:iterate select="2 to 10000">
                 <xsl:param name="fib10" select="$fib" as="map(xs:integer, xs:integer)"/>
-                <xsl:next-iteration>
-                    <xsl:with-param name="fib10" select="map:new(($fib10, map{. := ($fib10(.-1) + $fib10(.-2)) mod 10}))"/>
-                </xsl:next-iteration>
                 <xsl:on-completion>
                     <!--<xsl:call-template name="mapchange"/>-->
                     <xsl:iterate select="0 to 10000">
                         <xsl:param name="intmap" select="$fib10" as="map(xs:integer, xs:integer)"/>
-                        <xsl:choose>
-                            <xsl:when test="$intmap(.) = 0">
-                                <xsl:next-iteration>
-                                    <xsl:with-param name="intmap" select="map:new(($intmap, map{. := $intmap(.)}))"/>
-                                </xsl:next-iteration>
-                            </xsl:when>
-                            <xsl:when test="$intmap(.) mod 3 = 0">
-                                <xsl:next-iteration>
-                                    <xsl:with-param name="intmap" select="map:new(($intmap, map{. := $intmap(.)-2}))"/>
-                                </xsl:next-iteration>
-                            </xsl:when>
-                            <xsl:when test="$intmap(.) = 2">
-                                <xsl:next-iteration>
-                                    <xsl:with-param name="intmap" select="map:new(($intmap, map{. := 3}))"/>
-                                </xsl:next-iteration>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:next-iteration>
-                                    <xsl:with-param name="intmap" select="map:new(($intmap, map{. := $intmap(.)+1}))"/>
-                                </xsl:next-iteration>
-                            </xsl:otherwise>
-                        </xsl:choose>
                         <xsl:on-completion>
                             <map size="{map:size($intmap)}"/>
                             <xsl:for-each select="0 to 100">
                                 <numbermap key="{.}" value="{$intmap(.)}"/>
                             </xsl:for-each>                     
                         </xsl:on-completion>
+                        <xsl:choose>
+                            <xsl:when test="$intmap(.) = 0">
+                                <xsl:next-iteration>
+                                    <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : $intmap(.)}))"/>
+                                </xsl:next-iteration>
+                            </xsl:when>
+                            <xsl:when test="$intmap(.) mod 3 = 0">
+                                <xsl:next-iteration>
+                                    <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : $intmap(.)-2}))"/>
+                                </xsl:next-iteration>
+                            </xsl:when>
+                            <xsl:when test="$intmap(.) = 2">
+                                <xsl:next-iteration>
+                                    <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : 3}))"/>
+                                </xsl:next-iteration>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:next-iteration>
+                                    <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : $intmap(.)+1}))"/>
+                                </xsl:next-iteration>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:iterate>
                 </xsl:on-completion>     
+                <xsl:next-iteration>
+                    <xsl:with-param name="fib10" select="map:merge(($fib10, map{. : ($fib10(.-1) + $fib10(.-2)) mod 10}))"/>
+                </xsl:next-iteration>
             </xsl:iterate>            
         </out>
     </xsl:template>
@@ -60,23 +60,23 @@
     <!--<xsl:template name="mapchange">       
         <xsl:iterate select="0 to 100">
             <xsl:param name="intmap" select="$fib10" as="map(xs:integer, xs:integer)"/>
-            <xsl:choose>
-                <xsl:when test="$intmap(.) mod 3 = 0">
-                    <xsl:next-iteration>
-                        <xsl:with-param name="intmap" select="map:new(($intmap, map{. := $intmap(.)+1}))"/>
-                    </xsl:next-iteration>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:next-iteration>
-                        <xsl:with-param name="intmap" select="map:new(($intmap, map{. := $intmap(.)-1}))"/>
-                    </xsl:next-iteration>
-                </xsl:otherwise>
-            </xsl:choose>
             <xsl:on-completion>
                 <xsl:for-each select="0 to 100">
                     <intmap number="{$intmap(.)}"/>
                 </xsl:for-each>                     
             </xsl:on-completion>
+            <xsl:choose>
+                <xsl:when test="$intmap(.) mod 3 = 0">
+                    <xsl:next-iteration>
+                        <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : $intmap(.)+1}))"/>
+                    </xsl:next-iteration>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:next-iteration>
+                        <xsl:with-param name="intmap" select="map:merge(($intmap, map{. : $intmap(.)-1}))"/>
+                    </xsl:next-iteration>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:iterate>
     </xsl:template>-->
     

@@ -45,6 +45,7 @@
         <xsl:when test="function-available('NodeInfo:systemId')">
           <xsl:value-of select="NodeInfo:systemId()"/>
         </xsl:when>
+<!-- nevermind
         <xsl:otherwise>
           <xsl:call-template name="log.message">
             <xsl:with-param name="level">Warn</xsl:with-param>
@@ -67,6 +68,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:otherwise>
+-->
       </xsl:choose>
     </xsl:variable>
     <!-- debug

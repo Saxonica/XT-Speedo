@@ -40,12 +40,12 @@
             
             <xsl:iterate select="map:keys($dates)[year-from-date(.) = 2000]">
                 <xsl:param name="dates2" select="$dates" as="map(xs:date, xs:string)"/>   
-                <xsl:next-iteration>
-                    <xsl:with-param name="dates2" select="map:new(($dates2, map{. + xs:dayTimeDuration('P1D') := concat($dates2(.), '2000')}))"/>                    
-                </xsl:next-iteration>  
                 <xsl:on-completion>
                     <map-size initial="{map:size($dates)}" final="{map:size($dates2)}"/>                    
                 </xsl:on-completion>
+                <xsl:next-iteration>
+                    <xsl:with-param name="dates2" select="map:merge(($dates2, map{. + xs:dayTimeDuration('P1D') : concat($dates2(.), '2000')}))"/>                    
+                </xsl:next-iteration>  
             </xsl:iterate>
             
         </out>

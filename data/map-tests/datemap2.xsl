@@ -15,9 +15,14 @@
 
     <xsl:template match="/">
         <out>
+          <!-- ndw updated this test on 8 Jan 2026 to avoid duplicate keys. -->
             <xsl:variable name="dates" as="map(xs:date, xs:string)">
                 <xsl:map>
                     <xsl:for-each select="//item//date">
+                      <xsl:variable name="this" select="string(.)"/>
+                      <xsl:variable name="first"
+                                    select="empty(preceding::date[. = $this])"/>
+                      <xsl:if test="$first">
                         <xsl:variable name="itemDate">
                             <xsl:call-template name="formatDate">
                                 <xsl:with-param name="dateTime" select="."/>
@@ -25,6 +30,7 @@
                         </xsl:variable>
                         <xsl:map-entry key="xs:date($itemDate)"
                             select="xs:string(ancestor::item[last()]/@id)"/>
+                      </xsl:if>
                     </xsl:for-each>
                     <xsl:for-each select="//closed_auction//date">
                         <xsl:variable name="closedAuctionDate">

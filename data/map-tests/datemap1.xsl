@@ -14,24 +14,23 @@
             </xsl:variable>
             
             <xsl:iterate select="0 to 51">
-                <xsl:param name="date2" select="$date" as="map(xs:date, xs:string)"/>                                 
-                <xsl:next-iteration>
-                    <xsl:with-param name="date2" select="map:new(($date2, 
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P1D') := 'Thu'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P2D') := 'Fri'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P3D') := 'Sat'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P4D') := 'Sun'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P5D') := 'Mon'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P6D') := 'Tue'},
-                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P7D') := 'Wed'}))"/>
-                </xsl:next-iteration>
-                <xsl:on-completion>
+                <xsl:param name="date2" select="$date" as="map(xs:date, xs:string)"/>                                            <xsl:on-completion>
                     <xsl:for-each select="map:keys($date2)">
                         <result date="{.}" day="{$date2(.)}"/>
                     </xsl:for-each>
                     <final keys="{count(map:keys($date2))}"/>
                     <last-day-of-year day="{$date2(xs:date('2014-12-31'))}"/>
                 </xsl:on-completion>
+                <xsl:next-iteration>
+                    <xsl:with-param name="date2" select="map:merge(($date2, 
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P1D') : 'Thu'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P2D') : 'Fri'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P3D') : 'Sat'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P4D') : 'Sun'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P5D') : 'Mon'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P6D') : 'Tue'},
+                        map{xs:date('2014-01-01') + .*xs:dayTimeDuration('P7D') + xs:dayTimeDuration('P7D') : 'Wed'}))"/>
+                </xsl:next-iteration>
             </xsl:iterate>
                    
         </out>

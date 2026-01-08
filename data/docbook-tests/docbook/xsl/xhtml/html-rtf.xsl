@@ -116,7 +116,7 @@
 
 <xsl:template xmlns:html="http://www.w3.org/1999/xhtml" match="html:p|p" mode="unwrap.p">
   <!-- xmlns:html is necessary for the xhtml stylesheet case -->
-  <xsl:variable name="blocks" select="address|blockquote|div|hr|h1|h2|h3|h4|h5|h6                         |layer|p|pre|table|dl|menu|ol|ul|form                         |html:address|html:blockquote|html:div|html:hr                         |html:h1|html:h2|html:h3|html:h4|html:h5|html:h6                         |html:layer|html:p|html:pre|html:table|html:dl                         |html:menu|html:ol|html:ul|html:form"/>
+  <xsl:variable name="blocks" select="address|blockquote|child::div|hr|h1|h2|h3|h4|h5|h6                         |layer|p|pre|table|dl|menu|ol|ul|form                         |html:address|html:blockquote|html:div|html:hr                         |html:h1|html:h2|html:h3|html:h4|html:h5|html:h6                         |html:layer|html:p|html:pre|html:table|html:dl                         |html:menu|html:ol|html:ul|html:form"/>
   <xsl:choose>
     <xsl:when test="$blocks">
       <xsl:call-template name="unwrap.p.nodes">
