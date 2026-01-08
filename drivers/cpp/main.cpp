@@ -185,6 +185,8 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
         pFile.open(resultFilename.c_str());
         pFile <<"<testResults driver='"<<(*it)->getName()<<"' baseline='no'>"<<endl;
 
+
+
         /* Traverse through test cases*/
         for(i = 0; i < size; ++i) {
             cur = (XdmNode *)xpathObj->itemAt(i);
@@ -238,8 +240,9 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 							std::cerr << "Found test node"<< std::endl;
   					}
                     /*if(strcmp((*it)->getTestRunOption(childName).c_str(), "no")) {
-                        continue;
-                    }*/
+						exitTestCaseRun = true;
+                        //break;
+                    } */
 					XdmNode ** testNodes = childNodes[j]->getChildren();
 					int testNodeChildSize = childNodes[j]->getChildCount();
 
@@ -282,24 +285,27 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
 				}
 			}
 
-
 			bool patternCheck = false;
 
-				cerr<<"testPattern: "<<testPattern<<endl;
+			bool exitTestCaseRun = false;
+
+				/*cerr<<"testPattern: "<<testPattern<<endl;*/
 				cerr<<"testCaseName: "<<testCaseName<<endl;
+					cerr<<"test run option: " << ((*it)->getTestRunOption(testCaseName)) <<endl;
+                    if(strcmp((*it)->getTestRunOption(testCaseName).c_str(), "no")== 0) {
+					cerr<<"test should mnot run. "<<endl;
+						exitTestCaseRun = true;
+                        //continue;
+                    } else {
+						exitTestCaseRun = false;
+					}
 				patternCheck = 	0;
 				if(!testPattern.empty()){
 					patternCheck = testCaseName.compare(0, testPattern.length(),testPattern);
 				}
-				cerr<<"patternCheck = "<<patternCheck<<endl;
-				if(patternCheck==0){
-						cerr<<"patternCheck is true: "<<endl;
-				} else {
-					cerr<<"patternCheck is false: "<<endl;
-					continue;
-				}
-				cerr<<"xsltversion = "<<xsltversion <<" xsltversonAttr = " << xsltversionAtrr<<std::endl;
-            	if(xsltversion >= xsltversionAtrr && patternCheck==0) {
+				//cerr<<"patternCheck = "<<patternCheck<<endl;
+				//cerr<<"xsltversion = "<<xsltversion <<" xsltversonAttr = " << xsltversionAtrr<<std::endl;
+            	if(xsltversion >= xsltversionAtrr && patternCheck==0 && !exitTestCaseRun) {
 
 					try {
                 		XdmNode * assertNodes = NULL;//xpathAssertObj->nodesetval;
@@ -377,7 +383,6 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
                 		pFile<< outputData.str()<<endl;
 					}
             	}
-            
       		} // inner for loop to traverse test cases
 
         pFile<<"</testResults>"<<endl;

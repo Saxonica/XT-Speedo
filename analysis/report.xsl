@@ -3,14 +3,16 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://www.saxonica.com/ns/xtspeedo/functions" exclude-result-prefixes="xs local">
     <xsl:include href="driver-module.xsl"/>
-
-    <xsl:variable name="input-docs" as="document-node(element(testResults))*"
-        select="collection(concat('../results/', $driverSetDir, '?*.xml'))"/>
-           
-    <xsl:variable name="input-baseline" select="$input-docs[testResults/@baseline='yes'][1]"/>               
     
     <!-- Update manually, but must contain the key word 'driverSet-' -->
     <xsl:variable name="driverSetDir" select="'driverSet-All/'" />
+
+    <xsl:variable name="input-docs" as="document-node(element(testResults))*"
+        select="collection(concat('../results/', $driverSetDir, '.?select=*.xml'))"/>    
+           
+    <xsl:variable name="input-baseline" select="$input-docs[testResults/@baseline='yes'][1]"/>               
+    
+
     <xsl:variable name="rootHTML" select="'html/'" />
     
     <xsl:output method="xhtml" />
@@ -19,8 +21,9 @@
     <!-- Update list of 'dirs' manually, to produce home-page with links to (previously produced) reports for sets of drivers -->
     <xsl:template name="home-page">
         
-        <xsl:variable name="dirs" select="('driverSet-All', 'driverSet-Java','driverSet-SaxonHE-Java-vs-.NET', 'driverSet-SaxonEE-vs-XmlPrime',
-            'driverSet-Saxon-9.5-vs-9.6', 'driverSet-SaxonEE', 'driverSet-SaxonEE-BC', 'driverSet-SaxonEE-noBC')" />
+        <!--<xsl:variable name="dirs" select="('driverSet-All', 'driverSet-Java','driverSet-SaxonHE-Java-vs-.NET', 'driverSet-SaxonEE-vs-XmlPrime',
+            'driverSet-Saxon-9.5-vs-9.6', 'driverSet-SaxonEE', 'driverSet-SaxonEE-BC', 'driverSet-SaxonEE-noBC')" /> -->
+        <xsl:variable name="dirs" select="('driverSet-All')" />
         <xsl:result-document href="{$rootHTML}report.html">
             <html>
                 <head>
@@ -104,6 +107,7 @@
       <xsl:for-each select="$input-docs">
 	  <xsl:variable name="baseline" select="." />
 	  <xsl:variable name="basename" select="testResults/@driver" />
+          <xsl:message>basename = <xsl:value-of select="$basename"/></xsl:message>
         <xsl:result-document href="{$rootHTML}{$driverSetDir}{$basename}/overview.html">
         <html>
             <head>
@@ -133,7 +137,7 @@
             </body>
         </html>
         </xsl:result-document>
-        <xsl:for-each select="$input-docs">
+        <xsl:for-each select="$input-docs">            
             <xsl:result-document href="{$rootHTML}{$driverSetDir}{$basename}/{testResults/@driver}.html">
                 <xsl:call-template name="driver-page">
                     <xsl:with-param name="baseline" select="$baseline"/>
