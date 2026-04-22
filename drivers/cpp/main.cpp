@@ -355,7 +355,7 @@ void RunSpeedo::run(string catalogFile, string driverFile, string outputDirector
                 		}
                 		transformTimeTreeToTree = ((float) transformTimeTreeToTree / (double) y)*(double)msConst;
 
-                		string outcome = "failure";
+                		string outcome = "success";
                 		outcomeBool = false;
                 
                 		if(assertData != NULL) {
@@ -443,7 +443,9 @@ void RunSpeedo::buildDriverList(string driverFile, DocumentBuilder * builder){
                 if(strcmp("LibxmlDriver",classDriverName)==0) {
                     
                 } else if(strcmp("SaxonHECDriver",classDriverName)==0) {
+					const char * driverFileName = cur->getAttributeValue("name");
                     driver =  new SaxonHECDriver(cwd);
+					driver->setName(driverFileName);
 
                 }
 				if(driver != nullptr) {

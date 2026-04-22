@@ -36,6 +36,7 @@ void SaxonHECDriver::buildSource(string sourceUri){
 void SaxonHECDriver::compileStylesheet(string stylesheetUri){
 	processor->setConfigurationProperty("http://saxon.sf.net/feature/schema-validation-mode", (schemaAware ? "strict" : "strip"));
 	xsltProcessor = processor->newXslt30Processor();
+	xsltProcessor->setJustInTimeCompilation(true);
 	executable = xsltProcessor->compileFromFile(stylesheetUri.c_str());
 
 }
@@ -43,9 +44,8 @@ void SaxonHECDriver::compileStylesheet(string stylesheetUri){
 void SaxonHECDriver::compileStylesheetString(string style){
 	processor->setConfigurationProperty("http://saxon.sf.net/feature/schema-validation-mode", (schemaAware ? "strict" : "strip"));
 	xsltProcessor = processor->newXslt30Processor();
+	xsltProcessor->setJustInTimeCompilation(true);
 	executable = xsltProcessor->compileFromString(style.c_str());
-
-
 }
 
 void SaxonHECDriver::loadSchema(string schemaUri){
